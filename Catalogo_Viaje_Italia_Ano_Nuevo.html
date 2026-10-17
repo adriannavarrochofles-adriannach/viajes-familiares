@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dosier Fotográfico Oficial: Venecia, Florencia y Pisa | Viajes Brújula</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284C7;
+      --primary-dark: #0369A1;
+      --primary-light: #E0F2FE;
+      --accent: #E11D48;
+      --gold: #D97706;
+      --gold-light: #FEF3C7;
+      --dark: #0F172A;
+      --slate: #334155;
+      --light-bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --border: #CBD5E1;
+      --radius: 16px;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+      --shadow-hover: 0 20px 35px -10px rgba(2, 132, 199, 0.2);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--slate);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* TOP BAR TOUROPERADOR */
+    .top-agency-bar {
+      background: #0B132B;
+      color: #94A3B8;
+      padding: 12px 25px;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1E293B;
+    }
+    .top-agency-bar .brand {
+      color: #F8FAFC;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .top-agency-bar .badge-agent {
+      background: rgba(2, 132, 199, 0.25);
+      color: #38BDF8;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    /* HERO HEADER */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(3, 105, 161, 0.8) 100%),
+                  url('img/gran_canal_venecia.jpg') center/cover no-repeat;
+      color: #FFFFFF;
+      padding: 80px 20px 70px;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(225, 29, 72, 0.95);
+      color: #FFFFFF;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 20px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+    .hero p.subtitle {
+      font-size: 1.3rem;
+      color: #E2E8F0;
+      font-weight: 300;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    .hero-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-top: 35px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .hero-meta-item .label {
+      font-size: 0.78rem;
+      color: #93C5FD;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .hero-meta-item .val {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-top: 4px;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 1180px;
+      margin: -40px auto 60px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* AUDIT ALERT BOX */
+    .audit-alert-box {
+      background: #FFFBEB;
+      border: 2px solid #FCD34D;
+      border-radius: var(--radius);
+      padding: 24px 30px;
+      margin-bottom: 45px;
+      box-shadow: var(--shadow);
+    }
+    .audit-alert-box .header-alert {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .audit-alert-box .header-alert .icon { font-size: 1.8rem; }
+    .audit-alert-box .header-alert h3 {
+      font-size: 1.3rem;
+      color: #92400E;
+      font-weight: 800;
+    }
+    .audit-alert-box p {
+      font-size: 0.96rem;
+      color: #78350F;
+      margin-bottom: 12px;
+    }
+    .audit-alert-box ul {
+      margin-left: 20px;
+      color: #92400E;
+      font-size: 0.93rem;
+    }
+    .audit-alert-box ul li { margin-bottom: 6px; }
+
+    /* SECTION TITLES */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .section-desc {
+      color: #64748B;
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    /* CARDS GRID */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+      margin-bottom: 45px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .card-body {
+      padding: 26px;
+    }
+    .card-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .tag-blue { background: var(--primary-light); color: var(--primary-dark); }
+    .tag-amber { background: var(--gold-light); color: var(--gold); }
+    .tag-green { background: #DCFCE7; color: #15803D; }
+
+    .card h3 {
+      font-size: 1.4rem;
+      color: var(--dark);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .card-features {
+      list-style: none;
+      margin: 16px 0;
+    }
+    .card-features li {
+      font-size: 0.92rem;
+      color: var(--slate);
+      padding: 7px 0;
+      border-bottom: 1px dashed #F1F5F9;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-features li:last-child { border-bottom: none; }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .card-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark);
+    }
+    .card-price span {
+      font-size: 0.85rem;
+      color: #64748B;
+      font-weight: 400;
+    }
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: 30px;
+      transition: background 0.2s ease;
+    }
+    .btn-link:hover { background: var(--primary-dark); }
+
+    /* MOSAICO FOTOGRAFICO EXPANDIDO */
+    .photo-grid-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin: 30px 0 50px;
+    }
+    .photo-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      height: 220px;
+    }
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .photo-item:hover img {
+      transform: scale(1.05);
+    }
+    .photo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0) 100%);
+      color: #FFFFFF;
+      padding: 20px 14px 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .photo-overlay .tag {
+      font-size: 0.7rem;
+      color: #38BDF8;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* DAY BY DAY TIMELINE */
+    .timeline {
+      position: relative;
+      margin: 40px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    .day-block {
+      position: relative;
+      margin-bottom: 50px;
+      padding-left: 75px;
+    }
+    .day-badge {
+      position: absolute;
+      left: 10px;
+      top: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.15rem;
+      box-shadow: 0 0 0 6px var(--light-bg);
+      z-index: 2;
+    }
+    .day-card {
+      background: #FFFFFF;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .day-header {
+      background: linear-gradient(to right, #F8FAFC, #FFFFFF);
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+    .day-header h4 {
+      font-size: 1.4rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+    .day-header .meta-pill {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+    }
+    .day-body {
+      padding: 28px;
+    }
+    .day-body p {
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+    .step-list {
+      list-style: none;
+      margin: 22px 0;
+    }
+    .step-item {
+      display: flex;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px dashed #F1F5F9;
+      font-size: 0.95rem;
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-time {
+      font-weight: 800;
+      color: var(--primary);
+      min-width: 72px;
+    }
+    .step-desc {
+      color: var(--slate);
+      flex: 1;
+    }
+
+    /* KID HIGHLIGHT BOX */
+    .kid-box {
+      background: #FEF3C7;
+      border: 1px solid #FDE68A;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .kid-box .emoji {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .kid-box .title {
+      font-weight: 800;
+      color: #92400E;
+      font-size: 1.05rem;
+    }
+    .kid-box .desc {
+      font-size: 0.92rem;
+      color: #B45309;
+      margin-top: 4px;
+    }
+
+    /* PHOTO STRIP IN TIMELINE */
+    .day-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin: 22px 0;
+    }
+    .day-gallery .thumb {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 180px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+    }
+    .day-gallery .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .day-gallery .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.85);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* BUDGET TABLE */
+    .budget-section {
+      background: #FFFFFF;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 35px 30px;
+      margin-bottom: 45px;
+      border: 1px solid var(--border);
+    }
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    .budget-table th {
+      background: #F8FAFC;
+      color: #475569;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 2px solid var(--border);
+    }
+    .budget-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #F1F5F9;
+      font-size: 0.95rem;
+    }
+    .budget-table tr:hover td { background: #FAFAFA; }
+    .budget-table .bold { font-weight: 700; color: var(--dark); }
+    .budget-table .price-col {
+      text-align: right;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+    .budget-total-row {
+      background: #F0FDF4 !important;
+      border-top: 2px solid #86EFAC;
+    }
+    .budget-total-row td {
+      padding: 18px;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #15803D;
+    }
+
+    /* WHATSAPP ACTION BOX */
+    .share-box {
+      background: linear-gradient(135deg, #075E54 0%, #128C7E 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius);
+      padding: 35px;
+      text-align: center;
+      margin-bottom: 45px;
+    }
+    .share-box h3 { font-size: 1.65rem; margin-bottom: 10px; }
+    .share-box p { color: #E0F2FE; font-size: 1rem; margin-bottom: 24px; }
+    .btn-wa {
+      background: #25D366;
+      color: #FFFFFF;
+      border: none;
+      padding: 16px 36px;
+      border-radius: 40px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .btn-wa:hover {
+      background: #20BA5A;
+      transform: scale(1.03);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #94A3B8;
+      font-size: 0.88rem;
+      border-top: 1px solid var(--border);
+    }
+  
+    /* INTERACTIVE PHOTO SLIDER CON FLECHAS Y GESTOS */
+    .hotel-slider {
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0B132B;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      user-select: none;
+    }
+    .slider-viewport {
+      position: relative;
+      width: 100%;
+      height: 290px;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .slider-viewport {
+        height: 330px;
+      }
+    }
+    .slider-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .slider-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .slider-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .slider-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(11, 19, 43, 0.94) 0%, rgba(11, 19, 43, 0.7) 65%, transparent 100%);
+      color: #FFFFFF;
+      padding: 24px 16px 10px 16px;
+      font-size: 0.85rem;
+      line-height: 1.35;
+      text-align: left;
+    }
+    .slider-caption strong {
+      color: #38BDF8;
+      display: inline-block;
+      margin-right: 4px;
+    }
+    /* FLECHAS INTERACTIVAS DE AVANCE/RETROCESO */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(11, 19, 43, 0.8);
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+    }
+    .slider-btn:hover {
+      background: rgba(11, 19, 43, 0.98);
+      border-color: #38BDF8;
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+    .slider-btn:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+    .slider-btn.prev {
+      left: 12px;
+    }
+    .slider-btn.next {
+      right: 12px;
+    }
+    .slider-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #FFFFFF;
+      pointer-events: none;
+    }
+    /* CONTADOR Y PUNTOS INDICADORES */
+    .slider-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(11, 19, 43, 0.85);
+      color: #F8FAFC;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      background: #0B132B;
+    }
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      padding: 0;
+    }
+    .slider-dot.active {
+      background: #38BDF8;
+      width: 22px;
+      border-radius: 10px;
+    }
+
+</style>
+</head>
+<body>
+
+  <!-- BARRA DE TOUROPERADOR -->
+  <div class="top-agency-bar">
+    <div class="brand">
+      🧭 VIAJES BRÚJULA · TOURS EXCLUSIVOS
+    </div>
+    <div class="badge-agent">
+      EXPEDIENTE OFICIAL: IT-NY-2027 · FAMILIA NAVARRO
+    </div>
+  </div>
+
+  <!-- HERO HEADER -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Escapada de Año Nuevo · Italia</span>
+      <h1>Venecia, Florencia & Pisa</h1>
+      <p class="subtitle">El viaje definitivo de Año Nuevo diseñado al detalle para Marco (4 años), Adrián y MariPaz: góndolas, tren bala a 300 km/h, carruseles de época y la Torre Inclinada.</p>
+      
+      <div class="hero-meta-grid">
+        <div class="hero-meta-item">
+          <div class="label">Viajeros</div>
+          <div class="val">👨‍👩‍👦 3 Personas (Adrián, MariPaz, Marco)</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="label">Fechas Exactas</div>
+          <div class="val">📅 1 al 4 de Enero de 2027</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="label">Transporte Clave</div>
+          <div class="val">🚅 Frecciarossa + Vuelos Directos</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="label">Día de Reyes</div>
+          <div class="val">👑 Martes 5 libre en Alcalá</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- AUDITORIA TRANSPARENTE DE PISCINAS E HOTELES -->
+    <div class="audit-alert-box">
+      <div class="header-alert">
+        <span class="icon">⚠️</span>
+        <h3>AUDITORÍA OFICIAL: LA VERDAD SOBRE LAS PISCINAS Y HOTELES EN ITALIA</h3>
+      </div>
+      <p>Para garantizar una <strong>seguridad y tranquilidad del 100%</strong> sin sorpresas al llegar, te aclaramos la normativa real de los hoteles italianos en invierno:</p>
+      <ul>
+        <li><strong>Normativa de Spas en Italia:</strong> La gran mayoría de hoteles urbanos italianos que anuncian "Spa / Piscina interior" (como el <em>MH Florence Hotel</em>) <strong>PROHÍBEN por ley y normativa interna el acceso a niños menores de 14 años</strong> a la zona de aguas para preservar el silencio. Pagar 60-100 € más por un hotel con spa donde Marco no puede entrar sería un error.</li>
+        <li><strong>Nuestra recomendación de máxima seguridad:</strong> Elegir hoteles familiares de <strong>puntuación superior a 8.8/10 en Booking.com</strong>, con habitaciones familiares amplias, desayuno buffet de primera y ubicados a 2-3 minutos a pie de las estaciones para <strong>cero arrastrar maletas</strong> con el niño.</li>
+      </ul>
+    </div>
+
+    <!-- GRAN GALERIA VISUAL DE ATRACCIONES DEL VIAJE -->
+    <section id="galeria-atracciones" style="margin-bottom: 50px;">
+      <h2 class="section-title">📸 Galería Fotográfica de Atracciones e Iconos del Viaje</h2>
+      <p class="section-desc">Cada uno de los lugares, monumentos, transportes y delicias gastronómicas reales que viviréis durante estos 4 días.</p>
+
+      <div class="photo-grid-gallery">
+        <!-- FOTO 1: VENECIA GONDOLAS -->
+        <div class="photo-item">
+          <img src="img/gran_canal_venecia.jpg" alt="Gran Canal Venecia con góndolas">
+          <div class="photo-overlay">
+            <span class="tag">Venecia · Día 1</span>
+            El Gran Canal con las góndolas y Santa Maria della Salute
+          </div>
+        </div>
+
+        <!-- FOTO 2: SAN MARCO -->
+        <div class="photo-item">
+          <img src="img/piazza_san_marco.jpg" alt="Plaza de San Marco y Basílica">
+          <div class="photo-overlay">
+            <span class="tag">Venecia · Día 2</span>
+            Plaza de San Marco: Basílica bizantina y el Campanile
+          </div>
+        </div>
+
+        <!-- FOTO 3: PUENTE RIALTO -->
+        <div class="photo-item">
+          <img src="img/ponte_rialto.jpg" alt="Puente de Rialto sobre el Gran Canal">
+          <div class="photo-overlay">
+            <span class="tag">Venecia · Día 2</span>
+            El imponente Puente de Rialto sobre el Gran Canal
+          </div>
+        </div>
+
+        <!-- FOTO 4: TREN BALA FRECCIAROSSA -->
+        <div class="photo-item">
+          <img src="img/frecciarossa.jpg" alt="Tren Bala Frecciarossa 1000 a 300 km/h">
+          <div class="photo-overlay">
+            <span class="tag">Transporte · Día 2</span>
+            Tren Frecciarossa 1000 a 300 km/h (Venecia ➔ Florencia)
+          </div>
+        </div>
+
+        <!-- FOTO 5: DUOMO FLORENCIA -->
+        <div class="photo-item">
+          <img src="img/duomo_florencia.jpg" alt="Catedral de Santa Maria del Fiore (Il Duomo)">
+          <div class="photo-overlay">
+            <span class="tag">Florencia · Día 3</span>
+            Catedral de Santa Maria del Fiore (Il Duomo) y Campanile
+          </div>
+        </div>
+
+        <!-- FOTO 6: PONTE VECCHIO -->
+        <div class="photo-item">
+          <img src="img/ponte_vecchio.jpg" alt="Ponte Vecchio medieval sobre el río Arno">
+          <div class="photo-overlay">
+            <span class="tag">Florencia · Día 3</span>
+            El Puente Vecchio con sus casitas colgantes sobre el Arno
+          </div>
+        </div>
+
+        <!-- FOTO 7: TIOVIVO HISTORICO DE MARCO -->
+        <div class="photo-item">
+          <img src="img/giostra_florencia.jpg" alt="Antica Giostra di Piazza della Repubblica">
+          <div class="photo-overlay">
+            <span class="tag">Para Marco · Día 3</span>
+            Giostra Storica di Piazza della Repubblica (120 años de historia)
+          </div>
+        </div>
+
+        <!-- FOTO 8: CABALLOS TIOVIVO -->
+        <div class="photo-item">
+          <img src="img/giostra_detalle.jpg" alt="Caballos de madera dorados del carrusel">
+          <div class="photo-overlay">
+            <span class="tag">Para Marco · Día 3</span>
+            Caballos de madera dorados tallados a mano de la familia Picci
+          </div>
+        </div>
+
+        <!-- FOTO 9: TORRE DE PISA -->
+        <div class="photo-item">
+          <img src="img/torre_pisa.jpg" alt="Torre Inclinada de Pisa en Campo dei Miracoli">
+          <div class="photo-overlay">
+            <span class="tag">Pisa · Día 4</span>
+            La Torre Inclinada de Pisa en Piazza dei Miracoli
+          </div>
+        </div>
+
+        <!-- FOTO 10: PIZZA ARTESANA -->
+        <div class="photo-item">
+          <img src="img/pizza_italiana.jpg" alt="Pizza napolitana artesanal al horno de leña">
+          <div class="photo-overlay">
+            <span class="tag">Gastronomía Italiana</span>
+            Pizza tradicional crujiente al horno de leña
+          </div>
+        </div>
+
+        <!-- FOTO 11: PASTA FRESCA -->
+        <div class="photo-item">
+          <img src="img/pasta_toscana.jpg" alt="Tagliatelle frescas al ragù tradicional">
+          <div class="photo-overlay">
+            <span class="tag">Gastronomía Toscana</span>
+            Pasta fresca casera al ragù y pici toscanos
+          </div>
+        </div>
+
+        <!-- FOTO 12: GELATO ARTESANAL -->
+        <div class="photo-item">
+          <img src="img/gelato_italiano.jpg" alt="Auténtico helado artesano italiano en Florencia">
+          <div class="photo-overlay">
+            <span class="tag">Postre y Merienda</span>
+            Auténtico gelato italiano artesano en cucurucho
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN VUELOS -->
+    <section id="vuelos" style="margin-bottom: 45px;">
+      <h2 class="section-title">✈️ Vuelos Directos Confirmados (Multidestino)</h2>
+      <p class="section-desc">Entrada por Venecia y salida directa por Pisa. Maximizamos el tiempo en destino y llegamos a casa el lunes por la tarde.</p>
+      
+      <div class="grid-2">
+        <!-- VUELO IDA -->
+        <div class="card">
+          <div class="card-body">
+            <span class="card-tag tag-blue">Vuelo de Ida · Viernes 1 Ene 2027</span>
+            <h3>Madrid (MAD) ➔ Venecia (VCE)</h3>
+            <ul class="card-features">
+              <li>🛫 <strong>Salida:</strong> Madrid-Barajas T1 a las <strong>16:35 h</strong></li>
+              <li>🛬 <strong>Llegada:</strong> Venecia Marco Polo a las <strong>19:10 h</strong></li>
+              <li>⏱️ <strong>Duración:</strong> 2h 35m (Vuelo directo sin escalas)</li>
+              <li>🧳 <strong>Equipaje:</strong> 3 mochilas gratuitas + 1 maleta de cabina compartida</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- VUELO VUELTA -->
+        <div class="card">
+          <div class="card-body">
+            <span class="card-tag tag-green">Vuelo de Vuelta · Lunes 4 Ene 2027</span>
+            <h3>Pisa (PSA) ➔ Madrid (MAD)</h3>
+            <ul class="card-features">
+              <li>🛫 <strong>Salida:</strong> Pisa Galilei a las <strong>18:10 h</strong></li>
+              <li>🛬 <strong>Llegada:</strong> Madrid-Barajas T1 a las <strong>20:35 h</strong></li>
+              <li>⏱️ <strong>Duración:</strong> 2h 25m (Vuelo directo)</li>
+              <li>🏠 <strong>En casa:</strong> A las 21:30 h durmiendo en Alcalá de Henares</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN HOTELES AUDITADOS -->
+    <section id="hoteles" style="margin-bottom: 50px;">
+      <h2 class="section-title">🏨 Hoteles Verificados y Auditados</h2>
+      <p class="section-desc">Alojamientos contrastados con más de 7.000 opiniones positivas, climatización excelente, camas familiares y desayuno buffet incluido.</p>
+
+      <!-- AUDITORÍA DE SEGURIDAD Y PISCINAS EN ITALIA -->
+      <div style="background: #F0FDF4; border: 2px solid #16A34A; border-radius: 14px; padding: 22px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.08);">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+          <span style="font-size: 1.8rem;">🛡️</span>
+          <div>
+            <h3 style="color: #14532D; font-size: 1.15rem; font-weight: 700; margin: 0;">Auditoría de Seguridad Infantil y Realidad sobre Piscinas en Hoteles de Italia</h3>
+            <span style="color: #15803D; font-size: 0.85rem; font-weight: 600;">Garantía de confort y protección total para Marco (4 años)</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px; font-size: 0.9rem; color: #1F2937;">
+          <div style="background: #FFFFFF; padding: 14px; border-radius: 10px; border-left: 4px solid #16A34A;">
+            <strong style="color: #15803D;">⚠️ Normativa de Piscinas / Spa en Italia:</strong><br>
+            En hoteles urbanos italianos (como MH Florence), por <em>normativa higiénico-sanitaria de la Toscana y Véneto</em>, <strong>el acceso a zonas termales, piscinas cubiertas y spas está PROHIBIDO a menores de 14 o 16 años</strong>. Publicitar una piscina genera una falsa expectativa que terminaría en frustración con un niño de 4 años en recepción.
+          </div>
+          <div style="background: #FFFFFF; padding: 14px; border-radius: 10px; border-left: 4px solid #0284C7;">
+            <strong style="color: #0284C7;">🔒 Cero Peligro de Canales de Noche en Venecia:</strong><br>
+            Alojarse dentro del centro histórico de Venecia implica caminar de noche junto a canales oscuros <strong>sin barandillas</strong> con un niño de 4 años y arrastrar maletas por puentes con escalones. El <strong>Leonardo Royal Hotel Mestre 4★</strong> está en una amplia plaza peatonal moderna, a 80m de la vía, con seguridad 24h y lanzadera de 9 min a Santa Lucía.
+          </div>
+          <div style="background: #FFFFFF; padding: 14px; border-radius: 10px; border-left: 4px solid #D97706;">
+            <strong style="color: #D97706;">🎠 Zona de Juegos Infantiles en Florencia:</strong><br>
+            El <strong>Hotel Mia Cara & Spa 3★ Superior</strong> (puntuado con <strong>9.0/10</strong> por más de 7.500 viajeros) cuenta con una <strong>sala de juegos interior cerrada y patio seguro</strong> para niños, habitaciones familiares insonorizadas y está a solo 6 minutos a pie del tiovivo de Piazza della Repubblica.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="grid-2">
+        <!-- HOTEL VENECIA: LEONARDO ROYAL 4★ -->
+        <div class="card">
+          <div class="hotel-slider" id="slider-leonardo-mestre" data-current="0">
+      <div class="slider-viewport">
+        <div class="slider-track">
+        <div class="slider-slide">
+          <img src="img/mestre_fachada.jpg" alt="Fachada Exterior">
+          <div class="slider-caption">
+            <strong>Fachada Exterior:</strong> Edificio moderno inaugurado en 2019, a solo 80 m de la estación de Venezia Mestre (sin canales ni puentes con maletas).
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/mestre_recepcion.jpg" alt="Hall y Recepción 24h">
+          <div class="slider-caption">
+            <strong>Hall y Recepción 24h:</strong> Imponente lobby de diseño contemporáneo, acabados en mármol y recepción abierta 24h.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/mestre_habitacion_deluxe.jpg" alt="Habitación Familiar Deluxe">
+          <div class="slider-caption">
+            <strong>Habitación Familiar Deluxe:</strong> Espaciosa y luminosa, cama King Size, climatización silenciosa y suelos de madera antialérgicos.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/mestre_habitacion_superior.jpg" alt="Zona de Relax">
+          <div class="slider-caption">
+            <strong>Zona de Relax:</strong> Sofá cama convertible para Marco, escritorio y grandes ventanales con doble acristalamiento.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/mestre_bano.jpg" alt="Baño de Mármol">
+          <div class="slider-caption">
+            <strong>Baño de Mármol:</strong> Amplia cabina de ducha efecto lluvia con acabados de lujo y secador de pelo.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/mestre_restaurante.jpg" alt="Restaurante 'Vitruv'">
+          <div class="slider-caption">
+            <strong>Restaurante 'Vitruv':</strong> Gran buffet de desayuno continental e italiano con bollería fresca artesanal, fruta y café espresso.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/mestre_bar_lounge.jpg" alt="'Leo Bar' & Lounge">
+          <div class="slider-caption">
+            <strong>'Leo Bar' & Lounge:</strong> Ambiente cosmopolita y tranquilo para relajarse tras la llegada del vuelo.
+          </div>
+        </div>
+        </div>
+        <!-- Flechas interactivas para avanzar/retroceder fotos -->
+        <button class="slider-btn prev" onclick="changeSlide('slider-leonardo-mestre', -1)" aria-label="Foto anterior">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button class="slider-btn next" onclick="changeSlide('slider-leonardo-mestre', 1)" aria-label="Siguiente foto">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+        <div class="slider-badge">📷 1 / 7</div>
+      </div>
+      <div class="slider-dots">
+      <button class="slider-dot active" onclick="setSlide('slider-leonardo-mestre', 0)" aria-label="Foto 1"></button>
+      <button class="slider-dot" onclick="setSlide('slider-leonardo-mestre', 1)" aria-label="Foto 2"></button>
+      <button class="slider-dot" onclick="setSlide('slider-leonardo-mestre', 2)" aria-label="Foto 3"></button>
+      <button class="slider-dot" onclick="setSlide('slider-leonardo-mestre', 3)" aria-label="Foto 4"></button>
+      <button class="slider-dot" onclick="setSlide('slider-leonardo-mestre', 4)" aria-label="Foto 5"></button>
+      <button class="slider-dot" onclick="setSlide('slider-leonardo-mestre', 5)" aria-label="Foto 6"></button>
+      <button class="slider-dot" onclick="setSlide('slider-leonardo-mestre', 6)" aria-label="Foto 7"></button>
+      </div>
+    </div>
+          <div class="card-body">
+            <span class="card-tag tag-amber">Noche 1 (1 al 2 Ene) · Venecia / Mestre</span>
+            <h3>Leonardo Royal Hotel Venice Mestre 4★</h3>
+            <p style="font-size: 0.9rem; color: #64748B;">El hotel de 4 estrellas mejor valorado de Mestre (<strong>8.8 / 10 en Booking con +16.000 opiniones</strong>). Edificio inaugurado en 2019, moderno y ultra seguro.</p>
+            <ul class="card-features">
+              <li>📍 <strong>Ubicación:</strong> A solo <strong>80 metros de la estación</strong> de Mestre</li>
+              <li>🛏️ <strong>Habitación:</strong> Familiar Deluxe (Cama King + Sofá cama para Marco)</li>
+              <li>🥐 <strong>Desayuno:</strong> Gran buffet internacional con bollería y calientes</li>
+              <li>🚫 <strong>Piscina:</strong> No tiene (evita pagar sobrecostes innecesarios)</li>
+            </ul>
+            <div class="card-footer">
+              <div class="card-price">~110 € <span>/ noche (o B&B 3★ por 70 €)</span></div>
+              <a href="https://www.leonardo-hotels.es/venice/leonardo-royal-hotel-venice-mestre" target="_blank" class="btn-link">Ver Web Oficial ➔</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOTEL FLORENCIA: HOTEL MIA CARA 3★ SUPERIOR -->
+        <div class="card">
+          <div class="hotel-slider" id="slider-miacara-florencia" data-current="0">
+      <div class="slider-viewport">
+        <div class="slider-track">
+        <div class="slider-slide">
+          <img src="img/florencia_recepcion.jpg" alt="Entrada y Recepción">
+          <div class="slider-caption">
+            <strong>Entrada y Recepción:</strong> Acogedora casona toscana en Via Faenza, a 200 m de la estación Santa Maria Novella y 6 min del Duomo.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/florencia_habitacion_triple.jpg" alt="Habitación Triple Familiar">
+          <div class="slider-caption">
+            <strong>Habitación Triple Familiar:</strong> Configuración ideal: cama de matrimonio + cama individual para Marco, con mobiliario clásico toscano.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/florencia_habitacion_familiar.jpg" alt="Habitación Familiar Cuádruple">
+          <div class="slider-caption">
+            <strong>Habitación Familiar Cuádruple:</strong> Espaciosa, con suelo de madera, aire acondicionado, escritorio y TV satélite.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/florencia_bano.jpg" alt="Baño Privado Completo">
+          <div class="slider-caption">
+            <strong>Baño Privado Completo:</strong> Baño privado completo con amplia ducha, toallas de algodón y secador de pelo.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/florencia_patio_jardin.jpg" alt="Patio Interior Ajardinado">
+          <div class="slider-caption">
+            <strong>Patio Interior Ajardinado:</strong> Oasis privado en pleno centro histórico con terraza, plantas naturales y tranquilidad absoluta.
+          </div>
+        </div>
+        <div class="slider-slide">
+          <img src="img/florencia_desayuno.jpg" alt="Desayuno Buffet Incluido">
+          <div class="slider-caption">
+            <strong>Desayuno Buffet Incluido:</strong> Comedor amplio con repostería típica florentina, zumos y capuchinos recién preparados.
+          </div>
+        </div>
+        </div>
+        <!-- Flechas interactivas para avanzar/retroceder fotos -->
+        <button class="slider-btn prev" onclick="changeSlide('slider-miacara-florencia', -1)" aria-label="Foto anterior">
+          <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button class="slider-btn next" onclick="changeSlide('slider-miacara-florencia', 1)" aria-label="Siguiente foto">
+          <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+        <div class="slider-badge">📷 1 / 6</div>
+      </div>
+      <div class="slider-dots">
+      <button class="slider-dot active" onclick="setSlide('slider-miacara-florencia', 0)" aria-label="Foto 1"></button>
+      <button class="slider-dot" onclick="setSlide('slider-miacara-florencia', 1)" aria-label="Foto 2"></button>
+      <button class="slider-dot" onclick="setSlide('slider-miacara-florencia', 2)" aria-label="Foto 3"></button>
+      <button class="slider-dot" onclick="setSlide('slider-miacara-florencia', 3)" aria-label="Foto 4"></button>
+      <button class="slider-dot" onclick="setSlide('slider-miacara-florencia', 4)" aria-label="Foto 5"></button>
+      <button class="slider-dot" onclick="setSlide('slider-miacara-florencia', 5)" aria-label="Foto 6"></button>
+      </div>
+    </div>
+          <div class="card-body">
+            <span class="card-tag tag-blue">Noches 2 y 3 (2 al 4 Ene) · Florencia Centro</span>
+            <h3>Hotel Mia Cara & Spa 3★ Superior</h3>
+            <p style="font-size: 0.9rem; color: #64748B;">Puntuación de <strong>9.0 / 10 en Booking (+7.500 opiniones)</strong>. Casona toscana familiar en pleno centro histórico. ¡La favorita de las familias con niños!</p>
+            <ul class="card-features">
+              <li>📍 <strong>Ubicación:</strong> Via Faenza 90R (a <strong>6 min a pie del Duomo y del tiovivo</strong>)</li>
+              <li>🎠 <strong>Para Marco:</strong> Patio ajardinado con <strong>zona de juegos infantiles</strong></li>
+              <li>🥐 <strong>Desayuno:</strong> Gran buffet toscano casero con capuchinos recién hechos</li>
+              <li>🛏️ <strong>Habitación:</strong> Habitación triple familiar acogedora y climatizada</li>
+            </ul>
+            <div class="card-footer">
+              <div class="card-price">~150 € <span>/ 2 noches</span></div>
+              <a href="http://www.hotelmiacaraspa.it" target="_blank" class="btn-link">Ver Web Oficial ➔</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARIO DETALLADO DÍA A DÍA -->
+    <section id="itinerario">
+      <h2 class="section-title">🗺️ Itinerario Operativo Día a Día con Fotos Reales</h2>
+      <p class="section-desc">Horarios al minuto, visitas contrastadas y momentos diseñados para que Marco se divierta al 100%.</p>
+
+      <div class="timeline">
+
+        <!-- DÍA 1 -->
+        <div class="day-block">
+          <div class="day-badge">1</div>
+          <div class="day-card">
+            <div class="day-header">
+              <h4>Viernes 1 de Enero · ¡Rumbo a Venecia y Noche en los Canales!</h4>
+              <span class="meta-pill">Madrid ➔ Venecia</span>
+            </div>
+            <div class="day-body">
+              <p>Llegada al atardecer en vuelo directo. Traslado rápido de 17 minutos al hotel, tren lanzadera de 9 minutos y primera cena junto al Gran Canal iluminado.</p>
+              
+              <div class="day-gallery">
+                <div class="thumb">
+                  <img src="img/gran_canal_venecia.jpg" alt="El Gran Canal de Venecia con las góndolas">
+                  <div class="caption">El Gran Canal de Venecia con las góndolas iluminadas</div>
+                </div>
+                <div class="thumb">
+                  <img src="img/ponte_rialto.jpg" alt="Puente de Rialto y Gran Canal al anochecer">
+                  <div class="caption">Paseo nocturno junto a los canales venecianos</div>
+                </div>
+                <div class="thumb">
+                  <img src="img/pizza_italiana.jpg" alt="Auténtica pizza italiana al horno">
+                  <div class="caption">Pizza italiana artesana al horno de leña</div>
+                </div>
+              </div>
+
+              <ul class="step-list">
+                <li class="step-item">
+                  <span class="step-time">14:30 h</span>
+                  <span class="step-desc">Salida de Alcalá de Henares al aeropuerto de Barajas T1.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">16:35 h</span>
+                  <span class="step-desc">Despegue vuelo directo Madrid ➔ Venecia Marco Polo.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">19:10 h</span>
+                  <span class="step-desc">Aterrizaje en Venecia. Autobús exprés ATVO directo al hotel en Mestre (17 min).</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">20:25 h</span>
+                  <span class="step-desc">Tren lanzadera de 9 minutos al Gran Canal de Venecia iluminado.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">20:45 h</span>
+                  <span class="step-desc">Primera cena italiana: pizza crujiente al horno de leña y pasta al pomodoro para Marco.</span>
+                </li>
+              </ul>
+
+              <div class="kid-box">
+                <div class="emoji">🍕</div>
+                <div>
+                  <div class="title">Momento Especial Marco:</div>
+                  <div class="desc">Ver los reflejos de las luces en el agua de los canales y cenar una pizza italiana auténtica en una mesa veneciana.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 2 -->
+        <div class="day-block">
+          <div class="day-badge">2</div>
+          <div class="day-card">
+            <div class="day-header">
+              <h4>Sábado 2 de Enero · Barco Vaporetto, San Marco y Tren Bala</h4>
+              <span class="meta-pill">Venecia ➔ Tren Frecciarossa ➔ Florencia</span>
+            </div>
+            <div class="day-body">
+              <p>Mañana navegando el Gran Canal en el barco Vaporetto, visita a la Plaza San Marco y viaje a Florencia en el tren bala Frecciarossa a 300 km/h.</p>
+              
+              <div class="day-gallery">
+                <div class="thumb">
+                  <img src="img/piazza_san_marco.jpg" alt="Plaza de San Marco: Basílica bizantina y Campanile">
+                  <div class="caption">Plaza de San Marco: Basílica, Campanile y palomas</div>
+                </div>
+                <div class="thumb">
+                  <img src="img/ponte_rialto.jpg" alt="El histórico Puente de Rialto desde el Vaporetto">
+                  <div class="caption">El histórico Puente de Rialto sobre el Gran Canal</div>
+                </div>
+                <div class="thumb">
+                  <img src="img/frecciarossa.jpg" alt="Tren Frecciarossa 1000 a 300 km/h">
+                  <div class="caption">Tren de Alta Velocidad Frecciarossa a 300 km/h</div>
+                </div>
+              </div>
+
+              <ul class="step-list">
+                <li class="step-item">
+                  <span class="step-time">09:50 h</span>
+                  <span class="step-desc">Subida al <strong>Vaporetto Línea 1</strong>: recorrido por todo el Gran Canal viendo palacios de agua y pasando bajo el <strong>Puente de Rialto</strong>.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">10:45 h</span>
+                  <span class="step-desc"><strong>Plaza de San Marco:</strong> La Basílica dorada, el Campanile, las góndolas y las palomas en la explanada.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">13:00 h</span>
+                  <span class="step-desc">Almuerzo veneciano con pasta fresca casera y helado artesano.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">15:25 h</span>
+                  <span class="step-desc">Embarque en el <strong>Tren de Alta Velocidad Frecciarossa</strong>: 2 horas exactas volando a 300 km/h. Siesta de Marco a bordo.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">17:30 h</span>
+                  <span class="step-desc">Llegada a Florencia Santa Maria Novella. Check-in en el Hotel Mia Cara a 3 min a pie.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">20:30 h</span>
+                  <span class="step-desc">Cena toscana tradicional: tabla de embutidos con focaccia caliente, pici al ragù y lasaña.</span>
+                </li>
+              </ul>
+
+              <div class="kid-box">
+                <div class="emoji">🚤</div>
+                <div>
+                  <div class="title">Momento Estrella Marco:</div>
+                  <div class="desc">Navegar en la proa del barco por el Gran Canal y luego viajar en el tren bala viendo las montañas toscanas a 300 km/h.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 3 -->
+        <div class="day-block">
+          <div class="day-badge">3</div>
+          <div class="day-card">
+            <div class="day-header">
+              <h4>Domingo 3 de Enero · Florencia de Cuento y Tiovivo Histórico</h4>
+              <span class="meta-pill">Florencia Monumental y Navideña</span>
+            </div>
+            <div class="day-body">
+              <p>Día completo a pie descubriendo los monumentos renacentistas de Florencia y disfrutando de los planes infantiles más bonitos de la ciudad.</p>
+              
+              <div class="day-gallery">
+                <div class="thumb">
+                  <img src="img/duomo_florencia.jpg" alt="Catedral de Santa Maria del Fiore (Il Duomo)">
+                  <div class="caption">Catedral de Santa Maria del Fiore (Il Duomo)</div>
+                </div>
+                <div class="thumb">
+                  <img src="img/ponte_vecchio.jpg" alt="El mítico Ponte Vecchio sobre el río Arno">
+                  <div class="caption">El mítico Ponte Vecchio sobre el río Arno</div>
+                </div>
+                <div class="thumb">
+                  <img src="img/giostra_florencia.jpg" alt="La histórica Giostra di Piazza della Repubblica">
+                  <div class="caption">La histórica Giostra di Piazza della Repubblica</div>
+                </div>
+                <div class="thumb">
+                  <img src="img/giostra_detalle.jpg" alt="Caballos dorados tallados del carrusel">
+                  <div class="caption">Caballos dorados tallados del carrusel</div>
+                </div>
+              </div>
+
+              <ul class="step-list">
+                <li class="step-item">
+                  <span class="step-time">09:30 h</span>
+                  <span class="step-desc">Paseo monumental: <strong>Piazza del Duomo</strong> con la catedral de mármol rosa y verde, y el <strong>Ponte Vecchio</strong> con sus casitas colgantes sobre el río.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">11:30 h</span>
+                  <span class="step-desc"><strong>La Giostra Storica en Piazza della Repubblica:</strong> El histórico carrusel de caballitos de madera con música de época. Marco elige su caballo favorito y monta con vosotros.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">13:15 h</span>
+                  <span class="step-desc">Almuerzo de street food toscana en <strong>All'Antico Vinaio</strong> (focaccias gigantes) o trattoria típica.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">15:30 h</span>
+                  <span class="step-desc">Acariciar el hocico de bronce del jabalí en el Mercado del Porcellino para pedir un deseo y merienda en la chocolatería <strong>Venchi</strong> con su cascada de chocolate líquido derretido.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">20:30 h</span>
+                  <span class="step-desc">Cena toscana relajada y paseo bajo la iluminación de Navidad.</span>
+                </li>
+              </ul>
+
+              <div class="kid-box">
+                <div class="emoji">🎠</div>
+                <div>
+                  <div class="title">El Gran Recuerdo de Marco:</div>
+                  <div class="desc">Montar en los caballos de madera dorados del tiovivo de la familia Picci y ver la cascada gigante de chocolate líquido.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 4 -->
+        <div class="day-block">
+          <div class="day-badge">4</div>
+          <div class="day-card">
+            <div class="day-header">
+              <h4>Lunes 4 de Enero · La Torre de Pisa y Regreso a Madrid</h4>
+              <span class="meta-pill">Florencia ➔ Pisa ➔ Madrid (20:35 h)</span>
+            </div>
+            <div class="day-body">
+              <p>Tren regional rápido a Pisa, sesión de fotos familiares sujetando la Torre Inclinada y vuelo de regreso a Madrid para estar descansados para Reyes.</p>
+              
+              <div class="day-gallery">
+                <div class="thumb">
+                  <img src="img/torre_pisa.jpg" alt="La Torre Inclinada de Pisa en Piazza dei Miracoli">
+                  <div class="caption">La Torre Inclinada de Pisa en Piazza dei Miracoli</div>
+                </div>
+                <div class="thumb">
+                  <img src="img/piazza_dei_miracoli.jpg" alt="Catedral y Baptisterio en Campo dei Miracoli de Pisa">
+                  <div class="caption">Pradera verde de la Piazza dei Miracoli</div>
+                </div>
+                <div class="thumb">
+                  <img src="img/pasta_toscana.jpg" alt="Comida tradicional toscana antes de volar">
+                  <div class="caption">Comida de despedida en trattoria tradicional</div>
+                </div>
+              </div>
+
+              <ul class="step-list">
+                <li class="step-item">
+                  <span class="step-time">09:28 h</span>
+                  <span class="step-desc">Tren directo Florencia SMN ➔ Pisa Centrale (50 min).</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">10:45 h</span>
+                  <span class="step-desc"><strong>Piazza dei Miracoli de Pisa:</strong> Ver la famosa <strong>Torre Inclinada</strong> y hacerse las fotos divertidas sujetándola con Marco en el césped.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">13:30 h</span>
+                  <span class="step-desc">Almuerzo de despedida en trattoria junto a las murallas de Pisa y último helado italiano.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">15:30 h</span>
+                  <span class="step-desc">Monorraíl Pisamover (5 min al aeropuerto). Facturación y control de seguridad sin colas.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">18:10 h</span>
+                  <span class="step-desc">Despegue vuelo directo Pisa ➔ Madrid-Barajas T1.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">20:35 h</span>
+                  <span class="step-desc">Aterrizaje en Madrid. A las 21:30 h en casa en Alcalá de Henares listos para descansar.</span>
+                </li>
+              </ul>
+
+              <div class="kid-box" style="background: #ECFDF5; border-color: #A7F3D0;">
+                <div class="emoji">👑</div>
+                <div>
+                  <div class="title" style="color: #065F46;">Martes 5 de Enero · ¡El Gran Día de Reyes en Alcalá!</div>
+                  <div class="desc" style="color: #047857;">Día 100% libre y descansados en casa para vivir con Marco la <strong>Cabalgata de Reyes Magos de Alcalá de Henares</strong> sin prisas ni estrés de viajes.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRESUPUESTO DETALLADO CERRADO -->
+    <section id="presupuesto" class="budget-section">
+      <h2 class="section-title">💰 Presupuesto Cerrado al Céntimo (3 Personas)</h2>
+      <p class="section-desc">Todos los costes reales calculados para Adrián, MariPaz y Marco (4 años).</p>
+
+      <table class="budget-table">
+        <thead>
+          <tr>
+            <th>Concepto de Gasto</th>
+            <th>Detalle</th>
+            <th style="text-align: right;">Total (3 pax)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bold">✈️ Vuelos Multidestino Directos</td>
+            <td>Madrid ➔ Venecia + Pisa ➔ Madrid (3 billetes con maleta cabina)</td>
+            <td class="price-col">405 €</td>
+          </tr>
+          <tr>
+            <td class="bold">🚅 Tren Bala Frecciarossa</td>
+            <td>Venecia ➔ Florencia a 300 km/h (Tarifa familiar promo Bimbi Gratis)</td>
+            <td class="price-col">40 €</td>
+          </tr>
+          <tr>
+            <td class="bold">🚆 Tren Regional Toscana</td>
+            <td>Florencia ➔ Pisa Centrale (2 adultos + Marco gratis)</td>
+            <td class="price-col">18 €</td>
+          </tr>
+          <tr>
+            <td class="bold">🚝 Lanzaderas y Vaporetto</td>
+            <td>Bus aeropuerto Venecia + Pisamover + Barco Vaporetto Gran Canal</td>
+            <td class="price-col">47 €</td>
+          </tr>
+          <tr>
+            <td class="bold">🏨 3 Noches de Hotel Familiar</td>
+            <td>Hotel Noche 1 Venecia (70-110 €) + Hotel Mia Cara Florencia 2n (150 €) con desayuno</td>
+            <td class="price-col">220 € – 260 €</td>
+          </tr>
+          <tr>
+            <td class="bold">🎠 Atracciones Infantiles Marco</td>
+            <td>Carrusel histórico de Florencia + sesión fotos Torre de Pisa</td>
+            <td class="price-col">15 €</td>
+          </tr>
+          <tr>
+            <td class="bold">🍕 Todas las Comidas y Cenas</td>
+            <td>4 días: trattorias, pizza al taglio, focaccias de All'Antico Vinaio y helados</td>
+            <td class="price-col">185 €</td>
+          </tr>
+          <tr class="budget-total-row">
+            <td colspan="2">👉 TOTAL GENERAL CERRADO (Absolutamente TODO incluido)</td>
+            <td class="price-col" style="color: #15803D;">~930 € – 970 €</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: #F8FAFC; padding: 16px 20px; border-radius: 10px; font-size: 0.9rem; color: #64748B; text-align: center;">
+        💡 <strong>Coste final por persona:</strong> Aproximadamente <strong>310 € a 320 € por persona</strong> por los 4 días completos de viaje.
+      </div>
+    </section>
+
+    <!-- ACCIÓN WHATSAPP -->
+    <div class="share-box">
+      <h3>📲 ¿Listo para enviarlo por WhatsApp?</h3>
+      <p>Copia el resumen formateado con emojis listo para mandar a la familia con un solo clic.</p>
+      <button class="btn-wa" onclick="copiarWhatsApp()">
+        <span>📋 Copiar Texto para WhatsApp</span>
+      </button>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Dosier oficial confeccionado por <strong>Brújula (Asistente Personal de Viajes Familiares)</strong> · Antigravity Tours © 2026/2027</p>
+    <p style="margin-top: 5px;">Ruta optimizada para Adrián Navarro, MariPaz y Marco (4 años).</p>
+  </footer>
+
+  <script>
+    function copiarWhatsApp() {
+      const texto = `🇮🇹🚤 *PROPUESTA AÑO NUEVO: VENECIA + FLORENCIA + PISA* 🚤🇮🇹\n👨‍👩‍👦 _Adrián, MariPaz y Marco (1 al 4 de Enero de 2027)_\n\n✈️ *VUELOS DIRECTOS:*\n• Ida: Viernes 1 Ene · Madrid (16:35) ➔ Venecia (19:10)\n• Vuelta: Lunes 4 Ene · Pisa (18:10) ➔ Madrid (20:35)\n👑 _¡El martes 5 libres en Alcalá para la Cabalgata de Reyes de Marco!_\n\n🏨 *HOTELES CÉNTRICOS CON DESAYUNO:*\n• Noche 1 (Venecia): Leonardo Royal 4★ / B&B Hotel Mestre (a 2 min de la estación).\n• Noches 2 y 3 (Florencia): Hotel Mia Cara & Spa (a 6 min del Duomo y del tiovivo con zona de juegos para Marco).\n\n🗺️ *PLANNING DÍA A DÍA:*\n• *Día 1 (Vie 1):* Vuelo directo, canales iluminados y primera pizza al horno de leña.\n• *Día 2 (Sáb 2):* Barco Vaporetto por el Gran Canal, Plaza San Marco y tren bala Frecciarossa a 300 km/h hacia Florencia.\n• *Día 3 (Dom 3):* Duomo, Ponte Vecchio y tiovivo histórico de caballitos de madera en Piazza della Repubblica.\n• *Día 4 (Lun 4):* La Torre Inclinada de Pisa, fotos divertidas y vuelo de regreso a Madrid.\n\n💰 *PRESUPUESTO CERRADO (3 personas con TODO):*\n• Vuelos directos multidestino: 405 €\n• Tren bala Frecciarossa + tren a Pisa: 58 €\n• 3 noches de hotel familiar con desayuno: 220 €\n• Vaporettos y traslados: 47 €\n• Carrusel y atracciones Marco: 15 €\n• Comidas, trattorias y helados (4 días): 185 €\n━━━━━━━━━━━━━━━━━━━━\n👉 *TOTAL VIAJE CERRADO: ~930 €* (~310 € por persona).`;
+      
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("¡Copiado con éxito al portapapeles! Ya puedes pegarlo directamente en WhatsApp.");
+      }).catch(err => {
+        alert("Selecciona y copia el texto del bloque.");
+      });
+    }
+  
+    // FUNCIONES DEL CARRUSEL INTERACTIVO DE FOTOS CON FLECHAS
+    function changeSlide(sliderId, direction) {
+      const slider = document.getElementById(sliderId);
+      if (!slider) return;
+      const track = slider.querySelector('.slider-track');
+      const slides = slider.querySelectorAll('.slider-slide');
+      const total = slides.length;
+      if (total <= 1) return;
+      
+      let current = parseInt(slider.getAttribute('data-current') || '0', 10);
+      current = (current + direction + total) % total;
+      slider.setAttribute('data-current', current);
+      
+      track.style.transform = `translateX(-${current * 100}%)`;
+      
+      // Actualizar contador
+      const badge = slider.querySelector('.slider-badge');
+      if (badge) badge.textContent = `📷 ${current + 1} / ${total}`;
+      
+      // Actualizar puntos
+      const dots = slider.querySelectorAll('.slider-dot');
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === current);
+      });
+    }
+
+    function setSlide(sliderId, index) {
+      const slider = document.getElementById(sliderId);
+      if (!slider) return;
+      const current = parseInt(slider.getAttribute('data-current') || '0', 10);
+      changeSlide(sliderId, index - current);
+    }
+
+    // SOPORTE GESTUAL TÁCTIL EN MÓVILES (SWIPE)
+    function setupTouchSwipe() {
+      document.querySelectorAll('.hotel-slider').forEach(slider => {
+        let startX = 0;
+        let startY = 0;
+        const viewport = slider.querySelector('.slider-viewport');
+        if (!viewport) return;
+        
+        viewport.addEventListener('touchstart', e => {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }, {passive: true});
+        
+        viewport.addEventListener('touchend', e => {
+          const diffX = startX - e.changedTouches[0].clientX;
+          const diffY = startY - e.changedTouches[0].clientY;
+          // Solo si el deslizamiento es más horizontal que vertical
+          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+            if (diffX > 0) {
+              changeSlide(slider.id, 1);
+            } else {
+              changeSlide(slider.id, -1);
+            }
+          }
+        }, {passive: true});
+      });
+    }
+
+    // Inicializar al cargar
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupTouchSwipe);
+    } else {
+      setupTouchSwipe();
+    }
+
+</script>
+
+</body>
+</html>

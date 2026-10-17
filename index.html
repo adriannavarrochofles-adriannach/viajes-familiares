@@ -1058,7 +1058,7 @@
           </div>
         </div>
         <div class="selector-badge-pax" id="pax-badge" style="background: #0284C7; color: #FFF; font-size: 0.9rem; font-weight: 700; padding: 6px 16px; border-radius: 20px; border: 1px solid #38BDF8; box-shadow: 0 0 10px rgba(2,132,199,0.4);">
-          5 Viajeros · (4 Adultos + Marco 4a)
+          3 Viajeros · (2 Adultos + Marco 4a)
         </div>
       </div>
 
@@ -1071,7 +1071,7 @@
             <span style="font-size: 0.85rem; font-weight: 700; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.5px;">Adultos:</span>
             <div style="display: flex; align-items: center; background: #0F172A; border: 2px solid #334155; border-radius: 8px; overflow: hidden;">
               <button class="btn-step" onclick="updatePax(-1, 0)" title="Restar adulto" style="width: 38px; height: 38px; background: #1E293B; color: #FFF; border: none; font-size: 1.3rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center;">−</button>
-              <span class="step-val" id="val-adults" style="width: 40px; text-align: center; font-size: 1.15rem; font-weight: 800; color: #38BDF8;">4</span>
+              <span class="step-val" id="val-adults" style="width: 40px; text-align: center; font-size: 1.15rem; font-weight: 800; color: #38BDF8;">2</span>
               <button class="btn-step" onclick="updatePax(1, 0)" title="Añadir adulto" style="width: 38px; height: 38px; background: #1E293B; color: #FFF; border: none; font-size: 1.3rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center;">+</button>
             </div>
           </div>
@@ -1089,8 +1089,8 @@
 
         <!-- PRESETS RÁPIDOS -->
         <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-          <button class="btn-preset active" id="preset-4a1n" onclick="setPax(4, 1)" style="padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">👨‍👩‍👧‍👦 Familia (4A + 1N)</button>
-          <button class="btn-preset" id="preset-2a1n" onclick="setPax(2, 1)" style="padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">👨‍👩‍👦 Nosotros (2A + 1N)</button>
+          <button class="btn-preset active" id="preset-2a1n" onclick="setPax(2, 1)" style="padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">👨‍👩‍👦 Nosotros (2A + 1N)</button>
+          <button class="btn-preset" id="preset-4a1n" onclick="setPax(4, 1)" style="padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">👨‍👩‍👧‍👦 Familia (4A + 1N)</button>
           <button class="btn-preset" id="preset-2a0n" onclick="setPax(2, 0)" style="padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">👫 Pareja (2A)</button>
           <button class="btn-preset" id="preset-4a0n" onclick="setPax(4, 0)" style="padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">👥 4 Adultos</button>
           <button class="btn-preset" id="preset-6pax" onclick="setPax(4, 2)" style="padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; font-weight: 700; cursor: pointer;">👨‍👩‍👧‍👦+ 6 Pax (4A + 2N)</button>
@@ -1141,12 +1141,12 @@
             <h3>San Sebastián & Costa Vasca</h3>
             <p>Caserío con chimenea en Bera de Bidasoa, funicular y parque de Monte Igueldo, La Concha navideña, acantilados de la Cornisa Vasca, San Juan de Luz, Biarritz y pintxos en Hondarribia.</p>
             <ul class="trip-meta-list">
-              <li id="card-ss-pax">👥 <strong>Equipo:</strong> 5 Viajeros (4 Adultos + Marco 4a)</li>
-              <li>🚗 <strong>Coche:</strong> Volvo XC60 (1.014 km · 0 € peajes)</li>
+              <li id="card-ss-pax">👥 <strong>Equipo:</strong> 3 Viajeros (2 Adultos + Marco 4a)</li>
+              <li>🚗 <strong>Coche:</strong> Volvo XC60 (1.014 km · 0 € vuelos · 0 € peajes)</li>
               <li>🏡 <strong>Base:</strong> Caserío tradicional con leña</li>
             </ul>
             <div class="trip-card-footer">
-              <div class="trip-price" id="card-ss-price">~947 € total <span style="font-size:0.85rem;font-weight:700;color:#0D9488;">(~189 € / pers)</span></div>
+              <div class="trip-price" id="card-ss-price">~654 € total <span style="font-size:0.85rem;font-weight:700;color:#0D9488;">(~218 € / pers)</span></div>
               <button class="btn-portal btn-portal-teal">Ver Programación ➔</button>
             </div>
           </div>
@@ -1161,12 +1161,12 @@
             <h3>Alsacia & Mercados Navideños</h3>
             <p>Vuelo directo Madrid-Basilea con easyJet. La magia de Colmar iluminada, mercado infantil en la Petite Venise, pueblos de cuento (Eguisheim y Riquewihr) y el gran abeto de 30m de Estrasburgo.</p>
             <ul class="trip-meta-list">
-              <li id="card-al-pax">👥 <strong>Equipo:</strong> 5 Viajeros (4 Adultos + Marco 4a)</li>
-              <li>✈️ <strong>Vuelo:</strong> easyJet Directo (Madrid ➔ EuroAirport BSL)</li>
+              <li id="card-al-pax">👥 <strong>Equipo:</strong> 3 Viajeros (2 Adultos + Marco 4a)</li>
+              <li>✈️ <strong>Vuelo:</strong> easyJet / Lufthansa (Madrid ➔ EuroAirport BSL)</li>
               <li>🏨 <strong>Hotel:</strong> Base estratégica en Mulhouse (a 25 min)</li>
             </ul>
             <div class="trip-card-footer">
-              <div class="trip-price" id="card-al-price">~1.648 € total <span style="font-size:0.85rem;font-weight:700;color:#D97706;">(~330 € / pers)</span></div>
+              <div class="trip-price" id="card-al-price">~1.838 € total <span style="font-size:0.85rem;font-weight:700;color:#D97706;">(~613 € / pers)</span></div>
               <button class="btn-portal" style="background:#F59E0B;color:#FFF;">Ver Programación ➔</button>
             </div>
           </div>
@@ -1178,14 +1178,14 @@
           <div class="trip-card-body">
             <span class="trip-tag trip-tag-blue">Año Nuevo · 1 al 4 Ene 2027</span>
             <h3>Venecia, Florencia & Pisa</h3>
-            <p>Vuelo multidestino directo, Gran Canal y góndolas, tren bala Frecciarossa a 300 km/h, carrusel histórico de Florencia, Duomo y fotos en la Torre Inclinada de Pisa.</p>
+            <p>Vuelo directo a Venecia, Gran Canal y góndolas, tren bala Frecciarossa a 300 km/h, carrusel histórico de Florencia, Duomo y excursión a la Torre Inclinada de Pisa.</p>
             <ul class="trip-meta-list">
               <li id="card-it-pax">👥 <strong>Equipo:</strong> 3 Viajeros (2 Adultos + Marco 4a)</li>
-              <li>🚄 <strong>Transporte:</strong> Vuelos directos + Tren Frecciarossa</li>
+              <li>🚄 <strong>Transporte:</strong> Vuelos directos Ryanair (desde 101 €) + Tren Frecciarossa</li>
               <li>🏨 <strong>Hoteles:</strong> Leonardo Royal 4★ + Hotel Mia Cara 9.0★</li>
             </ul>
             <div class="trip-card-footer">
-              <div class="trip-price" id="card-it-price">~1.687 € total <span style="font-size:0.85rem;font-weight:700;color:#0284C7;">(~337 € / pers)</span></div>
+              <div class="trip-price" id="card-it-price">~841 € total <span style="font-size:0.85rem;font-weight:700;color:#0284C7;">(~280 € / pers)</span></div>
               <button class="btn-portal">Ver Programación ➔</button>
             </div>
           </div>
@@ -1200,11 +1200,11 @@
             <p>Ruta circular Cluj-Cluj. Noria gigante bajo tierra en Salina Turda a 11°C, Castillo de Peleș nevado, Castillo de Bran ("Drácula") y fortaleza gótica de Corvinos.</p>
             <ul class="trip-meta-list">
               <li id="card-ro-pax">👥 <strong>Equipo:</strong> 3 Viajeros (2 Adultos + Marco 4a)</li>
-              <li>✈️ <strong>Vuelos:</strong> Wizz Air Directos (Llegada Lunes 20:05 h)</li>
+              <li>✈️ <strong>Vuelos:</strong> Wizz Air Directos (desde 254 € en Año Nuevo)</li>
               <li>🚗 <strong>Coche:</strong> SUV de alquiler con ruedas de nieve</li>
             </ul>
             <div class="trip-card-footer">
-              <div class="trip-price" id="card-ro-price">~1.642 € total <span style="font-size:0.85rem;font-weight:700;color:#4F46E5;">(~328 € / pers)</span></div>
+              <div class="trip-price" id="card-ro-price">~1.384 € total <span style="font-size:0.85rem;font-weight:700;color:#4F46E5;">(~461 € / pers)</span></div>
               <button class="btn-portal btn-portal-indigo">Ver Programación ➔</button>
             </div>
           </div>
@@ -1217,14 +1217,14 @@
             <h3>Núremberg & Mercados Navideños de Baviera</h3>
             <p>El mercado navideño más famoso del mundo en Hauptmarkt, la mágica Kinderweihnacht para Marco con tiovivo histórico y tren de vapor, el Castillo Imperial y aroma a canela y salchichas en leña.</p>
             <ul class="trip-meta-list">
-              <li>✈️ <strong>Vuelo:</strong> Directo MAD ⇄ NUE (2h 35m) o MAD-MUC + ICE</li>
+              <li>✈️ <strong>Vuelo:</strong> Directo a Múnich (2h 35m) + ICE (1h 05m) o escala Lufthansa</li>
               <li>🥨 <strong>Icono:</strong> Christkindlesmarkt + Kinderweihnacht (Niños)</li>
               <li>🏰 <strong>Historia:</strong> Kaiserburg, Museo del Juguete y Handwerkerhof</li>
               <li>👶 <strong>Marco (4a):</strong> Carrusel vintage, galletas Lebkuchen y juguetes</li>
-              <li id="card-nur-pax">👥 <strong>Equipo:</strong> 5 Viajeros (4A + 1N)</li>
+              <li id="card-nur-pax">👥 <strong>Equipo:</strong> 3 Viajeros (2A + 1N)</li>
             </ul>
             <div class="trip-card-footer">
-              <div class="trip-price" id="card-nur-price">~1.791 € total <span style="font-size:0.85rem;font-weight:700;color:#D97706;">(~358 € / pers)</span></div>
+              <div class="trip-price" id="card-nur-price">~1.453 € total <span style="font-size:0.85rem;font-weight:700;color:#D97706;">(~484 € / pers)</span></div>
               <button class="btn-portal" style="background:#D97706;">Explorar Viaje ➔</button>
             </div>
           </div>
@@ -1238,14 +1238,14 @@
             <h3>Budapest & Luces del Danubio</h3>
             <p>Mercados de ensueño en la Basílica de San Esteban con videomapping 3D y pista de hielo, Bastión de los Pescadores, tranvía de luz Fényvillamos, crucero al anochecer y aguas termales en Széchenyi.</p>
             <ul class="trip-meta-list">
-              <li>✈️ <strong>Vuelo:</strong> Directo MAD ⇄ BUD (3h 15m) Wizz Air / Ryanair</li>
+              <li>✈️ <strong>Vuelo:</strong> Directo MAD ⇄ BUD (3h 15m) Ryanair / Wizz Air (desde 260 €)</li>
               <li>⛸️ <strong>Adviento:</strong> Mejor mercado de Europa en la Basílica + Vörösmarty</li>
               <li>✨ <strong>Magia:</strong> Fényvillamos (Tranvía de 40.000 luces) y crucero fluvial</li>
               <li>🏊 <strong>Relax:</strong> Baños termales calientes exteriores Széchenyi a 38°C</li>
-              <li id="card-bud-pax">👥 <strong>Equipo:</strong> 5 Viajeros (4A + 1N)</li>
+              <li id="card-bud-pax">👥 <strong>Equipo:</strong> 3 Viajeros (2A + 1N)</li>
             </ul>
             <div class="trip-card-footer">
-              <div class="trip-price" id="card-bud-price">~1.734 € total <span style="font-size:0.85rem;font-weight:700;color:#0D9488;">(~347 € / pers)</span></div>
+              <div class="trip-price" id="card-bud-price">~1.323 € total <span style="font-size:0.85rem;font-weight:700;color:#0D9488;">(~441 € / pers)</span></div>
               <button class="btn-portal" style="background:#0D9488;">Explorar Viaje ➔</button>
             </div>
           </div>
@@ -2236,37 +2236,39 @@
           <!-- VUELOS -->
           <div class="card" style="border-top: 4px solid #D97706;">
             <div class="card-body">
-              <span class="card-tag tag-amber" style="background:#FEF3C7; color:#B45309;">Vuelos Directos Confirmados</span>
-              <h3>Madrid (MAD) ⇄ Núremberg (NUE)</h3>
-              <p style="font-size: 0.9rem; color: #64748B;">Vuelo directo sin escalas de 2h 35m. Horarios excelentes para aprovechar al máximo los 4 días festivos.</p>
+              <span class="card-tag tag-amber" style="background:#FEF3C7; color:#B45309;">Logística de Vuelos Contrastada</span>
+              <h3>Madrid ⇄ Núremberg / Múnich</h3>
+              <p style="font-size: 0.9rem; color: #64748B;"><strong>Nota de transparencia:</strong> Actualmente no existen vuelos directos de línea entre Madrid y el aeropuerto de Núremberg. A continuación tienes las 2 opciones reales contrastadas en Google Flights:</p>
               
-              <div style="background: #F8FAFC; border-radius: 8px; padding: 14px; margin: 12px 0; border: 1px solid #E2E8F0;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <strong>🛫 VUELO IDA: MAD ➔ NUE</strong>
-                  <span style="background: #FEF3C7; color: #B45309; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;">Directo · 2h 35m</span>
+              <div style="background: #F0FDF4; border-radius: 8px; padding: 14px; margin: 12px 0; border: 1px solid #86EFAC;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <strong style="color:#166534;">⭐ OPCIÓN 1 (RECOMENDADA): VUELO DIRECTO MÚNICH + TREN ICE</strong>
+                  <span style="background: #DCFCE7; color: #166534; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;">Directo · 2h 35m + 1h ICE</span>
                 </div>
-                <div style="font-size: 0.88rem; color: #334155;">
-                  <strong>Sábado 5 Dic 2026:</strong> Madrid-Barajas (MAD) T1 <strong>06:45 h</strong> ➔ Núremberg (NUE) <strong>09:20 h</strong>
+                <div style="font-size: 0.88rem; color: #1E293B; line-height: 1.5;">
+                  <strong>Vuelo directo MAD ⇄ MUC (Iberia / Lufthansa):</strong> Desde <strong>291 € i/v</strong> en Google Flights.<br>
+                  <strong>+ Tren bala ICE directo Múnich ➔ Núremberg:</strong> Solo <strong>1h 05 min</strong> de trayecto directo (desde 19 €/adulto; <strong>Marco viaja GRATIS</strong> en Deutsche Bahn con billete familiar). ¡Más rápido y descansado con niños que un vuelo con escala!
                 </div>
               </div>
 
               <div style="background: #F8FAFC; border-radius: 8px; padding: 14px; margin: 12px 0; border: 1px solid #E2E8F0;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <strong>🛬 VUELO VUELTA: NUE ➔ MAD</strong>
-                  <span style="background: #FEF3C7; color: #B45309; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;">Directo · 2h 45m</span>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                  <strong>🛫 OPCIÓN 2: VUELO CON 1 ESCALA A NÚREMBERG (Lufthansa)</strong>
+                  <span style="background: #FEF3C7; color: #B45309; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;">Escala · 4h 55m</span>
                 </div>
-                <div style="font-size: 0.88rem; color: #334155;">
-                  <strong>Martes 8 Dic 2026:</strong> Núremberg (NUE) <strong>18:30 h</strong> ➔ Madrid-Barajas (MAD) T1 <strong>21:15 h</strong>
+                <div style="font-size: 0.88rem; color: #334155; line-height: 1.5;">
+                  <strong>MAD ➔ NUE con escala en Frankfurt o Múnich:</strong> Salida con Lufthansa desde Barajas, escala corta y llegada a Núremberg (NUE). Desde <strong>345 € - 385 € i/v</strong> según disponibilidad en Google Flights.
                 </div>
               </div>
 
               <ul class="card-features">
-                <li>🧳 <strong>Equipaje:</strong> Bolsas de mano gratuitas + maletas de cabina de 10 kg reservadas</li>
-                <li>🚇 <strong>Metro U1 en la puerta:</strong> Línea U1 subterránea directa desde la salida de la terminal a Hauptbahnhof y Lorenzkirche en 12 minutos (3,60 €)</li>
+                <li>🧳 <strong>Equipaje:</strong> Bolsa de mano bajo asiento + maleta de cabina de 10 kg por plaza</li>
+                <li>👶 <strong>Ventaja Marco en ICE:</strong> En los trenes ICE alemanes los niños tienen vagón familiar con espacio de juegos y no pagan billete</li>
               </ul>
-              <div class="link-group" style="margin-top: 14px;">
-                <a href="https://www.google.com/travel/flights?q=Flights%20to%20NUE%20from%20MAD%20on%202026-12-05%20through%202026-12-08" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos en Google Flights ↗</a>
-                <a href="https://www.skyscanner.es/transporte/vuelos/mad/nue/261205/261208/" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-skyscanner">🔍 Ver en Skyscanner ↗</a>
+              <div class="link-group" style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+                <a href="https://www.google.com/travel/flights?q=flights%20from%20MAD%20to%20MUC%20from%202026-12-05%20to%202026-12-08" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos Directos Múnich en Google Flights ↗</a>
+                <a href="https://www.google.com/travel/flights?q=flights%20from%20MAD%20to%20NUE%20from%202026-12-05%20to%202026-12-08" target="_blank" rel="noopener noreferrer" class="btn-action-link" style="background:#475569; color:#FFF;">✈️ Ver Vuelos con Escala a Núremberg en Google Flights ↗</a>
+                <a href="https://www.bahn.de/es" target="_blank" rel="noopener noreferrer" class="btn-action-link" style="background:#DC2626; color:#FFF;">🚆 Horarios y Billetes ICE Deutsche Bahn Oficial ↗</a>
               </div>
             </div>
           </div>
@@ -2842,37 +2844,39 @@
           <!-- VUELOS -->
           <div class="card" style="border-top: 4px solid #0D9488;">
             <div class="card-body">
-              <span class="card-tag tag-teal" style="background:#CCFBF1; color:#0F766E;">Vuelos Directos Confirmados</span>
+              <span class="card-tag tag-teal" style="background:#CCFBF1; color:#0F766E;">Vuelos Directos Confirmados · Low Cost</span>
               <h3>Madrid (MAD) ⇄ Budapest (BUD)</h3>
-              <p style="font-size: 0.9rem; color: #64748B;">Vuelo directo sin escalas de 3h 15m en Airbus A321neo con horarios diurnos óptimos para el descanso familiar.</p>
+              <p style="font-size: 0.9rem; color: #64748B;">Vuelos directos sin escalas de 3h 10m operados por <strong>Ryanair</strong> y <strong>Wizz Air</strong> con tarifas en Google Flights desde <strong>260 € ida y vuelta completa</strong> por plaza para el puente.</p>
               
               <div style="background: #F8FAFC; border-radius: 8px; padding: 14px; margin: 12px 0; border: 1px solid #E2E8F0;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <strong>🛫 VUELO IDA: MAD ➔ BUD</strong>
-                  <span style="background: #CCFBF1; color: #0F766E; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;">Directo · 3h 15m</span>
+                  <strong>🛫 VUELO IDA: MAD ➔ BUD (Ryanair / Wizz Air)</strong>
+                  <span style="background: #CCFBF1; color: #0F766E; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;">Directo · 3h 10m</span>
                 </div>
                 <div style="font-size: 0.88rem; color: #334155;">
-                  <strong>Sábado 5 Dic 2026:</strong> Madrid-Barajas (MAD) T4 <strong>08:30 h</strong> ➔ Budapest (BUD) <strong>11:45 h</strong>
+                  <strong>Sábado 5 Dic 2026:</strong> Madrid-Barajas (MAD) T1/T4 con frecuencias desde las <strong>11:45 h</strong> o <strong>17:00 h</strong> con llegada a Budapest (BUD).
                 </div>
               </div>
 
               <div style="background: #F8FAFC; border-radius: 8px; padding: 14px; margin: 12px 0; border: 1px solid #E2E8F0;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <strong>🛬 VUELO VUELTA: BUD ➔ MAD</strong>
+                  <strong>🛬 VUELO VUELTA: BUD ➔ MAD (Ryanair / Wizz Air)</strong>
                   <span style="background: #CCFBF1; color: #0F766E; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;">Directo · 3h 25m</span>
                 </div>
                 <div style="font-size: 0.88rem; color: #334155;">
-                  <strong>Martes 8 Dic 2026:</strong> Budapest (BUD) <strong>17:15 h</strong> ➔ Madrid-Barajas (MAD) T4 <strong>20:40 h</strong>
+                  <strong>Martes 8 Dic 2026:</strong> Budapest (BUD) con regreso directo a Madrid-Barajas (MAD).
                 </div>
               </div>
 
               <ul class="card-features">
+                <li>💶 <strong>Precio Real en Google Flights:</strong> Desde <strong>260 €</strong> ida y vuelta por viajero (la alternativa más económica en avión del puente)</li>
                 <li>🧳 <strong>Equipaje:</strong> Bolsas de mano gratuitas + maletas de cabina de 10 kg reservadas</li>
                 <li>🚌 <strong>Bus Express 100E:</strong> Conexión directa y rápida desde la terminal hasta la plaza central Deák Ferenc tér en 30 minutos (2.200 HUF / ~5,50 €)</li>
               </ul>
-              <div class="link-group" style="margin-top: 14px;">
-                <a href="https://www.google.com/travel/flights?q=Flights%20to%20BUD%20from%20MAD%20on%202026-12-05%20through%202026-12-08" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos en Google Flights ↗</a>
-                <a href="https://www.skyscanner.es/transporte/vuelos/mad/bud/261205/261208/" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-skyscanner">🔍 Ver en Skyscanner ↗</a>
+              <div class="link-group" style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+                <a href="https://www.google.com/travel/flights?q=flights%20from%20MAD%20to%20BUD%20from%202026-12-05%20to%202026-12-08" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos Budapest en Google Flights ↗</a>
+                <a href="https://wizzair.com/es-es#/booking/select-flight/MAD/BUD/2026-12-05/2026-12-08/2/1/0/null" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-skyscanner">🛫 Buscar Vuelos en Wizz Air Oficial (2A + 1N) ↗</a>
+                <a href="https://www.ryanair.com/es/es" target="_blank" rel="noopener noreferrer" class="btn-action-link" style="background:#073590; color:#FFF;">✈️ Ver Tarifas en Ryanair Oficial ↗</a>
               </div>
             </div>
           </div>
@@ -3433,39 +3437,41 @@
           <!-- VUELOS -->
           <div class="card" style="border-top: 4px solid #F59E0B;">
             <div class="card-body">
-              <span class="card-tag tag-amber" style="background:#F59E0B;color:#FFF;">Vuelos Confirmados · easyJet</span>
+              <span class="card-tag tag-amber" style="background:#F59E0B;color:#FFF;">Vuelos Directos · Alta Demanda Navideña</span>
               <h3>Madrid (MAD) ⇄ Basilea-Mulhouse (BSL)</h3>
-              <p style="font-size: 0.9rem; color: #64748B;">Operados por easyJet Europe con equipaje de mano y maletas de cabina de 10 kg.</p>
+              <p style="font-size: 0.9rem; color: #64748B;">Vuelos directos operados por <strong>easyJet</strong> (o Lufthansa con escala en Múnich) al aeropuerto trinacional de Basilea-Mulhouse-Friburgo.</p>
               
+              <div style="background: #FEF3C7; border-radius: 8px; padding: 12px; margin: 10px 0; border: 1px solid #FCD34D; font-size: 0.85rem; color: #92400E;">
+                <strong>⚠️ Cotización Real en Google Flights:</strong> En el Puente de Diciembre (5 al 8 Dic), Alsacia es el destino navideño más demandado de Europa. Los vuelos en esas fechas festivas parten actualmente en Google Flights desde <strong>~411 € por plaza</strong> i/v. <em>(Por eso, si se busca ahorro, el viaje en coche a San Sebastián o los vuelos a Budapest a 260 € o Venecia a 101 € son opciones mucho más contenidas)</em>.
+              </div>
+
               <div style="background: #F8FAFC; border-radius: 8px; padding: 14px; margin: 12px 0; border: 1px solid #E2E8F0;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <strong>🛫 VUELO IDA: EJU7248</strong>
+                  <strong>🛫 VUELO IDA: MAD ➔ BSL (easyJet / Lufthansa)</strong>
                   <span style="background: #E0F2FE; color: #0284C7; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;">Directo · 2h 15m</span>
                 </div>
                 <div style="font-size: 0.88rem; color: #334155;">
-                  <strong>Sábado 5 Dic 2026:</strong> Madrid-Barajas (MAD) T1 <strong>07:10 h</strong> ➔ Basilea EuroAirport (BSL) <strong>09:25 h</strong>
+                  <strong>Sábado 5 Dic 2026:</strong> Madrid-Barajas (MAD) T1 ➔ Basilea EuroAirport (BSL).
                 </div>
               </div>
 
               <div style="background: #F8FAFC; border-radius: 8px; padding: 14px; margin: 12px 0; border: 1px solid #E2E8F0;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <strong>🛬 VUELO VUELTA: EJU7249</strong>
+                  <strong>🛬 VUELO VUELTA: BSL ➔ MAD (easyJet / Lufthansa)</strong>
                   <span style="background: #E0F2FE; color: #0284C7; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px;">Directo · 2h 20m</span>
                 </div>
                 <div style="font-size: 0.88rem; color: #334155;">
-                  <strong>Martes 8 Dic 2026:</strong> Basilea EuroAirport (BSL) <strong>19:40 h</strong> ➔ Madrid-Barajas (MAD) T1 <strong>22:00 h</strong>
+                  <strong>Martes 8 Dic 2026:</strong> Basilea EuroAirport (BSL) ➔ Madrid-Barajas (MAD) T1.
                 </div>
               </div>
-              <div class="link-group" style="margin-top: 14px;">
-                <a href="https://www.google.com/travel/flights?q=Flights%20to%20BSL%20from%20MAD%20on%202026-12-05%20through%202026-12-08" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos en Google Flights ↗</a>
-                <a href="https://www.skyscanner.es/transporte/vuelos/mad/bsl/261205/261208/" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-skyscanner">🔍 Ver en Skyscanner ↗</a>
-              </div>
-
               <ul class="card-features">
                 <li>🧳 <strong>Equipaje:</strong> Bolso/mochila bajo asiento + Maleta de cabina de 10 kg por viajero</li>
                 <li>👶 <strong>Marco (4 años):</strong> Asiento propio reservado junto a los padres</li>
-                <li>💶 <strong>Precio Referencia:</strong> ~140 € - 150 € ida y vuelta por plaza</li>
               </ul>
+              <div class="link-group" style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+                <a href="https://www.google.com/travel/flights?q=flights%20from%20MAD%20to%20BSL%20from%202026-12-05%20to%202026-12-08" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos Basilea en Google Flights ↗</a>
+                <a href="https://www.easyjet.com/es" target="_blank" rel="noopener noreferrer" class="btn-action-link" style="background:#FF6600; color:#FFF;">✈️ Buscar en easyJet Oficial ↗</a>
+              </div>
             </div>
           </div>
 
@@ -4275,9 +4281,9 @@
             </div>
 
             <ul class="card-features">
+              <li>💶 <strong>Precio Real en Google Flights:</strong> Desde <strong>101 € - 106 €</strong> por viajero ida y vuelta (Ryanair / Wizz Air directos en Año Nuevo)</li>
               <li>🧳 <strong>Equipaje:</strong> Equipaje de mano incluido + maletas de cabina reservadas</li>
               <li>⏱️ <strong>Aprovechamiento:</strong> 4 días completos de turismo sin perder mañanas ni tardes en aeropuertos</li>
-              <li>💶 <strong>Precio Total Vuelos:</strong> ~135 € por viajero ida y vuelta completa</li>
             </ul>
           </div>
         </div>
@@ -4501,9 +4507,9 @@
               <li>⏱️ <strong>Duración:</strong> 2h 25m (Vuelo directo)</li>
               <li>🏠 <strong>En casa:</strong> A las 21:30 h durmiendo en Alcalá de Henares</li>
             </ul>
-            <div class="link-group" style="margin-top: 14px; padding-top: 12px; border-top: 1px solid #E2E8F0;">
-              <a href="https://www.google.com/travel/flights?q=Flights%20from%20MAD%20to%20VCE%20on%202027-01-01%20and%20PSA%20to%20MAD%20on%202027-01-04" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos Multidestino en Google Flights ↗</a>
-              <a href="https://www.trenitalia.com/es.html" target="_blank" rel="noopener noreferrer" class="btn-action-link" style="background:#B91C1C;">🚄 Trenitalia Frecciarossa Oficial ↗</a>
+            <div class="link-group" style="margin-top: 14px; padding-top: 12px; border-top: 1px solid #E2E8F0; display: flex; flex-direction: column; gap: 8px;">
+              <a href="https://www.google.com/travel/flights?q=flights%20from%20MAD%20to%20VCE%20from%202027-01-01%20to%202027-01-04" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos Venecia en Google Flights (desde 101 €) ↗</a>
+              <a href="https://www.trenitalia.com/es.html" target="_blank" rel="noopener noreferrer" class="btn-action-link" style="background:#B91C1C; color:#FFF;">🚄 Trenitalia Frecciarossa Oficial ↗</a>
             </div>
           </div>
         </div>
@@ -5259,16 +5265,15 @@
                 <strong>Lunes 4 Ene 2027:</strong> Cluj-Napoca (CLJ) <strong>16:15 h</strong> ➔ Madrid-Barajas (MAD) T4 <strong>19:05 h</strong>
               </div>
             </div>
-            <div class="link-group" style="margin-top: 14px;">
-              <a href="https://www.google.com/travel/flights?q=Flights%20to%20CLJ%20from%20MAD%20on%202027-01-01%20through%202027-01-04" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos en Google Flights ↗</a>
-              <a href="https://wizzair.com/es-es#/booking/select-flight/MAD/CLJ/2027-01-01/2027-01-04/1/0/0/null" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-skyscanner">🛫 Ver en Wizz Air Oficial ↗</a>
-            </div>
-
             <ul class="card-features">
+              <li>💶 <strong>Precio Real en Google Flights:</strong> Desde <strong>254 €</strong> ida y vuelta por viajero (Wizz Air directo fechas de Año Nuevo)</li>
               <li>🧳 <strong>Equipaje:</strong> Equipaje de mano incluido + maletas de cabina de 10 kg reservadas</li>
               <li>👑 <strong>Cabalgata Reyes Magos:</strong> Llegada el lunes a las 19:05 h a Barajas; martes 5 libre para la Cabalgata</li>
-              <li>💶 <strong>Precio Referencia:</strong> ~130 € ida y vuelta completa por viajero</li>
             </ul>
+            <div class="link-group" style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+              <a href="https://www.google.com/travel/flights?q=flights%20from%20MAD%20to%20CLJ%20from%202027-01-01%20to%202027-01-04" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-flights">✈️ Comprobar Vuelos Rumanía en Google Flights (desde 254 €) ↗</a>
+              <a href="https://wizzair.com/es-es#/booking/select-flight/MAD/CLJ/2027-01-01/2027-01-04/2/1/0/null" target="_blank" rel="noopener noreferrer" class="btn-action-link btn-skyscanner">🛫 Buscar en Wizz Air Oficial (2A + 1N) ↗</a>
+            </div>
           </div>
         </div>
 
@@ -5909,46 +5914,46 @@
                `👥 ${pax} viajeros en Volvo XC60\n` +
                "🏡 Caserío con chimenea en Bera de Bidasoa\n" +
                "🎡 Funicular Monte Igueldo, La Concha, San Juan de Luz, Biarritz y Hondarribia\n" +
-               `💰 Presupuesto: ${getVal('kpi-ss-total', '~947 €')} total (${getVal('kpi-ss-person', '~189 €')} / persona)`;
+               `💰 Presupuesto: ${getVal('kpi-ss-total', '~654 €')} total (${getVal('kpi-ss-person', '~218 €')} / persona)`;
       } else if (currentTab === 'alsacia') {
         text = "🎄 *VIAJE ALSACIA Y MERCADOS NAVIDEÑOS* (5 al 8 Dic 2026)\n" +
                `👥 ${pax} viajeros\n` +
                "✈️ Vuelos directos easyJet a Basilea + Coche de alquiler\n" +
                "🎅 Colmar (Petite Venise), Estrasburgo (Gran Árbol), Eguisheim y Kaysersberg\n" +
-               `💰 Presupuesto: ${getVal('kpi-al-total', '~1.648 €')} total (${getVal('kpi-al-person', '~330 €')} / persona)`;
+               `💰 Presupuesto: ${getVal('kpi-al-total', '~1.838 €')} total (${getVal('kpi-al-person', '~613 €')} / persona)`;
       } else if (currentTab === 'nuremberg') {
         text = "🥨 *VIAJE NÚREMBERG Y MERCADOS DE BAVIERA* (5 al 8 Dic 2026)\n" +
                `👥 ${pax} viajeros\n` +
-               "✈️ Vuelos directos + Metro U1 al centro en 12 min\n" +
+               "✈️ Vuelo directo a Múnich + Tren bala ICE a Núremberg\n" +
                "🎠 Christkindlesmarkt, Kinderweihnacht para niños y Castillo Imperial\n" +
-               `💰 Presupuesto: ${getVal('kpi-nur-total', '~1.791 €')} total (${getVal('kpi-nur-person', '~358 €')} / persona)`;
+               `💰 Presupuesto: ${getVal('kpi-nur-total', '~1.453 €')} total (${getVal('kpi-nur-person', '~484 €')} / persona)`;
       } else if (currentTab === 'budapest') {
         text = "✨ *VIAJE BUDAPEST Y LUCES DEL DANUBIO* (5 al 8 Dic 2026)\n" +
                `👥 ${pax} viajeros\n` +
-               "✈️ Vuelos directos Wizz Air / Ryanair\n" +
+               "✈️ Vuelos directos Ryanair / Wizz Air\n" +
                "⛸️ Mejor mercado de Europa en la Basílica, Tranvía Fényvillamos y Termas Széchenyi\n" +
-               `💰 Presupuesto: ${getVal('kpi-bud-total', '~1.734 €')} total (${getVal('kpi-bud-person', '~347 €')} / persona)`;
+               `💰 Presupuesto: ${getVal('kpi-bud-total', '~1.323 €')} total (${getVal('kpi-bud-person', '~441 €')} / persona)`;
       } else if (currentTab === 'italia') {
         text = "🇮🇹 *VIAJE VENECIA, FLORENCIA Y PISA* (1 al 4 Ene 2027)\n" +
                `👥 ${pax} viajeros\n` +
-               "✈️ Vuelos directos + Tren bala Frecciarossa a 300 km/h\n" +
+               "✈️ Vuelos directos Ryanair (desde 101 €) + Tren bala Frecciarossa a 300 km/h\n" +
                "🏨 Hoteles 4★ seguros para niños\n" +
-               `💰 Presupuesto: ${getVal('kpi-it-total', '~1.687 €')} total (${getVal('kpi-it-person', '~337 €')} / persona)`;
+               `💰 Presupuesto: ${getVal('kpi-it-total', '~841 €')} total (${getVal('kpi-it-person', '~280 €')} / persona)`;
       } else if (currentTab === 'rumania') {
         text = "❄️ *VIAJE TRANSILVANIA Y CASTILLOS* (1 al 4 Ene 2027)\n" +
                `👥 ${pax} viajeros\n` +
                "🎡 Noria subterránea Salina Turda (11°C) + Castillo de Bran y Peleș\n" +
                "👑 Regreso Lunes (Martes 5 libre para Reyes)\n" +
-               `💰 Presupuesto: ${getVal('kpi-ro-total', '~1.642 €')} total (${getVal('kpi-ro-person', '~328 €')} / persona)`;
+               `💰 Presupuesto: ${getVal('kpi-ro-total', '~1.384 €')} total (${getVal('kpi-ro-person', '~461 €')} / persona)`;
       } else {
         text = "🧭 *PLANES DE VIAJES FAMILIARES (BRÚJULA)*\n" +
-               `👥 Presupuestos calculados para ${pax} personas:\n\n` +
-               `1️⃣ San Sebastián & Costa Vasca: ${getVal('kpi-ss-total', '~947 €')} total (${getVal('kpi-ss-person', '~189 €')} / pers)\n` +
-               `2️⃣ Alsacia & Mercados Navideños: ${getVal('kpi-al-total', '~1.648 €')} total (${getVal('kpi-al-person', '~330 €')} / pers)\n` +
-               `3️⃣ Núremberg & Mercados Baviera: ${getVal('kpi-nur-total', '~1.791 €')} total (${getVal('kpi-nur-person', '~358 €')} / pers)\n` +
-               `4️⃣ Budapest & Luces Danubio: ${getVal('kpi-bud-total', '~1.734 €')} total (${getVal('kpi-bud-person', '~347 €')} / pers)\n` +
-               `5️⃣ Venecia, Florencia & Pisa: ${getVal('kpi-it-total', '~1.687 €')} total (${getVal('kpi-it-person', '~337 €')} / pers)\n` +
-               `6️⃣ Transilvania (Rumanía): ${getVal('kpi-ro-total', '~1.642 €')} total (${getVal('kpi-ro-person', '~328 €')} / pers)\n\n` +
+               `👥 Presupuestos calculados para ${pax} personas (${currentAdults}A + ${currentChildren}N):\n\n` +
+               `1️⃣ San Sebastián & Costa Vasca: ${getVal('kpi-ss-total', '~654 €')} total (${getVal('kpi-ss-person', '~218 €')} / pers)\n` +
+               `2️⃣ Alsacia & Mercados Navideños: ${getVal('kpi-al-total', '~1.838 €')} total (${getVal('kpi-al-person', '~613 €')} / pers)\n` +
+               `3️⃣ Núremberg & Mercados Baviera: ${getVal('kpi-nur-total', '~1.453 €')} total (${getVal('kpi-nur-person', '~484 €')} / pers)\n` +
+               `4️⃣ Budapest & Luces Danubio: ${getVal('kpi-bud-total', '~1.323 €')} total (${getVal('kpi-bud-person', '~441 €')} / pers)\n` +
+               `5️⃣ Venecia, Florencia & Pisa: ${getVal('kpi-it-total', '~841 €')} total (${getVal('kpi-it-person', '~280 €')} / pers)\n` +
+               `6️⃣ Transilvania (Rumanía): ${getVal('kpi-ro-total', '~1.384 €')} total (${getVal('kpi-ro-person', '~461 €')} / pers)\n\n` +
                "👉 Web Permanente: https://adriannavarrochofles-adriannach.github.io/viajes-familiares/";
       }
 
@@ -6035,7 +6040,7 @@
 
     function copiarWhatsApp() {
       const link = "https://adriannavarrochofles-adriannach.github.io/viajes-familiares/";
-      const short = "https://tinyurl.com/viajes-familiares-navidad";
+      const short = "https://tinyurl.com/viajes-familiares-oficial";
       const pax = (currentAdults + currentChildren);
       const getVal = (id, fallback) => {
         const el = document.getElementById(id);
@@ -6048,13 +6053,13 @@
         `(Enlace Permanente: ${link})\n\n` +
         `👥 *Presupuestos calculados para ${pax} viajeros (${currentAdults}A + ${currentChildren}N):*\n\n` +
         `📌 *PUENTE DE DICIEMBRE (5-8 Dic 2026):*\n` +
-        `1️⃣ *San Sebastián & Costa Vasca:* En Volvo XC60 con caserío tradicional en Bera, Funicular Igueldo, Biarritz, San Juan de Luz y Hondarribia. 💰 *${getVal('kpi-ss-total', '~947 €')} total* (${getVal('kpi-ss-person', '~189 €')} / pers)\n\n` +
-        `2️⃣ *Alsacia & Mercados Navideños:* Vuelos directos easyJet a Basilea + Coche. Colmar, Estrasburgo (árbol de 30m), Eguisheim y Kaysersberg. 💰 *${getVal('kpi-al-total', '~1.648 €')} total* (${getVal('kpi-al-person', '~330 €')} / pers)\n\n` +
-        `3️⃣ *Núremberg & Mercados de Baviera:* Vuelos directos + Metro U1 en 12 min sin coche. Christkindlesmarkt, Kinderweihnacht con tren de vapor para Marco y Castillo. 💰 *${getVal('kpi-nur-total', '~1.791 €')} total* (${getVal('kpi-nur-person', '~358 €')} / pers)\n\n` +
-        `4️⃣ *Budapest & Luces del Danubio:* Vuelos directos Wizz Air/Ryanair. Mejor mercado de Europa en la Basílica con videomapping 3D y pista de hielo, tranvía de luz y termas Széchenyi. 💰 *${getVal('kpi-bud-total', '~1.734 €')} total* (${getVal('kpi-bud-person', '~347 €')} / pers)\n\n` +
+        `1️⃣ *San Sebastián & Costa Vasca:* En Volvo XC60 con caserío tradicional en Bera, Funicular Igueldo, Biarritz, San Juan de Luz y Hondarribia. 💰 *${getVal('kpi-ss-total', '~654 €')} total* (${getVal('kpi-ss-person', '~218 €')} / pers)\n\n` +
+        `2️⃣ *Alsacia & Mercados Navideños:* Vuelos directos easyJet a Basilea + Coche. Colmar, Estrasburgo (árbol de 30m), Eguisheim y Kaysersberg. 💰 *${getVal('kpi-al-total', '~1.838 €')} total* (${getVal('kpi-al-person', '~613 €')} / pers)\n\n` +
+        `3️⃣ *Núremberg & Mercados de Baviera:* Vuelo directo a Múnich + Tren bala ICE a Núremberg. Christkindlesmarkt, Kinderweihnacht con tren de vapor para Marco y Castillo. 💰 *${getVal('kpi-nur-total', '~1.453 €')} total* (${getVal('kpi-nur-person', '~484 €')} / pers)\n\n` +
+        `4️⃣ *Budapest & Luces del Danubio:* Vuelos directos Ryanair/Wizz Air. Mejor mercado de Europa en la Basílica con videomapping 3D y pista de hielo, tranvía de luz y termas Széchenyi. 💰 *${getVal('kpi-bud-total', '~1.323 €')} total* (${getVal('kpi-bud-person', '~441 €')} / pers)\n\n` +
         `📌 *AÑO NUEVO (1-4 Ene 2027):*\n` +
-        `5️⃣ *Venecia, Florencia & Pisa:* Vuelos directos + Tren bala Frecciarossa a 300 km/h. Gran Canal, Duomo, carrusel histórico y Torre Inclinada. 💰 *${getVal('kpi-it-total', '~1.687 €')} total* (${getVal('kpi-it-person', '~337 €')} / pers)\n\n` +
-        `6️⃣ *Rumanía & Castillos de Transilvania:* Vuelos directos + SUV 4x4. Noria bajo tierra a 11°C en Salina Turda, Castillos de Bran y Peleș, Corvinos y Sibiu. 💰 *${getVal('kpi-ro-total', '~1.642 €')} total* (${getVal('kpi-ro-person', '~328 €')} / pers)\n\n` +
+        `5️⃣ *Venecia, Florencia & Pisa:* Vuelos directos Ryanair (desde 101 €) + Tren bala Frecciarossa a 300 km/h. Gran Canal, Duomo, carrusel histórico y Torre Inclinada. 💰 *${getVal('kpi-it-total', '~841 €')} total* (${getVal('kpi-it-person', '~280 €')} / pers)\n\n` +
+        `6️⃣ *Rumanía & Castillos de Transilvania:* Vuelos directos Wizz Air + SUV 4x4. Noria bajo tierra a 11°C en Salina Turda, Castillos de Bran y Peleș, Corvinos y Sibiu. 💰 *${getVal('kpi-ro-total', '~1.384 €')} total* (${getVal('kpi-ro-person', '~461 €')} / pers)\n\n` +
         `¡Pinchad en el enlace para explorarlo todo y elegir! 📲`;
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -6071,7 +6076,7 @@
     // ==========================================
     // MOTOR DE CÁLCULO DE PRESUPUESTO DINÁMICO
     // ==========================================
-    let currentAdults = 4;
+    let currentAdults = 2;
     let currentChildren = 1;
 
     function setPax(adults, children) {
@@ -6180,8 +6185,8 @@
       // ==========================================
       // 3. CÁLCULO ITALIA (Venecia + Florencia + Pisa)
       // ==========================================
-      const it_vuelos = totalPax * 135;
-      const it_trenes = Math.round(adults * 28 + children * 10);
+      const it_vuelos = totalPax * 105; // Google Flights Ryanair/Wizz directo MAD-VCE desde 101 €
+      const it_trenes = Math.round(adults * 28); // Frecciarossa Florencia (Marco gratis en Bimbi Gratis)
       const it_habs = Math.max(1, Math.ceil(totalPax / 3));
       const it_hoteles = it_habs * 240; // 3 noches (1 Mestre + 2 Florencia)
       const it_traslados = adults * 30 + children * 10; // bus aeropuerto, vaporetto, pisamover
@@ -6209,7 +6214,7 @@
       // ==========================================
       // 4. CÁLCULO RUMANÍA (Transilvania)
       // ==========================================
-      const ro_vuelos = totalPax * 130;
+      const ro_vuelos = totalPax * 254; // Google Flights Wizz Air directo MAD-CLJ Año Nuevo desde 254 €
       const ro_suv = totalPax <= 5 ? 150 : 300; // SUV 5 plazas o furgoneta grande si > 5
       const ro_habs = Math.max(1, Math.ceil(totalPax / 3));
       const ro_hoteles = ro_habs * 230; // 3 noches con desayuno
@@ -6239,14 +6244,15 @@
       // ==========================================
       // 5. CÁLCULO ALSACIA & BASILEA
       // ==========================================
-      const al_vuelos = totalPax * 145;
+      const al_vuelos = totalPax * 410; // Google Flights temporada alta Puente de Diciembre desde 411 €
       const al_coche = totalPax <= 5 ? 140 : 280;
       const al_habs = Math.max(1, Math.ceil(totalPax / 3));
       const al_hoteles = al_habs * 260; // 3 noches en Mulhouse
+      const al_gasolina = 55; // 420 km en ruta
       const al_comidas = Math.round(adults * 55 + children * 28);
       const al_actividades = children * 15; // carruseles y Papá Noel
 
-      const al_total = al_vuelos + al_coche + al_hoteles + al_comidas + al_actividades;
+      const al_total = al_vuelos + al_coche + al_hoteles + al_gasolina + al_comidas + al_actividades;
       const al_por_persona = Math.round(al_total / totalPax);
       const al_por_pareja = Math.round(al_total / couples);
 
@@ -6264,10 +6270,10 @@
       // ==========================================
       // 6. CÁLCULO NÚREMBERG & MERCADOS DE BAVIERA
       // ==========================================
-      const nur_vuelos = totalPax * 160;
+      const nur_vuelos = totalPax * 315; // Google Flights MAD-MUC directo 291 € + tren bala ICE 38 € i/v o escala 345 €
       const nur_habs = Math.max(1, Math.ceil(totalPax / 3));
       const nur_hoteles = nur_habs * 290; // 3 noches en Sorat / NH con desayuno
-      const nur_transporte = totalPax * 15; // metro U1 aeropuerto + tranvías
+      const nur_transporte = totalPax * 10; // metro U1 + TagesTicket Plus grupo
       const nur_comidas = Math.round(adults * 58 + children * 25); // Bratwurst, Schäufele, Lebkuchen
       const nur_actividades = Math.round(adults * 16 + children * 15); // Kaiserburg, Museo Juguete, Kinderweihnacht
 
@@ -6293,7 +6299,7 @@
       // ==========================================
       // 7. CÁLCULO BUDAPEST & LUCES DEL DANUBIO
       // ==========================================
-      const bud_vuelos = totalPax * 140;
+      const bud_vuelos = totalPax * 260; // Google Flights Ryanair/Wizz directo MAD-BUD desde 260 €
       const bud_habs = Math.max(1, Math.ceil(totalPax / 3));
       const bud_hoteles = bud_habs * 285; // 3 noches en Hotel Memories / D8 con desayuno
       const bud_traslados = totalPax * 18; // Bus 100E + TravelCard 72h (Fényvillamos)

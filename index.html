@@ -22,7 +22,27 @@
       --indigo: #4F46E5;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      position: relative;
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+    }
+    img, picture, video, canvas, svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .container, .portal-hero, .tab-view, main, section {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body {
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--light-bg);
@@ -39,7 +59,10 @@
       background: rgba(11, 19, 43, 0.97);
       backdrop-filter: blur(12px);
       border-bottom: 2px solid #1E293B;
-      padding: 0 20px;
+      padding: 0 16px;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
     }
     .nav-container {
       max-width: 1250px;
@@ -48,6 +71,9 @@
       align-items: center;
       justify-content: space-between;
       height: 70px;
+      width: 100%;
+      overflow: hidden;
+      gap: 12px;
     }
     .nav-brand {
       display: flex;
@@ -57,14 +83,33 @@
       font-weight: 800;
       font-size: 1.15rem;
       letter-spacing: 0.5px;
+      flex-shrink: 0;
     }
     .nav-brand span { color: #38BDF8; font-weight: 400; font-size: 0.85rem; }
+    nav {
+      max-width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      flex-shrink: 1;
+      min-width: 0;
+    }
+    nav::-webkit-scrollbar {
+      display: none;
+    }
     .nav-menu {
       display: flex;
       gap: 8px;
       list-style: none;
       overflow-x: auto;
-      padding: 5px 0;
+      padding: 5px 2px;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-menu::-webkit-scrollbar {
+      display: none;
     }
     .nav-btn {
       background: transparent;
@@ -80,6 +125,7 @@
       align-items: center;
       gap: 8px;
       white-space: nowrap;
+      flex-shrink: 0;
       transition: all 0.2s ease;
     }
     .nav-btn:hover {
@@ -1020,6 +1066,142 @@
                   url('img_budapest/basilica_san_esteban_navidad.jpg') center/cover no-repeat;
     }
 
+
+    /* PHOTO GALLERIES (NÚREMBERG, BUDAPEST & EXTENDED) */
+    .photo-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 30px;
+    }
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      width: 100%;
+      max-width: 100%;
+    }
+    .gallery-item img {
+      width: 100%;
+      max-width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-caption {
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      color: #475569;
+      background: #F8FAFC;
+      line-height: 1.45;
+    }
+
+    /* TABLE RESPONSIVE CONTAINMENT */
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 16px 0;
+      border-radius: 12px;
+      border: 1px solid #E2E8F0;
+      background: #FFFFFF;
+    }
+    .cost-table, .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .cost-table th, .budget-table th {
+      background: #F1F5F9;
+      color: #475569;
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 700;
+      border-bottom: 2px solid #E2E8F0;
+    }
+    .cost-table td, .budget-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .cost-table tr:last-child td, .budget-table tr:last-child td {
+      border-bottom: none;
+      font-weight: 800;
+      font-size: 1.1rem;
+      background: #F8FAFC;
+    }
+
+    /* COMPREHENSIVE RESPONSIVE MOBILE ADJUSTMENTS */
+    @media (max-width: 768px) {
+      .container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      }
+      .portal-nav {
+        padding: 0 10px !important;
+      }
+      .nav-container {
+        height: 60px !important;
+        gap: 8px !important;
+      }
+      .nav-brand {
+        font-size: 1rem !important;
+      }
+      .nav-brand span {
+        display: none !important;
+      }
+      .nav-btn {
+        padding: 6px 12px !important;
+        font-size: 0.82rem !important;
+      }
+      .portal-hero h1 {
+        font-size: 1.75rem !important;
+      }
+      .portal-hero p.sub {
+        font-size: 0.95rem !important;
+      }
+      .overview-grid, .summary-cards, .photo-grid-gallery, .photo-gallery-grid, 
+      .city-grid, .hotel-card-grid, .kpi-grid, .grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+      .traveler-selector-bar {
+        padding: 12px 14px !important;
+        margin: 15px auto 20px auto !important;
+      }
+      .selector-top {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+      }
+      .selector-main-controls {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+      }
+      .steppers-row {
+        justify-content: space-between !important;
+        width: 100% !important;
+        gap: 10px !important;
+      }
+      .presets-row {
+        justify-content: center !important;
+        width: 100% !important;
+      }
+      .table-budget, .cost-table, .budget-table {
+        min-width: 480px !important;
+      }
+      .table-budget th, .table-budget td,
+      .cost-table th, .cost-table td,
+      .budget-table th, .budget-table td {
+        padding: 8px 10px !important;
+        font-size: 0.85rem !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2097,6 +2279,7 @@
       <p class="section-desc" id="tbl-ss-desc">Cuentas transparentes y equilibradas para el grupo de 5 personas (4 adultos + Marco), repartidas exactamente al 50% entre ambas parejas.</p>
 
       <div class="budget-card">
+        <div class="table-responsive">
         <table class="table-budget">
           <thead>
             <tr>
@@ -2159,6 +2342,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
         <p style="font-size: 0.85rem; color: #64748B; margin-top: 10px;">
           * Nota de gestión familiar: Siguiendo el protocolo de Brújula, los gastos comunes se reparten equitativamente entre las parejas u ocupantes seleccionados.
         </p>
@@ -2737,6 +2921,8 @@
         <h2 class="section-title">💶 Presupuesto Económico Detallado y Dinámico</h2>
         <p class="section-desc" id="tbl-nur-desc">Costes reales calculados al céntimo para los 5 viajeros (4 adultos + 1 niño) en la calculadora interactiva.</p>
 
+        <div class="table-responsive">
+        <div class="table-responsive">
         <table class="cost-table">
           <thead>
             <tr>
@@ -2771,6 +2957,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
 
         <!-- WHATSAPP SHARE CARD -->
         <div class="whatsapp-share-card" style="margin-top: 30px;">
@@ -3336,6 +3523,7 @@
         <h2 class="section-title">💶 Presupuesto Económico Detallado y Dinámico</h2>
         <p class="section-desc" id="tbl-bud-desc">Costes reales calculados al céntimo para los 5 viajeros (4 adultos + 1 niño) en la calculadora interactiva.</p>
 
+        <div class="table-responsive">
         <table class="cost-table">
           <thead>
             <tr>
@@ -3370,6 +3558,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
 
         <!-- WHATSAPP SHARE CARD -->
         <div class="whatsapp-share-card" style="margin-top: 30px;">
@@ -4188,6 +4377,7 @@
       <section style="margin-bottom: 50px;">
         <h2 class="section-title">💶 Presupuesto Económico Detallado y Dinámico</h2>
         <div class="budget-card">
+          <div class="table-responsive">
           <table class="table-budget">
             <thead>
               <tr>
@@ -4229,6 +4419,7 @@
               </tr>
             </tbody>
           </table>
+          </div>
         </div>
       </section>
 
@@ -5129,6 +5320,7 @@
       <h2 class="section-title">💰 Presupuesto Detallado y Dinámico</h2>
       <p class="section-desc" id="tbl-it-desc">Costes reales calculados al céntimo para los viajeros seleccionados en la calculadora interactiva.</p>
 
+      <div class="table-responsive">
       <table class="budget-table">
         <thead>
           <tr>
@@ -5174,6 +5366,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <div style="background: #F8FAFC; padding: 16px 20px; border-radius: 10px; font-size: 0.9rem; color: #64748B; text-align: center; margin-top: 15px;">
         💡 <strong>Flexibilidad Familiar:</strong> Si añadís más viajeros, los costes de hotel y billetes se ajustan en vivo manteniendo la máxima comodidad céntrica.
@@ -5827,6 +6020,7 @@
       <h2 class="section-title">💶 Presupuesto Económico Detallado y Dinámico</h2>
       <p class="section-desc" id="tbl-ro-desc">Costes reales calculados al céntimo según los viajeros seleccionados en la calculadora interactiva.</p>
       <div class="budget-card">
+        <div class="table-responsive">
         <table class="table-budget">
           <thead>
             <tr>
@@ -5873,6 +6067,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
     </section>
     </div>

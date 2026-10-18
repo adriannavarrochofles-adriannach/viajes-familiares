@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0B132B">
   <title>Portal Maestro de Viajes Familiares | Brújula</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,22 +28,27 @@
       box-sizing: border-box;
     }
     html, body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
+      width: 100% !important;
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+      touch-action: pan-y !important;
+      overscroll-behavior-x: none !important;
+      overscroll-behavior-y: auto;
       position: relative;
       margin: 0;
       padding: 0;
       -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
     }
     img, picture, video, canvas, svg {
       max-width: 100%;
       height: auto;
     }
     .container, .portal-hero, .tab-view, main, section {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+      box-sizing: border-box !important;
     }
     body {
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -476,7 +483,16 @@
     .tag-blue { background: #E0F2FE; color: #0369A1; }
     .card-body h3 { font-size: 1.25rem; color: var(--dark); margin-bottom: 10px; }
     .card-features { list-style: none; margin: 15px 0 20px; font-size: 0.9rem; }
-    .card-features li { padding: 6px 0; border-bottom: 1px dashed #E2E8F0; display: flex; align-items: center; gap: 10px; }
+    .card-features li {
+      padding: 6px 0;
+      border-bottom: 1px dashed #E2E8F0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      min-width: 0;
+    }
     .card-footer {
       margin-top: auto;
       padding-top: 15px;
@@ -1444,11 +1460,99 @@
       background: #0284C7;
     }
 
+    /* NATIVE MOBILE APP BOTTOM NAVIGATION BAR (BASE) */
+    .app-bottom-nav {
+      display: none; /* Oculto en escritorio */
+    }
+
     /* COMPREHENSIVE RESPONSIVE MOBILE ADJUSTMENTS */
     @media (max-width: 768px) {
+      /* Estructura fija de App Nativa y Scroll estrictamente vertical */
+      html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100% !important;
+        touch-action: pan-y !important;
+        overscroll-behavior-x: none !important;
+        overscroll-behavior-y: auto;
+        padding-bottom: calc(65px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+
+      /* Barra de Navegación Inferior de App Nativa (Bottom Tab Bar) */
+      .app-bottom-nav {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100vw;
+        height: calc(56px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        background: rgba(11, 19, 43, 0.96);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(56, 189, 248, 0.25);
+        z-index: 9999;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+        touch-action: manipulation;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      .app-tab-btn {
+        flex: 1;
+        height: 100%;
+        background: transparent;
+        border: none;
+        color: #94A3B8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        cursor: pointer;
+        padding: 4px 0;
+        font-family: 'Outfit', sans-serif;
+        touch-action: manipulation;
+        transition: all 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .app-tab-btn:active {
+        transform: scale(0.92);
+      }
+      .app-tab-icon {
+        font-size: 1.25rem;
+        line-height: 1;
+        transition: transform 0.15s;
+      }
+      .app-tab-label {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        line-height: 1;
+      }
+      .app-tab-btn.active {
+        color: #38BDF8;
+      }
+      .app-tab-btn.active .app-tab-icon {
+        transform: translateY(-2px);
+      }
+      .app-tab-btn.active .app-tab-label {
+        color: #38BDF8;
+        font-weight: 800;
+      }
+
+      /* Ocultar botón flotante FAB en móviles (sustituido por la barra inferior nativa) */
+      #brujula-ai-fab {
+        display: none !important;
+      }
+
       /* Visibilidad: mostrar barra compacta móvil, ocultar banners de escritorio */
       .mobile-config-bar {
         display: block !important;
+        top: 50px !important;
       }
       .calculator-super-banner {
         display: none !important;
@@ -1460,12 +1564,16 @@
       .container {
         padding-left: 10px !important;
         padding-right: 10px !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
       }
       .portal-nav {
         padding: 0 8px !important;
+        touch-action: pan-y !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
       }
       .nav-container {
-        height: 54px !important;
+        height: 50px !important;
         gap: 6px !important;
       }
       .nav-brand {
@@ -1478,6 +1586,7 @@
       .nav-menu {
         gap: 6px !important;
         padding: 4px 0 !important;
+        touch-action: pan-x pan-y !important;
       }
       .nav-btn {
         padding: 5px 10px !important;
@@ -1488,7 +1597,9 @@
       /* Héroes de sección compactos para no desplazar el contenido */
       .portal-hero, .hero-overview, .hero-sanseb, .hero-alsacia, .hero-nuremberg, 
       .hero-budapest, .hero-italia, .hero-rumania, .hero-calendario, .hero-asistente {
-        padding: 18px 12px 14px !important;
+        padding: 16px 12px 12px !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
       }
       .portal-hero .hero-badge {
         font-size: 0.68rem !important;
@@ -1512,6 +1623,8 @@
         margin-bottom: 16px !important;
         border-radius: 12px !important;
         gap: 10px !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
       }
       .overview-calendar-banner .banner-icon {
         width: 44px !important;
@@ -1539,6 +1652,13 @@
       .city-grid, .hotel-card-grid, .kpi-grid, .grid-2 {
         grid-template-columns: 1fr !important;
         gap: 14px !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+      }
+      .card, .trip-card-link, .holiday-card {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
       }
       .trip-card-link {
         margin-bottom: 12px !important;
@@ -1566,6 +1686,12 @@
         font-size: 0.76rem !important;
         padding: 3px 0 !important;
       }
+      .card-features li {
+        display: block !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+        min-width: 0 !important;
+      }
       .trip-price {
         font-size: 1.12rem !important;
       }
@@ -1582,6 +1708,16 @@
         padding: 10px !important;
       }
 
+      /* Contención estricta de tablas para que nunca desplacen la pantalla lateralmente */
+      .table-responsive {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-x pan-y !important;
+        display: block !important;
+        contain: paint !important;
+      }
       .table-budget, .cost-table, .budget-table {
         min-width: 480px !important;
       }
@@ -1590,6 +1726,14 @@
       .budget-table th, .budget-table td {
         padding: 8px 10px !important;
         font-size: 0.85rem !important;
+      }
+
+      /* Sliders con control de desplazamiento táctil seguro */
+      .slider-viewport {
+        overflow: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        touch-action: pan-y !important;
       }
     }
 
@@ -8291,6 +8435,18 @@
         fab.style.display = (tabId === 'asistente') ? 'none' : 'flex';
       }
 
+      // Sincronizar botones de la barra inferior de App Móvil
+      document.querySelectorAll('.app-tab-btn').forEach(btn => btn.classList.remove('active'));
+      const bottomTabMap = {
+        'overview': 'tab-btn-overview',
+        'calendario': 'tab-btn-calendario',
+        'asistente': 'tab-btn-asistente'
+      };
+      if (bottomTabMap[tabId]) {
+        const b = document.getElementById(bottomTabMap[tabId]);
+        if (b) b.classList.add('active');
+      }
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -9587,12 +9743,31 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
     }
 
 </script>
-  <!-- BOTÓN FLOTANTE ASISTENTE BRÚJULA AI (ACCESIBLE EN CUALQUIER PESTAÑA) -->
+  <!-- BOTÓN FLOTANTE ASISTENTE BRÚJULA AI (ACCESIBLE EN ESCRITORIO) -->
   <div id="brujula-ai-fab" onclick="switchTab('asistente')" title="Abrir Asistente Inteligente Brújula AI">
     <span style="font-size: 1.3rem;">🤖</span>
     <span style="font-weight: 800; font-size: 0.9rem;">Brújula AI</span>
     <span style="background: #10B981; color: #FFF; font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 10px; letter-spacing: 0.5px;">GEMINI</span>
   </div>
+  <!-- BARRA DE NAVEGACIÓN INFERIOR DE APP NATIVA (BOTTOM TAB BAR MÓVIL) -->
+  <nav class="app-bottom-nav" aria-label="Navegación principal móvil">
+    <button class="app-tab-btn active" id="tab-btn-overview" onclick="switchTab('overview')" aria-label="Ver todos los viajes">
+      <span class="app-tab-icon">🏡</span>
+      <span class="app-tab-label">Viajes</span>
+    </button>
+    <button class="app-tab-btn" id="tab-btn-calendario" onclick="switchTab('calendario')" aria-label="Ver calendario anual">
+      <span class="app-tab-icon">📅</span>
+      <span class="app-tab-label">Calendario</span>
+    </button>
+    <button class="app-tab-btn" id="tab-btn-filtros" onclick="openConfigModal()" aria-label="Ajustar filtros y ocupantes">
+      <span class="app-tab-icon">⚙️</span>
+      <span class="app-tab-label">Filtros</span>
+    </button>
+    <button class="app-tab-btn" id="tab-btn-asistente" onclick="switchTab('asistente')" aria-label="Abrir asistente Brújula AI">
+      <span class="app-tab-icon">🤖</span>
+      <span class="app-tab-label">Brújula AI</span>
+    </button>
+  </nav>
 
 </body>
 </html>

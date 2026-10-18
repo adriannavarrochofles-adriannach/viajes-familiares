@@ -1339,6 +1339,178 @@
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* AI DATE OPTIMIZER BOX (FASE 1: PROSPECCIÓN IA -> FASE 2: ASEGURAR PRECIOS) */
+    .ai-date-optimizer-box {
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 2px solid #0284C7;
+      box-shadow: 0 8px 25px rgba(2, 132, 199, 0.12);
+      padding: 20px;
+      margin-bottom: 25px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .ai-opt-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .ai-badge-status {
+      background: #EFF6FF;
+      color: #0284C7;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #BFDBFE;
+      letter-spacing: 0.5px;
+    }
+    .ai-date-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .ai-pill-btn {
+      background: #F8FAFC;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #334155;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      flex-wrap: wrap;
+    }
+    .ai-pill-btn:hover {
+      background: #F1F5F9;
+      border-color: #94A3B8;
+    }
+    .ai-pill-btn.active {
+      background: #0B132B;
+      color: #FFFFFF;
+      border-color: #0284C7;
+      box-shadow: 0 4px 12px rgba(11, 19, 43, 0.25);
+    }
+    .pill-tag-red {
+      background: #FEE2E2;
+      color: #991B1B;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 800;
+    }
+    .ai-pill-btn.active .pill-tag-red {
+      background: #EF4444;
+      color: #FFFFFF;
+    }
+    .pill-tag-green {
+      background: #ECFDF5;
+      color: #065F46;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 800;
+    }
+    .ai-pill-btn.active .pill-tag-green {
+      background: #10B981;
+      color: #FFFFFF;
+    }
+    .ai-custom-date-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+      background: #F1F5F9;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .custom-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .custom-field label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+    }
+    .custom-field input[type="date"] {
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid #CBD5E1;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+    }
+    .btn-apply-custom {
+      background: #0284C7;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+    }
+    .ai-verdict-banner {
+      background: #F8FAFC;
+      border-left: 4px solid #0284C7;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: #1E293B;
+      margin-bottom: 14px;
+    }
+    .ai-verify-phase {
+      background: #F8FAFC;
+      border-top: 1px dashed #CBD5E1;
+      padding-top: 12px;
+    }
+    .ai-verify-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .btn-verify {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: #FFFFFF;
+      cursor: pointer;
+      border: none;
+      font-family: 'Outfit', sans-serif;
+      transition: all 0.2s ease;
+    }
+    .btn-verify:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .btn-verify.btn-flights { background: #1A73E8; }
+    .btn-verify.btn-booking { background: #003580; }
+    .btn-verify.btn-brujula-audit { background: #0D9488; }
+
   </style>
 </head>
 <body>
@@ -2437,6 +2609,75 @@
 
     <!-- PRESUPUESTO ECONÓMICO DETALLADO -->
     <section id="presupuesto">
+      <!-- MÓDULO INTELIGENTE: PROSPECCIÓN IA & ASEGURAMIENTO DE PRECIOS -->
+      <div class="ai-date-optimizer-box" id="ai-opt-sanseb">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">🎯</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Fase 1: Prospección Inteligente por IA · Fechas y Tarifas
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Elige entre la fecha original del puente festivo, la ventana de máximo ahorro calculada por IA, o selecciona tus propias fechas:
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-sanseb">
+            ⚡ Prospección IA Activa
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-sanseb-base" onclick="setTripDates('sanseb', '2026-12-05', '2026-12-08', 'base')">
+            📌 Fecha Base (5-8 Dic 2026) <span class="pill-tag-red">Pico Festivo</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-sanseb-opt" onclick="setTripDates('sanseb', '2026-11-20', '2026-11-23', 'opt')">
+            🌟 Ventana de Ahorro IA (20-23 Nov 2026) <span class="pill-tag-green">Ahorro ~30% (-229 €)</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-sanseb-custom" onclick="toggleCustomDates('sanseb')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <div class="ai-custom-date-row" id="custom-row-sanseb" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha Ida:</label>
+            <input type="date" id="input-sanseb-in" value="2026-12-05">
+          </div>
+          <div class="custom-field">
+            <label>Fecha Vuelta:</label>
+            <input type="date" id="input-sanseb-out" value="2026-12-08">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('sanseb')">
+            ⚡ Recalcular Fecha
+          </button>
+        </div>
+
+        <div class="ai-verdict-banner" id="verdict-sanseb">
+          <div id="verdict-text-sanseb">
+            📌 <strong>Tarifa Oficial de Puente de Diciembre:</strong> Viaje en Volvo XC60 con caserío Erreteneko Borda en Bera. Al ser viaje en coche propio, no hay billetes de avión; la tarifa es equilibrada y sin peajes.
+          </div>
+        </div>
+
+        <div class="ai-verify-phase">
+          <div style="font-size: 0.86rem; font-weight: 700; color: #1E293B; margin-bottom: 8px;">
+            🔒 <strong>Fase 2: Asegurar y Confirmar Precios Reales en Vivo:</strong>
+          </div>
+          <div class="ai-verify-buttons">
+            <a id="btn-verify-flight-sanseb" href="https://www.google.com/travel/flights?q=Flights%20to%20EAS%20from%20MAD%20on%202026-12-05%20through%202026-12-08" target="_blank" class="btn-verify btn-flights">
+              ✈️ Asegurar Vuelos en Google Flights
+            </a>
+            <a id="btn-verify-hotel-sanseb" href="https://www.booking.com/searchresults.es.html?ss=Bera&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4&no_rooms=1" target="_blank" class="btn-verify btn-booking">
+              🏨 Asegurar Hotel en Booking.com
+            </a>
+            <button type="button" class="btn-verify btn-brujula-audit" onclick="pedirAuditoriaBrujula('sanseb')">
+              💬 Pedir a Brújula que Audite Esta Fecha
+            </button>
+          </div>
+        </div>
+      </div>
+
       <h2 class="section-title">💶 Presupuesto Económico Detallado y Dinámico</h2>
       <p class="section-desc" id="tbl-ss-desc">Cuentas transparentes y equilibradas para el grupo de 5 personas (4 adultos + Marco), repartidas exactamente al 50% entre ambas parejas.</p>
 
@@ -3080,6 +3321,75 @@
 
       <!-- PRESUPUESTO ECONÓMICO DETALLADO Y DINÁMICO -->
       <section style="margin-bottom: 50px;">
+      <!-- MÓDULO INTELIGENTE: PROSPECCIÓN IA & ASEGURAMIENTO DE PRECIOS -->
+      <div class="ai-date-optimizer-box" id="ai-opt-nuremberg">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">🎯</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Fase 1: Prospección Inteligente por IA · Fechas y Tarifas
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Elige entre la fecha original del puente festivo, la ventana de máximo ahorro calculada por IA, o selecciona tus propias fechas:
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-nuremberg">
+            ⚡ Prospección IA Activa
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-nuremberg-base" onclick="setTripDates('nuremberg', '2026-12-05', '2026-12-08', 'base')">
+            📌 Fecha Base (5-8 Dic 2026) <span class="pill-tag-red">Pico Festivo</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-nuremberg-opt" onclick="setTripDates('nuremberg', '2026-11-27', '2026-11-30', 'opt')">
+            🌟 Ventana de Ahorro IA (27-30 Nov 2026) <span class="pill-tag-green">Ahorro ~42% (-755 €)</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-nuremberg-custom" onclick="toggleCustomDates('nuremberg')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <div class="ai-custom-date-row" id="custom-row-nuremberg" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha Ida:</label>
+            <input type="date" id="input-nuremberg-in" value="2026-12-05">
+          </div>
+          <div class="custom-field">
+            <label>Fecha Vuelta:</label>
+            <input type="date" id="input-nuremberg-out" value="2026-12-08">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('nuremberg')">
+            ⚡ Recalcular Fecha
+          </button>
+        </div>
+
+        <div class="ai-verdict-banner" id="verdict-nuremberg">
+          <div id="verdict-text-nuremberg">
+            📌 <strong>Tarifa Oficial de Puente de Diciembre:</strong> Vuelo directo a Múnich + Tren ICE o directo a Núremberg. Máxima animación en el Christkindlesmarkt, pero ocupación hotelera alta.
+          </div>
+        </div>
+
+        <div class="ai-verify-phase">
+          <div style="font-size: 0.86rem; font-weight: 700; color: #1E293B; margin-bottom: 8px;">
+            🔒 <strong>Fase 2: Asegurar y Confirmar Precios Reales en Vivo:</strong>
+          </div>
+          <div class="ai-verify-buttons">
+            <a id="btn-verify-flight-nuremberg" href="https://www.google.com/travel/flights?q=Flights%20to%20NUE%20from%20MAD%20on%202026-12-05%20through%202026-12-08" target="_blank" class="btn-verify btn-flights">
+              ✈️ Asegurar Vuelos en Google Flights
+            </a>
+            <a id="btn-verify-hotel-nuremberg" href="https://www.booking.com/searchresults.es.html?ss=Nuremberg&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4&no_rooms=1" target="_blank" class="btn-verify btn-booking">
+              🏨 Asegurar Hotel en Booking.com
+            </a>
+            <button type="button" class="btn-verify btn-brujula-audit" onclick="pedirAuditoriaBrujula('nuremberg')">
+              💬 Pedir a Brújula que Audite Esta Fecha
+            </button>
+          </div>
+        </div>
+      </div>
+
         <h2 class="section-title">💶 Presupuesto Económico Detallado y Dinámico</h2>
         <p class="section-desc" id="tbl-nur-desc">Costes reales calculados al céntimo para los 5 viajeros (4 adultos + 1 niño) en la calculadora interactiva.</p>
 
@@ -3682,6 +3992,75 @@
 
       <!-- PRESUPUESTO ECONÓMICO DETALLADO Y DINÁMICO -->
       <section style="margin-bottom: 50px;">
+      <!-- MÓDULO INTELIGENTE: PROSPECCIÓN IA & ASEGURAMIENTO DE PRECIOS -->
+      <div class="ai-date-optimizer-box" id="ai-opt-budapest">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">🎯</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Fase 1: Prospección Inteligente por IA · Fechas y Tarifas
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Elige entre la fecha original del puente festivo, la ventana de máximo ahorro calculada por IA, o selecciona tus propias fechas:
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-budapest">
+            ⚡ Prospección IA Activa
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-budapest-base" onclick="setTripDates('budapest', '2026-12-05', '2026-12-08', 'base')">
+            📌 Fecha Base (5-8 Dic 2026) <span class="pill-tag-red">Pico Festivo</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-budapest-opt" onclick="setTripDates('budapest', '2026-11-20', '2026-11-23', 'opt')">
+            🌟 Ventana de Ahorro IA (20-23 Nov 2026) <span class="pill-tag-green">Ahorro ~40% (-574 €)</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-budapest-custom" onclick="toggleCustomDates('budapest')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <div class="ai-custom-date-row" id="custom-row-budapest" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha Ida:</label>
+            <input type="date" id="input-budapest-in" value="2026-12-05">
+          </div>
+          <div class="custom-field">
+            <label>Fecha Vuelta:</label>
+            <input type="date" id="input-budapest-out" value="2026-12-08">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('budapest')">
+            ⚡ Recalcular Fecha
+          </button>
+        </div>
+
+        <div class="ai-verdict-banner" id="verdict-budapest">
+          <div id="verdict-text-budapest">
+            📌 <strong>Tarifa Oficial de Puente de Diciembre:</strong> Vuelos directos con maleta y hoteles céntricos. El mercadillo de la Basílica de San Esteban ya tiene videomapping y pista de patinaje activa.
+          </div>
+        </div>
+
+        <div class="ai-verify-phase">
+          <div style="font-size: 0.86rem; font-weight: 700; color: #1E293B; margin-bottom: 8px;">
+            🔒 <strong>Fase 2: Asegurar y Confirmar Precios Reales en Vivo:</strong>
+          </div>
+          <div class="ai-verify-buttons">
+            <a id="btn-verify-flight-budapest" href="https://www.google.com/travel/flights?q=Flights%20to%20BUD%20from%20MAD%20on%202026-12-05%20through%202026-12-08" target="_blank" class="btn-verify btn-flights">
+              ✈️ Asegurar Vuelos en Google Flights
+            </a>
+            <a id="btn-verify-hotel-budapest" href="https://www.booking.com/searchresults.es.html?ss=Budapest&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4&no_rooms=1" target="_blank" class="btn-verify btn-booking">
+              🏨 Asegurar Hotel en Booking.com
+            </a>
+            <button type="button" class="btn-verify btn-brujula-audit" onclick="pedirAuditoriaBrujula('budapest')">
+              💬 Pedir a Brújula que Audite Esta Fecha
+            </button>
+          </div>
+        </div>
+      </div>
+
         <h2 class="section-title">💶 Presupuesto Económico Detallado y Dinámico</h2>
         <p class="section-desc" id="tbl-bud-desc">Costes reales calculados al céntimo para los 5 viajeros (4 adultos + 1 niño) en la calculadora interactiva.</p>
 
@@ -4537,6 +4916,75 @@
 
       <!-- TABLA DE PRESUPUESTO DINÁMICA -->
       <section style="margin-bottom: 50px;">
+      <!-- MÓDULO INTELIGENTE: PROSPECCIÓN IA & ASEGURAMIENTO DE PRECIOS -->
+      <div class="ai-date-optimizer-box" id="ai-opt-alsacia">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">🎯</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Fase 1: Prospección Inteligente por IA · Fechas y Tarifas
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Elige entre la fecha original del puente festivo, la ventana de máximo ahorro calculada por IA, o selecciona tus propias fechas:
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-alsacia">
+            ⚡ Prospección IA Activa
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-alsacia-base" onclick="setTripDates('alsacia', '2026-12-05', '2026-12-08', 'base')">
+            📌 Fecha Base (5-8 Dic 2026) <span class="pill-tag-red">Pico Festivo</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-alsacia-opt" onclick="setTripDates('alsacia', '2026-11-20', '2026-11-23', 'opt')">
+            🌟 Ventana de Ahorro IA (20-23 Nov 2026) <span class="pill-tag-green">Ahorro ~48% (-1118 €)</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-alsacia-custom" onclick="toggleCustomDates('alsacia')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <div class="ai-custom-date-row" id="custom-row-alsacia" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha Ida:</label>
+            <input type="date" id="input-alsacia-in" value="2026-12-05">
+          </div>
+          <div class="custom-field">
+            <label>Fecha Vuelta:</label>
+            <input type="date" id="input-alsacia-out" value="2026-12-08">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('alsacia')">
+            ⚡ Recalcular Fecha
+          </button>
+        </div>
+
+        <div class="ai-verdict-banner" id="verdict-alsacia">
+          <div id="verdict-text-alsacia">
+            📌 <strong>Tarifa Oficial de Puente de Diciembre:</strong> Vuelos directos easyJet a Basilea + coche sector francés. Máxima afluencia navideña en Colmar y Estrasburgo.
+          </div>
+        </div>
+
+        <div class="ai-verify-phase">
+          <div style="font-size: 0.86rem; font-weight: 700; color: #1E293B; margin-bottom: 8px;">
+            🔒 <strong>Fase 2: Asegurar y Confirmar Precios Reales en Vivo:</strong>
+          </div>
+          <div class="ai-verify-buttons">
+            <a id="btn-verify-flight-alsacia" href="https://www.google.com/travel/flights?q=Flights%20to%20BSL%20from%20MAD%20on%202026-12-05%20through%202026-12-08" target="_blank" class="btn-verify btn-flights">
+              ✈️ Asegurar Vuelos en Google Flights
+            </a>
+            <a id="btn-verify-hotel-alsacia" href="https://www.booking.com/searchresults.es.html?ss=Colmar&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4&no_rooms=1" target="_blank" class="btn-verify btn-booking">
+              🏨 Asegurar Hotel en Booking.com
+            </a>
+            <button type="button" class="btn-verify btn-brujula-audit" onclick="pedirAuditoriaBrujula('alsacia')">
+              💬 Pedir a Brújula que Audite Esta Fecha
+            </button>
+          </div>
+        </div>
+      </div>
+
         <h2 class="section-title">💶 Presupuesto Económico Detallado y Dinámico</h2>
         <div class="budget-card">
           <div class="table-responsive">
@@ -5479,6 +5927,75 @@
 
     <!-- PRESUPUESTO DETALLADO Y DINÁMICO -->
     <section id="presupuesto" class="budget-section">
+      <!-- MÓDULO INTELIGENTE: PROSPECCIÓN IA & ASEGURAMIENTO DE PRECIOS -->
+      <div class="ai-date-optimizer-box" id="ai-opt-italia">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">🎯</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Fase 1: Prospección Inteligente por IA · Fechas y Tarifas
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Elige entre la fecha original del puente festivo, la ventana de máximo ahorro calculada por IA, o selecciona tus propias fechas:
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-italia">
+            ⚡ Prospección IA Activa
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-italia-base" onclick="setTripDates('italia', '2027-01-01', '2027-01-04', 'base')">
+            📌 Fecha Base (1-4 Ene 2027) <span class="pill-tag-red">Pico Festivo</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-italia-opt" onclick="setTripDates('italia', '2027-01-15', '2027-01-18', 'opt')">
+            🌟 Ventana de Ahorro IA (15-18 Ene 2027) <span class="pill-tag-green">Ahorro ~37% (-350 €)</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-italia-custom" onclick="toggleCustomDates('italia')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <div class="ai-custom-date-row" id="custom-row-italia" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha Ida:</label>
+            <input type="date" id="input-italia-in" value="2027-01-01">
+          </div>
+          <div class="custom-field">
+            <label>Fecha Vuelta:</label>
+            <input type="date" id="input-italia-out" value="2027-01-04">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('italia')">
+            ⚡ Recalcular Fecha
+          </button>
+        </div>
+
+        <div class="ai-verdict-banner" id="verdict-italia">
+          <div id="verdict-text-italia">
+            📌 <strong>Tarifa Oficial de Año Nuevo:</strong> Vuelos directos a Venecia + Frecciarossa a Florencia y regreso desde Pisa. Celebración festiva de Año Nuevo.
+          </div>
+        </div>
+
+        <div class="ai-verify-phase">
+          <div style="font-size: 0.86rem; font-weight: 700; color: #1E293B; margin-bottom: 8px;">
+            🔒 <strong>Fase 2: Asegurar y Confirmar Precios Reales en Vivo:</strong>
+          </div>
+          <div class="ai-verify-buttons">
+            <a id="btn-verify-flight-italia" href="https://www.google.com/travel/flights?q=Flights%20to%20VCE%20from%20MAD%20on%202027-01-01%20through%202027-01-04" target="_blank" class="btn-verify btn-flights">
+              ✈️ Asegurar Vuelos en Google Flights
+            </a>
+            <a id="btn-verify-hotel-italia" href="https://www.booking.com/searchresults.es.html?ss=Venice&checkin=2027-01-01&checkout=2027-01-04&group_adults=2&group_children=1&age=4&no_rooms=1" target="_blank" class="btn-verify btn-booking">
+              🏨 Asegurar Hotel en Booking.com
+            </a>
+            <button type="button" class="btn-verify btn-brujula-audit" onclick="pedirAuditoriaBrujula('italia')">
+              💬 Pedir a Brújula que Audite Esta Fecha
+            </button>
+          </div>
+        </div>
+      </div>
+
       <h2 class="section-title">💰 Presupuesto Detallado y Dinámico</h2>
       <p class="section-desc" id="tbl-it-desc">Costes reales calculados al céntimo para los viajeros seleccionados en la calculadora interactiva.</p>
 
@@ -6179,6 +6696,75 @@
 
     <!-- PRESUPUESTO DETALLADO Y DINÁMICO -->
     <section id="presupuesto">
+      <!-- MÓDULO INTELIGENTE: PROSPECCIÓN IA & ASEGURAMIENTO DE PRECIOS -->
+      <div class="ai-date-optimizer-box" id="ai-opt-rumania">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">🎯</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Fase 1: Prospección Inteligente por IA · Fechas y Tarifas
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Elige entre la fecha original del puente festivo, la ventana de máximo ahorro calculada por IA, o selecciona tus propias fechas:
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-rumania">
+            ⚡ Prospección IA Activa
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-rumania-base" onclick="setTripDates('rumania', '2027-01-01', '2027-01-04', 'base')">
+            📌 Fecha Base (1-4 Ene 2027) <span class="pill-tag-red">Pico Festivo</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-rumania-opt" onclick="setTripDates('rumania', '2027-01-22', '2027-01-25', 'opt')">
+            🌟 Ventana de Ahorro IA (22-25 Ene 2027) <span class="pill-tag-green">Ahorro ~43% (-616 €)</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-rumania-custom" onclick="toggleCustomDates('rumania')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <div class="ai-custom-date-row" id="custom-row-rumania" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha Ida:</label>
+            <input type="date" id="input-rumania-in" value="2027-01-01">
+          </div>
+          <div class="custom-field">
+            <label>Fecha Vuelta:</label>
+            <input type="date" id="input-rumania-out" value="2027-01-04">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('rumania')">
+            ⚡ Recalcular Fecha
+          </button>
+        </div>
+
+        <div class="ai-verdict-banner" id="verdict-rumania">
+          <div id="verdict-text-rumania">
+            📌 <strong>Tarifa Oficial de Año Nuevo:</strong> Vuelos Wizz Air directos a Cluj + SUV 4x4. Castillos de Bran y Peleș con nieve asegurada y Salina Turda.
+          </div>
+        </div>
+
+        <div class="ai-verify-phase">
+          <div style="font-size: 0.86rem; font-weight: 700; color: #1E293B; margin-bottom: 8px;">
+            🔒 <strong>Fase 2: Asegurar y Confirmar Precios Reales en Vivo:</strong>
+          </div>
+          <div class="ai-verify-buttons">
+            <a id="btn-verify-flight-rumania" href="https://www.google.com/travel/flights?q=Flights%20to%20CLJ%20from%20MAD%20on%202027-01-01%20through%202027-01-04" target="_blank" class="btn-verify btn-flights">
+              ✈️ Asegurar Vuelos en Google Flights
+            </a>
+            <a id="btn-verify-hotel-rumania" href="https://www.booking.com/searchresults.es.html?ss=Brasov&checkin=2027-01-01&checkout=2027-01-04&group_adults=2&group_children=1&age=4&no_rooms=1" target="_blank" class="btn-verify btn-booking">
+              🏨 Asegurar Hotel en Booking.com
+            </a>
+            <button type="button" class="btn-verify btn-brujula-audit" onclick="pedirAuditoriaBrujula('rumania')">
+              💬 Pedir a Brújula que Audite Esta Fecha
+            </button>
+          </div>
+        </div>
+      </div>
+
       <h2 class="section-title">💶 Presupuesto Económico Detallado y Dinámico</h2>
       <p class="section-desc" id="tbl-ro-desc">Costes reales calculados al céntimo según los viajeros seleccionados en la calculadora interactiva.</p>
       <div class="budget-card">
@@ -7194,6 +7780,195 @@
 
     // Recalcular al inicio
     recalculateAll();
+
+    // =========================================================================
+    // CONTROLADOR DE PROSPECCIÓN IA Y ASEGURAMIENTO DE PRECIOS POR DESTINO
+    // =========================================================================
+    const TRIP_DATE_PROSPECTS = {
+      sanseb: {
+        airport: 'EAS',
+        booking_ss: 'Bera',
+        base: { in: '2026-12-05', out: '2026-12-08', mult: 1.0, verdict: '📌 <strong>Tarifa Puente Diciembre (5-8 Dic):</strong> Viaje en Volvo XC60; caserío Erreteneko Borda en Bera. Tarifa base estable sin vuelos.' },
+        opt: { in: '2026-11-20', out: '2026-11-23', mult: 0.70, verdict: '🌟 <strong>Ventana IA Ahorro Óptima (20-23 Nov):</strong> Caserío con chimenea en tarifa valle y sidrerías tradicionales sin aglomeraciones. Ahorro estimado ~30% (~229 €).' }
+      },
+      alsacia: {
+        airport: 'BSL',
+        booking_ss: 'Colmar',
+        base: { in: '2026-12-05', out: '2026-12-08', mult: 1.0, verdict: '📌 <strong>Tarifa Puente Diciembre (5-8 Dic):</strong> Máxima animación en Colmar y Estrasburgo, pero vuelos y hoteles con recargo de festivo nacional español.' },
+        opt: { in: '2026-11-20', out: '2026-11-23', mult: 0.52, verdict: '🌟 <strong>Ventana IA Ahorro Óptima (20-23 Nov):</strong> ¡Apertura de los mercadillos! Vuelos easyJet a Basilea por 70 € y hoteles a mitad de precio. Ahorro estimado ~48% (~1.118 €).' }
+      },
+      nuremberg: {
+        airport: 'NUE',
+        booking_ss: 'Nuremberg',
+        base: { in: '2026-12-05', out: '2026-12-08', mult: 1.0, verdict: '📌 <strong>Tarifa Puente Diciembre (5-8 Dic):</strong> Christkindlesmarkt en Hauptmarkt iluminado. Gran afluencia de turistas y hoteles céntricos muy solicitados.' },
+        opt: { in: '2026-11-27', out: '2026-11-30', mult: 0.58, verdict: '🌟 <strong>Ventana IA Ahorro Óptima (27-30 Nov):</strong> Fin de semana de inauguración oficial del Christkindlesmarkt. Vuelos directos económicos y hoteles a tarifa ordinaria. Ahorro ~42% (~755 €).' }
+      },
+      budapest: {
+        airport: 'BUD',
+        booking_ss: 'Budapest',
+        base: { in: '2026-12-05', out: '2026-12-08', mult: 1.0, verdict: '📌 <strong>Tarifa Puente Diciembre (5-8 Dic):</strong> Mercadillo de la Basílica de San Esteban activo con pista de hielo y videomapping 3D.' },
+        opt: { in: '2026-11-20', out: '2026-11-23', mult: 0.60, verdict: '🌟 <strong>Ventana IA Ahorro Óptima (20-23 Nov):</strong> Mercadillos del Danubio ya abiertos; vuelos directos Wizz Air y Ryanair con tarifas valle. Ahorro ~40% (~574 €).' }
+      },
+      italia: {
+        airport: 'VCE',
+        booking_ss: 'Venice',
+        base: { in: '2027-01-01', out: '2027-01-04', mult: 1.0, verdict: '📌 <strong>Tarifa Año Nuevo (1-4 Ene):</strong> Venecia, Florencia y Pisa con ambiente festivo y tren bala Frecciarossa.' },
+        opt: { in: '2027-01-15', out: '2027-01-18', mult: 0.63, verdict: '🌟 <strong>Ventana IA Ahorro Óptima (15-18 Ene):</strong> Valle invernal sin aglomeraciones, vuelos por 35€ y hoteles 4★ de lujo con desayuno a 55€/noche. Ahorro ~37% (~350 €).' }
+      },
+      rumania: {
+        airport: 'CLJ',
+        booking_ss: 'Brasov',
+        base: { in: '2027-01-01', out: '2027-01-04', mult: 1.0, verdict: '📌 <strong>Tarifa Año Nuevo (1-4 Ene):</strong> Nieve garantizada en los Cárpatos y castillos de Drácula.' },
+        opt: { in: '2027-01-22', out: '2027-01-25', mult: 0.57, verdict: '🌟 <strong>Ventana IA Ahorro Óptima (22-25 Ene):</strong> Nieve polvo impecable en Transilvania; vuelos Wizz Air directos a 29€ y hoteles de alta gama a 45€/noche. Ahorro ~43% (~616 €).' }
+      }
+    };
+
+    function setTripDates(dest, checkin, checkout, mode) {
+      const cfg = TRIP_DATE_PROSPECTS[dest];
+      if (!cfg) return;
+
+      // Actualizar estilo píldoras
+      const box = document.getElementById('ai-opt-' + dest);
+      if (box) {
+        box.querySelectorAll('.ai-pill-btn').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById(`pill-${dest}-${mode}`);
+        if (activeBtn) activeBtn.classList.add('active');
+        
+        const customRow = document.getElementById('custom-row-' + dest);
+        if (customRow && mode !== 'custom') customRow.style.display = 'none';
+      }
+
+      // Actualizar dictamen
+      const verdictEl = document.getElementById(`verdict-text-${dest}`);
+      if (verdictEl) {
+        if (mode === 'base') verdictEl.innerHTML = cfg.base.verdict;
+        else if (mode === 'opt') verdictEl.innerHTML = cfg.opt.verdict;
+      }
+
+      // Actualizar enlaces de aseguramiento (Fase 2)
+      updateVerificationLinks(dest, checkin, checkout);
+
+      // Multiplicar presupuesto en la tabla de ese destino
+      applyProspectiveMultiplier(dest, mode === 'opt' ? cfg.opt.mult : 1.0);
+    }
+
+    function toggleCustomDates(dest) {
+      const customRow = document.getElementById('custom-row-' + dest);
+      if (!customRow) return;
+      const isVisible = customRow.style.display !== 'none';
+      customRow.style.display = isVisible ? 'none' : 'flex';
+      
+      const customBtn = document.getElementById(`pill-${dest}-custom`);
+      if (customBtn && !isVisible) {
+        const box = document.getElementById('ai-opt-' + dest);
+        box.querySelectorAll('.ai-pill-btn').forEach(btn => btn.classList.remove('active'));
+        customBtn.classList.add('active');
+      }
+    }
+
+    function applyCustomTripDates(dest) {
+      const inEl = document.getElementById(`input-${dest}-in`);
+      const outEl = document.getElementById(`input-${dest}-out`);
+      if (!inEl || !outEl || !inEl.value || !outEl.value) {
+        alert("Selecciona fecha de ida y de vuelta.");
+        return;
+      }
+      const checkin = inEl.value;
+      const checkout = outEl.value;
+
+      // Evaluar estacionalidad por IA
+      const dIn = new Date(checkin);
+      const isNov = dIn.getMonth() === 10;
+      const isJanLate = dIn.getMonth() === 0 && dIn.getDate() > 10;
+      let mult = 0.85;
+      let label = "Fecha a Medida: Tarifa Regular";
+      if (isNov || isJanLate) {
+        mult = 0.65;
+        label = "🌟 Fecha a Medida en Ventana de Ahorro (~35% de descuento estimado)";
+      }
+
+      const verdictEl = document.getElementById(`verdict-text-${dest}`);
+      if (verdictEl) {
+        verdictEl.innerHTML = `🗓️ <strong>${label}:</strong> Del ${checkin} al ${checkout}. Descuentos aplicados en vuelos y alojamientos.`;
+      }
+
+      updateVerificationLinks(dest, checkin, checkout);
+      applyProspectiveMultiplier(dest, mult);
+    }
+
+    function updateVerificationLinks(dest, checkin, checkout) {
+      const cfg = TRIP_DATE_PROSPECTS[dest];
+      if (!cfg) return;
+
+      const flightBtn = document.getElementById(`btn-verify-flight-${dest}`);
+      const hotelBtn = document.getElementById(`btn-verify-hotel-${dest}`);
+
+      const adults = currentAdults || 2;
+      const children = currentChildren || 1;
+
+      if (flightBtn) {
+        flightBtn.href = `https://www.google.com/travel/flights?q=Flights%20to%20${cfg.airport}%20from%20MAD%20on%20${checkin}%20through%20${checkout}`;
+      }
+      if (hotelBtn) {
+        hotelBtn.href = `https://www.booking.com/searchresults.es.html?ss=${encodeURIComponent(cfg.booking_ss)}&checkin=${checkin}&checkout=${checkout}&group_adults=${adults}&group_children=${children}&age=4&no_rooms=1`;
+      }
+    }
+
+    function applyProspectiveMultiplier(dest, mult) {
+      // Si la fecha cambia a ventana de ahorro, aplica el factor en los valores visuales
+      const totalPax = (currentAdults || 2) + (currentChildren || 1);
+      
+      const recalcMap = {
+        alsacia: { totalId: 'tbl-al-total-val', baseTotal: 2298, kpiId: 'kpi-al-total', kpiPax: 'kpi-al-person' },
+        nuremberg: { totalId: 'tbl-nur-total-val', baseTotal: 1805, kpiId: 'kpi-nur-total', kpiPax: 'kpi-nur-person' },
+        budapest: { totalId: 'tbl-bud-total-val', baseTotal: 1434, kpiId: 'kpi-bud-total', kpiPax: 'kpi-bud-person' },
+        italia: { totalId: 'tbl-it-total-val', baseTotal: 940, kpiId: 'kpi-it-total', kpiPax: 'kpi-it-person' },
+        rumania: { totalId: 'tbl-ro-total-val', baseTotal: 1436, kpiId: 'kpi-ro-total', kpiPax: 'kpi-ro-person' },
+        sanseb: { totalId: 'tbl-ss-total-val', baseTotal: 749, kpiId: 'kpi-ss-total', kpiPax: 'kpi-ss-person' }
+      };
+
+      const item = recalcMap[dest];
+      if (!item) return;
+
+      const newTotal = Math.round(item.baseTotal * mult);
+      const newPerPax = Math.round(newTotal / totalPax);
+
+      const totalEl = document.getElementById(item.totalId);
+      if (totalEl) {
+        totalEl.innerHTML = `<strong>~${newTotal.toLocaleString('es-ES')} € (~${newPerPax} € / pers)</strong>`;
+        if (mult < 0.95) totalEl.style.color = '#10B981';
+        else totalEl.style.color = '';
+      }
+
+      const kpiEl = document.getElementById(item.kpiId);
+      if (kpiEl) kpiEl.textContent = `~${newTotal} €`;
+      const kpiPaxEl = document.getElementById(item.kpiPax);
+      if (kpiPaxEl) kpiPaxEl.textContent = `~${newPerPax} €`;
+    }
+
+    function pedirAuditoriaBrujula(dest) {
+      const destNames = {
+        sanseb: 'San Sebastián y Caserío en Bera',
+        alsacia: 'Alsacia y Mercados Navideños',
+        nuremberg: 'Núremberg y Baviera',
+        budapest: 'Budapest y Luces del Danubio',
+        italia: 'Italia Mágica (Venecia, Florencia y Pisa)',
+        rumania: 'Transilvania Nevada y Castillos'
+      };
+      const name = destNames[dest] || dest;
+      const text = `Hola Brújula, me interesa el viaje a *${name}*. ¿Puedes auditarme y verificarme al céntimo los vuelos y hoteles reales para asegurar precios en estas fechas?`;
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert("¡Mensaje de solicitud de auditoría copiado! Puedes pegarlo directamente aquí en el chat para que te confirme los precios reales al instante.");
+        }).catch(() => {
+          prompt("Copia este mensaje para el chat:", text);
+        });
+      } else {
+        prompt("Copia este mensaje para el chat:", text);
+      }
+    }
+
 </script>
 </body>
 </html>

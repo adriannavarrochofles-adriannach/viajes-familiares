@@ -192,15 +192,15 @@ def analyze_seasonality(dt_in: date, dt_out: date) -> Dict[str, Any]:
 
 # ----------------- ENDPOINTS -----------------
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def serve_index():
     index_file = os.path.join(BASE_DIR, "index.html")
     if os.path.exists(index_file):
         return FileResponse(index_file)
     raise HTTPException(status_code=404, detail="index.html no encontrado")
 
-@app.get("/health")
-@app.get("/api/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
+@app.api_route("/api/health", methods=["GET", "HEAD"])
 def health_check():
     return {
         "status": "online",

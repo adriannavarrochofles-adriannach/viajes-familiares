@@ -1511,6 +1511,172 @@
     .btn-verify.btn-booking { background: #003580; }
     .btn-verify.btn-brujula-audit { background: #0D9488; }
 
+
+    /* VISOR DE CALENDARIO MENSUAL COMPLETO (7 COLUMNAS L-M-X-J-V-S-D) */
+    .calendar-month-table {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 4px;
+      margin-bottom: 6px;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .cal-weekday-header {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #475569;
+      text-transform: uppercase;
+      padding: 8px 2px;
+      background: #F1F5F9;
+      border-radius: 8px;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .cal-weekend-h {
+      color: #DC2626 !important;
+      background: #FEE2E2 !important;
+    }
+    .calendar-month-days {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .cal-day-cell {
+      min-width: 0;
+      min-height: 56px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 5px 2px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.15s ease;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+    .cal-day-cell:hover {
+      border-color: #0284C7;
+      background: #F0F9FF;
+    }
+    .cal-day-empty {
+      background: transparent !important;
+      border-color: transparent !important;
+      cursor: default !important;
+    }
+    .day-num {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #0F172A;
+    }
+    .day-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      line-height: 1.1;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+      display: block;
+    }
+    /* ESTILOS DE DÍAS */
+    .cal-day-cell.day-holiday {
+      background: #FEE2E2 !important;
+      border-color: #EF4444 !important;
+    }
+    .cal-day-cell.day-holiday .day-num {
+      color: #DC2626 !important;
+      font-weight: 900;
+    }
+    .cal-day-cell.day-holiday .day-label {
+      color: #B91C1C !important;
+      font-weight: 800;
+    }
+    .cal-day-cell.day-weekend {
+      background: #FFFBEB;
+      border-color: #FDE68A;
+    }
+    .cal-day-cell.day-weekend .day-num {
+      color: #D97706;
+    }
+    .cal-day-cell.day-vacation {
+      background: #ECFDF5 !important;
+      border-color: #10B981 !important;
+      border-width: 2px !important;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.4) !important;
+    }
+    .cal-day-cell.day-vacation .day-num {
+      color: #047857 !important;
+      font-weight: 900;
+    }
+    .cal-day-cell.day-vacation .day-label {
+      color: #065F46 !important;
+      font-weight: 800;
+    }
+    .btn-month-quick {
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: all 0.2s;
+    }
+    .btn-month-quick:hover {
+      background: #E2E8F0;
+    }
+    .btn-month-quick.active {
+      background: #0284C7;
+      color: #FFFFFF;
+      border-color: #0284C7;
+    }
+
+    @media (max-width: 640px) {
+      .monthly-calendar-section {
+        padding: 14px 8px !important;
+        margin-bottom: 24px !important;
+      }
+      .calendar-month-table, .calendar-month-days {
+        gap: 3px !important;
+      }
+      .cal-weekday-header {
+        font-size: 0.68rem !important;
+        padding: 5px 0 !important;
+      }
+      .cal-day-cell {
+        min-height: 48px !important;
+        padding: 3px 2px !important;
+        border-radius: 6px !important;
+      }
+      .day-num {
+        font-size: 0.82rem !important;
+      }
+      .day-label {
+        font-size: 0.56rem !important;
+      }
+      .btn-month-quick {
+        padding: 4px 7px !important;
+        font-size: 0.72rem !important;
+      }
+      #cal-month-title {
+        font-size: 1.1rem !important;
+        min-width: 140px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -6836,6 +7002,109 @@
     </section>
 
     <div class="container" style="margin-top: 30px;">
+      <!-- ======================================================== -->
+      <!-- VISOR DE CALENDARIO MENSUAL COMPLETO (ROJO = FESTIVOS)   -->
+      <!-- PLANIFICADOR DE VACACIONES ADRIÁN & MARIPAZ              -->
+      <!-- ======================================================== -->
+      <section class="monthly-calendar-section" style="background: #FFFFFF; border-radius: 16px; border: 2px solid #10B981; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.12); padding: 22px; margin-bottom: 35px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; border-bottom: 2px solid #E2E8F0; padding-bottom: 16px; margin-bottom: 20px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.6rem;">📅</span>
+              <h2 style="font-size: 1.35rem; font-weight: 800; color: #0F172A; margin: 0;">
+                Calendario Mensual Completo · Festivos en Rojo & Vacaciones
+              </h2>
+            </div>
+            <p style="margin: 4px 0 0; font-size: 0.88rem; color: #64748B;">
+              Festivos de Madrid/Alcalá en <strong style="color: #DC2626;">ROJO</strong>. <strong>Toca cualquier día con el dedo</strong> para marcarlo como vacaciones de Adrián y Maripaz 🏖️ y diseñar vuestros puentes.
+            </p>
+          </div>
+
+          <!-- LEYENDA -->
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.8rem; font-weight: 700;">
+            <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: #FEE2E2; color: #991B1B; border-radius: 12px; border: 1px solid #FECACA;">
+              <span style="width: 10px; height: 10px; background: #DC2626; border-radius: 50%;"></span> Festivo Oficial
+            </span>
+            <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: #FFFBEB; color: #92400E; border-radius: 12px; border: 1px solid #FDE68A;">
+              <span style="width: 10px; height: 10px; background: #F59E0B; border-radius: 50%;"></span> Fin de Semana
+            </span>
+            <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: #ECFDF5; color: #065F46; border-radius: 12px; border: 1px solid #A7F3D0;">
+              <span style="width: 10px; height: 10px; background: #10B981; border-radius: 50%;"></span> 🏖️ Vacaciones Adrián & Maripaz
+            </span>
+          </div>
+        </div>
+
+        <!-- CONTROLES DE NAVEGACIÓN DE MES -->
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 18px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button type="button" class="btn-cal-nav" onclick="changeCalendarMonth(-1)" title="Mes anterior" style="background: #0B132B; color: #FFF; border: none; border-radius: 8px; width: 38px; height: 38px; font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center;">◀</button>
+            <h3 id="cal-month-title" style="margin: 0; font-size: 1.3rem; font-weight: 800; color: #0F172A; min-width: 200px; text-align: center;">
+              Diciembre 2026
+            </h3>
+            <button type="button" class="btn-cal-nav" onclick="changeCalendarMonth(1)" title="Mes siguiente" style="background: #0B132B; color: #FFF; border: none; border-radius: 8px; width: 38px; height: 38px; font-size: 1.1rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center;">▶</button>
+          </div>
+
+          <!-- BOTONES RÁPIDOS DE MESES CLAVE -->
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+            <button type="button" class="btn-month-quick" id="btn-m-2026-9" onclick="gotoCalendarMonth(2026, 9)">Oct 26 (Santos)</button>
+            <button type="button" class="btn-month-quick" id="btn-m-2026-10" onclick="gotoCalendarMonth(2026, 10)">Nov 26 (Ahorro)</button>
+            <button type="button" class="btn-month-quick active" id="btn-m-2026-11" onclick="gotoCalendarMonth(2026, 11)">Dic 26 (Constitución)</button>
+            <button type="button" class="btn-month-quick" id="btn-m-2027-0" onclick="gotoCalendarMonth(2027, 0)">Ene 27 (Reyes)</button>
+            <button type="button" class="btn-month-quick" id="btn-m-2027-2" onclick="gotoCalendarMonth(2027, 2)">Mar 27 (Semana Santa)</button>
+            <button type="button" class="btn-month-quick" id="btn-m-2027-4" onclick="gotoCalendarMonth(2027, 4)">May 27 (Puente Mayo)</button>
+            <button type="button" class="btn-month-quick" id="btn-m-2027-7" onclick="gotoCalendarMonth(2027, 7)">Ago 27 (Verano)</button>
+            <button type="button" class="btn-month-quick" id="btn-m-2027-11" onclick="gotoCalendarMonth(2027, 11)">Dic 27 (Puente 27)</button>
+          </div>
+        </div>
+
+        <!-- CUADRÍCULA DE 7 COLUMNAS -->
+        <div style="width: 100%; overflow-x: auto;">
+          <div class="calendar-month-table">
+            <div class="cal-weekday-header">Lun</div>
+            <div class="cal-weekday-header">Mar</div>
+            <div class="cal-weekday-header">Mié</div>
+            <div class="cal-weekday-header">Jue</div>
+            <div class="cal-weekday-header">Vie</div>
+            <div class="cal-weekday-header cal-weekend-h">Sáb</div>
+            <div class="cal-weekday-header cal-weekend-h">Dom</div>
+          </div>
+          <div id="cal-days-grid" class="calendar-month-days">
+            <!-- Rellenado dinámicamente por JavaScript -->
+          </div>
+        </div>
+
+        <!-- PANEL DE RESUMEN DE VACACIONES MARCADAS Y COMPARTIR -->
+        <div id="vacation-summary-panel" style="margin-top: 22px; background: #F8FAFC; border: 1.5px solid #CBD5E1; border-radius: 12px; padding: 18px 20px;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 12px; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 1.4rem;">🏖️</span>
+              <div>
+                <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                  Días Extras de Vacaciones (Adrián & Maripaz)
+                </h4>
+                <div id="vacation-count-label" style="font-size: 0.85rem; color: #0D9488; font-weight: 700;">
+                  0 días marcados
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" onclick="clearUserVacations()" style="background: transparent; border: 1px solid #CBD5E1; border-radius: 8px; padding: 6px 12px; font-size: 0.8rem; font-weight: 600; color: #64748B; cursor: pointer;">
+                🗑️ Limpiar selección
+              </button>
+              <button type="button" onclick="cargarVacacionesEnSimulador()" style="background: #0284C7; color: #FFF; border: none; border-radius: 8px; padding: 6px 14px; font-size: 0.82rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                ⚡ Cotizar estas fechas abajo
+              </button>
+              <button type="button" onclick="shareVacationsWhatsApp()" style="background: #25D366; color: #FFF; border: none; border-radius: 8px; padding: 6px 14px; font-size: 0.82rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                📲 Enviar a Maripaz por WhatsApp
+              </button>
+            </div>
+          </div>
+          <div id="vacation-selected-list" style="font-size: 0.88rem; color: #475569; line-height: 1.5;">
+            <em>Toca en cualquier día del mes para marcarlo como vacaciones y diseñar vuestros puentes.</em>
+          </div>
+        </div>
+
+      </section>
 
       <!-- SIMULADOR DINÁMICO DE FECHAS EN TIEMPO REAL -->
       <section class="simulator-container">
@@ -7968,6 +8237,263 @@
         prompt("Copia este mensaje para el chat:", text);
       }
     }
+
+
+    // =========================================================================
+    // MOTOR DE CALENDARIO MENSUAL COMPLETO (7 COLUMNAS L-D) Y VACACIONES PROPIAS
+    // =========================================================================
+    let currentCalYear = 2026;
+    let currentCalMonth = 11; // Diciembre (0-indexed: 11 = Dic)
+
+    const MONTH_NAMES = [
+      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    ];
+
+    const MADRID_HOLIDAYS = {
+      // 2026
+      '2026-01-01': 'Año Nuevo',
+      '2026-01-06': 'Reyes',
+      '2026-04-02': 'Jueves Santo',
+      '2026-04-03': 'Viernes Santo',
+      '2026-05-01': 'Día Trabajo',
+      '2026-05-02': 'Com. Madrid',
+      '2026-08-06': 'Santos Niños (Alcalá)',
+      '2026-08-15': 'Asunción',
+      '2026-10-09': 'Cervantes (Alcalá)',
+      '2026-10-12': 'Fiesta Nacional',
+      '2026-11-01': 'Todos Santos',
+      '2026-11-02': 'Todos Santos (Traslado)',
+      '2026-12-06': 'Constitución',
+      '2026-12-07': 'Constitución (Traslado)',
+      '2026-12-08': 'Inmaculada',
+      '2026-12-25': 'Navidad',
+      
+      // 2027
+      '2027-01-01': 'Año Nuevo',
+      '2027-01-06': 'Reyes',
+      '2027-03-25': 'Jueves Santo',
+      '2027-03-26': 'Viernes Santo',
+      '2027-05-01': 'Día Trabajo',
+      '2027-05-02': 'Com. Madrid',
+      '2027-05-03': 'Com. Madrid (Traslado)',
+      '2027-08-06': 'Santos Niños (Alcalá)',
+      '2027-08-15': 'Asunción',
+      '2027-08-16': 'Asunción (Traslado)',
+      '2027-10-09': 'Cervantes (Alcalá)',
+      '2027-10-12': 'Fiesta Nacional',
+      '2027-11-01': 'Todos Santos',
+      '2027-12-06': 'Constitución',
+      '2027-12-08': 'Inmaculada',
+      '2027-12-25': 'Navidad'
+    };
+
+    let userVacations = [];
+    try {
+      userVacations = JSON.parse(localStorage.getItem('brujula_vacaciones_adrian_maripaz') || '[]');
+    } catch(e) {
+      userVacations = [];
+    }
+
+    function renderMonthlyCalendar() {
+      const titleEl = document.getElementById('cal-month-title');
+      if (titleEl) {
+        titleEl.textContent = `${MONTH_NAMES[currentCalMonth]} ${currentCalYear}`;
+      }
+
+      // Actualizar botón rápido activo
+      document.querySelectorAll('.btn-month-quick').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(`btn-m-${currentCalYear}-${currentCalMonth}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const grid = document.getElementById('cal-days-grid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      // Primer día del mes y número de días
+      const firstDay = new Date(currentCalYear, currentCalMonth, 1);
+      const daysInMonth = new Date(currentCalYear, currentCalMonth + 1, 0).getDate();
+
+      // Ajustar día de la semana (Lunes = 0, Domingo = 6)
+      let startDayOfWeek = firstDay.getDay() - 1;
+      if (startDayOfWeek === -1) startDayOfWeek = 6;
+
+      // Celdas vacías antes del primer día
+      for (let i = 0; i < startDayOfWeek; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'cal-day-cell cal-day-empty';
+        grid.appendChild(emptyCell);
+      }
+
+      // Celdas de cada día del mes
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dateObj = new Date(currentCalYear, currentCalMonth, d);
+        const dayOfWeek = dateObj.getDay(); // 0 Dom, 6 Sáb
+        const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
+
+        const mStr = String(currentCalMonth + 1).padStart(2, '0');
+        const dStr = String(d).padStart(2, '0');
+        const fullDateKey = `${currentCalYear}-${mStr}-${dStr}`;
+
+        const holidayName = MADRID_HOLIDAYS[fullDateKey];
+        const isHoliday = !!holidayName;
+        const isVacation = userVacations.includes(fullDateKey);
+
+        const cell = document.createElement('div');
+        cell.className = 'cal-day-cell';
+        if (isHoliday) cell.classList.add('day-holiday');
+        else if (isVacation) cell.classList.add('day-vacation');
+        else if (isWeekend) cell.classList.add('day-weekend');
+
+        let labelHtml = '';
+        if (isHoliday) {
+          labelHtml = `<span class="day-label" title="${holidayName}">🔴 ${holidayName}</span>`;
+        } else if (isVacation) {
+          labelHtml = `<span class="day-label" title="Vacaciones Adrián & Maripaz">🏖️ Vac.</span>`;
+        } else if (isWeekend) {
+          labelHtml = `<span class="day-label" style="color: #D97706;">Finde</span>`;
+        } else {
+          labelHtml = `<span class="day-label" style="color: #CBD5E1; font-size: 0.7rem;">+</span>`;
+        }
+
+        cell.innerHTML = `
+          <div class="day-num">${d}</div>
+          ${labelHtml}
+        `;
+
+        cell.onclick = () => toggleVacationDay(fullDateKey, isHoliday);
+        grid.appendChild(cell);
+      }
+
+      updateVacationSummary();
+    }
+
+    function changeCalendarMonth(delta) {
+      currentCalMonth += delta;
+      if (currentCalMonth > 11) {
+        currentCalMonth = 0;
+        currentCalYear++;
+      } else if (currentCalMonth < 0) {
+        currentCalMonth = 11;
+        currentCalYear--;
+      }
+      renderMonthlyCalendar();
+    }
+
+    function gotoCalendarMonth(year, month) {
+      currentCalYear = year;
+      currentCalMonth = month;
+      renderMonthlyCalendar();
+    }
+
+    function toggleVacationDay(dateStr, isHoliday) {
+      if (isHoliday) {
+        alert(`🔴 ¡El ${dateStr} ya es festivo oficial (${MADRID_HOLIDAYS[dateStr]})!
+
+Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anteriores o posteriores podéis enlazar un gran puente.`);
+        return;
+      }
+      const idx = userVacations.indexOf(dateStr);
+      if (idx >= 0) {
+        userVacations.splice(idx, 1);
+      } else {
+        userVacations.push(dateStr);
+        userVacations.sort();
+      }
+      try {
+        localStorage.setItem('brujula_vacaciones_adrian_maripaz', JSON.stringify(userVacations));
+      } catch(e) {}
+      renderMonthlyCalendar();
+    }
+
+    function clearUserVacations() {
+      if (confirm("¿Quieres borrar todos los días de vacaciones que habéis marcado?")) {
+        userVacations = [];
+        try {
+          localStorage.removeItem('brujula_vacaciones_adrian_maripaz');
+        } catch(e) {}
+        renderMonthlyCalendar();
+      }
+    }
+
+    function updateVacationSummary() {
+      const countLabel = document.getElementById('vacation-count-label');
+      const listEl = document.getElementById('vacation-selected-list');
+      if (!countLabel || !listEl) return;
+
+      const count = userVacations.length;
+      countLabel.textContent = `${count} día${count !== 1 ? 's' : ''} marcado${count !== 1 ? 's' : ''} para Adrián & Maripaz`;
+
+      if (count === 0) {
+        listEl.innerHTML = '<em>No habéis marcado ningún día todavía. Toca cualquier día laborable en el calendario arriba para añadirlo y diseñar vuestros puentes.</em>';
+        return;
+      }
+
+      // Agrupar días
+      const tags = userVacations.map(d => {
+        const parts = d.split('-');
+        return `<span style="display: inline-block; background: #ECFDF5; color: #065F46; border: 1px solid #10B981; border-radius: 8px; padding: 4px 10px; font-weight: 700; margin: 3px; font-size: 0.85rem;">🏖️ ${parts[2]}/${parts[1]}/${parts[0]}</span>`;
+      }).join(' ');
+
+      listEl.innerHTML = `
+        <div style="margin-bottom: 8px;"><strong>Días seleccionados:</strong></div>
+        <div style="margin-bottom: 10px;">${tags}</div>
+        <div style="font-size: 0.82rem; color: #64748B;">
+          💡 <em>Podéis pulsar en <strong>"⚡ Cotizar estas fechas abajo"</strong> para cargar automáticamente el primer y último día en el simulador de precios.</em>
+        </div>
+      `;
+    }
+
+    function cargarVacacionesEnSimulador() {
+      if (userVacations.length === 0) {
+        alert("Primero marca al menos un par de días en el calendario arriba tocando con el dedo.");
+        return;
+      }
+      const sorted = [...userVacations].sort();
+      const checkin = sorted[0];
+      const checkout = sorted[sorted.length - 1];
+
+      const inEl = document.getElementById('sim-checkin');
+      const outEl = document.getElementById('sim-checkout');
+      if (inEl && outEl) {
+        inEl.value = checkin;
+        outEl.value = checkout;
+        document.querySelector('.simulator-container').scrollIntoView({ behavior: 'smooth' });
+        ejecutarRecalculoSimulador();
+      }
+    }
+
+    function shareVacationsWhatsApp() {
+      if (userVacations.length === 0) {
+        alert("Primero marca algunos días de vacaciones en el calendario para enviárselos a Maripaz.");
+        return;
+      }
+      const sorted = [...userVacations].sort();
+      const count = sorted.length;
+      const salto = String.fromCharCode(10);
+      const diasTexto = sorted.map(d => {
+        const parts = d.split('-');
+        return "• " + parts[2] + "/" + parts[1] + "/" + parts[0];
+      }).join(salto);
+
+      const texto = "Hola Maripaz 🏖️❤️" + salto + salto +
+        "He estado mirando el calendario laboral en el portal de viajes y he marcado estos *" + count + " días de vacaciones* para que los pidamos y montemos nuestras escapadas:" + salto + salto +
+        diasTexto + salto + salto +
+        "Podemos cotizar los vuelos y hoteles para estas fechas en el portal:" + salto +
+        "👉 https://portal-viajes-familiares.onrender.com" + salto + salto +
+        "¿Cómo lo ves? ¿Te cuadran?";
+
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(texto);
+        }
+      } catch(e) {}
+      const waUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(texto);
+      window.open(waUrl, "_blank");
+    }
+
+    // Inicializar calendario mensual
+    renderMonthlyCalendar();
 
 </script>
 </body>

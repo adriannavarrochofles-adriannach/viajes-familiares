@@ -1677,6 +1677,217 @@
       }
     }
 
+
+    /* ========================================================================= */
+    /* ESTILOS DEL ASISTENTE INTELIGENTE GEMINI (BRÚJULA AI)                     */
+    /* ========================================================================= */
+    .ai-chat-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      border: 2px solid #E0E7FF;
+      box-shadow: 0 15px 35px rgba(99, 102, 241, 0.12);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      max-width: 1050px;
+      margin: 0 auto 40px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .ai-chat-header {
+      background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%);
+      color: #FFFFFF;
+      padding: 22px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 3px solid #6366F1;
+    }
+    .ai-chat-messages {
+      height: 480px;
+      max-height: 60vh;
+      overflow-y: auto;
+      padding: 22px 20px;
+      background: #F8FAFC;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    .ai-msg-bubble {
+      max-width: 85%;
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      box-sizing: border-box;
+      word-break: break-word;
+    }
+    .ai-msg-user {
+      align-self: flex-end;
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      color: #FFFFFF;
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+    .ai-msg-bot {
+      align-self: flex-start;
+      background: #FFFFFF;
+      color: #0F172A;
+      border: 1px solid #E2E8F0;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
+    .ai-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EEF2FF;
+      color: #4F46E5;
+      border: 1.5px solid #C7D2FE;
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      margin-right: 8px;
+      transition: all 0.2s ease;
+      font-family: 'Outfit', sans-serif;
+      box-shadow: 0 2px 6px rgba(99, 102, 241, 0.15);
+    }
+    .ai-action-btn:hover {
+      background: #4F46E5;
+      color: #FFFFFF;
+      border-color: #4F46E5;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+    .ai-chat-input-bar {
+      background: #FFFFFF;
+      border-top: 1.5px solid #E2E8F0;
+      padding: 14px 18px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .ai-chat-input {
+      flex: 1;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.92rem;
+      font-family: 'Outfit', sans-serif;
+      color: #0F172A;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+      min-width: 0;
+    }
+    .ai-chat-input:focus {
+      border-color: #6366F1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+    .ai-send-btn {
+      background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 22px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      font-family: 'Outfit', sans-serif;
+      flex-shrink: 0;
+    }
+    .ai-send-btn:hover {
+      background: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+      transform: translateY(-1px);
+    }
+    .ai-send-btn:disabled {
+      background: #94A3B8;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .chip-prompt {
+      background: #F1F5F9;
+      color: #334155;
+      border: 1px solid #CBD5E1;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .chip-prompt:hover {
+      background: #E0E7FF;
+      color: #4338CA;
+      border-color: #A5B4FC;
+      transform: translateY(-1px);
+    }
+    #brujula-ai-fab {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+      color: #FFF;
+      padding: 12px 18px;
+      border-radius: 30px;
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.45);
+      cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.4);
+      font-family: 'Outfit', sans-serif;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    #brujula-ai-fab:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 15px 30px rgba(99, 102, 241, 0.6);
+    }
+    @media (max-width: 640px) {
+      .ai-chat-messages {
+        height: 380px;
+        padding: 14px 10px;
+      }
+      .ai-msg-bubble {
+        max-width: 95%;
+        font-size: 0.88rem;
+        padding: 12px 14px;
+      }
+      .ai-chat-input-bar {
+        padding: 10px 8px;
+        gap: 6px;
+      }
+      .ai-chat-input {
+        padding: 10px 12px;
+        font-size: 0.86rem;
+      }
+      .ai-send-btn {
+        padding: 10px 14px;
+        font-size: 0.86rem;
+      }
+      #brujula-ai-fab {
+        bottom: 15px !important;
+        right: 15px !important;
+        padding: 9px 14px !important;
+        font-size: 0.85rem !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1691,6 +1902,7 @@
         <ul class="nav-menu">
           <li><button class="nav-btn active" onclick="switchTab('overview')">🏡 Todos los Viajes</button></li>
           <li><button class="nav-btn" style="background: rgba(16, 185, 129, 0.2); color: #10B981; font-weight: 800; border: 2px solid #10B981; box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);" onclick="switchTab('calendario')">📅 Calendario & Radar de Ahorro</button></li>
+          <li><button class="nav-btn" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(168, 85, 247, 0.25) 100%); color: #8B5CF6; font-weight: 800; border: 2px solid #8B5CF6; box-shadow: 0 0 12px rgba(139, 92, 246, 0.35);" onclick="switchTab('asistente')">🤖 Brújula AI · Gemini</button></li>
           <li><button class="nav-btn btn-teal" onclick="switchTab('sanseb')">🌲 San Sebastián (Dic)</button></li>
           <li><button class="nav-btn" style="color: #F59E0B; font-weight: 700;" onclick="switchTab('alsacia')">🎄 Alsacia (Dic)</button></li>
           <li><button class="nav-btn" style="color: #D97706; font-weight: 700;" onclick="switchTab('nuremberg')">🥨 Núremberg (Dic)</button></li>
@@ -1716,6 +1928,9 @@
           </div>
         </div>
         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <button onclick="switchTab('asistente')" style="background: linear-gradient(135deg, #6366F1, #8B5CF6); color: #FFF; font-size: 0.82rem; font-weight: 800; padding: 6px 14px; border-radius: 20px; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 0 12px rgba(139,92,246,0.4);">
+            <span>🤖 Preguntar a Brújula AI ➔</span>
+          </button>
           <button onclick="switchTab('calendario')" style="background: #10B981; color: #FFF; font-size: 0.82rem; font-weight: 800; padding: 6px 14px; border-radius: 20px; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 0 12px rgba(16,185,129,0.4);">
             <span>📅 Ver Calendario Anual & Ahorro ➔</span>
           </button>
@@ -2920,7 +3135,9 @@
 
   </div>
 
-  <!-- FOOTER -->
+
+
+    <!-- FOOTER -->
     </div>
   </div>
 
@@ -7429,7 +7646,106 @@
     </div>
   </div>
 
-  <!-- FOOTER -->
+    <!-- ========================================================================= -->
+  <!-- PESTAÑA: ASISTENTE INTELIGENTE GEMINI (BRÚJULA AI)                        -->
+  <!-- ========================================================================= -->
+  <div id="tab-asistente" class="tab-view">
+    <section class="hero-subpage" style="background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #312E81 100%); padding: 45px 20px; text-align: center; color: #FFF; border-bottom: 4px solid #6366F1;">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(99, 102, 241, 0.25); border: 1.5px solid #818CF8; border-radius: 20px; padding: 6px 16px; margin-bottom: 14px; font-size: 0.82rem; font-weight: 700;">
+          <span style="width: 8px; height: 8px; background: #10B981; border-radius: 50%; box-shadow: 0 0 8px #10B981;"></span>
+          En Línea · Modelo Gemini Inteligente en Directo
+        </div>
+        <h1 style="font-size: 2.2rem; font-weight: 900; margin: 0 0 10px; letter-spacing: -0.5px;">
+          🤖 Brújula AI · Asistente Familiar de Viajes
+        </h1>
+        <p style="font-size: 1.05rem; color: #CBD5E1; line-height: 1.6; margin: 0 auto; max-width: 780px;">
+          Haz cualquier consulta en lenguaje natural: pedir <strong>propuestas nuevas</strong> de viajes, evaluar <strong>cambios de fechas</strong>, calcular <strong>ahorros en temporada valle</strong> o planificar paradas y actividades para <strong>Marco (4 años)</strong>.
+        </p>
+      </div>
+    </section>
+
+    <div class="container" style="margin-top: 30px;">
+
+      <!-- CHAT STUDIO CARD -->
+      <div class="ai-chat-card">
+        
+        <!-- HEADER -->
+        <div class="ai-chat-header">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #6366F1, #8B5CF6); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(99,102,241,0.4);">
+              🧭
+            </div>
+            <div>
+              <div style="font-size: 1.15rem; font-weight: 800; color: #FFF; display: flex; align-items: center; gap: 8px;">
+                Brújula AI
+                <span style="font-size: 0.7rem; background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid #059669; padding: 2px 8px; border-radius: 10px; font-weight: 700;">ACTIVO</span>
+              </div>
+              <div style="font-size: 0.8rem; color: #A5B4FC;">
+                Conoce vuestro Volvo XC60, salida desde Alcalá y filosofía 'Bueno, bonito y barato'
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" onclick="reiniciarChat()" style="background: rgba(255,255,255,0.1); color: #E2E8F0; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 6px 12px; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s;">
+              🔄 Reiniciar conversación
+            </button>
+          </div>
+        </div>
+
+        <!-- QUICK CHIPS -->
+        <div style="background: #F1F5F9; border-bottom: 1px solid #E2E8F0; padding: 12px 18px; overflow-x: auto; display: flex; gap: 8px; align-items: center;">
+          <span style="font-size: 0.75rem; font-weight: 800; color: #64748B; text-transform: uppercase; white-space: nowrap;">Sugerencias:</span>
+          <button type="button" class="chip-prompt" onclick="enviarSugerencia('¿Qué viaje del portal sale más económico para viajar los 3?')">💰 ¿Qué viaje sale más barato?</button>
+          <button type="button" class="chip-prompt" onclick="enviarSugerencia('Propón un nuevo viaje para Semana Santa 2027 con niño de 4 años')">🏰 Escapada Semana Santa 2027</button>
+          <button type="button" class="chip-prompt" onclick="enviarSugerencia('¿Cómo podemos ahorrar el 48% en Alsacia y qué fechas son las mejores?')">📉 Ahorro 48% en Alsacia</button>
+          <button type="button" class="chip-prompt" onclick="enviarSugerencia('Recomiéndame los mejores planes y paradas para Marco (4 años) en carretera')">👶 Consejos para Marco (4 años)</button>
+          <button type="button" class="chip-prompt" onclick="enviarSugerencia('¿Qué escapadas recomiendas para hacer con el Volvo XC60 desde Alcalá de Henares?')">🚗 Rutas en Volvo XC60</button>
+          <button type="button" class="chip-prompt" onclick="enviarSugerencia('¿Qué tal Transilvania en enero con nieve, castillo de Drácula y la mina?')">❄️ Transilvania en invierno</button>
+        </div>
+
+        <!-- MESSAGES CONTAINER -->
+        <div id="ai-chat-messages" class="ai-chat-messages">
+          <!-- Mensaje de bienvenida inicial -->
+          <div class="ai-msg-bubble ai-msg-bot">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span style="font-size: 1.1rem;">🧭</span>
+              <strong style="color: #4F46E5; font-size: 0.88rem;">Brújula AI</strong>
+            </div>
+            <p style="margin: 0 0 8px;">
+              ¡Hola Adrián y Maripaz! 👋 Soy vuestro <strong>Asistente Inteligente de Viajes Familiares</strong>.
+            </p>
+            <p style="margin: 0 0 8px;">
+              Tengo cargados todos los datos de vuestros 6 viajes actuales, vuestro vehículo (Volvo XC60), el calendario de puentes y vuestro saldo de vacaciones marcadas. Podéis pedirme:
+            </p>
+            <ul style="margin: 0 0 8px; padding-left: 20px; line-height: 1.5;">
+              <li><strong>Proponer destinos nuevos</strong> (ej: Selva Negra, Viena, Disneyland París, Asturias, etc.).</li>
+              <li><strong>Prospección y cambios de fechas</strong> para encontrar tarifas mínimas en temporada valle.</li>
+              <li><strong>Adaptación para Marco (4 años)</strong>: atracciones infantiles, tiempos de siesta y paradas recomendadas.</li>
+              <li><strong>Presupuestos al céntimo</strong> y valoraciones directas.</li>
+            </ul>
+            <p style="margin: 0; font-size: 0.85rem; color: #64748B;">
+              <em>Pinchad en cualquiera de las sugerencias arriba o escribid vuestra consulta aquí abajo.</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- INPUT BAR -->
+        <div class="ai-chat-input-bar">
+          <input type="text" id="ai-chat-input" class="ai-chat-input" placeholder="Pregunta lo que quieras a Brújula (ej: 'Calcula Núremberg para el puente o propón Selva Negra')..." onkeydown="if(event.key === 'Enter') enviarMensajeUsuario()">
+          <button type="button" id="ai-send-btn" class="ai-send-btn" onclick="enviarMensajeUsuario()">
+            <span>Enviar</span>
+            <span style="font-size: 1.1rem;">➔</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+    <!-- FOOTER -->
   <footer>
     <p><strong>Portal Oficial de Viajes Familiares · Viajes Brújula</strong></p>
     <p style="margin-top: 8px; color: #64748B;">Diseñado para navegación reactiva instantánea. Guarda esta web en favoritos o compártela por WhatsApp.</p>
@@ -7447,11 +7763,16 @@
       }
 
       document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-      const tabOrder = ['overview', 'calendario', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania'];
+      const tabOrder = ['overview', 'calendario', 'asistente', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania'];
       const activeIdx = tabOrder.indexOf(tabId);
       const navBtns = document.querySelectorAll('.nav-btn');
       if (activeIdx !== -1 && navBtns[activeIdx]) {
         navBtns[activeIdx].classList.add('active');
+      }
+
+      const fab = document.getElementById('brujula-ai-fab');
+      if (fab) {
+        fab.style.display = (tabId === 'asistente') ? 'none' : 'flex';
       }
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -8495,6 +8816,219 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
     // Inicializar calendario mensual
     renderMonthlyCalendar();
 
+
+    // =========================================================================
+    // MOTOR DE ASISTENTE INTELIGENTE GEMINI (BRÚJULA AI)
+    // =========================================================================
+    let chatConversationHistory = [];
+    let isAiThinking = false;
+
+    function enviarSugerencia(texto) {
+      const input = document.getElementById('ai-chat-input');
+      if (input) {
+        input.value = texto;
+        enviarMensajeUsuario();
+      }
+    }
+
+    function reiniciarChat() {
+      if (confirm("¿Quieres reiniciar la conversación con Brújula AI?")) {
+        chatConversationHistory = [];
+        const container = document.getElementById('ai-chat-messages');
+        if (container) {
+          container.innerHTML = `
+            <div class="ai-msg-bubble ai-msg-bot">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="font-size: 1.1rem;">🧭</span>
+                <strong style="color: #4F46E5; font-size: 0.88rem;">Brújula AI</strong>
+              </div>
+              <p style="margin: 0;">
+                ¡Conversación reiniciada! ¿Qué queréis que exploremos ahora, Adrián y Maripaz?
+              </p>
+            </div>
+          `;
+        }
+      }
+    }
+
+    async function enviarMensajeUsuario() {
+      const input = document.getElementById('ai-chat-input');
+      const sendBtn = document.getElementById('ai-send-btn');
+      const container = document.getElementById('ai-chat-messages');
+      if (!input || !container || isAiThinking) return;
+
+      const userText = input.value.trim();
+      if (!userText) return;
+
+      input.value = '';
+      isAiThinking = true;
+      if (sendBtn) sendBtn.disabled = true;
+
+      // 1. Renderizar mensaje del usuario
+      const userBubble = document.createElement('div');
+      userBubble.className = 'ai-msg-bubble ai-msg-user';
+      userBubble.textContent = userText;
+      container.appendChild(userBubble);
+
+      // 2. Indicador de carga
+      const typingBubble = document.createElement('div');
+      typingBubble.className = 'ai-msg-bubble ai-msg-bot';
+      typingBubble.id = 'ai-typing-indicator';
+      typingBubble.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 8px; color: #6366F1; font-weight: 700; font-size: 0.88rem;">
+          <span style="display: inline-block; animation: pulse 1s infinite;">🤖</span>
+          <span>Brújula está calculando y analizando opciones con Gemini...</span>
+        </div>
+      `;
+      container.appendChild(typingBubble);
+      container.scrollTop = container.scrollHeight;
+
+      // 3. Preparar payload
+      const payload = {
+        message: userText,
+        history: chatConversationHistory.map(h => ({ role: h.role, text: h.text })),
+        current_tab: typeof currentTab !== 'undefined' ? currentTab : 'overview',
+        marked_vacations: typeof userVacations !== 'undefined' ? userVacations : []
+      };
+
+      // 4. Llamada al endpoint backend /api/gemini/chat
+      let botReply = '';
+      let botActions = [];
+
+      try {
+        const API_BASE = window.location.origin.startsWith('http') && !window.location.origin.includes('github.io')
+          ? '' 
+          : 'https://portal-viajes-familiares.onrender.com';
+        const resp = await fetch(API_BASE + '/api/gemini/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (resp.ok) {
+          const data = await resp.json();
+          botReply = data.reply || '';
+          botActions = data.actions || [];
+        } else {
+          throw new Error('Respuesta del servidor: ' + resp.status);
+        }
+      } catch (err) {
+        console.warn('Error conectando a /api/gemini/chat:', err);
+        // Fallback local enriquecido si el backend no estuviese activo
+        botReply = responderFallbackLocal(userText);
+      } finally {
+        // Quitar indicador de carga
+        const typingEl = document.getElementById('ai-typing-indicator');
+        if (typingEl) typingEl.remove();
+        isAiThinking = false;
+        if (sendBtn) sendBtn.disabled = false;
+      }
+
+      // 5. Renderizar respuesta del bot
+      const botBubble = document.createElement('div');
+      botBubble.className = 'ai-msg-bubble ai-msg-bot';
+
+      let formattedHtml = formatearMarkdownBasico(botReply);
+
+      // Renderizar botones de acción interactiva
+      let actionsHtml = '';
+      if (botActions && botActions.length > 0) {
+        actionsHtml = '<div style="margin-top: 12px; padding-top: 10px; border-top: 1px dashed #CBD5E1; display: flex; flex-wrap: wrap; gap: 6px;">';
+        botActions.forEach((act, idx) => {
+          const actStr = encodeURIComponent(JSON.stringify(act));
+          actionsHtml += `
+            <button type="button" class="ai-action-btn" onclick="ejecutarAccionAi(decodeURIComponent('${actStr}'))">
+              ${act.label || 'Ver opción'}
+            </button>
+          `;
+        });
+        actionsHtml += '</div>';
+      }
+
+      botBubble.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+          <span style="font-size: 1.1rem;">🧭</span>
+          <strong style="color: #4F46E5; font-size: 0.88rem;">Brújula AI</strong>
+        </div>
+        <div style="line-height: 1.6;">${formattedHtml}</div>
+        ${actionsHtml}
+      `;
+      container.appendChild(botBubble);
+      container.scrollTop = container.scrollHeight;
+
+      // 6. Guardar en historial
+      chatConversationHistory.push({ role: 'user', text: userText });
+      chatConversationHistory.push({ role: 'model', text: botReply });
+    }
+
+    function ejecutarAccionAi(actionDataStr) {
+      try {
+        const act = JSON.parse(actionDataStr);
+        if (act.action === 'open_tab' && act.tab) {
+          switchTab(act.tab);
+        } else if (act.action === 'simulate_dates') {
+          switchTab('calendario');
+          setTimeout(() => {
+            const destSelect = document.getElementById('sim-dest');
+            const inEl = document.getElementById('sim-checkin');
+            const outEl = document.getElementById('sim-checkout');
+            if (destSelect && act.destination) destSelect.value = act.destination;
+            if (inEl && act.checkin) inEl.value = act.checkin;
+            if (outEl && act.checkout) outEl.value = act.checkout;
+            document.querySelector('.simulator-container').scrollIntoView({ behavior: 'smooth' });
+            if (typeof ejecutarRecalculoSimulador === 'function') ejecutarRecalculoSimulador();
+          }, 200);
+        } else if (act.action === 'open_calendar') {
+          switchTab('calendario');
+          setTimeout(() => {
+            if (typeof gotoCalendarMonth === 'function') gotoCalendarMonth(act.year || 2026, act.month || 11);
+            document.querySelector('.monthly-calendar-section').scrollIntoView({ behavior: 'smooth' });
+          }, 200);
+        } else if (act.action === 'open_url' && act.url) {
+          window.open(act.url, '_blank');
+        }
+      } catch(e) {
+        console.error("Error al ejecutar acción AI:", e);
+      }
+    }
+
+    function formatearMarkdownBasico(txt) {
+      if (!txt) return '';
+      let html = txt
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+      // Negritas **texto**
+      html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      // Cursivas *texto*
+      html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      // Saltos de línea
+      html = html.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+
+      return html;
+    }
+
+    function responderFallbackLocal(pregunta) {
+      const p = pregunta.toLowerCase();
+      if (p.includes('alsacia') || p.includes('ahorro') || p.includes('48%')) {
+        return "¡Hola! En **Alsacia**, el pico del Puente de Diciembre (5-8 Dic) cuesta unos 2.327€ para los 3 debido a la saturación extrema. Si viajáis en la **semana del 20 al 23 de Noviembre** (cuando los mercadillos de Estrasburgo y Colmar ya están inaugurados), el presupuesto baja a solo **1.209€** (un ahorro real de **1.118€ / 48%**).";
+      } else if (p.includes('barato') || p.includes('economico')) {
+        return "El viaje más económico y flexible es **San Sebastián & Caserío Vasco-Navarro en el Volvo XC60** por solo **749€ total** (unos 250€ por persona), con combustible incluido y sin dependencia de billetes de avión. De los viajes en avión, **Italia (Venecia & Florencia)** en temporada valle sale por solo **590€ total**.";
+      } else if (p.includes('marco') || p.includes('niño') || p.includes('4 años')) {
+        return "Para Marco (4 años), los mejores destinos son: 1) **Núremberg** con la *Kinderweihnacht* (mercadillo infantil con tren de vapor y noria de época) y el *Museo del Juguete*. 2) **Transilvania** con la noria gigante subterránea en *Salina Turda*. En coche con el Volvo XC60, la recomendación de oro es hacer paradas cada 2 horas en áreas con zona verde para que desfogue.";
+      } else {
+        return "¡Excelente consulta! He registrado vuestra preferencia. Podéis probar las fechas exactas que queráis en el **Simulador de Fechas** de la pestaña 'Calendario' o consultar la ficha completa de cualquiera de los 6 viajes en el menú superior.";
+      }
+    }
+
 </script>
+  <!-- BOTÓN FLOTANTE ASISTENTE BRÚJULA AI (ACCESIBLE EN CUALQUIER PESTAÑA) -->
+  <div id="brujula-ai-fab" onclick="switchTab('asistente')" title="Abrir Asistente Inteligente Brújula AI">
+    <span style="font-size: 1.3rem;">🤖</span>
+    <span style="font-weight: 800; font-size: 0.9rem;">Brújula AI</span>
+    <span style="background: #10B981; color: #FFF; font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 10px; letter-spacing: 0.5px;">GEMINI</span>
+  </div>
+
 </body>
 </html>

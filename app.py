@@ -39,6 +39,14 @@ for sdir in static_dirs:
     if os.path.isdir(dir_path):
         app.mount(f"/{sdir}", StaticFiles(directory=dir_path), name=sdir)
 
+@app.get("/", response_class=FileResponse)
+async def serve_root():
+    return FileResponse(os.path.join(BASE_DIR, "index.html"))
+
+@app.get("/index.html", response_class=FileResponse)
+async def serve_index():
+    return FileResponse(os.path.join(BASE_DIR, "index.html"))
+
 # Modelos Pydantic
 class RecalculateRequest(BaseModel):
     destination: str = Field(..., description="Identificador del destino: alsacia, nuremberg, budapest, italia, rumania, sanseb")
@@ -558,3 +566,135 @@ def get_prospection_matrix():
             }
         ]
     }
+
+
+# ==============================================================================
+# ENDPOINT DE ASISTENTE INTELIGENTE GEMINI (BRÚJULA AI)
+# ==============================================================================
+import requests
+import json
+import re
+
+# Cargar .env local si existe (para desarrollo o servidor local)
+env_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(env_file):
+    with open(env_file, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
+
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+
+class GeminiMessage(BaseModel):
+    role: str = Field(..., description="'user' o 'model'")
+    text: str = Field(...)
+
+class GeminiChatRequest(BaseModel):
+    message: str = Field(..., description="Consulta del usuario en lenguaje natural")
+    history: Optional[List[GeminiMessage]] = Field(default=[], description="Historial previo de la conversación")
+    current_tab: Optional[str] = Field(default=None, description="Pestaña actual donde está el usuario")
+    marked_vacations: Optional[List[str]] = Field(default=[], description="Días de vacaciones marcados por el usuario")
+
+class GeminiChatResponse(BaseModel):
+    reply: str
+    actions: List[Dict[str, Any]] = []
+
+BRUJULA_SYSTEM_PROMPT = """
+Eres Brújula AI, el asesor inteligente de confianza para la planificación de viajes de la familia de Adrián, Maripaz y su hijo Marco (4 años), residentes en Alcalá de Henares (Madrid).
+Viajan habitualmente en su Volvo XC60 para rutas nacionales o en avión desde Madrid-Barajas (Adolfo Suárez) para viajes europeos.
+Tu filosofía es 'Bueno, bonito y barato': prospección activa de ahorro, evitando pagar sobrecostes innecesarios en puentes saturados cuando una fecha valle (como finales de noviembre o enero) ofrece los mismos encantos con hasta un 48% de descuento.
+Siempre priorizas la seguridad, logística y diversión de Marco (4 años): ritmos tranquilos, atracciones mágicas (dinosaurios, castillos, trenecitos, mercadillos navideños, parques), alojamientos familiares cómodos y pausas frecuentes en coche.
+
+Conocimiento de viajes actuales disponibles en el portal:
+1. San Sebastián & Caserío Erreteneko (Navarra): En coche Volvo XC60 (445 km, 4h30m). Presupuesto base 749€ (3 personas). Caserío rural vasco-navarro, bahía de La Concha, Aquarium Donostia, monte Igueldo y paseo en funicular.
+2. Alsacia (Estrasburgo, Colmar, Eguisheim, Riquewihr): Vuelos a Basilea (BSL) o Estrasburgo. En puente 2.327€ vs 1.209€ a finales de noviembre (-48% / 1.118€ de ahorro). Mercadillos navideños de cuento, casas de entramado de madera.
+3. Núremberg (Baviera): Vuelos directos a NUE o Múnich. En puente 1.805€ vs 1.050€ a finales de noviembre (-42% / 755€ de ahorro). Christkindlesmarkt, Museo del Juguete, Castillo Imperial, tren DB.
+4. Budapest (Hungría): Vuelos directos Wizz Air/Ryanair. En puente 1.434€ vs 860€ en temporada valle (-40% / 574€ de ahorro). Tranvía de la Navidad iluminado, balnearios familiares Széchenyi, Castillo de Buda, Parlamento.
+5. Italia (Venecia, Florencia, Pisa): Vuelos a Bolonia o Venecia + Frecciarossa. En Año Nuevo 940€ vs 590€ en temporada valle (-37% / 350€ de ahorro). Góndolas, Piazza San Marco, Duomo de Florencia, Torre de Pisa.
+6. Transilvania (Rumanía, Cluj-Napoca, Castillo de Bran/Drácula, Castillo de Corvino, Salina Turda): En Año Nuevo 1.436€ vs 820€ en segunda quincena de enero (-43% / 616€ de ahorro). Paisajes nevados, minas de sal con noria subterránea y barcas.
+
+Calendario y festivos de Madrid / Alcalá:
+- 2026: Puente de Todos los Santos (1-2 Nov), Puente de la Constitución / Inmaculada (5-8 Dic), Navidad (25 Dic).
+- 2027: Reyes (6 Ene), Semana Santa (25-28 Mar), Puente de Mayo (1-3 May), Santos Niños Alcalá (6 Ago), Asunción (15-16 Ago), Fiesta Nacional / Cervantes (9-12 Oct), Todos los Santos (1 Nov), Constitución / Inmaculada (6-8 Dic).
+
+Directrices de formato y estilo:
+- Sé cercano, profesional, conciso y entusiasta. Utiliza viñetas y negritas para facilitar la lectura rápida en el móvil.
+- Cuando propongas nuevos destinos, cambios de fechas o recálculos, añade al final de tu mensaje un bloque ```actions ... ``` con botones interactivos para que la web permita al usuario ejecutarlos con un solo clic.
+
+Formato del bloque de acciones (opcional, cuando aplique):
+```actions
+[
+  {"action": "simulate_dates", "destination": "alsacia", "checkin": "2026-11-20", "checkout": "2026-11-23", "label": "⚡ Cotizar Alsacia 20-23 Nov en Simulador"},
+  {"action": "open_tab", "tab": "alsacia", "label": "📍 Abrir ficha de Alsacia"}
+]
+```
+Acciones disponibles:
+- `open_tab`: "sanseb" | "alsacia" | "nuremberg" | "budapest" | "italia" | "rumania" | "calendario".
+- `simulate_dates`: destination, checkin (AAAA-MM-DD), checkout (AAAA-MM-DD).
+- `open_calendar`: year, month (0-11).
+"""
+
+@app.post("/api/gemini/chat", response_model=GeminiChatResponse)
+async def gemini_chat(req: GeminiChatRequest):
+    if not GEMINI_API_KEY:
+        raise HTTPException(status_code=500, detail="GEMINI_API_KEY no configurada en el servidor.")
+
+    contents = []
+    
+    ctx_parts = [BRUJULA_SYSTEM_PROMPT]
+    if req.current_tab:
+        ctx_parts.append(f"Nota de contexto: El usuario está viendo actualmente la pestaña '{req.current_tab}'.")
+    if req.marked_vacations:
+        ctx_parts.append(f"Días de vacaciones que Adrián y Maripaz tienen marcados en su calendario: {', '.join(req.marked_vacations)}.")
+
+    for h in req.history[-6:]:
+        role = "user" if h.role == "user" else "model"
+        contents.append({"role": role, "parts": [{"text": h.text}]})
+
+    contents.append({"role": "user", "parts": [{"text": req.message}]})
+
+    payload = {
+        "systemInstruction": {"parts": [{"text": "\n\n".join(ctx_parts)}]},
+        "contents": contents,
+        "generationConfig": {
+            "temperature": 0.7,
+            "maxOutputTokens": 1000
+        }
+    }
+
+    models = ["gemini-3.5-flash-lite", "gemini-3.5-flash"]
+    last_error = None
+    response_text = None
+
+    for m in models:
+        try:
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={GEMINI_API_KEY}"
+            resp = requests.post(url, json=payload, timeout=18)
+            if resp.status_code == 200:
+                data = resp.json()
+                candidates = data.get("candidates", [])
+                if candidates and "content" in candidates[0]:
+                    response_text = candidates[0]["content"]["parts"][0]["text"]
+                    break
+            else:
+                last_error = f"{m} HTTP {resp.status_code}: {resp.text[:200]}"
+        except Exception as e:
+            last_error = f"{m} Exception: {str(e)}"
+
+    if not response_text:
+        response_text = f"Hola Adrián y Maripaz. En este momento el servicio de Gemini está tardando en responder ({last_error}). Podéis consultar los precios en tiempo real y el radar de ahorro directamente en la pestaña del viaje o en el Simulador de Fechas."
+
+    actions = []
+    action_match = re.search(r"```actions\s*([\s\S]*?)\s*```", response_text)
+    if action_match:
+        try:
+            parsed_actions = json.loads(action_match.group(1))
+            if isinstance(parsed_actions, list):
+                actions = parsed_actions
+        except Exception:
+            pass
+        response_text = re.sub(r"```actions\s*[\s\S]*?\s*```", "", response_text).strip()
+
+    return GeminiChatResponse(reply=response_text, actions=actions)

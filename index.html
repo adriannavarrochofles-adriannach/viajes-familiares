@@ -1202,6 +1202,143 @@
         font-size: 0.85rem !important;
       }
     }
+
+    /* CALENDARIO ANUAL & SIMULADOR DE FECHAS (RENDER API) */
+    .hero-calendario {
+      background: linear-gradient(135deg, #0B132B 0%, #064E3B 50%, #0F172A 100%);
+      color: #FFFFFF;
+      padding: 50px 20px 40px;
+      text-align: center;
+      border-bottom: 3px solid #10B981;
+    }
+    .calendar-holiday-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .holiday-card {
+      background: #FFFFFF;
+      border-radius: 14px;
+      border: 1px solid #E2E8F0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .holiday-card.badge-verde { border-top: 4px solid #10B981; }
+    .holiday-card.badge-amarillo { border-top: 4px solid #F59E0B; }
+    .holiday-card.badge-rojo { border-top: 4px solid #EF4444; }
+    
+    .holiday-dates {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #0284C7;
+      margin-bottom: 6px;
+    }
+    .holiday-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin-bottom: 8px;
+    }
+    .holiday-detail {
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .holiday-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    .pill-verde { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
+    .pill-amarillo { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+    .pill-rojo { background: #FEE2E2; color: #991B1B; border: 1px solid #FECACA; }
+
+    /* SIMULADOR DE FECHAS EN VIVO */
+    .simulator-container {
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 2px solid #38BDF8;
+      box-shadow: 0 10px 30px rgba(2, 132, 199, 0.12);
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+    .sim-form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      align-items: flex-end;
+      margin-top: 18px;
+    }
+    .sim-field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sim-field input, .sim-field select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #CBD5E1;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      color: #0F172A;
+      background: #F8FAFC;
+    }
+    .sim-btn-recalc {
+      background: linear-gradient(135deg, #0284C7 0%, #0D9488 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+    .sim-btn-recalc:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
+    }
+
+    /* TARJETA DE RESULTADO DEL SIMULADOR */
+    .sim-result-card {
+      background: #F8FAFC;
+      border-radius: 14px;
+      border: 1px solid #E2E8F0;
+      padding: 20px;
+      margin-top: 22px;
+      display: none;
+    }
+    .sim-result-card.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
@@ -1221,6 +1358,7 @@
           <li><button class="nav-btn" style="color: #38BDF8; font-weight: 700;" onclick="switchTab('budapest')">✨ Budapest (Dic)</button></li>
           <li><button class="nav-btn" onclick="switchTab('italia')">🇮🇹 Venecia & Florencia</button></li>
           <li><button class="nav-btn btn-indigo" onclick="switchTab('rumania')">❄️ Transilvania (Rumanía)</button></li>
+          <li><button class="nav-btn" style="color: #10B981; font-weight: 800; border: 1px solid rgba(16, 185, 129, 0.4);" onclick="switchTab('calendario')">📅 Calendario & Radar de Ahorro</button></li>
         </ul>
       </nav>
     </div>
@@ -6073,6 +6211,345 @@
     </div>
   </div>
 
+  <!-- TAB CALENDARIO & RADAR DE AHORRO -->
+  <div id="tab-calendario" class="tab-view">
+    <section class="portal-hero hero-calendario">
+      <div class="hero-badge" style="background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid #10B981;">
+        🗓️ PLANIFICACIÓN INTEGRAL DE VACACIONES Y PUENTES · 2026 & 2027
+      </div>
+      <h1 style="font-size: 2.3rem; font-weight: 800; margin-top: 12px; margin-bottom: 12px;">
+        Calendario Anual & Radar de Ahorro
+      </h1>
+      <p style="max-width: 850px; margin: 0 auto 20px; font-size: 1.05rem; color: #E2E8F0; font-weight: 300;">
+        Optimización de puentes laborales y escolares desde Alcalá de Henares / Madrid. Descubre en qué fechas sale cada viaje un 40% a 50% más barato y simula cambios de fechas en tiempo real con recálculo dinámico.
+      </p>
+    </section>
+
+    <div class="container" style="margin-top: 30px;">
+
+      <!-- SIMULADOR DINÁMICO DE FECHAS EN TIEMPO REAL -->
+      <section class="simulator-container">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 2px solid #E2E8F0; padding-bottom: 14px;">
+          <div>
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #0F172A; margin: 0 0 4px;">
+              ⚡ Simulador de Fechas & Recálculo en Vivo (Render Backend)
+            </h2>
+            <p style="margin: 0; font-size: 0.88rem; color: #64748B;">
+              Cambia las fechas o el destino para recalcular presupuestos exactos al céntimo y actualizar los enlaces de reserva a Google Flights y Booking.
+            </p>
+          </div>
+          <span style="background: #E0F2FE; color: #0284C7; font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid #BAE6FD;">
+            🟢 Backend Render Conectado
+          </span>
+        </div>
+
+        <div class="sim-form-grid">
+          <div class="sim-field">
+            <label for="sim-dest">Destino a Cotizar:</label>
+            <select id="sim-dest">
+              <option value="alsacia">🎄 Alsacia (Mercadillos Navideños)</option>
+              <option value="nuremberg">🥨 Núremberg (Baviera Histórica)</option>
+              <option value="budapest">✨ Budapest (Danubio & Luces)</option>
+              <option value="italia">🇮🇹 Venecia & Florencia (Italia)</option>
+              <option value="rumania">❄️ Transilvania & Castillos (Rumanía)</option>
+              <option value="sanseb">🌲 San Sebastián & Caserío (Navarra)</option>
+            </select>
+          </div>
+          <div class="sim-field">
+            <label for="sim-checkin">Fecha de Ida:</label>
+            <input type="date" id="sim-checkin" value="2026-11-20">
+          </div>
+          <div class="sim-field">
+            <label for="sim-checkout">Fecha de Vuelta:</label>
+            <input type="date" id="sim-checkout" value="2026-11-23">
+          </div>
+          <div class="sim-field">
+            <label for="sim-adults">Adultos:</label>
+            <select id="sim-adults">
+              <option value="2" selected>2 Adultos</option>
+              <option value="4">4 Adultos (2 Parejas)</option>
+              <option value="1">1 Adulto</option>
+              <option value="3">3 Adultos</option>
+            </select>
+          </div>
+          <div class="sim-field">
+            <label for="sim-children">Niños:</label>
+            <select id="sim-children">
+              <option value="1" selected>1 Niño (Marco 4a)</option>
+              <option value="0">Sin niños</option>
+              <option value="2">2 Niños</option>
+            </select>
+          </div>
+          <div class="sim-field">
+            <button class="sim-btn-recalc" onclick="ejecutarRecalculoSimulador()">
+              <span>⚡ Recalcular en Directo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TARJETA DE RESULTADOS EN VIVO -->
+        <div id="sim-result-box" class="sim-result-card">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; border-bottom: 1px solid #CBD5E1; padding-bottom: 12px;">
+            <div>
+              <h3 id="sim-res-title" style="font-size: 1.25rem; font-weight: 800; color: #0F172A; margin: 0 0 4px;">
+                Presupuesto Recalculado
+              </h3>
+              <div id="sim-res-dates" style="font-size: 0.9rem; color: #64748B;">
+                3 noches · 4 días · 3 viajeros
+              </div>
+            </div>
+            <div id="sim-res-badge" style="background: #10B981; color: #FFF; font-size: 0.85rem; font-weight: 700; padding: 6px 14px; border-radius: 20px;">
+              Apertura Temprana de Adviento (Ahorro del 38%)
+            </div>
+          </div>
+
+          <div id="sim-res-tip" style="background: #F0FDF4; border-left: 4px solid #10B981; padding: 12px 14px; border-radius: 8px; font-size: 0.9rem; color: #166534; margin-bottom: 16px;">
+            Consejo estacional en directo.
+          </div>
+
+          <!-- TABLA DE DESGLOSE SIMULADA -->
+          <div class="table-responsive">
+            <table class="cost-table" id="sim-table-breakdown">
+              <thead>
+                <tr>
+                  <th>Concepto del Presupuesto</th>
+                  <th>Detalle Calculado</th>
+                  <th style="text-align: right;">Importe</th>
+                </tr>
+              </thead>
+              <tbody id="sim-table-body">
+                <!-- Se rellena por JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ENLACES DE BÚSQUEDA EN TIEMPO REAL -->
+          <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;">
+            <div style="font-size: 0.88rem; color: #475569;">
+              🔗 <strong>Comprueba precios en directo con estas fechas:</strong>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <a id="sim-link-flights" href="#" target="_blank" class="btn-direct-link btn-flights" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; color: #FFF; text-decoration: none; font-size: 0.85rem; font-weight: 700;">
+                ✈️ Google Flights en Vivo
+              </a>
+              <a id="sim-link-booking" href="#" target="_blank" class="btn-direct-link btn-booking" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; color: #FFF; text-decoration: none; font-size: 0.85rem; font-weight: 700;">
+                🏨 Booking.com en Vivo
+              </a>
+              <a id="sim-link-skyscanner" href="#" target="_blank" class="btn-direct-link btn-skyscanner" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; color: #FFF; text-decoration: none; font-size: 0.85rem; font-weight: 700;">
+                🔍 Skyscanner
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RADAR DE AHORRO Y PROSPECCIÓN DE TEMPORADAS -->
+      <section style="margin-bottom: 50px;">
+        <h2 class="section-title">📉 Radar de Prospección: ¿Cuándo Sale Más Barato Cada Viaje?</h2>
+        <p class="section-desc">Comparativa del sobrecoste de los puentes festivos españoles frente a las semanas adyacentes óptimas:</p>
+
+        <div class="calendar-holiday-grid">
+          <!-- CARD ALSACIA -->
+          <div class="holiday-card badge-verde">
+            <div>
+              <div class="holiday-dates">Ahorro Máximo: ~1.118 € (-48%)</div>
+              <h3 class="holiday-title">🎄 Alsacia Navideña</h3>
+              <p class="holiday-detail">
+                <strong>Temporada Cara:</strong> Puente 5-8 Dic (~2.298 € para 3 pax).<br>
+                <strong>Ventana Óptima:</strong> Fin de semana 20-23 o 27-30 Nov (~1.180 €).<br>
+                <em>Motivo:</em> Los mercadillos abren a finales de noviembre, pero los vuelos a Basilea cuestan 70€ en vez de 160€ y los hoteles la mitad.
+              </p>
+            </div>
+            <span class="holiday-pill pill-verde">Ahorro del 48%</span>
+          </div>
+
+          <!-- CARD NÚREMBERG -->
+          <div class="holiday-card badge-verde">
+            <div>
+              <div class="holiday-dates">Ahorro Máximo: ~755 € (-42%)</div>
+              <h3 class="holiday-title">🥨 Núremberg (Baviera)</h3>
+              <p class="holiday-detail">
+                <strong>Temporada Cara:</strong> Puente 5-8 Dic (~1.805 € para 3 pax).<br>
+                <strong>Ventana Óptima:</strong> 27-30 Nov o 11-14 Dic (~1.050 €).<br>
+                <em>Motivo:</em> El Christkindlesmarkt abre el último viernes de noviembre. Se disfruta con mucha menos masificación y hoteles a tarifa ordinaria.
+              </p>
+            </div>
+            <span class="holiday-pill pill-verde">Ahorro del 42%</span>
+          </div>
+
+          <!-- CARD BUDAPEST -->
+          <div class="holiday-card badge-verde">
+            <div>
+              <div class="holiday-dates">Ahorro Máximo: ~574 € (-40%)</div>
+              <h3 class="holiday-title">✨ Budapest (Hungría)</h3>
+              <p class="holiday-detail">
+                <strong>Temporada Cara:</strong> Puente 5-8 Dic (~1.434 € para 3 pax).<br>
+                <strong>Ventana Óptima:</strong> Mediados de Noviembre o 15-18 Enero (~860 €).<br>
+                <em>Motivo:</em> Billetes directos de Ryanair/Wizz Air por menos de 45€ trayecto en temporada valle.
+              </p>
+            </div>
+            <span class="holiday-pill pill-verde">Ahorro del 40%</span>
+          </div>
+
+          <!-- CARD ITALIA -->
+          <div class="holiday-card badge-amarillo">
+            <div>
+              <div class="holiday-dates">Ahorro Máximo: ~350 € (-37%)</div>
+              <h3 class="holiday-title">🇮🇹 Venecia, Florencia & Pisa</h3>
+              <p class="holiday-detail">
+                <strong>Temporada Cara:</strong> Año Nuevo 31 Dic - 4 Ene (~940 € para 3 pax).<br>
+                <strong>Ventana Óptima:</strong> 15-18 Enero o Febrero pre-Carnaval (~590 €).<br>
+                <em>Motivo:</em> Tren Frecciarossa con Bimbi Gratis y hoteles 4★ con tarifas mínimas invernales de 55€/noche.
+              </p>
+            </div>
+            <span class="holiday-pill pill-amarillo">Ahorro del 37%</span>
+          </div>
+
+          <!-- CARD RUMANÍA -->
+          <div class="holiday-card badge-verde">
+            <div>
+              <div class="holiday-dates">Ahorro Máximo: ~616 € (-43%)</div>
+              <h3 class="holiday-title">❄️ Transilvania Nevada</h3>
+              <p class="holiday-detail">
+                <strong>Temporada Cara:</strong> Año Nuevo 1-4 Ene (~1.436 € para 3 pax).<br>
+                <strong>Ventana Óptima:</strong> Noviembre o segunda quincena de Enero (~820 €).<br>
+                <em>Motivo:</em> Vuelos a Cluj por 29€ trayecto y hoteles de alta gama en Sibiu y Brașov por 45€/noche.
+              </p>
+            </div>
+            <span class="holiday-pill pill-verde">Ahorro del 43%</span>
+          </div>
+
+          <!-- CARD SAN SEBASTIÁN -->
+          <div class="holiday-card badge-amarillo">
+            <div>
+              <div class="holiday-dates">Ahorro Máximo: ~229 € (-30%)</div>
+              <h3 class="holiday-title">🌲 San Sebastián & Bera</h3>
+              <p class="holiday-detail">
+                <strong>Temporada Cara:</strong> Puente 5-8 Dic (~749 € para 3 pax).<br>
+                <strong>Ventana Óptima:</strong> Fines de semana de Octubre/Noviembre o Febrero (~520 €).<br>
+                <em>Motivo:</em> Caserío Erreteneko en tarifa base baja, sin peajes y pintxos sin colas.
+              </p>
+            </div>
+            <span class="holiday-pill pill-amarillo">Ahorro del 30%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CALENDARIO ANUAL DE FESTIVOS 2026 Y 2027 -->
+      <section style="margin-bottom: 50px;">
+        <h2 class="section-title">🗓️ Calendario Anual de Vacaciones & Puentes (Alcalá de Henares / Madrid)</h2>
+        <p class="section-desc">Planificación de festivos laborales y escolares para anticipar las reservas antes de que suban de precio:</p>
+
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: #0284C7; margin: 25px 0 15px; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px;">
+          📅 Fines de Año y Puentes 2026
+        </h3>
+        <div class="calendar-holiday-grid">
+          <div class="holiday-card badge-verde">
+            <div>
+              <div class="holiday-dates">31 Octubre - 2 Noviembre 2026 (3 días)</div>
+              <h4 class="holiday-title">Puente de Todos los Santos</h4>
+              <p class="holiday-detail">
+                Lunes 2 festivo trasladado en Madrid. 0 días de vacaciones requeridos.<br>
+                <strong>Plan Maestro Recomendado:</strong> Ruta en Volvo XC60 a San Sebastián / Bera o pueblos con encanto.
+              </p>
+            </div>
+            <span class="holiday-pill pill-verde">0 Días Pedidos · Tarifa Valle</span>
+          </div>
+
+          <div class="holiday-card badge-rojo">
+            <div>
+              <div class="holiday-dates">5 - 8 Diciembre 2026 (4 días)</div>
+              <h4 class="holiday-title">Superpuente de la Constitución</h4>
+              <p class="holiday-detail">
+                Sábado 5 a Martes 8. Lunes 7 no lectivo / puente familiar.<br>
+                <strong>Plan Maestro Recomendado:</strong> Mercadillos Navideños (Alsacia, Núremberg, Budapest) o San Sebastián.
+              </p>
+            </div>
+            <span class="holiday-pill pill-rojo">1 Día Pedido · Pico Festivo</span>
+          </div>
+
+          <div class="holiday-card badge-amarillo">
+            <div>
+              <div class="holiday-dates">1 - 4 Enero 2027 (4 días)</div>
+              <h4 class="holiday-title">Año Nuevo & Reyes</h4>
+              <p class="holiday-detail">
+                Viernes 1 festivo de Año Nuevo a Lunes 4.<br>
+                <strong>Plan Maestro Recomendado:</strong> Italia Mágica (Venecia + Florencia) o Castillos de Transilvania nevados.
+              </p>
+            </div>
+            <span class="holiday-pill pill-amarillo">0 Días Pedidos · Festividad</span>
+          </div>
+        </div>
+
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: #0D9488; margin: 35px 0 15px; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px;">
+          📅 Calendario Proyectado 2027
+        </h3>
+        <div class="calendar-holiday-grid">
+          <div class="holiday-card badge-amarillo">
+            <div>
+              <div class="holiday-dates">25 - 29 Marzo 2027 (5 días)</div>
+              <h4 class="holiday-title">Semana Santa 2027</h4>
+              <p class="holiday-detail">
+                Jueves Santo 25 y Viernes Santo 26 festivos oficiales en Madrid.<br>
+                <strong>Plan Maestro Recomendado:</strong> Ruta templada por el Sur de Europa, Toscana o Costa Brava en flor.
+              </p>
+            </div>
+            <span class="holiday-pill pill-amarillo">0 Días Pedidos · Primavera</span>
+          </div>
+
+          <div class="holiday-card badge-verde">
+            <div>
+              <div class="holiday-dates">30 Abril - 3 Mayo 2027 (4 días)</div>
+              <h4 class="holiday-title">Puente de Mayo (Día Comunidad)</h4>
+              <p class="holiday-detail">
+                Viernes 1 festivo + Lunes 3 trasladado en Comunidad de Madrid.<br>
+                <strong>Plan Maestro Recomendado:</strong> Selva Negra, Alsacia primaveral o Bretaña sin aglomeraciones.
+              </p>
+            </div>
+            <span class="holiday-pill pill-verde">0 Días Pedidos · Económico</span>
+          </div>
+
+          <div class="holiday-card badge-verde">
+            <div>
+              <div class="holiday-dates">Julio / Agosto 2027 (7 - 12 días)</div>
+              <h4 class="holiday-title">Vacaciones Principales de Verano</h4>
+              <p class="holiday-detail">
+                Periodo vacacional de verano familiar.<br>
+                <strong>Plan Maestro Recomendado:</strong> Ruta de Lagos Alpinos en Suiza y Alemania o Cornisa Cantábrica con Marco.
+              </p>
+            </div>
+            <span class="holiday-pill pill-verde">Planificación Anticipada BBB</span>
+          </div>
+
+          <div class="holiday-card badge-verde">
+            <div>
+              <div class="holiday-dates">9 - 12 Octubre 2027 (4 días)</div>
+              <h4 class="holiday-title">Puente del Pilar</h4>
+              <p class="holiday-detail">
+                Martes 12 fiesta nacional. Lunes 11 puente.<br>
+                <strong>Plan Maestro Recomendado:</strong> Asturias y Picos de Europa o Pirineo en Volvo XC60.
+              </p>
+            </div>
+            <span class="holiday-pill pill-verde">1 Día Pedido · Otoño Mágico</span>
+          </div>
+
+          <div class="holiday-card badge-rojo">
+            <div>
+              <div class="holiday-dates">4 - 8 Diciembre 2027 (5 días)</div>
+              <h4 class="holiday-title">Superpuente Constitución 2027</h4>
+              <p class="holiday-detail">
+                Lunes 6 y Miércoles 8 festivos (5 días completos con el martes 7).<br>
+                <strong>Plan Maestro Recomendado:</strong> Grandes Capitales Navideñas (Viena, Múnich o Praga).
+              </p>
+            </div>
+            <span class="holiday-pill pill-rojo">1 Día Pedido · Máxima Joya</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <p><strong>Portal Oficial de Viajes Familiares · Viajes Brújula</strong></p>
@@ -6091,7 +6568,7 @@
       }
 
       document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-      const tabOrder = ['overview', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania'];
+      const tabOrder = ['overview', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania', 'calendario'];
       const activeIdx = tabOrder.indexOf(tabId);
       const navBtns = document.querySelectorAll('.nav-btn');
       if (activeIdx !== -1 && navBtns[activeIdx]) {
@@ -6544,6 +7021,152 @@
       }
     }
 
+
+    // ==========================================
+    // SIMULADOR DE FECHAS EN DIRECTO (RENDER API)
+    // ==========================================
+    async function ejecutarRecalculoSimulador() {
+      const dest = document.getElementById('sim-dest').value;
+      const checkin = document.getElementById('sim-checkin').value;
+      const checkout = document.getElementById('sim-checkout').value;
+      const adults = parseInt(document.getElementById('sim-adults').value, 10);
+      const children = parseInt(document.getElementById('sim-children').value, 10);
+
+      if (!checkin || !checkout) {
+        alert("Por favor, selecciona las fechas de ida y de vuelta.");
+        return;
+      }
+
+      const btn = document.querySelector('.sim-btn-recalc');
+      const oldBtnText = btn.innerHTML;
+      btn.innerHTML = "<span>⏳ Consultando Render...</span>";
+      btn.disabled = true;
+
+      try {
+        const response = await fetch('/api/recalculate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            destination: dest,
+            checkin: checkin,
+            checkout: checkout,
+            adults: adults,
+            children: children,
+            child_age: 4
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          renderSimResult(data);
+        } else {
+          fallbackClientRecalculate(dest, checkin, checkout, adults, children);
+        }
+      } catch (err) {
+        fallbackClientRecalculate(dest, checkin, checkout, adults, children);
+      } finally {
+        btn.innerHTML = oldBtnText;
+        btn.disabled = false;
+      }
+    }
+
+    function renderSimResult(data) {
+      const box = document.getElementById('sim-result-box');
+      box.classList.add('active');
+
+      document.getElementById('sim-res-title').textContent = `Presupuesto ${data.destination_name}`;
+      document.getElementById('sim-res-dates').textContent = `${data.nights} noches · ${data.days} días · ${data.total_pax} viajeros (${data.adults}A + ${data.children}N) · ${data.checkin} al ${data.checkout}`;
+
+      const badge = document.getElementById('sim-res-badge');
+      badge.textContent = data.seasonality.label;
+      badge.style.background = data.seasonality.badge_color || '#10B981';
+
+      document.getElementById('sim-res-tip').textContent = `💡 ${data.seasonality.tip}`;
+
+      const tbody = document.getElementById('sim-table-body');
+      tbody.innerHTML = '';
+
+      data.breakdown.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${item.concept}</strong></td>
+          <td>${item.detail}</td>
+          <td style="text-align: right; font-weight: 600;">${item.amount.toLocaleString('es-ES', { minimumFractionDigits: 2 })} €</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      const trTotal = document.createElement('tr');
+      trTotal.className = 'total-row';
+      trTotal.innerHTML = `
+        <td colspan="2"><strong>👉 TOTAL RECALCULADO (${data.total_pax} viajeros)</strong></td>
+        <td style="text-align: right; color: #0284C7; font-size: 1.2rem; font-weight: 800;">
+          ~${data.total_cost.toLocaleString('es-ES', { minimumFractionDigits: 2 })} € (~${data.cost_per_person.toLocaleString('es-ES', { minimumFractionDigits: 2 })} € / pers)
+        </td>
+      `;
+      tbody.appendChild(trTotal);
+
+      document.getElementById('sim-link-flights').href = data.links.google_flights;
+      document.getElementById('sim-link-booking').href = data.links.booking;
+      document.getElementById('sim-link-skyscanner').href = data.links.skyscanner;
+
+      box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function fallbackClientRecalculate(dest, checkin, checkout, adults, children) {
+      const dIn = new Date(checkin);
+      const dOut = new Date(checkout);
+      const nights = Math.max(1, Math.round((dOut - dIn) / (1000 * 60 * 60 * 24)));
+      const days = nights + 1;
+      const totalPax = adults + children;
+
+      const isNovember = dIn.getMonth() === 10;
+      const mult = isNovember ? 0.65 : 1.0;
+      const seasonLabel = isNovember ? "Ventana Óptima de Noviembre (Ahorro ~35%)" : "Tarifa Estándar de Temporada";
+      const seasonColor = isNovember ? "#10B981" : "#0284C7";
+
+      const baseFlight = dest === 'alsacia' ? 120 : (dest === 'nuremberg' ? 180 : (dest === 'budapest' ? 150 : 100));
+      const baseHotel = dest === 'alsacia' ? 160 : (dest === 'nuremberg' ? 150 : (dest === 'budapest' ? 140 : 90));
+
+      const flights = Math.round(baseFlight * mult * totalPax);
+      const hotels = Math.round(baseHotel * mult * nights * (totalPax > 3 ? 2 : 1));
+      const meals = Math.round(30 * days * totalPax);
+      const acts = Math.round(15 * days);
+      const total = flights + hotels + meals + acts;
+      const perPerson = Math.round(total / totalPax);
+
+      const checkinNodash = checkin.replace(/-/g, '').slice(2);
+      const checkoutNodash = checkout.replace(/-/g, '').slice(2);
+
+      renderSimResult({
+        destination_name: dest.toUpperCase(),
+        nights: nights,
+        days: days,
+        total_pax: totalPax,
+        adults: adults,
+        children: children,
+        checkin: checkin,
+        checkout: checkout,
+        seasonality: {
+          label: seasonLabel,
+          badge_color: seasonColor,
+          tip: isNovember ? "Ahorro sustancial respecto a puentes festivos." : "Recálculo interactivo en base a ocupantes."
+        },
+        breakdown: [
+          { concept: "✈️ Vuelos / Transporte Directo", detail: `${totalPax} viajeros i/v con maletas`, amount: flights },
+          { concept: "🏨 Alojamiento Estratégico", detail: `${nights} noches céntricas con desayuno`, amount: hotels },
+          { concept: "🍽️ Comidas y Gastronomía", detail: `${days} días de manutención completa`, amount: meals },
+          { concept: "🎠 Visitas y Atracciones Marco", detail: "Entradas y atracciones infantiles", amount: acts }
+        ],
+        total_cost: total,
+        cost_per_person: perPerson,
+        links: {
+          google_flights: `https://www.google.com/travel/flights?q=Flights%20to%20Europe%20from%20MAD%20on%20${checkin}%20through%20${checkout}`,
+          booking: `https://www.booking.com/searchresults.es.html?checkin=${checkin}&checkout=${checkout}&group_adults=${adults}&group_children=${children}&age=4`,
+          skyscanner: `https://www.skyscanner.es/transport/vuelos/mad/euro/${checkinNodash}/${checkoutNodash}/`
+        }
+      });
+    }
 
     // Recalcular al inicio
     recalculateAll();

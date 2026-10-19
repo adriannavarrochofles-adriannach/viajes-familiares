@@ -569,11 +569,63 @@ def get_prospection_matrix():
 
 
 # ==============================================================================
-# ENDPOINT DE ASISTENTE INTELIGENTE GEMINI (BRÚJULA AI)
+# GESTIÓN Y PERSISTENCIA DE VIAJES PERSONALIZADOS GENERADOS POR IA
 # ==============================================================================
 import requests
 import json
 import re
+
+CUSTOM_TRIPS_FILE = os.path.join(BASE_DIR, "custom_trips.json")
+
+def load_custom_trips() -> List[Dict[str, Any]]:
+    if os.path.isfile(CUSTOM_TRIPS_FILE):
+        try:
+            with open(CUSTOM_TRIPS_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"Error cargando custom_trips.json: {e}")
+            return []
+    return []
+
+def save_custom_trips(trips: List[Dict[str, Any]]) -> None:
+    try:
+        with open(CUSTOM_TRIPS_FILE, "w", encoding="utf-8") as f:
+            json.dump(trips, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Error guardando custom_trips.json: {e}")
+
+@app.get("/api/trips/custom")
+async def get_custom_trips():
+    return {"trips": load_custom_trips()}
+
+class SaveTripRequest(BaseModel):
+    trip: Dict[str, Any]
+
+@app.post("/api/trips/custom")
+async def save_custom_trip_endpoint(req: SaveTripRequest):
+    trip = req.trip
+    trip_id = trip.get("id")
+    if not trip_id:
+        raise HTTPException(status_code=400, detail="El viaje debe tener un id.")
+    trips = load_custom_trips()
+    idx = next((i for i, t in enumerate(trips) if t.get("id") == trip_id), None)
+    if idx is not None:
+        trips[idx] = trip
+    else:
+        trips.append(trip)
+    save_custom_trips(trips)
+    return {"status": "ok", "trip": trip, "total": len(trips)}
+
+@app.delete("/api/trips/custom/{trip_id}")
+async def delete_custom_trip_endpoint(trip_id: str):
+    trips = load_custom_trips()
+    trips = [t for t in trips if t.get("id") != trip_id]
+    save_custom_trips(trips)
+    return {"status": "ok", "deleted": trip_id, "remaining": len(trips)}
+
+# ==============================================================================
+# ENDPOINT DE ASISTENTE INTELIGENTE GEMINI (BRÚJULA AI)
+# ==============================================================================
 
 # Cargar .env local si existe (para desarrollo o servidor local)
 env_file = os.path.join(BASE_DIR, ".env")
@@ -607,7 +659,7 @@ Viajan habitualmente en su Volvo XC60 para rutas nacionales o en avión desde Ma
 Tu filosofía es 'Bueno, bonito y barato': prospección activa de ahorro, evitando pagar sobrecostes innecesarios en puentes saturados cuando una fecha valle (como finales de noviembre o enero) ofrece los mismos encantos con hasta un 48% de descuento.
 Siempre priorizas la seguridad, logística y diversión de Marco (4 años): ritmos tranquilos, atracciones mágicas (dinosaurios, castillos, trenecitos, mercadillos navideños, parques), alojamientos familiares cómodos y pausas frecuentes en coche.
 
-Conocimiento de viajes actuales disponibles en el portal:
+Conocimiento de viajes actuales disponibles en el catálogo base:
 1. San Sebastián & Caserío Erreteneko (Navarra): En coche Volvo XC60 (445 km, 4h30m). Presupuesto base 749€ (3 personas). Caserío rural vasco-navarro, bahía de La Concha, Aquarium Donostia, monte Igueldo y paseo en funicular.
 2. Alsacia (Estrasburgo, Colmar, Eguisheim, Riquewihr): Vuelos a Basilea (BSL) o Estrasburgo. En puente 2.327€ vs 1.209€ a finales de noviembre (-48% / 1.118€ de ahorro). Mercadillos navideños de cuento, casas de entramado de madera.
 3. Núremberg (Baviera): Vuelos directos a NUE o Múnich. En puente 1.805€ vs 1.050€ a finales de noviembre (-42% / 755€ de ahorro). Christkindlesmarkt, Museo del Juguete, Castillo Imperial, tren DB.
@@ -619,21 +671,54 @@ Calendario y festivos de Madrid / Alcalá:
 - 2026: Puente de Todos los Santos (1-2 Nov), Puente de la Constitución / Inmaculada (5-8 Dic), Navidad (25 Dic).
 - 2027: Reyes (6 Ene), Semana Santa (25-28 Mar), Puente de Mayo (1-3 May), Santos Niños Alcalá (6 Ago), Asunción (15-16 Ago), Fiesta Nacional / Cervantes (9-12 Oct), Todos los Santos (1 Nov), Constitución / Inmaculada (6-8 Dic).
 
-Directrices de formato y estilo:
-- Sé cercano, profesional, conciso y entusiasta. Utiliza viñetas y negritas para facilitar la lectura rápida en el móvil.
-- Cuando propongas nuevos destinos, cambios de fechas o recálculos, añade al final de tu mensaje un bloque ```actions ... ``` con botones interactivos para que la web permita al usuario ejecutarlos con un solo clic.
+========================================================================
+⚡ GENERACIÓN ACTIVA DE NUEVOS VIAJES (INSTRUCCIÓN CRÍTICA):
+========================================================================
+Cuando el usuario te pida crear, generar, proponer, cotizar o idear un NUEVO VIAJE o DESTINO (por ejemplo: Suiza, Viena, Laponia, Disney París, Praga, Selva Negra, Roma, Copenhague, Tirol, etc.) o cambios sustanciales:
+1. Responde en el texto detallando el plan completo: por qué es ideal para Adrián, Maripaz y Marco (4 años), cómo llegar (coche o vuelo desde Barajas), dónde dormir, actividades mágicas para Marco y el presupuesto "Bueno, Bonito y Barato".
+2. AL FINAL DE TU MENSAJE, DEBES INCLUIR OBLIGATORIAMENTE un bloque ```actions ... ``` con la acción "create_trip" con todos los datos estructurados para que la web inyecte automáticamente la tarjeta interactiva, el botón en el menú de navegación y la ficha completa del viaje con su itinerario y tabla de costes.
 
-Formato del bloque de acciones (opcional, cuando aplique):
+Formato exacto del bloque de acciones para crear un viaje nuevo:
 ```actions
 [
-  {"action": "simulate_dates", "destination": "alsacia", "checkin": "2026-11-20", "checkout": "2026-11-23", "label": "⚡ Cotizar Alsacia 20-23 Nov en Simulador"},
-  {"action": "open_tab", "tab": "alsacia", "label": "📍 Abrir ficha de Alsacia"}
+  {
+    "action": "create_trip",
+    "label": "🌟 Abrir Ficha Creada: Suiza & Alpes Navideños",
+    "trip": {
+      "id": "suiza",
+      "title": "Suiza & Alpes Navideños",
+      "emoji": "🇨🇭",
+      "tag": "Invierno / Navidad · 4 Días",
+      "dates": "5 al 8 Dic 2026",
+      "image_url": "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1200&q=80",
+      "summary": "Escapada mágica a Zúrich y Lucerna con paseo en barco por el lago, tren panorámico a la nieve y mercadillos iluminados.",
+      "transport_desc": "Vuelo directo Madrid ⇄ Zúrich (Swiss / easyJet, 2h 20m) + pases de tren panorámico",
+      "lodging_desc": "Hotel familiar con encanto en Lucerna o Zúrich con desayuno buffet",
+      "marco_highlights": "Trenecito de montaña, chocolate caliente suizo, puente medieval Kapellbrücke y tiovivo.",
+      "total_cost": 1320,
+      "cost_per_person": 440,
+      "itinerary": [
+        {"day": 1, "title": "Llegada a Zúrich & Mercadillo Central", "desc": "Vuelo directo desde Barajas, tren exprés al centro y visita al gran abeto de cristales Swarovski."},
+        {"day": 2, "title": "Lucerna & Barco por el Lago", "desc": "Paseo por el puente medieval Kapellbrücke de madera, paseo en barco y tiovivo junto al lago."},
+        {"day": 3, "title": "Subida a la nieve en monte Rigi", "desc": "Ascenso en tren de cremallera tocando nieve suave con Marco y vistas alpinas espectaculares."},
+        {"day": 4, "title": "Mercadillos del Casco Antiguo y Vuelta", "desc": "Compras de dulces artesanos, almuerzo tradicional y vuelo de regreso a Madrid."}
+      ],
+      "costs_breakdown": [
+        {"concept": "Vuelos directos I/V (3 plazas)", "total": "540 €"},
+        {"concept": "Alojamiento (3 noches familiar)", "total": "450 €"},
+        {"concept": "Pases de tren suizo / transporte", "total": "180 €"},
+        {"concept": "Comidas y meriendas tradicionales", "total": "280 €"},
+        {"concept": "Actividades y funicular para Marco", "total": "70 €"}
+      ]
+    }
+  }
 ]
 ```
-Acciones disponibles:
-- `open_tab`: "sanseb" | "alsacia" | "nuremberg" | "budapest" | "italia" | "rumania" | "calendario".
-- `simulate_dates`: destination, checkin (AAAA-MM-DD), checkout (AAAA-MM-DD).
-- `open_calendar`: year, month (0-11).
+
+Para consultas sobre los viajes ya existentes o fechas en el calendario:
+- `{"action": "open_tab", "tab": "alsacia", "label": "📍 Abrir ficha de Alsacia"}`
+- `{"action": "simulate_dates", "destination": "alsacia", "checkin": "2026-11-20", "checkout": "2026-11-23", "label": "⚡ Cotizar en Simulador"}`
+- `{"action": "open_calendar", "year": 2026, "month": 11, "label": "📅 Ver Diciembre en Calendario"}`
 """
 
 @app.post("/api/gemini/chat", response_model=GeminiChatResponse)
@@ -660,7 +745,7 @@ async def gemini_chat(req: GeminiChatRequest):
         "contents": contents,
         "generationConfig": {
             "temperature": 0.7,
-            "maxOutputTokens": 1000
+            "maxOutputTokens": 2500
         }
     }
 
@@ -671,7 +756,7 @@ async def gemini_chat(req: GeminiChatRequest):
     for m in models:
         try:
             url = f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={GEMINI_API_KEY}"
-            resp = requests.post(url, json=payload, timeout=18)
+            resp = requests.post(url, json=payload, timeout=22)
             if resp.status_code == 200:
                 data = resp.json()
                 candidates = data.get("candidates", [])
@@ -696,5 +781,18 @@ async def gemini_chat(req: GeminiChatRequest):
         except Exception:
             pass
         response_text = re.sub(r"```actions\s*[\s\S]*?\s*```", "", response_text).strip()
+
+    # Si se generó un nuevo viaje, guardarlo en el almacenamiento de viajes personalizados
+    for act in actions:
+        if act.get("action") == "create_trip" and "trip" in act:
+            t = act["trip"]
+            if t.get("id"):
+                existing_trips = load_custom_trips()
+                idx = next((i for i, item in enumerate(existing_trips) if item.get("id") == t["id"]), None)
+                if idx is not None:
+                    existing_trips[idx] = t
+                else:
+                    existing_trips.append(t)
+                save_custom_trips(existing_trips)
 
     return GeminiChatResponse(reply=response_text, actions=actions)

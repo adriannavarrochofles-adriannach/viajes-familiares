@@ -1,16 +1,6 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.venv/
-env/
-venv/
-*.log
-.DS_Store
-Thumbs.db
-PENDIENTES.md
 .env
-.env.*
 PORTAL_VIAJES_FAMILIARES_WHATSAPP.html
-*.png
-screenshot_*.py
-
+.pytest_cache/

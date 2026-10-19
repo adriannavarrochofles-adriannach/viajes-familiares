@@ -2810,6 +2810,28 @@
 
 
       </div>
+
+      <!-- ========================================== -->
+      <!-- SECCIÓN: VIAJES GENERADOS POR BRÚJULA AI -->
+      <!-- ========================================== -->
+      <div id="ai-custom-trips-section" style="margin-top: 50px; display: none;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; border-bottom: 2px solid #E0E7FF; padding-bottom: 14px;">
+          <div>
+            <h2 style="font-size: 1.6rem; font-weight: 800; color: #1E1B4B; margin: 0; display: flex; align-items: center; gap: 8px;">
+              <span>✨</span> Viajes Creados por Brújula AI
+            </h2>
+            <p style="color: #64748B; font-size: 0.95rem; margin: 4px 0 0 0;">
+              Destinos personalizados a medida generados por vuestro Asistente Inteligente (Adrián, Maripaz y Marco).
+            </p>
+          </div>
+          <button type="button" onclick="switchTab('asistente')" style="background: linear-gradient(135deg, #4F46E5, #7C3AED); color: #FFF; font-weight: 700; font-size: 0.85rem; padding: 8px 16px; border-radius: 20px; border: none; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(79,70,229,0.3);">
+            <span>➕</span> Pedir Nuevo Viaje
+          </button>
+        </div>
+        <div id="ai-custom-trips-grid" class="trips-grid">
+          <!-- Inyectado dinámicamente -->
+        </div>
+      </div>
     </div>
   </div>
 
@@ -8356,6 +8378,9 @@
         <!-- QUICK CHIPS -->
         <div style="background: #F1F5F9; border-bottom: 1px solid #E2E8F0; padding: 12px 18px; overflow-x: auto; display: flex; gap: 8px; align-items: center;">
           <span style="font-size: 0.75rem; font-weight: 800; color: #64748B; text-transform: uppercase; white-space: nowrap;">Sugerencias:</span>
+          <button type="button" class="chip-prompt" style="background:#EEF2FF; color:#4F46E5; border-color:#C7D2FE; font-weight:700;" onclick="enviarSugerencia('Genera un nuevo viaje a Suiza en Navidad para los 3 con ficha y costes')">✨ Crear viaje a Suiza</button>
+          <button type="button" class="chip-prompt" style="background:#EEF2FF; color:#4F46E5; border-color:#C7D2FE; font-weight:700;" onclick="enviarSugerencia('Genera una propuesta de viaje a Disneyland París para Marco de 4 años')">🏰 Crear viaje a Disney París</button>
+          <button type="button" class="chip-prompt" style="background:#EEF2FF; color:#4F46E5; border-color:#C7D2FE; font-weight:700;" onclick="enviarSugerencia('Genera un viaje a Selva Negra y Europa Park en coche Volvo XC60')">🌲 Crear viaje Selva Negra</button>
           <button type="button" class="chip-prompt" onclick="enviarSugerencia('¿Qué viaje del portal sale más económico para viajar los 3?')">💰 ¿Qué viaje sale más barato?</button>
           <button type="button" class="chip-prompt" onclick="enviarSugerencia('Propón un nuevo viaje para Semana Santa 2027 con niño de 4 años')">🏰 Escapada Semana Santa 2027</button>
           <button type="button" class="chip-prompt" onclick="enviarSugerencia('¿Cómo podemos ahorrar el 48% en Alsacia y qué fechas son las mejores?')">📉 Ahorro 48% en Alsacia</button>
@@ -8404,8 +8429,12 @@
     </div>
   </div>
 
+  <!-- ========================================== -->
+  <!-- CONTENEDOR DE PESTAÑAS DINÁMICAS (BRÚJULA AI) -->
+  <!-- ========================================== -->
+  <div id="dynamic-tabs-container"></div>
 
-    <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer>
     <p><strong>Portal Oficial de Viajes Familiares · Viajes Brújula</strong></p>
     <p style="margin-top: 8px; color: #64748B;">Diseñado para navegación reactiva instantánea. Guarda esta web en favoritos o compártela por WhatsApp.</p>
@@ -8423,11 +8452,16 @@
       }
 
       document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-      const tabOrder = ['overview', 'calendario', 'asistente', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania'];
-      const activeIdx = tabOrder.indexOf(tabId);
-      const navBtns = document.querySelectorAll('.nav-btn');
-      if (activeIdx !== -1 && navBtns[activeIdx]) {
-        navBtns[activeIdx].classList.add('active');
+      const customBtn = document.querySelector(`.nav-btn[data-tab="${tabId}"]`);
+      if (customBtn) {
+        customBtn.classList.add('active');
+      } else {
+        const tabOrder = ['overview', 'calendario', 'asistente', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania'];
+        const activeIdx = tabOrder.indexOf(tabId);
+        const navBtns = document.querySelectorAll('.nav-menu > li > .nav-btn:not(.nav-btn-custom)');
+        if (activeIdx !== -1 && navBtns[activeIdx]) {
+          navBtns[activeIdx].classList.add('active');
+        }
       }
 
       const fab = document.getElementById('brujula-ai-fab');
@@ -9635,13 +9669,24 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       } catch (err) {
         console.warn('Error conectando a /api/gemini/chat:', err);
         // Fallback local enriquecido si el backend no estuviese activo
-        botReply = responderFallbackLocal(userText);
+        const fb = responderFallbackLocal(userText);
+        botReply = fb.reply;
+        botActions = fb.actions || [];
       } finally {
         // Quitar indicador de carga
         const typingEl = document.getElementById('ai-typing-indicator');
         if (typingEl) typingEl.remove();
         isAiThinking = false;
         if (sendBtn) sendBtn.disabled = false;
+      }
+
+      // Si el bot generó un nuevo viaje, renderizarlo reactivamente de inmediato
+      if (botActions && botActions.length > 0) {
+        botActions.forEach(act => {
+          if (act.action === 'create_trip' && act.trip) {
+            renderCustomTrip(act.trip, false, true);
+          }
+        });
       }
 
       // 5. Renderizar respuesta del bot
@@ -9684,7 +9729,9 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
     function ejecutarAccionAi(actionDataStr) {
       try {
         const act = JSON.parse(actionDataStr);
-        if (act.action === 'open_tab' && act.tab) {
+        if (act.action === 'create_trip' && act.trip) {
+          renderCustomTrip(act.trip, true, true);
+        } else if (act.action === 'open_tab' && act.tab) {
           switchTab(act.tab);
         } else if (act.action === 'simulate_dates') {
           switchTab('calendario');
@@ -9729,18 +9776,511 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       return html;
     }
 
-    function responderFallbackLocal(pregunta) {
-      const p = pregunta.toLowerCase();
-      if (p.includes('alsacia') || p.includes('ahorro') || p.includes('48%')) {
-        return "¡Hola! En **Alsacia**, el pico del Puente de Diciembre (5-8 Dic) cuesta unos 2.327€ para los 3 debido a la saturación extrema. Si viajáis en la **semana del 20 al 23 de Noviembre** (cuando los mercadillos de Estrasburgo y Colmar ya están inaugurados), el presupuesto baja a solo **1.209€** (un ahorro real de **1.118€ / 48%**).";
-      } else if (p.includes('barato') || p.includes('economico')) {
-        return "El viaje más económico y flexible es **San Sebastián & Caserío Vasco-Navarro en el Volvo XC60** por solo **749€ total** (unos 250€ por persona), con combustible incluido y sin dependencia de billetes de avión. De los viajes en avión, **Italia (Venecia & Florencia)** en temporada valle sale por solo **590€ total**.";
-      } else if (p.includes('marco') || p.includes('niño') || p.includes('4 años')) {
-        return "Para Marco (4 años), los mejores destinos son: 1) **Núremberg** con la *Kinderweihnacht* (mercadillo infantil con tren de vapor y noria de época) y el *Museo del Juguete*. 2) **Transilvania** con la noria gigante subterránea en *Salina Turda*. En coche con el Volvo XC60, la recomendación de oro es hacer paradas cada 2 horas en áreas con zona verde para que desfogue.";
+    // =========================================================================
+    // GESTIÓN Y PERSISTENCIA DE VIAJES CREADOS POR BRÚJULA AI
+    // =========================================================================
+    let customTripsCache = [];
+
+    function getCustomTripSlug(trip) {
+      if (trip.id && typeof trip.id === 'string' && trip.id.trim() !== '') {
+        return trip.id.toLowerCase().trim().replace(/[^a-z0-9_-]/g, '');
+      }
+      const title = trip.title || 'nuevo_viaje';
+      return title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, '_').substring(0, 20);
+    }
+
+    function renderCustomTrip(trip, switchToTab = false, persist = true) {
+      if (!trip || !trip.title) return;
+
+      const slug = getCustomTripSlug(trip);
+      trip.id = slug;
+
+      const defaultImg = "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80";
+      const imgUrl = trip.image_url && trip.image_url.startsWith('http') ? trip.image_url : defaultImg;
+
+      // 1. Mostrar la sección de viajes personalizados en overview
+      const customSection = document.getElementById('ai-custom-trips-section');
+      const customGrid = document.getElementById('ai-custom-trips-grid');
+      if (customSection) customSection.style.display = 'block';
+
+      // 2. Renderizar / Actualizar tarjeta en el grid de Overview
+      if (customGrid) {
+        let card = document.getElementById('custom-card-' + slug);
+        if (!card) {
+          card = document.createElement('div');
+          card.id = 'custom-card-' + slug;
+          card.className = 'trip-card-link';
+          customGrid.prepend(card);
+        }
+
+        const totalCost = trip.total_cost || 1200;
+        const paxCost = trip.cost_per_person || Math.round(totalCost / 3);
+
+        card.onclick = () => switchTab('trip-' + slug);
+        card.innerHTML = `
+          <div style="position: absolute; top: 12px; right: 12px; z-index: 5; display: flex; gap: 6px;">
+            <span style="background: rgba(79, 70, 229, 0.92); color: #fff; font-size: 0.72rem; font-weight: 800; padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(4px); box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+              ✨ BRÚJULA AI
+            </span>
+            <button type="button" onclick="event.stopPropagation(); deleteCustomTrip('${slug}')" title="Eliminar propuesta" style="background: rgba(239, 68, 68, 0.85); color: #fff; border: none; border-radius: 50%; width: 26px; height: 26px; font-size: 0.75rem; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+              ✕
+            </button>
+          </div>
+          <img src="${imgUrl}" alt="${trip.title}" class="trip-card-img" onerror="this.src='${defaultImg}'">
+          <div class="trip-card-body">
+            <span class="trip-tag" style="background:#EEF2FF; color:#4F46E5;">${trip.tag || 'Propuesta Personalizada'} · ${trip.dates || ''}</span>
+            <h3>${trip.emoji || '✨'} ${trip.title}</h3>
+            <p>${trip.summary || ''}</p>
+            <ul class="trip-meta-list">
+              <li>🚀 <strong>Transporte:</strong> ${trip.transport_desc || 'Vuelo directo o coche Volvo XC60'}</li>
+              <li>🏨 <strong>Alojamiento:</strong> ${trip.lodging_desc || 'Hotel familiar estratégico'}</li>
+              <li>🎠 <strong>Para Marco (4a):</strong> ${trip.marco_highlights || 'Atracciones infantiles y ritmo cómodo'}</li>
+              <li>👥 <strong>Equipo:</strong> 3 Viajeros (Adrián, Maripaz y Marco)</li>
+            </ul>
+            <div class="trip-card-footer">
+              <div class="trip-price">~${totalCost} € total <span style="font-size:0.85rem;font-weight:700;color:#4F46E5;">(~${paxCost} € / pers)</span></div>
+              <button class="btn-portal" style="background:#4F46E5;">Ver Ficha Completa ➔</button>
+            </div>
+          </div>
+        `;
+      }
+
+      // 3. Renderizar / Actualizar la pestaña individual completa
+      const tabsContainer = document.getElementById('dynamic-tabs-container');
+      if (tabsContainer) {
+        let tabEl = document.getElementById('tab-trip-' + slug);
+        if (!tabEl) {
+          tabEl = document.createElement('div');
+          tabEl.id = 'tab-trip-' + slug;
+          tabEl.className = 'tab-view';
+          tabsContainer.appendChild(tabEl);
+        }
+
+        const itineraryHtml = (trip.itinerary && Array.isArray(trip.itinerary)) 
+          ? trip.itinerary.map(d => `
+            <div style="border-left: 3px solid #4F46E5; padding-left: 18px; margin-left: 6px; margin-bottom: 16px;">
+              <div style="font-weight: 800; color: #4F46E5; font-size: 0.9rem; text-transform: uppercase;">DÍA ${d.day || ''}: ${d.title || ''}</div>
+              <p style="margin: 6px 0 0 0; color: #475569; font-size: 0.95rem; line-height: 1.6;">${d.desc || ''}</p>
+            </div>
+          `).join('')
+          : '<p style="color: #64748B;">Itinerario en preparación por Brújula AI.</p>';
+
+        const costsHtml = (trip.costs_breakdown && Array.isArray(trip.costs_breakdown))
+          ? trip.costs_breakdown.map(c => `
+            <tr style="border-bottom: 1px solid #F1F5F9;">
+              <td style="padding: 12px 16px; color: #334155; font-weight: 600;">${c.concept}</td>
+              <td style="padding: 12px 16px; color: #0F172A; font-weight: 700; text-align: right;">${c.total}</td>
+            </tr>
+          `).join('')
+          : '';
+
+        tabEl.innerHTML = `
+          <section class="portal-hero" style="background: linear-gradient(135deg, rgba(30, 27, 75, 0.92), rgba(79, 70, 229, 0.88)), url('${imgUrl}') center/cover no-repeat; color: #FFF; padding: 48px 24px; text-align: center;">
+            <div class="hero-badge" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); display: inline-block; padding: 6px 16px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
+              ✨ VIAJE CREADO POR BRÚJULA AI · ${trip.tag || 'PROPUESTA PERSONALIZADA'}
+            </div>
+            <h1 style="font-size: 2.3rem; font-weight: 900; margin: 0 0 12px 0;">${trip.emoji || '✨'} ${trip.title}</h1>
+            <p class="sub" style="max-width: 780px; margin: 0 auto 24px auto; font-size: 1.05rem; opacity: 0.95; line-height: 1.6;">
+              ${trip.summary || ''}
+            </p>
+            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+              <button type="button" class="btn-portal" onclick="shareWhatsAppCustom('${slug}')" style="background: #25D366; color: #FFF; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(37,211,102,0.4);">
+                <span>📲</span> Compartir Propuesta por WhatsApp
+              </button>
+              <button type="button" class="btn-portal" onclick="switchTab('asistente')" style="background: rgba(255,255,255,0.25); color: #FFF; border: 1px solid rgba(255,255,255,0.5); padding: 12px 24px; border-radius: 30px; font-weight: 700; cursor: pointer;">
+                💬 Pedir Ajustes o Preguntar a Brújula AI
+              </button>
+            </div>
+          </section>
+
+          <div class="container" style="max-width: 1100px; margin: 30px auto; padding: 0 20px;">
+            <!-- KPIS -->
+            <div class="kpi-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 30px;">
+              <div class="kpi-card" style="background:#FFF; padding: 20px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-left: 5px solid #4F46E5;">
+                <div style="font-size: 0.8rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Presupuesto Estimado</div>
+                <div style="font-size: 1.8rem; font-weight: 900; color: #1E1B4B; margin: 6px 0;">${trip.total_cost || 1200} €</div>
+                <div style="font-size: 0.85rem; color: #4F46E5; font-weight: 600;">~${trip.cost_per_person || Math.round((trip.total_cost||1200)/3)} € / persona</div>
+              </div>
+              <div class="kpi-card" style="background:#FFF; padding: 20px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-left: 5px solid #10B981;">
+                <div style="font-size: 0.8rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Fechas Propuestas</div>
+                <div style="font-size: 1.3rem; font-weight: 800; color: #1E1B4B; margin: 6px 0;">${trip.dates || 'A convenir'}</div>
+                <div style="font-size: 0.85rem; color: #059669; font-weight: 600;">Planificado para el calendario familiar</div>
+              </div>
+              <div class="kpi-card" style="background:#FFF; padding: 20px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-left: 5px solid #F59E0B;">
+                <div style="font-size: 0.8rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Especial Marco (4 Años)</div>
+                <div style="font-size: 1.05rem; font-weight: 700; color: #B45309; margin: 6px 0;">Plan 100% Adaptado</div>
+                <div style="font-size: 0.82rem; color: #64748B;">Ritmo suave y atracciones mágicas</div>
+              </div>
+            </div>
+
+            <!-- LOGÍSTICA & CONSEJOS CLAVE -->
+            <div style="background: #FFF; border-radius: 18px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 30px;">
+              <h3 style="font-size: 1.3rem; font-weight: 800; color: #1E1B4B; margin-top: 0; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                <span>🎯</span> Logística Clave y Puntos Fuertes
+              </h3>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                <div style="background: #F8FAFC; padding: 18px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                  <strong style="color: #4F46E5; display: block; margin-bottom: 6px;">✈️ / 🚗 Transporte</strong>
+                  <p style="margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.5;">${trip.transport_desc || 'Consúltanos'}</p>
+                </div>
+                <div style="background: #F8FAFC; padding: 18px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                  <strong style="color: #4F46E5; display: block; margin-bottom: 6px;">🏨 Alojamiento Recomendado</strong>
+                  <p style="margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.5;">${trip.lodging_desc || 'Consúltanos'}</p>
+                </div>
+                <div style="background: #F8FAFC; padding: 18px; border-radius: 12px; border: 1px solid #E2E8F0;">
+                  <strong style="color: #F59E0B; display: block; margin-bottom: 6px;">🎠 Actividades Mágicas para Marco (4 años)</strong>
+                  <p style="margin: 0; font-size: 0.92rem; color: #475569; line-height: 1.5;">${trip.marco_highlights || 'Atracciones especiales'}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ITINERARIO DÍA A DÍA -->
+            <div style="background: #FFF; border-radius: 18px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 30px;">
+              <h3 style="font-size: 1.3rem; font-weight: 800; color: #1E1B4B; margin-top: 0; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                <span>🗺️</span> Itinerario Propuesto Día a Día
+              </h3>
+              <div style="display: flex; flex-direction: column;">
+                ${itineraryHtml}
+              </div>
+            </div>
+
+            <!-- DESGLOSE DE COSTES -->
+            <div style="background: #FFF; border-radius: 18px; padding: 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); margin-bottom: 30px;">
+              <h3 style="font-size: 1.3rem; font-weight: 800; color: #1E1B4B; margin-top: 0; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                <span>💶</span> Desglose Transparente de Costes Estimados
+              </h3>
+              <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                <thead>
+                  <tr style="background: #F8FAFC; text-align: left; border-bottom: 2px solid #E2E8F0;">
+                    <th style="padding: 12px 16px; color: #64748B;">Concepto</th>
+                    <th style="padding: 12px 16px; color: #64748B; text-align: right;">Total Estimado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${costsHtml}
+                  <tr style="background: #EEF2FF; font-weight: 800;">
+                    <td style="padding: 14px 16px; color: #3730A3;">TOTAL ESTIMADO (3 personas)</td>
+                    <td style="padding: 14px 16px; color: #3730A3; text-align: right; font-size: 1.15rem;">~${trip.total_cost || 1200} €</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- ACCIONES FINALES -->
+            <div style="text-align: center; margin-top: 40px; margin-bottom: 40px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+              <button type="button" class="btn-portal" onclick="switchTab('overview')" style="background: #E2E8F0; color: #334155; padding: 12px 22px; border-radius: 30px; font-weight: 700; border: none; cursor: pointer;">
+                ⬅️ Volver a Todos los Viajes
+              </button>
+              <button type="button" class="btn-portal" onclick="shareWhatsAppCustom('${slug}')" style="background: #25D366; color: #FFF; padding: 12px 24px; border-radius: 30px; font-weight: 800; border: none; cursor: pointer;">
+                📲 Enviar a Maripaz por WhatsApp
+              </button>
+              <button type="button" class="btn-portal" onclick="deleteCustomTrip('${slug}')" style="background: #FEE2E2; color: #DC2626; padding: 12px 20px; border-radius: 30px; font-weight: 700; border: 1px solid #FECACA; cursor: pointer;">
+                🗑️ Eliminar Viaje
+              </button>
+            </div>
+
+          </div>
+        `;
+      }
+
+      // 4. Inyectar / Actualizar botón de navegación en el menú superior
+      const navMenu = document.querySelector('.nav-menu');
+      if (navMenu) {
+        let li = document.getElementById('nav-li-' + slug);
+        if (!li) {
+          li = document.createElement('li');
+          li.id = 'nav-li-' + slug;
+          const shortTitle = (trip.title || 'Viaje').split('&')[0].split('(')[0].trim();
+          li.innerHTML = `
+            <button class="nav-btn nav-btn-custom" id="nav-btn-${slug}" data-tab="trip-${slug}" style="background: rgba(99, 102, 241, 0.15); color: #818CF8; border: 1px dashed #6366F1; font-weight: 700;" onclick="switchTab('trip-${slug}')">
+              ${trip.emoji || '✨'} ${shortTitle}
+            </button>
+          `;
+          navMenu.appendChild(li);
+        }
+      }
+
+      // 5. Persistir en caché local y backend
+      const existingIdx = customTripsCache.findIndex(t => t.id === slug);
+      if (existingIdx !== -1) {
+        customTripsCache[existingIdx] = trip;
       } else {
-        return "¡Excelente consulta! He registrado vuestra preferencia. Podéis probar las fechas exactas que queráis en el **Simulador de Fechas** de la pestaña 'Calendario' o consultar la ficha completa de cualquiera de los 6 viajes en el menú superior.";
+        customTripsCache.push(trip);
+      }
+
+      try {
+        localStorage.setItem('brujula_custom_trips', JSON.stringify(customTripsCache));
+      } catch (e) {
+        console.warn('Error guardando en localStorage:', e);
+      }
+
+      if (persist) {
+        try {
+          const API_BASE = window.location.origin.startsWith('http') && !window.location.origin.includes('github.io')
+            ? '' 
+            : 'https://portal-viajes-familiares.onrender.com';
+          fetch(API_BASE + '/api/trips/custom', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ trip: trip })
+          }).catch(err => console.warn('Sync custom trip backend error:', err));
+        } catch(e) {}
+      }
+
+      // 6. Cambiar a la pestaña si se indicó
+      if (switchToTab) {
+        setTimeout(() => switchTab('trip-' + slug), 50);
       }
     }
+
+    function deleteCustomTrip(slug) {
+      if (!confirm('¿Deseas eliminar esta propuesta de viaje creada por Brújula AI?')) return;
+
+      const card = document.getElementById('custom-card-' + slug);
+      if (card) card.remove();
+
+      const tabEl = document.getElementById('tab-trip-' + slug);
+      if (tabEl) tabEl.remove();
+
+      const navLi = document.getElementById('nav-li-' + slug);
+      if (navLi) navLi.remove();
+
+      const customGrid = document.getElementById('ai-custom-trips-grid');
+      if (customGrid && customGrid.children.length === 0) {
+        const sec = document.getElementById('ai-custom-trips-section');
+        if (sec) sec.style.display = 'none';
+      }
+
+      customTripsCache = customTripsCache.filter(t => t.id !== slug);
+      try {
+        localStorage.setItem('brujula_custom_trips', JSON.stringify(customTripsCache));
+      } catch (e) {}
+
+      try {
+        const API_BASE = window.location.origin.startsWith('http') && !window.location.origin.includes('github.io')
+          ? '' 
+          : 'https://portal-viajes-familiares.onrender.com';
+        fetch(API_BASE + '/api/trips/custom/' + encodeURIComponent(slug), {
+          method: 'DELETE'
+        }).catch(err => console.warn('Delete backend error:', err));
+      } catch (e) {}
+
+      if (currentTab === 'trip-' + slug) {
+        switchTab('overview');
+      }
+    }
+
+    function shareWhatsAppCustom(slug) {
+      const trip = customTripsCache.find(t => t.id === slug);
+      if (!trip) return;
+
+      let itiText = '';
+      if (trip.itinerary && Array.isArray(trip.itinerary)) {
+        itiText = trip.itinerary.map(d => `• D${d.day}: *${d.title}* - ${d.desc}`).join('\n');
+      }
+
+      const text = `✨ *NUEVA PROPUESTA: ${trip.title.toUpperCase()}*\n` +
+                   `📅 *Fechas:* ${trip.dates || 'A convenir'}\n` +
+                   `👥 *Viajeros:* Adrián, Maripaz y Marco (4 años)\n` +
+                   `💶 *Presupuesto total:* ~${trip.total_cost || 1200} € (~${trip.cost_per_person || Math.round((trip.total_cost||1200)/3)} € / persona)\n\n` +
+                   `🚀 *Transporte:* ${trip.transport_desc || ''}\n` +
+                   `🏨 *Alojamiento:* ${trip.lodging_desc || ''}\n` +
+                   `🎠 *Especial Marco (4a):* ${trip.marco_highlights || ''}\n\n` +
+                   (itiText ? `🗺️ *Itinerario previsto:*\n${itiText}\n\n` : '') +
+                   `✨ *Ver ficha interactiva completa en el Portal Familiar:*\n` +
+                   `https://portal-viajes-familiares.onrender.com`;
+
+      window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank');
+    }
+
+    async function initCustomTrips() {
+      // 1. Cargar desde localStorage
+      try {
+        const saved = localStorage.getItem('brujula_custom_trips');
+        if (saved) {
+          const trips = JSON.parse(saved);
+          if (Array.isArray(trips)) {
+            trips.forEach(t => renderCustomTrip(t, false, false));
+          }
+        }
+      } catch (e) {
+        console.warn('Error leyendo brujula_custom_trips de localStorage:', e);
+      }
+
+      // 2. Sincronizar desde backend en Render
+      try {
+        const API_BASE = window.location.origin.startsWith('http') && !window.location.origin.includes('github.io')
+          ? '' 
+          : 'https://portal-viajes-familiares.onrender.com';
+        const res = await fetch(API_BASE + '/api/trips/custom');
+        if (res.ok) {
+          const data = await res.json();
+          if (data && Array.isArray(data.trips)) {
+            data.trips.forEach(t => renderCustomTrip(t, false, false));
+          }
+        }
+      } catch (e) {
+        console.warn('No se pudo conectar a /api/trips/custom:', e);
+      }
+    }
+
+    function responderFallbackLocal(pregunta) {
+      const p = pregunta.toLowerCase();
+
+      // Detección de creación de viajes
+      if (p.includes('suiza')) {
+        return {
+          reply: "¡Excelente idea de viaje! He generado una propuesta completa para **Suiza & Alpes Navideños (Zúrich, Lucerna y Monte Rigi)** adaptada especialmente para Adrián, Maripaz y Marco (4 años).\n\n" +
+                 "Incluye vuelos directos desde Barajas, tren panorámico hasta la nieve en Rigi, crucerito por el lago de Lucerna y mercadillos iluminados.\n\n" +
+                 "He creado automáticamente la **tarjeta en portada y la ficha interactiva completa** con el itinerario y desglose de costes.",
+          actions: [{
+            action: "create_trip",
+            label: "🌟 Abrir Ficha Creada: Suiza & Alpes Navideños ➔",
+            trip: {
+              id: "suiza",
+              title: "Suiza & Alpes Navideños",
+              emoji: "🇨🇭",
+              tag: "Invierno / Navidad · 4 Días",
+              dates: "5 al 8 Dic 2026",
+              image_url: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&w=1200&q=80",
+              summary: "Escapada mágica a Zúrich y Lucerna con paseo en barco por el lago, tren panorámico a la nieve y mercadillos iluminados.",
+              transport_desc: "Vuelo directo Madrid ⇄ Zúrich (Swiss / easyJet, 2h 20m) + pases de tren panorámico",
+              lodging_desc: "Hotel familiar con encanto en Lucerna o Zúrich con desayuno buffet",
+              marco_highlights: "Trenecito de montaña, chocolate caliente suizo, puente medieval Kapellbrücke y tiovivo.",
+              total_cost: 1320,
+              cost_per_person: 440,
+              itinerary: [
+                { day: 1, title: "Llegada a Zúrich & Mercadillo Central", desc: "Vuelo directo desde Barajas, tren exprés al centro y visita al gran abeto de cristales Swarovski." },
+                { day: 2, title: "Lucerna & Barco por el Lago", desc: "Paseo por el puente medieval Kapellbrücke de madera, paseo en barco y tiovivo junto al lago." },
+                { day: 3, title: "Subida a la nieve en monte Rigi", desc: "Ascenso en tren de cremallera tocando nieve suave con Marco y vistas alpinas espectaculares." },
+                { day: 4, title: "Mercadillos del Casco Antiguo y Vuelta", desc: "Compras de dulces artesanos, almuerzo tradicional y vuelo de regreso a Madrid." }
+              ],
+              costs_breakdown: [
+                { concept: "Vuelos directos I/V (3 plazas)", total: "540 €" },
+                { concept: "Alojamiento (3 noches familiar)", total: "450 €" },
+                { concept: "Pases de tren suizo / transporte", total: "180 €" },
+                { concept: "Comidas y meriendas tradicionales", total: "280 €" },
+                { concept: "Actividades y funicular para Marco", total: "70 €" }
+              ]
+            }
+          }]
+        };
+      } else if (p.includes('disney') || p.includes('paris') || p.includes('parís')) {
+        return {
+          reply: "¡Plan de ensueño para Marco (4 años)! He diseñado la escapada a **Disneyland París & Magia Disney**, con vuelos directos, hotel temático familiar con lanzadera gratuita y 2 días completos de acceso a los parques Disney.\n\n" +
+                 "He creado automáticamente la ficha completa en el portal con el itinerario y costes calculados.",
+          actions: [{
+            action: "create_trip",
+            label: "🌟 Abrir Ficha Creada: Disneyland París ➔",
+            trip: {
+              id: "disney_paris",
+              title: "Disneyland París & Magia Disney",
+              emoji: "🏰",
+              tag: "Familiar Mágico · 4 Días",
+              dates: "Primavera / Otoño 2027",
+              image_url: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80",
+              summary: "Aventura inolvidable para Marco conociendo a Mickey, atracciones familiares de Peter Pan y Peter Rabbit, y espectáculos de luces.",
+              transport_desc: "Vuelos directos Madrid ⇄ París Orly/CDG (Iberia / Air France) + tren RER / Shuttle Disney",
+              lodging_desc: "Hotel temático Disney o asociado con piscina climatizada infantil y bus directo a los parques",
+              marco_highlights: "Cabalgata de personajes, abrazo con Mickey, tiovivo de Lancelot, paseo en barco 'It's a Small World'.",
+              total_cost: 1480,
+              cost_per_person: 493,
+              itinerary: [
+                { day: 1, title: "Vuelo a París & Llegada al Hotel Disney", desc: "Llegada cómoda, check-in en hotel tematizado y primer paseo por Disney Village con cena divertida." },
+                { day: 2, title: "Parque Disneyland: Castillo & Fantasyland", desc: "Día entero en Fantasyland (Peter Pan, Dumbo, Tazas locas) y show nocturno de fuegos artificiales." },
+                { day: 3, title: "Walt Disney Studios & Pixar", desc: "Mundo de Cars, Remy / Ratatouille, espectáculos infantiles y encuentro con personajes." },
+                { day: 4, title: "Paseo por París (Torre Eiffel) & Regreso", desc: "Foto mágica en Trocadero viendo la Torre Eiffel y vuelo de regreso por la tarde a Madrid." }
+              ],
+              costs_breakdown: [
+                { concept: "Vuelos directos MAD-PAR (3 pax)", total: "420 €" },
+                { concept: "Hotel asociado Disney 3 noches con desayuno", total: "480 €" },
+                { concept: "Entradas combinadas 2 días parques Disney", total: "360 €" },
+                { concept: "Comidas y cenas temáticas", total: "220 €" }
+              ]
+            }
+          }]
+        };
+      } else if (p.includes('selva negra') || p.includes('europa park')) {
+        return {
+          reply: "¡La mejor ruta de naturaleza y diversión! He generado la propuesta para **Selva Negra & Europa-Park**, ideal para hacer en coche o con vuelo a Basilea/Estrasburgo.\n\n" +
+                 "Incluye el reloj de cuco gigante de Triberg, tobogán de montaña y un día en Europa-Park (el parque temático mejor valorado de Europa).",
+          actions: [{
+            action: "create_trip",
+            label: "🌟 Abrir Ficha Creada: Selva Negra & Europa-Park ➔",
+            trip: {
+              id: "selva_negra",
+              title: "Selva Negra & Europa-Park",
+              emoji: "🌲",
+              tag: "Naturaleza & Parques · 5 Días",
+              dates: "Puente de Mayo o Verano 2027",
+              image_url: "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
+              summary: "Bosques de cuento, lagos cristalinos (Titisee), granjas alpinas tradicionales y día mágico en Europa-Park.",
+              transport_desc: "Vuelo directo MAD ⇄ Basilea o ruta en coche Volvo XC60 con paradas panorámicas",
+              lodging_desc: "Cabaña de madera o gasthof tradicional con desayuno campestre en Titisee o Friburgo",
+              marco_highlights: "Granjas con animales para alimentar, reloj de cuco gigante, tobogán de verano y atracciones de agua.",
+              total_cost: 1250,
+              cost_per_person: 416,
+              itinerary: [
+                { day: 1, title: "Llegada a Friburgo & Paseo por los canalillos", desc: "Paseo por el casco antiguo de Friburgo jugando con los barquitos de madera en los 'Bächle'." },
+                { day: 2, title: "Cascadas de Triberg & Reloj de Cuco Gigante", desc: "Ardillas amigables en el bosque, cascadas y tarta Selva Negra artesanal." },
+                { day: 3, title: "Día entero en Europa-Park (Zonas infantiles)", desc: "Atracciones familiares en el mundo de los cuentos de los Hermanos Grimm y zona de Irlanda." },
+                { day: 4, title: "Lago Titisee & Paseo en Barco Solar", desc: "Paseo relajante en barquito por el lago y senderos fáciles de carritos entre pinos." },
+                { day: 5, title: "Regreso a Madrid", desc: "Almuerzo campestre y vuelo o tramo final de vuelta a casa." }
+              ],
+              costs_breakdown: [
+                { concept: "Vuelos directos a Basilea (3 plazas)", total: "390 €" },
+                { concept: "Gasthof rural familiar 4 noches", total: "440 €" },
+                { concept: "Alquiler coche SUV / Combustible", total: "180 €" },
+                { concept: "Entradas Europa-Park (2A + 1N)", total: "160 €" },
+                { concept: "Gastronomía autóctona y meriendas", total: "220 €" }
+              ]
+            }
+          }]
+        };
+      }
+
+      if (p.includes('alsacia') || p.includes('ahorro') || p.includes('48%')) {
+        return {
+          reply: "¡Hola! En **Alsacia**, el pico del Puente de Diciembre (5-8 Dic) cuesta unos 2.327€ para los 3 debido a la saturación extrema. Si viajáis en la **semana del 20 al 23 de Noviembre** (cuando los mercadillos de Estrasburgo y Colmar ya están inaugurados), el presupuesto baja a solo **1.209€** (un ahorro real de **1.118€ / 48%**).",
+          actions: [
+            { action: "open_tab", tab: "alsacia", label: "📍 Ver Ficha de Alsacia" },
+            { action: "simulate_dates", destination: "alsacia", checkin: "2026-11-20", checkout: "2026-11-23", label: "⚡ Cotizar Noviembre Valle (1.209€)" }
+          ]
+        };
+      } else if (p.includes('barato') || p.includes('economico')) {
+        return {
+          reply: "El viaje más económico y flexible es **San Sebastián & Caserío Vasco-Navarro en el Volvo XC60** por solo **749€ total** (unos 250€ por persona), con combustible incluido y sin dependencia de billetes de avión. De los viajes en avión, **Italia (Venecia & Florencia)** en temporada valle sale por solo **590€ total**.",
+          actions: [
+            { action: "open_tab", tab: "sanseb", label: "🌲 Ver San Sebastián en Caserío" },
+            { action: "open_tab", tab: "italia", label: "🇮🇹 Ver Italia (Venecia & Florencia)" }
+          ]
+        };
+      } else if (p.includes('marco') || p.includes('niño') || p.includes('4 años')) {
+        return {
+          reply: "Para Marco (4 años), los mejores destinos son: 1) **Núremberg** con la *Kinderweihnacht* (mercadillo infantil con tren de vapor y noria de época) y el *Museo del Juguete*. 2) **Transilvania** con la noria gigante subterránea en *Salina Turda*. En coche con el Volvo XC60, la recomendación de oro es hacer paradas cada 2 horas en áreas con zona verde para que desfogue.",
+          actions: [
+            { action: "open_tab", tab: "nuremberg", label: "🥨 Ver Núremberg & Kinderweihnacht" },
+            { action: "open_tab", tab: "rumania", label: "❄️ Ver Salina Turda (Transilvania)" }
+          ]
+        };
+      } else {
+        return {
+          reply: "¡Excelente consulta! He registrado vuestra preferencia. Podéis pedirme generar cualquier viaje nuevo (ej: 'Crea un viaje a Suiza' o 'Genera Disney París') y lo inyectaré directamente en el portal con su ficha y desglose completo.",
+          actions: [
+            { action: "open_tab", tab: "overview", label: "🏡 Ver Todos los Viajes" },
+            { action: "open_tab", tab: "calendario", label: "📅 Ver Calendario Anual" }
+          ]
+        };
+      }
+    }
+
+    // Inicializar viajes personalizados al cargar
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCustomTrips);
+    } else {
+      initCustomTrips();
+    }
+
 
 </script>
   <!-- BOTÓN FLOTANTE ASISTENTE BRÚJULA AI (ACCESIBLE EN ESCRITORIO) -->

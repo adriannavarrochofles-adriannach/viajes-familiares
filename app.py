@@ -1,7 +1,7 @@
 import os
 from datetime import datetime, date
 from typing import Optional, Dict, Any, List
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request, Header
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -574,6 +574,346 @@ def get_prospection_matrix():
 import requests
 import json
 import re
+import hmac
+import hashlib
+import time
+import base64
+import uuid
+
+# ----------------- AUTENTICACIÓN Y GESTIÓN DE USUARIOS -----------------
+USERS_FILE = os.path.join(BASE_DIR, "users.json")
+PHOTOS_FILE = os.path.join(BASE_DIR, "photos.json")
+UPLOADS_DIR = os.path.join(BASE_DIR, "user_uploads")
+os.makedirs(UPLOADS_DIR, exist_ok=True)
+
+AUTH_SECRET_KEY = os.environ.get("AUTH_SECRET_KEY", "brujula_familia_secure_key_2026_x7a")
+SALT = "brujula_salt_2026_xyz"
+
+def hash_password(password: str) -> str:
+    return hashlib.sha256(f"{SALT}:{password}".encode("utf-8")).hexdigest()
+
+def check_password(password: str, hashed: str) -> bool:
+    return hmac.compare_digest(hash_password(password), hashed)
+
+def create_user_token(user_id: str) -> str:
+    ts = int(time.time())
+    msg = f"{user_id}:{ts}".encode("utf-8")
+    sig = hmac.new(AUTH_SECRET_KEY.encode("utf-8"), msg, hashlib.sha256).hexdigest()
+    return f"{user_id}.{ts}.{sig}"
+
+def verify_user_token(token: str) -> Optional[str]:
+    if not token or "." not in token:
+        return None
+    parts = token.split(".")
+    if len(parts) != 3:
+        return None
+    user_id, ts_str, sig = parts
+    try:
+        ts = int(ts_str)
+        # Token válido durante 90 días
+        if time.time() - ts > 90 * 86400:
+            return None
+        msg = f"{user_id}:{ts}".encode("utf-8")
+        expected_sig = hmac.new(AUTH_SECRET_KEY.encode("utf-8"), msg, hashlib.sha256).hexdigest()
+        if hmac.compare_digest(sig, expected_sig):
+            return user_id
+    except Exception:
+        return None
+    return None
+
+def init_default_users():
+    if not os.path.isfile(USERS_FILE):
+        default_users = [
+            {
+                "id": "adrian",
+                "username": "adrian",
+                "name": "Adrián Navarro",
+                "password_hash": hash_password("1234"),
+                "avatar": "👨‍💼",
+                "role": "admin",
+                "created_at": datetime.now().isoformat()
+            },
+            {
+                "id": "maripaz",
+                "username": "maripaz",
+                "name": "Maripaz",
+                "password_hash": hash_password("1234"),
+                "avatar": "👩‍🦰",
+                "role": "user",
+                "created_at": datetime.now().isoformat()
+            },
+            {
+                "id": "marco",
+                "username": "marco",
+                "name": "Marco (4 años)",
+                "password_hash": hash_password("1234"),
+                "avatar": "👦",
+                "role": "user",
+                "created_at": datetime.now().isoformat()
+            }
+        ]
+        save_users(default_users)
+
+def load_users() -> List[Dict[str, Any]]:
+    init_default_users()
+    try:
+        with open(USERS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"Error cargando users.json: {e}")
+        return []
+
+def save_users(users: List[Dict[str, Any]]) -> None:
+    try:
+        with open(USERS_FILE, "w", encoding="utf-8") as f:
+            json.dump(users, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Error guardando users.json: {e}")
+
+def get_current_user_from_req(req: Request) -> Optional[Dict[str, Any]]:
+    auth_header = req.headers.get("Authorization", "")
+    token = None
+    if auth_header.startswith("Bearer "):
+        token = auth_header[7:].strip()
+    if not token:
+        token = req.headers.get("X-Auth-Token")
+    if not token:
+        token = req.query_params.get("token")
+        
+    if not token:
+        return None
+        
+    user_id = verify_user_token(token)
+    if not user_id:
+        return None
+        
+    users = load_users()
+    user = next((u for u in users if u["id"] == user_id), None)
+    return user
+
+class RegisterRequest(BaseModel):
+    username: str
+    password: str
+    name: str
+    avatar: Optional[str] = "👤"
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+@app.post("/api/auth/register")
+async def register_endpoint(req: RegisterRequest):
+    uname = req.username.strip().lower()
+    if not uname or len(uname) < 3:
+        raise HTTPException(status_code=400, detail="El nombre de usuario debe tener al menos 3 caracteres.")
+    if not req.password or len(req.password) < 3:
+        raise HTTPException(status_code=400, detail="La contraseña debe tener al menos 3 caracteres.")
+    
+    users = load_users()
+    if any(u["username"].lower() == uname for u in users):
+        raise HTTPException(status_code=400, detail="El nombre de usuario ya está registrado.")
+        
+    user_id = re.sub(r'[^a-z0-9_-]', '', uname)
+    if not user_id:
+        user_id = f"user_{int(time.time())}"
+        
+    new_user = {
+        "id": user_id,
+        "username": uname,
+        "name": req.name.strip() or uname.capitalize(),
+        "password_hash": hash_password(req.password),
+        "avatar": req.avatar or "👤",
+        "role": "user",
+        "created_at": datetime.now().isoformat()
+    }
+    users.append(new_user)
+    save_users(users)
+    
+    token = create_user_token(user_id)
+    safe_user = {k: v for k, v in new_user.items() if k != "password_hash"}
+    return {"status": "ok", "user": safe_user, "token": token}
+
+@app.post("/api/auth/login")
+async def login_endpoint(req: LoginRequest):
+    uname = req.username.strip().lower()
+    users = load_users()
+    user = next((u for u in users if u["username"].lower() == uname), None)
+    if not user or not check_password(req.password, user.get("password_hash", "")):
+        raise HTTPException(status_code=401, detail="Usuario o contraseña incorrectos.")
+        
+    token = create_user_token(user["id"])
+    safe_user = {k: v for k, v in user.items() if k != "password_hash"}
+    return {"status": "ok", "user": safe_user, "token": token}
+
+@app.get("/api/auth/me")
+async def auth_me_endpoint(request: Request):
+    user = get_current_user_from_req(request)
+    if not user:
+        raise HTTPException(status_code=401, detail="No autenticado o sesión expirada.")
+    safe_user = {k: v for k, v in user.items() if k != "password_hash"}
+    return {"status": "ok", "user": safe_user}
+
+@app.get("/api/auth/users-list")
+async def list_available_users():
+    users = load_users()
+    return {
+        "users": [{"id": u["id"], "username": u["username"], "name": u["name"], "avatar": u.get("avatar", "👤")} for u in users]
+    }
+
+# ----------------- GESTIÓN DE FOTOS PRIVADAS POR USUARIO -----------------
+
+def load_photos() -> List[Dict[str, Any]]:
+    if os.path.isfile(PHOTOS_FILE):
+        try:
+            with open(PHOTOS_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as e:
+            print(f"Error cargando photos.json: {e}")
+            return []
+    return []
+
+def save_photos(photos: List[Dict[str, Any]]) -> None:
+    try:
+        with open(PHOTOS_FILE, "w", encoding="utf-8") as f:
+            json.dump(photos, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Error guardando photos.json: {e}")
+
+class UploadPhotoRequest(BaseModel):
+    title: str = Field(default="Foto de viaje")
+    trip_id: Optional[str] = "general"
+    trip_name: Optional[str] = "Recuerdos Familiares"
+    date_taken: Optional[str] = None
+    image_base64: str = Field(..., description="Imagen en formato data:image/...;base64,... o base64 puro")
+
+@app.get("/api/photos")
+async def get_user_photos(request: Request):
+    user = get_current_user_from_req(request)
+    if not user:
+        raise HTTPException(status_code=401, detail="Debes iniciar sesión para ver tus fotos privadas.")
+        
+    photos = load_photos()
+    user_photos = [p for p in photos if p.get("user_id") == user["id"]]
+    user_photos.sort(key=lambda x: x.get("created_at", ""), reverse=True)
+    return {
+        "user_id": user["id"],
+        "user_name": user["name"],
+        "photos": user_photos,
+        "total": len(user_photos)
+    }
+
+@app.post("/api/photos/upload")
+async def upload_user_photo(req: UploadPhotoRequest, request: Request):
+    user = get_current_user_from_req(request)
+    if not user:
+        raise HTTPException(status_code=401, detail="Debes iniciar sesión para subir fotos.")
+        
+    raw_b64 = req.image_base64
+    ext = "jpg"
+    mime_type = "image/jpeg"
+    if "," in raw_b64:
+        header_part, data_part = raw_b64.split(",", 1)
+        if "image/png" in header_part:
+            ext = "png"
+            mime_type = "image/png"
+        elif "image/webp" in header_part:
+            ext = "webp"
+            mime_type = "image/webp"
+        elif "image/gif" in header_part:
+            ext = "gif"
+            mime_type = "image/gif"
+        raw_b64 = data_part
+
+    try:
+        img_bytes = base64.b64decode(raw_b64)
+    except Exception:
+        raise HTTPException(status_code=400, detail="Formato de imagen base64 inválido.")
+        
+    if len(img_bytes) > 12 * 1024 * 1024:
+        raise HTTPException(status_code=400, detail="La foto supera el tamaño máximo permitido (12 MB).")
+
+    user_dir = os.path.join(UPLOADS_DIR, user["id"])
+    os.makedirs(user_dir, exist_ok=True)
+    
+    photo_id = f"photo_{int(time.time())}_{uuid.uuid4().hex[:6]}"
+    filename = f"{photo_id}.{ext}"
+    file_path = os.path.join(user_dir, filename)
+    
+    with open(file_path, "wb") as f:
+        f.write(img_bytes)
+        
+    photo_entry = {
+        "id": photo_id,
+        "user_id": user["id"],
+        "username": user["username"],
+        "author_name": user["name"],
+        "title": req.title.strip() or "Recuerdo de viaje",
+        "trip_id": req.trip_id or "general",
+        "trip_name": req.trip_name or "Viaje Familiar",
+        "date_taken": req.date_taken or datetime.now().strftime("%Y-%m-%d"),
+        "created_at": datetime.now().isoformat(),
+        "filename": filename,
+        "url": f"/api/photos/file/{user['id']}/{filename}",
+        "mime_type": mime_type,
+        "size_bytes": len(img_bytes)
+    }
+    
+    photos = load_photos()
+    photos.append(photo_entry)
+    save_photos(photos)
+    
+    return {"status": "ok", "photo": photo_entry}
+
+@app.get("/api/photos/file/{user_id}/{filename}")
+async def serve_photo_file(user_id: str, filename: str, request: Request):
+    user = get_current_user_from_req(request)
+    if not user:
+        raise HTTPException(status_code=401, detail="Acceso denegado: debes iniciar sesión.")
+    if user["id"] != user_id and user.get("role") != "admin":
+        raise HTTPException(status_code=403, detail="Acceso denegado: solo el propietario puede ver esta foto.")
+        
+    clean_filename = os.path.basename(filename)
+    file_path = os.path.join(UPLOADS_DIR, user_id, clean_filename)
+    if not os.path.isfile(file_path):
+        raise HTTPException(status_code=404, detail="Foto no encontrada.")
+        
+    ext = os.path.splitext(clean_filename)[1].lower()
+    media_types = {
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".png": "image/png",
+        ".webp": "image/webp",
+        ".gif": "image/gif"
+    }
+    media_type = media_types.get(ext, "image/jpeg")
+    return FileResponse(file_path, media_type=media_type)
+
+@app.delete("/api/photos/{photo_id}")
+async def delete_photo_endpoint(photo_id: str, request: Request):
+    user = get_current_user_from_req(request)
+    if not user:
+        raise HTTPException(status_code=401, detail="No autenticado.")
+        
+    photos = load_photos()
+    photo = next((p for p in photos if p["id"] == photo_id), None)
+    if not photo:
+        raise HTTPException(status_code=404, detail="Foto no encontrada.")
+        
+    if photo["user_id"] != user["id"] and user.get("role") != "admin":
+        raise HTTPException(status_code=403, detail="No tienes permisos para eliminar esta foto.")
+        
+    file_path = os.path.join(UPLOADS_DIR, photo["user_id"], photo.get("filename", ""))
+    if os.path.isfile(file_path):
+        try:
+            os.remove(file_path)
+        except Exception as e:
+            print(f"Error eliminando archivo {file_path}: {e}")
+            
+    photos = [p for p in photos if p["id"] != photo_id]
+    save_photos(photos)
+    return {"status": "ok", "deleted": photo_id}
+
+# ----------------- VIAJES PERSONALIZADOS -----------------
 
 CUSTOM_TRIPS_FILE = os.path.join(BASE_DIR, "custom_trips.json")
 
@@ -595,18 +935,26 @@ def save_custom_trips(trips: List[Dict[str, Any]]) -> None:
         print(f"Error guardando custom_trips.json: {e}")
 
 @app.get("/api/trips/custom")
-async def get_custom_trips():
-    return {"trips": load_custom_trips()}
+async def get_custom_trips(request: Request):
+    user = get_current_user_from_req(request)
+    trips = load_custom_trips()
+    if user:
+        return {"trips": [t for t in trips if t.get("user_id") in [user["id"], None, "public"]]}
+    return {"trips": trips}
 
 class SaveTripRequest(BaseModel):
     trip: Dict[str, Any]
 
 @app.post("/api/trips/custom")
-async def save_custom_trip_endpoint(req: SaveTripRequest):
+async def save_custom_trip_endpoint(req: SaveTripRequest, request: Request):
+    user = get_current_user_from_req(request)
     trip = req.trip
     trip_id = trip.get("id")
     if not trip_id:
         raise HTTPException(status_code=400, detail="El viaje debe tener un id.")
+    if user:
+        trip["user_id"] = user["id"]
+        trip["author_name"] = user["name"]
     trips = load_custom_trips()
     idx = next((i for i, t in enumerate(trips) if t.get("id") == trip_id), None)
     if idx is not None:
@@ -617,8 +965,13 @@ async def save_custom_trip_endpoint(req: SaveTripRequest):
     return {"status": "ok", "trip": trip, "total": len(trips)}
 
 @app.delete("/api/trips/custom/{trip_id}")
-async def delete_custom_trip_endpoint(trip_id: str):
+async def delete_custom_trip_endpoint(trip_id: str, request: Request):
+    user = get_current_user_from_req(request)
     trips = load_custom_trips()
+    if user:
+        target = next((t for t in trips if t.get("id") == trip_id), None)
+        if target and target.get("user_id") and target.get("user_id") != user["id"] and user.get("role") != "admin":
+            raise HTTPException(status_code=403, detail="No puedes eliminar este viaje.")
     trips = [t for t in trips if t.get("id") != trip_id]
     save_custom_trips(trips)
     return {"status": "ok", "deleted": trip_id, "remaining": len(trips)}

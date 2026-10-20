@@ -1,0 +1,29 @@
+[
+  {
+    "id": "adrian",
+    "username": "adrian",
+    "name": "Adrián Navarro",
+    "password_hash": "66a882f84f599e41aa828629a9bb41dee7277b1ae5762ba3d484470105cef286",
+    "avatar": "👨‍💼",
+    "role": "admin",
+    "created_at": "2026-10-20T13:22:10.664445"
+  },
+  {
+    "id": "maripaz",
+    "username": "maripaz",
+    "name": "Maripaz",
+    "password_hash": "66a882f84f599e41aa828629a9bb41dee7277b1ae5762ba3d484470105cef286",
+    "avatar": "👩‍🦰",
+    "role": "user",
+    "created_at": "2026-10-20T13:22:10.664479"
+  },
+  {
+    "id": "marco",
+    "username": "marco",
+    "name": "Marco (4 años)",
+    "password_hash": "66a882f84f599e41aa828629a9bb41dee7277b1ae5762ba3d484470105cef286",
+    "avatar": "👦",
+    "role": "user",
+    "created_at": "2026-10-20T13:22:10.664482"
+  }
+]

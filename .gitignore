@@ -4,3 +4,4 @@ __pycache__/
 .env
 PORTAL_VIAJES_FAMILIARES_WHATSAPP.html
 .pytest_cache/
+user_uploads/

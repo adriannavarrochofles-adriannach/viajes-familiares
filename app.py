@@ -28,16 +28,27 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 static_dirs = [
     "img",
     "img_alsacia",
+    "img_belgica",
+    "img_birmingham",
     "img_budapest",
+    "img_dinamarca",
+    "img_grecia",
     "img_nuremberg",
     "img_rumania",
-    "img_sansebastian"
+    "img_sansebastian",
+    "user_uploads"
 ]
 
 for sdir in static_dirs:
     dir_path = os.path.join(BASE_DIR, sdir)
     if os.path.isdir(dir_path):
         app.mount(f"/{sdir}", StaticFiles(directory=dir_path), name=sdir)
+
+# Montar dinámicamente cualquier otro directorio img_*
+for item in os.listdir(BASE_DIR):
+    dir_path = os.path.join(BASE_DIR, item)
+    if os.path.isdir(dir_path) and item.startswith("img") and item not in static_dirs:
+        app.mount(f"/{item}", StaticFiles(directory=dir_path), name=item)
 
 @app.get("/", response_class=FileResponse)
 async def serve_root():

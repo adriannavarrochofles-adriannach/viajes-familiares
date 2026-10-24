@@ -1,3 +1,3 @@
 # PENDIENTES - PORTAL DE VIAJES FAMILIARES
 
-*Sin tareas pendientes activas.* Todas las tareas en curso (incorporación de las fichas de Bélgica, Dinamarca LEGO, Birmingham & Warwick, y Grecia en Agosto con su comparativa de precios y módulos de climatología/previsión meteorológica) han sido completadas, testeadas con Playwright, sincronizadas en los archivos autónomos de WhatsApp y desplegadas con éxito en producción.
+*Sin tareas pendientes activas.* El sistema de carga y servicio de imágenes ha sido auditado y corregido al 100% (FastAPI static mounts en `app.py`, compilador de imágenes base64 para cabeceras hero en `compile_whatsapp.py`, verificación de 110/110 fotos con HTTP 200 OK y despliegue en Render).

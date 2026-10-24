@@ -2863,6 +2863,265 @@
       justify-content: center;
     }
 
+
+    /* ==========================================================================
+       ESTILOS EXCLUSIVOS: ITALIA MASTER EXPERIENCE & SELECTOR DE ACTIVIDADES
+       ========================================================================== */
+    .it-route-map {
+      background: linear-gradient(135deg, #0F172A, #1E293B);
+      border-radius: 16px;
+      padding: 24px;
+      color: #FFFFFF;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .it-route-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 12px;
+    }
+    .it-route-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #F8FAFC;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+    }
+    .it-route-badge {
+      background: #38BDF8;
+      color: #0369A1;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .it-route-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+    }
+    .it-route-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 16px;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .it-route-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #38BDF8;
+      transform: translateY(-2px);
+    }
+    .it-step-number {
+      position: absolute;
+      top: -10px;
+      left: 14px;
+      background: #38BDF8;
+      color: #0F172A;
+      font-size: 0.72rem;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .it-step-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #38BDF8;
+      margin: 6px 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .it-step-desc {
+      font-size: 0.82rem;
+      color: #94A3B8;
+      line-height: 1.35;
+      margin: 0;
+    }
+    .it-step-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.75rem;
+      color: #CBD5E1;
+      font-weight: 600;
+    }
+
+    /* SELECTOR DE ACTIVIDADES */
+    .it-activity-section {
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 2px solid #E2E8F0;
+      padding: 28px;
+      margin-bottom: 45px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+    }
+    .it-activity-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .it-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+      background: #F1F5F9;
+      padding: 6px;
+      border-radius: 12px;
+    }
+    .it-filter-pill {
+      background: transparent;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .it-filter-pill.active {
+      background: #3B82F6;
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
+    }
+    .it-presets-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .it-preset-btn {
+      background: #EFF6FF;
+      color: #1D4ED8;
+      border: 1px solid #BFDBFE;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .it-preset-btn:hover {
+      background: #DBEAFE;
+    }
+    .it-activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 14px;
+    }
+    .it-activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 14px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .it-activity-item:hover {
+      border-color: #38BDF8;
+      background: #F0F9FF;
+    }
+    .it-activity-item.selected {
+      border-color: #0284C7;
+      background: #F0F9FF;
+    }
+    .it-activity-checkbox {
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #0284C7;
+    }
+    .it-act-info {
+      flex: 1;
+    }
+    .it-act-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .it-act-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #0F172A;
+      margin: 0;
+    }
+    .it-act-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+    .badge-marco { background: #FEF3C7; color: #B45309; }
+    .badge-adulto { background: #E0E7FF; color: #3730A3; }
+    .badge-familiar { background: #DCFCE7; color: #166534; }
+    .badge-gratis { background: #E2E8F0; color: #334155; }
+    .it-act-desc {
+      font-size: 0.8rem;
+      color: #64748B;
+      line-height: 1.35;
+      margin: 4px 0 6px;
+    }
+    .it-act-prices {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #1E293B;
+      padding-top: 6px;
+      border-top: 1px dashed #CBD5E1;
+    }
+    .it-kpi-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+      background: linear-gradient(135deg, #0F172A, #1E293B);
+      padding: 18px;
+      border-radius: 12px;
+      color: #FFFFFF;
+    }
+    .it-kpi-item h5 {
+      margin: 0 0 4px;
+      font-size: 0.75rem;
+      color: #94A3B8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .it-kpi-item .kpi-val {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #38BDF8;
+    }
+    .it-kpi-item .kpi-sub {
+      font-size: 0.72rem;
+      color: #CBD5E1;
+    }
+
 </style>
 </head>
 <body>
@@ -6678,6 +6937,416 @@
     </div>
 
     <!-- GRAN GALERIA VISUAL DE ATRACCIONES DEL VIAJE -->
+    
+    <!-- ==========================================================================
+         MAPA DE RUTA VISUAL E INTERACTIVO: ITALIA MULTIDESTINO
+         ========================================================================== -->
+    <div class="it-route-map">
+      <div class="it-route-header">
+        <h3 class="it-route-title">🗺️ Mapa y Esquema de Ruta Inteligente: Venecia ➔ Florencia ➔ Pisa</h3>
+        <span class="it-route-badge">🚀 0 km duplicados · Todo enlazado en transporte público</span>
+      </div>
+      <p style="font-size:0.88rem; color:#94A3B8; margin-top:0; margin-bottom:18px;">
+        Entramos volando por Venecia y salimos volando por Pisa. Entre medias, cruzamos los Apeninos a 300 km/h en tren bala sin mover un solo coche ni arrastrar maletas.
+      </p>
+
+      <div class="it-route-steps">
+        <!-- ETAPA 1 -->
+        <div class="it-route-card">
+          <span class="it-step-number">Etapa 1</span>
+          <div class="it-step-title">🛫 Vuelo MAD ➔ VCE</div>
+          <p class="it-step-desc">Viernes 1 Ene · 08:35 - 11:05 h. Vuelo directo a Venecia Marco Polo. Traslado en bus lanzadera ATVO (17 min).</p>
+          <div class="it-step-meta">
+            <span>2h 30m de vuelo</span>
+            <span>~55 € / pers</span>
+          </div>
+        </div>
+
+        <!-- ETAPA 2 -->
+        <div class="it-route-card">
+          <span class="it-step-number">Etapa 2</span>
+          <div class="it-step-title">🚤 Venecia & Canales</div>
+          <p class="it-step-desc">Viernes 1 Ene. Vaporetto Línea 1 por Gran Canal, Puente de Rialto, góndolas y Plaza San Marcos.</p>
+          <div class="it-step-meta">
+            <span>Transporte acuático</span>
+            <span>Marco GRATIS</span>
+          </div>
+        </div>
+
+        <!-- ETAPA 3 -->
+        <div class="it-route-card">
+          <span class="it-step-number">Etapa 3</span>
+          <div class="it-step-title">🚅 Tren Bala 300 km/h</div>
+          <p class="it-step-desc">Sábado 2 Ene · 11:30 - 13:30 h. Frecciarossa directo de Venecia S. Lucia a Florencia S.M. Novella.</p>
+          <div class="it-step-meta">
+            <span>2h exactas</span>
+            <span>Bimbi Gratis (0 €)</span>
+          </div>
+        </div>
+
+        <!-- ETAPA 4 -->
+        <div class="it-route-card">
+          <span class="it-step-number">Etapa 4</span>
+          <div class="it-step-title">🎨 Florencia Monumental</div>
+          <p class="it-step-desc">2 y 3 Ene. Duomo, Tiovivo histórico de Marco, Leonardo da Vinci, Ponte Vecchio y helados artesanos.</p>
+          <div class="it-step-meta">
+            <span>2 noches hotel</span>
+            <span>Centro peatonal</span>
+          </div>
+        </div>
+
+        <!-- ETAPA 5 -->
+        <div class="it-route-card">
+          <span class="it-step-number">Etapa 5</span>
+          <div class="it-step-title">🚆 Tren a Pisa</div>
+          <p class="it-step-desc">Lunes 4 Ene · Mañana. Tren regional de dos pisos cruzando la Toscana de Florencia a Pisa Centrale.</p>
+          <div class="it-step-meta">
+            <span>50 min trayecto</span>
+            <span>8,90 € (Marco 0 €)</span>
+          </div>
+        </div>
+
+        <!-- ETAPA 6 -->
+        <div class="it-route-card">
+          <span class="it-step-number">Etapa 6</span>
+          <div class="it-step-title">📐 Torre de Pisa</div>
+          <p class="it-step-desc">Lunes 4 Ene. Fotos divertidas sujetando la torre en la pradera verde de Piazza dei Miracoli.</p>
+          <div class="it-step-meta">
+            <span>Césped libre</span>
+            <span>100% GRATIS</span>
+          </div>
+        </div>
+
+        <!-- ETAPA 7 -->
+        <div class="it-route-card">
+          <span class="it-step-number">Etapa 7</span>
+          <div class="it-step-title">🛬 Vuelo PSA ➔ MAD</div>
+          <p class="it-step-desc">Lunes 4 Ene · 18:50 - 21:20 h. Monorraíl PisaMover al aeropuerto (5 min) y vuelo directo a Barajas.</p>
+          <div class="it-step-meta">
+            <span>En casa a las 22:15 h</span>
+            <span>Reyes en Alcalá</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SELECTOR INTERACTIVO DE ACTIVIDADES: ADULTOS VS MARCO
+         ========================================================================== -->
+    <div class="it-activity-section" id="selector-actividades-italia">
+      <div class="it-activity-header">
+        <div>
+          <h3 style="margin: 0 0 6px; font-size: 1.35rem; font-weight: 900; color: #0F172A;">
+            🎯 Selector y Descarte Interactivo de Actividades (Adultos vs Marco)
+          </h3>
+          <p style="margin: 0; font-size: 0.88rem; color: #64748B;">
+            Marca o desmarca actividades para ajustar el itinerario al ritmo de la familia. Los costes totales y el ahorro se recalculan en vivo:
+          </p>
+        </div>
+      </div>
+
+      <!-- BOTONES DE PRESET RÁPIDO -->
+      <div class="it-presets-bar">
+        <span style="font-size: 0.8rem; font-weight: 700; color: #475569; align-self: center;">Planes rápidos:</span>
+        <button type="button" class="it-preset-btn" onclick="applyItPreset('completo')">💎 Plan Completo (Todo Activo)</button>
+        <button type="button" class="it-preset-btn" onclick="applyItPreset('recomendado')">🌟 Plan Recomendado Familia</button>
+        <button type="button" class="it-preset-btn" onclick="applyItPreset('ahorro')">💰 Plan Ultra Ahorro</button>
+      </div>
+
+      <!-- FILTROS POR CATEGORÍA -->
+      <div class="it-filter-bar">
+        <button type="button" class="it-filter-pill active" onclick="filterItActivities('todas', this)">Todas las Actividades (16)</button>
+        <button type="button" class="it-filter-pill" onclick="filterItActivities('marco', this)">👦 Favoritas de Marco</button>
+        <button type="button" class="it-filter-pill" onclick="filterItActivities('adultos', this)">👨‍💼 Exclusivas Adultos</button>
+        <button type="button" class="it-filter-pill" onclick="filterItActivities('gratis', this)">✨ Gratuitas (0 €)</button>
+      </div>
+
+      <!-- REJILLA DE ACTIVIDADES -->
+      <div class="it-activity-grid" id="it-activity-list">
+
+        <!-- 1. VAPORETTO -->
+        <label class="it-activity-item selected" data-cat="familiar" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-vaporetto" checked data-adult="9.5" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🚤 Vaporetto Línea 1 por Gran Canal</span>
+              <span class="it-act-badge badge-familiar">Familiar</span>
+            </div>
+            <p class="it-act-desc">Paseo panorámico en barco acuático entre palacios flotantes y el Puente de Rialto.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>9,50 €</strong></span>
+              <span style="color:#16A34A;">Marco: <strong>GRATIS (&lt;6a)</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 2. GONDOLA -->
+        <label class="it-activity-item selected" data-cat="familiar" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-gondola" checked data-fixed="80" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🛶 Paseo en Góndola Clásica Veneciana</span>
+              <span class="it-act-badge badge-familiar">Experiencia Top</span>
+            </div>
+            <p class="it-act-desc">30 min navegando los canales silenciosos. Tarifa oficial diurna para el grupo completo de 5 personas.</p>
+            <div class="it-act-prices">
+              <span>Grupo completo: <strong>80,00 €</strong></span>
+              <span style="color:#0284C7;">(~16 € / pers)</span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 3. BASILICA SAN MARCOS -->
+        <label class="it-activity-item selected" data-cat="adultos" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-basilica" checked data-adult="3" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">⛪ Basílica de San Marcos (Mosaicos de Oro)</span>
+              <span class="it-act-badge badge-adulto">Adultos</span>
+            </div>
+            <p class="it-act-desc">Entrada oficial para admirar los techos bizantinos cubiertos de oro.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>3,00 €</strong></span>
+              <span style="color:#16A34A;">Marco: <strong>GRATIS</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 4. PALACIO DUCAL -->
+        <label class="it-activity-item" data-cat="adultos" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-palacio" data-adult="30" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🏛️ Palacio Ducal de Venecia</span>
+              <span class="it-act-badge badge-adulto">Opcional Adultos</span>
+            </div>
+            <p class="it-act-desc">Cruce interior del Puente de los Suspiros y salas de los Dogos. *(Fácil de descartar)*.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>30,00 €</strong></span>
+              <span style="color:#16A34A;">Marco: <strong>GRATIS (&lt;6a)</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 5. TALLER MASCARAS -->
+        <label class="it-activity-item selected" data-cat="marco" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-mascaras" checked data-child="15" data-adult="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🎭 Taller de Máscaras Venecianas & Recuerdo</span>
+              <span class="it-act-badge badge-marco">Para Marco</span>
+            </div>
+            <p class="it-act-desc">Ver a los artesanos pintar máscaras de carnaval en directo y elegir una pequeña para Marco.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>0 € (Entrada Libre)</strong></span>
+              <span style="color:#D97706;">Máscara Marco: <strong>~15,00 €</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 6. MIRADOR FONDACO -->
+        <label class="it-activity-item selected" data-cat="gratis" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-fondaco" checked data-adult="0" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🌅 Mirador 360° T Fondaco dei Tedeschi</span>
+              <span class="it-act-badge badge-gratis">100% Gratis</span>
+            </div>
+            <p class="it-act-desc">Terraza en la azotea de un palacio junto al Puente de Rialto con vistas a todo el Gran Canal.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>0,00 €</strong></span>
+              <span style="color:#16A34A;">Marco: <strong>GRATIS</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 7. TIOVIVO FLORENCIA -->
+        <label class="it-activity-item selected" data-cat="marco" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-tiovivo" checked data-child="2" data-adult="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🎠 Tiovivo Clásico Giostra di Piazza della Repubblica</span>
+              <span class="it-act-badge badge-marco">Para Marco</span>
+            </div>
+            <p class="it-act-desc">Histórico carrusel iluminado del siglo XIX con caballos dorados y música clásica en Florencia.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>0 € (Acompañan)</strong></span>
+              <span style="color:#D97706;">Viaje de Marco: <strong>2,00 €</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 8. DUOMO FLORENCIA -->
+        <label class="it-activity-item selected" data-cat="gratis" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-duomo" checked data-adult="0" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">⛪ Piazza del Duomo & Catedral de Florencia</span>
+              <span class="it-act-badge badge-gratis">100% Gratis</span>
+            </div>
+            <p class="it-act-desc">Admirar la majestuosa cúpula de Brunelleschi y la fachada de mármol rosa y verde.</p>
+            <div class="it-act-prices">
+              <span>Plaza y Templo: <strong>0,00 €</strong></span>
+              <span style="color:#16A34A;">Acceso libre</span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 9. SUBIDA CUPULA FLORENCIA -->
+        <label class="it-activity-item" data-cat="adultos" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-cupula" data-adult="30" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🧗 Subida a la Cúpula de Brunelleschi (463 escalones)</span>
+              <span class="it-act-badge badge-adulto">Opcional Adultos</span>
+            </div>
+            <p class="it-act-desc">Vistas de pájaro de Florencia. *(Escaleras muy estrechas, no recomendadas para el peque)*.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>30,00 €</strong></span>
+              <span style="color:#64748B;">No adaptado a niños</span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 10. JABALI PORCELLINO -->
+        <label class="it-activity-item selected" data-cat="marco" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-porcellino" checked data-adult="0" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🐗 El Jabalí de la Suerte (Il Porcellino)</span>
+              <span class="it-act-badge badge-marco">Para Marco</span>
+            </div>
+            <p class="it-act-desc">Frotar el hocico brillante de bronce y echar una moneda para pedir un deseo.</p>
+            <div class="it-act-prices">
+              <span>Actividad: <strong>0,00 €</strong></span>
+              <span style="color:#16A34A;">Solo la moneda</span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 11. LEONARDO DA VINCI -->
+        <label class="it-activity-item selected" data-cat="marco" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-leonardo" checked data-adult="12" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">⚙️ Museo Interactivo Leonardo da Vinci</span>
+              <span class="it-act-badge badge-marco">Imprescindible</span>
+            </div>
+            <p class="it-act-desc">Máquinas e inventos de madera a escala humana. Marco puede mover palancas, catapultas y engranajes.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>12,00 €</strong></span>
+              <span style="color:#16A34A;">Marco: <strong>GRATIS (&lt;5a)</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 12. ACADEMIA DAVID -->
+        <label class="it-activity-item selected" data-cat="adultos" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-academia" checked data-adult="16" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🎨 Galería de la Academia (El David de Miguel Ángel)</span>
+              <span class="it-act-badge badge-adulto">Adultos</span>
+            </div>
+            <p class="it-act-desc">La estatua colosal de 5 metros de mármol puro más famosa del mundo.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>16,00 €</strong></span>
+              <span style="color:#16A34A;">Marco: <strong>GRATIS (&lt;18a)</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 13. JARDINES BOBOLI -->
+        <label class="it-activity-item selected" data-cat="familiar" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-boboli" checked data-adult="10" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🌳 Jardines de Boboli y Gruta de Buontalenti</span>
+              <span class="it-act-badge badge-familiar">Familiar</span>
+            </div>
+            <p class="it-act-desc">Jardines reales renacentistas: césped sin tráfico para correr, fuentes de dioses y grutas con gigantes.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>10,00 €</strong></span>
+              <span style="color:#16A34A;">Marco: <strong>GRATIS</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 14. JUGUETERIA PINOCHO -->
+        <label class="it-activity-item selected" data-cat="marco" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-pinocho" checked data-child="12" data-adult="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🧸 Juguetería Mágica de Pinocho (Bartolucci)</span>
+              <span class="it-act-badge badge-marco">Para Marco</span>
+            </div>
+            <p class="it-act-desc">Mítica tienda de tallistas toscanos de madera con marionetas articuladas y juguetes tradicionales.</p>
+            <div class="it-act-prices">
+              <span>Entrada: <strong>0,00 €</strong></span>
+              <span style="color:#D97706;">Muñeco Pinocho: <strong>~12,00 €</strong></span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 15. PIAZZA DEI MIRACOLI PISA -->
+        <label class="it-activity-item selected" data-cat="gratis" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-pisa-cesped" checked data-adult="0" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">📐 Piazza dei Miracoli & Fotos Torre Inclinada</span>
+              <span class="it-act-badge badge-gratis">100% Gratis</span>
+            </div>
+            <p class="it-act-desc">Sesión familiar de fotos divertidas jugando a sujetar la torre torcida en la gran pradera verde.</p>
+            <div class="it-act-prices">
+              <span>Pradera y exterior: <strong>0,00 €</strong></span>
+              <span style="color:#16A34A;">Acceso libre</span>
+            </div>
+          </div>
+        </label>
+
+        <!-- 16. SUBIDA TORRE PISA -->
+        <label class="it-activity-item" data-cat="adultos" onclick="toggleItActivity(this)">
+          <input type="checkbox" class="it-activity-checkbox" id="chk-act-torre-subir" data-adult="20" data-child="0" onchange="updateItActivityCalc()">
+          <div class="it-act-info">
+            <div class="it-act-top">
+              <span class="it-act-title">🧗 Subida a lo Alto de la Torre de Pisa</span>
+              <span class="it-act-badge badge-adulto">Opcional Adultos</span>
+            </div>
+            <p class="it-act-desc">Subir los escalones inclinados. *(Prohibido a menores de 8 años por seguridad. Fácil de descartar)*.</p>
+            <div class="it-act-prices">
+              <span>Adultos: <strong>20,00 €</strong></span>
+              <span style="color:#EF4444;">Marco: Prohibido &lt;8a</span>
+            </div>
+          </div>
+        </label>
+
+      </div>
+
+      <!-- RESUMEN DINÁMICO DEL SELECTOR -->
+      <div class="it-kpi-bar">
+        <div class="it-kpi-item">
+          <h5>Total Actividades Grupo</h5>
+          <div class="kpi-val" id="it-act-total-val">~239 €</div>
+          <div class="kpi-sub" id="it-act-pax-val">Para 4 adultos + 1 niño</div>
+        </div>
+        <div class="it-kpi-item">
+          <h5>Coste por Adulto</h5>
+          <div class="kpi-val" id="it-act-adult-val">~52 €</div>
+          <div class="kpi-sub">Entradas seleccionadas</div>
+        </div>
+        <div class="it-kpi-item">
+          <h5>Coste para Marco</h5>
+          <div class="kpi-val" id="it-act-child-val">~29 €</div>
+          <div class="kpi-sub">Casi todo es GRATIS</div>
+        </div>
+        <div class="it-kpi-item">
+          <h5>Ahorro por Descarte</h5>
+          <div class="kpi-val" id="it-act-savings-val" style="color: #10B981;">0 €</div>
+          <div class="kpi-sub">Al tachar actividades</div>
+        </div>
+      </div>
+    </div>
+
     <section id="galeria-atracciones" style="margin-bottom: 50px;">
       <h2 class="section-title">📸 Galería Fotográfica de Atracciones e Iconos del Viaje</h2>
       <p class="section-desc">Cada uno de los lugares, monumentos, transportes y delicias gastronómicas reales que viviréis durante estos 4 días.</p>
@@ -7209,24 +7878,36 @@
 
               <ul class="step-list">
                 <li class="step-item">
-                  <span class="step-time">14:30 h</span>
-                  <span class="step-desc">Salida de Alcalá de Henares al aeropuerto de Barajas T1.</span>
+                  <span class="step-time">06:00 h</span>
+                  <span class="step-desc">Salida de Alcalá de Henares hacia el aeropuerto Madrid-Barajas T4/T1 sin atascos de Año Nuevo.</span>
                 </li>
                 <li class="step-item">
-                  <span class="step-time">16:35 h</span>
-                  <span class="step-desc">Despegue vuelo directo Madrid ➔ Venecia Marco Polo.</span>
+                  <span class="step-time">08:35 h</span>
+                  <span class="step-desc"><strong>🛫 Vuelo Directo MAD ➔ VCE:</strong> Salida hacia Venecia Marco Polo (2h 30m de vuelo sin escalas).</span>
                 </li>
                 <li class="step-item">
-                  <span class="step-time">19:10 h</span>
-                  <span class="step-desc">Aterrizaje en Venecia. Autobús exprés ATVO directo al hotel en Mestre (17 min).</span>
+                  <span class="step-time">11:05 h</span>
+                  <span class="step-desc"><strong>🛬 Aterrizaje en Venecia:</strong> Bus exprés lanzadera ATVO (17 min) al hotel en Mestre para dejar maletas en 3 min. ¡Todo el día por delante!</span>
                 </li>
                 <li class="step-item">
-                  <span class="step-time">20:25 h</span>
-                  <span class="step-desc">Tren lanzadera de 9 minutos al Gran Canal de Venecia iluminado.</span>
+                  <span class="step-time">12:30 h</span>
+                  <span class="step-desc"><strong>Almuerzo veneciano junto al canal:</strong> Tostas cicchetti, focaccias calientes y pasta fresca para Marco en <em>Osteria Al Squero</em>.</span>
                 </li>
                 <li class="step-item">
-                  <span class="step-time">20:45 h</span>
-                  <span class="step-desc">Primera cena italiana: pizza crujiente al horno de leña y pasta al pomodoro para Marco.</span>
+                  <span class="step-time">14:00 h</span>
+                  <span class="step-desc"><strong>🚤 Vaporetto Línea 1 por el Gran Canal:</strong> Navegando entre palacios góticos y pasando por debajo del monumental <strong>Puente de Rialto</strong>.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">15:30 h</span>
+                  <span class="step-desc"><strong>🎭 Plaza de San Marcos & Puente de los Suspiros:</strong> Ver las góndolas mecidas por el agua, las palomas y la orquesta tocando al aire libre.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">17:00 h</span>
+                  <span class="step-desc"><strong>🛶 Paseo en Góndola Clásica / Taller de Máscaras:</strong> Recorrido por los canales silenciosos y visita a un taller artesano de carnaval para Marco.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">20:30 h</span>
+                  <span class="step-desc"><strong>🍕 Gran Cena Veneciana de Año Nuevo:</strong> Pizza crujiente al horno de leña, risotto de marisco y helado artesano en <em>Suso</em>.</span>
                 </li>
               </ul>
 
@@ -7397,28 +8078,32 @@
 
               <ul class="step-list">
                 <li class="step-item">
-                  <span class="step-time">09:28 h</span>
-                  <span class="step-desc">Tren directo Florencia SMN ➔ Pisa Centrale (50 min).</span>
+                  <span class="step-time">09:30 h</span>
+                  <span class="step-desc"><strong>🚆 Tren Regional Toscana:</strong> Florencia S.M.N. ➔ Pisa Centrale (50 min en tren moderno de dos pisos). Marco viaja gratis.</span>
                 </li>
                 <li class="step-item">
                   <span class="step-time">10:45 h</span>
-                  <span class="step-desc"><strong>Piazza dei Miracoli de Pisa:</strong> Ver la famosa <strong>Torre Inclinada</strong> y hacerse las fotos divertidas sujetándola con Marco en el césped.</span>
+                  <span class="step-desc"><strong>📐 Piazza dei Miracoli de Pisa:</strong> La gran explanada verde. Sesión de fotos divertidas familiares jugando a sujetar la <strong>Torre Inclinada</strong> con Marco.</span>
+                </li>
+                <li class="step-item">
+                  <span class="step-time">12:30 h</span>
+                  <span class="step-desc"><strong>Catedral de Pisa (Duomo):</strong> Interior majestuoso de mármol blanco y oro (acceso 100% gratuito con pase de hora).</span>
                 </li>
                 <li class="step-item">
                   <span class="step-time">13:30 h</span>
-                  <span class="step-desc">Almuerzo de despedida en trattoria junto a las murallas de Pisa y último helado italiano.</span>
+                  <span class="step-desc"><strong>Almuerzo toscano de despedida:</strong> Tablas de cecina, pasta pici casera y focaccias calientes en <em>I Porci Comodi</em>.</span>
                 </li>
                 <li class="step-item">
-                  <span class="step-time">15:30 h</span>
-                  <span class="step-desc">Monorraíl Pisamover (5 min al aeropuerto). Facturación y control de seguridad sin colas.</span>
+                  <span class="step-time">16:45 h</span>
+                  <span class="step-desc"><strong>🚝 Monorraíl PisaMover:</strong> 5 minutos directos desde la estación de tren hasta la terminal de salidas del aeropuerto.</span>
                 </li>
                 <li class="step-item">
-                  <span class="step-time">18:10 h</span>
-                  <span class="step-desc">Despegue vuelo directo Pisa ➔ Madrid-Barajas T1.</span>
+                  <span class="step-time">18:50 h</span>
+                  <span class="step-desc"><strong>🛫 Vuelo Directo PSA ➔ MAD:</strong> Despegue hacia Madrid-Barajas T1 (2h 30m de vuelo).</span>
                 </li>
                 <li class="step-item">
-                  <span class="step-time">20:35 h</span>
-                  <span class="step-desc">Aterrizaje en Madrid. A las 21:30 h en casa en Alcalá de Henares listos para descansar.</span>
+                  <span class="step-time">21:20 h</span>
+                  <span class="step-desc"><strong>🛬 Aterrizaje en Madrid:</strong> A las 22:15 h en casa en Alcalá de Henares, durmiendo en vuestra cama listos para la Cabalgata de Reyes.</span>
                 </li>
               </ul>
 
@@ -11447,6 +12132,7 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
     function initPortalBootstrap() {
       initCustomTrips();
       initAuth();
+      if (typeof updateItActivityCalc === 'function') updateItActivityCalc();
     }
 
     if (document.readyState === 'loading') {
@@ -11455,6 +12141,123 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       initPortalBootstrap();
     }
 
+
+
+    // ==========================================================================
+    // MOTOR REACTIVO: SELECTOR Y DESCARTE DE ACTIVIDADES ITALIA
+    // ==========================================================================
+    function toggleItActivity(labelEl) {
+      // Event handles checkbox change
+      setTimeout(updateItActivityCalc, 10);
+    }
+
+    function updateItActivityCalc() {
+      const adults = typeof currentAdults !== 'undefined' ? currentAdults : 4;
+      const children = typeof currentChildren !== 'undefined' ? currentChildren : 1;
+      const totalPax = adults + children;
+
+      let totalCost = 0;
+      let adultCost = 0;
+      let childCost = 0;
+      let maxPossibleCost = 0;
+
+      const items = document.querySelectorAll('#it-activity-list .it-activity-item');
+      items.forEach(item => {
+        const chk = item.querySelector('.it-activity-checkbox');
+        if (!chk) return;
+
+        const isChecked = chk.checked;
+        if (isChecked) {
+          item.classList.add('selected');
+        } else {
+          item.classList.remove('selected');
+        }
+
+        const fixed = parseFloat(chk.getAttribute('data-fixed') || '0');
+        const adultPrice = parseFloat(chk.getAttribute('data-adult') || '0');
+        const childPrice = parseFloat(chk.getAttribute('data-child') || '0');
+
+        const itemTotal = fixed > 0 ? fixed : (adultPrice * adults + childPrice * children);
+        maxPossibleCost += itemTotal;
+
+        if (isChecked) {
+          totalCost += itemTotal;
+          if (fixed > 0) {
+            adultCost += (fixed / (totalPax || 1));
+          } else {
+            adultCost += adultPrice;
+            childCost += childPrice;
+          }
+        }
+      });
+
+      const savings = Math.max(0, maxPossibleCost - totalCost);
+
+      const totalEl = document.getElementById('it-act-total-val');
+      const paxEl = document.getElementById('it-act-pax-val');
+      const adultEl = document.getElementById('it-act-adult-val');
+      const childEl = document.getElementById('it-act-child-val');
+      const savingsEl = document.getElementById('it-act-savings-val');
+
+      if (totalEl) totalEl.textContent = `~${Math.round(totalCost)} €`;
+      if (paxEl) paxEl.textContent = `Para ${adults} adultos${children > 0 ? ' + ' + children + ' niño' : ''}`;
+      if (adultEl) adultEl.textContent = `~${Math.round(adultCost)} €`;
+      if (childEl) childEl.textContent = `~${Math.round(childCost)} €`;
+      if (savingsEl) savingsEl.textContent = `${Math.round(savings)} €`;
+
+      // Update table cell if present
+      const tblActEl = document.getElementById('tbl-it-act-val');
+      if (tblActEl) {
+        tblActEl.textContent = `${Math.round(totalCost)} €`;
+      }
+    }
+
+    function filterItActivities(category, btnEl) {
+      // Toggle active class on pills
+      document.querySelectorAll('.it-filter-pill').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      const items = document.querySelectorAll('#it-activity-list .it-activity-item');
+      items.forEach(item => {
+        const cat = item.getAttribute('data-cat') || '';
+        if (category === 'todas') {
+          item.style.display = 'flex';
+        } else if (category === 'marco') {
+          item.style.display = (cat === 'marco' || cat === 'familiar') ? 'flex' : 'none';
+        } else if (category === 'adultos') {
+          item.style.display = (cat === 'adultos' || cat === 'familiar') ? 'flex' : 'none';
+        } else if (category === 'gratis') {
+          item.style.display = (cat === 'gratis') ? 'flex' : 'none';
+        }
+      });
+    }
+
+    function applyItPreset(preset) {
+      const chks = {
+        'chk-act-vaporetto': true,
+        'chk-act-gondola': (preset !== 'ahorro'),
+        'chk-act-basilica': true,
+        'chk-act-palacio': (preset === 'completo'),
+        'chk-act-mascaras': (preset !== 'ahorro'),
+        'chk-act-fondaco': true,
+        'chk-act-tiovivo': true,
+        'chk-act-duomo': true,
+        'chk-act-cupula': (preset === 'completo'),
+        'chk-act-porcellino': true,
+        'chk-act-leonardo': true,
+        'chk-act-academia': (preset !== 'ahorro'),
+        'chk-act-boboli': true,
+        'chk-act-pinocho': (preset !== 'ahorro'),
+        'chk-act-pisa-cesped': true,
+        'chk-act-torre-subir': (preset === 'completo')
+      };
+
+      for (const [id, val] of Object.entries(chks)) {
+        const el = document.getElementById(id);
+        if (el) el.checked = val;
+      }
+      updateItActivityCalc();
+    }
 
 </script>
   <!-- BOTÓN FLOTANTE ASISTENTE BRÚJULA AI (ACCESIBLE EN ESCRITORIO) -->

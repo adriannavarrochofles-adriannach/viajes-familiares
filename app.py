@@ -36,6 +36,7 @@ static_dirs = [
     "img_nuremberg",
     "img_rumania",
     "img_sansebastian",
+    "img_francia",
     "user_uploads"
 ]
 

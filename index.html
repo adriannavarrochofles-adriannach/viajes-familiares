@@ -216,6 +216,12 @@
                   url('img/gran_canal_venecia.jpg') center/cover no-repeat;
     }
     
+
+.hero-francia {
+  background: linear-gradient(180deg, rgba(11, 19, 43, 0.78) 0%, rgba(11, 19, 43, 0.94) 100%),
+              url('img_francia/carcassonne_cite.jpg') center/cover no-repeat;
+}
+
 .hero-belgica {
   background: linear-gradient(180deg, rgba(11, 19, 43, 0.78) 0%, rgba(11, 19, 43, 0.94) 100%),
               url('img_belgica/grand_place.jpg') center/cover no-repeat;
@@ -1614,7 +1620,7 @@
 
       /* Héroes de sección compactos para no desplazar el contenido */
       .portal-hero, .hero-overview, .hero-sanseb, .hero-alsacia, .hero-nuremberg, 
-      .hero-budapest, .hero-italia, .hero-rumania, .hero-belgica, .hero-dinamarca, .hero-birmingham, .hero-grecia, .hero-calendario, .hero-asistente {
+      .hero-budapest, .hero-italia, .hero-rumania, .hero-francia, .hero-belgica, .hero-dinamarca, .hero-birmingham, .hero-grecia, .hero-calendario, .hero-asistente {
         padding: 16px 12px 12px !important;
         max-width: 100% !important;
         overflow-x: hidden !important;
@@ -3162,6 +3168,12 @@
           <li><button class="nav-btn" style="color: #38BDF8; font-weight: 700;" onclick="switchTab('budapest')">✨ Budapest (Dic)</button></li>
           <li><button class="nav-btn" onclick="switchTab('italia')">🇮🇹 Venecia & Florencia</button></li>
           <li><button class="nav-btn btn-indigo" onclick="switchTab('rumania')">❄️ Transilvania (Rumanía)</button></li>
+          <li><button class="nav-btn" style="color: #60A5FA; font-weight: 700;" onclick="switchTab('francia')">🇫🇷 Carcasona & Sur de Francia</button></li>
+          <li><button class="nav-btn" onclick="switchTab('belgica')">🇧🇪 Bélgica</button></li>
+          <li><button class="nav-btn" onclick="switchTab('dinamarca')">🇩🇰 Dinamarca LEGO</button></li>
+          <li><button class="nav-btn" onclick="switchTab('birmingham')">🇬🇧 Birmingham</button></li>
+          <li><button class="nav-btn" style="color: #38BDF8; font-weight: 700;" onclick="switchTab('grecia')">🇬🇷 Grecia (Agosto)</button></li>
+
         </ul>
       </nav>
       <div class="nav-auth-container" id="nav-auth-container">
@@ -3536,6 +3548,28 @@
 
       
 
+
+
+        <!-- CARD: SUR DE FRANCIA (CARCASONA, LES GRANDS BUFFETS & TOULOUSE) -->
+        <div class="trip-card-link" onclick="switchTab('francia')">
+          <img src="img_francia/carcassonne_cite.jpg" alt="Carcasona y Sur de Francia" class="trip-card-img">
+          <div class="trip-card-body">
+            <span class="trip-tag" style="background:#EFF6FF; color:#1D4ED8; border:1px solid #BFDBFE;">🏰 Diciembre o Enero · 4 Días (Ruta en Volvo XC60)</span>
+            <h3>Sur de Francia: Carcasona, Les Grands Buffets & Toulouse</h3>
+            <p>La colosal Cité medieval amurallada de Carcasona (52 torres), el mayor buffet del mundo en Les Grands Buffets de Narbona (111 quesos y marisco), safari en coche en la Reserva Africana de Sigean, el Minotauro mecánico gigante de 14m en Toulouse y Colliure.</p>
+            <ul class="trip-meta-list">
+              <li>👥 <strong>Equipo:</strong> 4 Adultos + Marco (4 años)</li>
+              <li>🚗 <strong>Transporte:</strong> Volvo XC60 (~725 km de autopista · ¡0 € billetes de avión!)</li>
+              <li>📅 <strong>Opciones Fechas:</strong> Puente Diciembre (Navidad) o Semana Enero (Tranquilidad)</li>
+              <li>🌦️ <strong>Clima Previsto:</strong> 8°C a 13°C (fresco mediterráneo agradable y soleado)</li>
+              <li>🦁 <strong>Marco:</strong> Safari de leones y cebras en el coche, Minotauro gigante y caballeros</li>
+            </ul>
+            <div class="trip-card-footer">
+              <div class="trip-price">~1.188 € total grupo <span style="font-size:0.85rem;font-weight:700;color:#1D4ED8;">(~238 € / pers en Enero)</span></div>
+              <button class="btn-portal" style="background:#1D4ED8;">Explorar Ruta ➔</button>
+            </div>
+          </div>
+        </div>
 
         <!-- CARD 7: BÉLGICA (BRUSELAS, BRUJAS & GANTE) -->
         <div class="trip-card-link" onclick="switchTab('belgica')">
@@ -9231,6 +9265,373 @@
   </div>
 
 
+
+  <!-- ========================================== -->
+  <!-- TAB SUR DE FRANCIA (CARCASONA & TOULOUSE) -->
+  <!-- ========================================== -->
+  <div id="tab-francia" class="tab-view">
+    <section class="portal-hero hero-francia">
+      <div class="hero-badge" style="background: rgba(30, 64, 175, 0.3); border: 1px solid #60A5FA; color: #DBEAFE;">
+        🏰 RUTA EN VOLVO XC60 · COMPARATIVA DICIEMBRE VS ENERO
+      </div>
+      <h1>Sur de Francia: <span>Carcasona, Les Grands Buffets & Toulouse</span></h1>
+      <p class="sub">4 días / 3 noches en familia (4 Adultos + Marco 4a) · Ruta por autopista directa en nuestro Volvo XC60. La mayor fortaleza medieval amurallada de Europa, el festín gourmet de Les Grands Buffets, safari salvaje en la Reserva de Sigean, el Minotauro gigante mecánico de 14m y el puerto de Colliure.</p>
+    </section>
+
+    <div class="container">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Días Necesarios Óptimos</div>
+          <div class="kpi-val" style="color: #2563EB;">4 Días / 3 Noches</div>
+          <div class="kpi-sub">Puente de Diciembre (5-8 Dic) o Enero (1-4 Ene)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Equipo de Viajeros</div>
+          <div class="kpi-val">5 Personas</div>
+          <div class="kpi-sub">4 Adultos + 1 Niño (Marco 4 años)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Presupuesto Estimado Grupo</div>
+          <div class="kpi-val" style="color: #059669;">~1.188 €</div>
+          <div class="kpi-sub">~238 € / pers en Enero (~275 € en Diciembre)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Transporte Familiar</div>
+          <div class="kpi-val" style="color: #D97706;">Volvo XC60</div>
+          <div class="kpi-sub">~725 km de autopista · ¡0 € billetes de avión!</div>
+        </div>
+      </div>
+
+      <!-- ESTUDIO COMPARATIVO: DICIEMBRE VS ENERO -->
+      <div style="background: #FFFFFF; border-radius: 16px; padding: 26px; border: 2px solid #3B82F6; box-shadow: 0 10px 25px rgba(59,130,246,0.12); margin-bottom: 35px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
+          <h3 style="font-size: 1.4rem; font-weight: 800; color: #1E3A8A; margin: 0; display: flex; align-items: center; gap: 10px;">
+            <span>⚖️</span> Comparativa Estratégica: ¿Puente de Diciembre o Semana de Enero?
+          </h3>
+          <span style="background: #EFF6FF; color: #1D4ED8; font-weight: 800; font-size: 0.85rem; padding: 4px 12px; border-radius: 20px; border: 1px solid #BFDBFE;">
+            Ambas Fechas Listas en el Portal
+          </span>
+        </div>
+        <p style="color: #334155; font-size: 0.95rem; line-height: 1.6;">
+          El sur de Francia ofrece dos experiencias extraordinarias pero con atmósferas distintas. Aquí tenéis la comparativa detallada para decidir qué estilo de viaje os apetece más:
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; margin-top: 18px;">
+          <!-- OPCIÓN DICIEMBRE -->
+          <div style="background: #FAF5FF; border-radius: 12px; padding: 20px; border: 2px solid #C084FC;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <strong style="color: #7E22CE; font-size: 1.1rem;">🎄 Opción A: Puente de Diciembre (5 al 8 Dic)</strong>
+              <span style="background: #F3E8FF; color: #6B21A8; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 10px;">Magia Navideña</span>
+            </div>
+            <ul style="font-size: 0.88rem; color: #581C87; line-height: 1.8; padding-left: 18px; margin: 0;">
+              <li><strong>Mercado Navideño de Carcasona:</strong> Decoración de cuento (*La Magie de Noël*), pista de patinaje sobre hielo dentro de los fosos medievales y noria gigante en la Place Carnot con vistas al castillo iluminado.</li>
+              <li><strong>Mercado de Navidad de Toulouse:</strong> Place du Capitole con más de 120 casetas de madera, tiovivos antiguos y puestos de dulces artesanales.</li>
+              <li><strong>Desfile de las Antorchas (6 Dic):</strong> Marcha medieval con antorchas por San Nicolás desde la Cité hasta la Bastida.</li>
+              <li><strong>Afluencia:</strong> Mayor animación festiva. Requiere reservar con antelación en Les Grands Buffets.</li>
+              <li><strong>Presupuesto Estimado Grupo:</strong> <span style="font-weight: 800; color: #7E22CE;">~1.280 € total (~256 € / pers)</span></li>
+            </ul>
+          </div>
+
+          <!-- OPCIÓN ENERO -->
+          <div style="background: #F0FDF4; border-radius: 12px; padding: 20px; border: 2px solid #4ADE80;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <strong style="color: #15803D; font-size: 1.1rem;">👑 Opción B: Semana de Enero (1 al 4 Ene)</strong>
+              <span style="background: #DCFCE7; color: #166534; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 10px;">Tranquilidad & Reyes</span>
+            </div>
+            <ul style="font-size: 0.88rem; color: #14532D; line-height: 1.8; padding-left: 18px; margin: 0;">
+              <li><strong>Tranquilidad & Exclusividad:</strong> Las murallas de Carcasona casi para vosotros solos, paseos relajados sin aglomeraciones y fotos limpias sin turistas.</li>
+              <li><strong>Reserva Cómoda en Les Grands Buffets:</strong> Mayor disponibilidad de turnos de comida sin esperas ni colas.</li>
+              <li><strong>Ahorro en Alojamiento:</strong> Hoteles y casas rurales entre un 15% y 20% más económicos tras el Año Nuevo.</li>
+              <li><strong>Regreso Estratégico a Casa:</strong> Llegada a Alcalá el <strong>Lunes 4 de enero por la tarde</strong>, dejando el <strong>Martes 5 de enero libre para descansar y disfrutar de la Cabalgata de Reyes</strong> en Alcalá.</li>
+              <li><strong>Presupuesto Estimado Grupo:</strong> <span style="font-weight: 800; color: #15803D;">~1.140 € total (~228 € / pers)</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREVISIÓN METEOROLÓGICA PARA AMBAS FECHAS -->
+      <div class="weather-box" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); border: 1px solid #BFDBFE; border-radius: 16px; padding: 24px; margin-bottom: 35px; box-shadow: 0 4px 15px rgba(37,99,235,0.08);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
+          <h3 style="margin: 0; color: #1E40AF; font-size: 1.3rem; font-weight: 800; display: flex; align-items: center; gap: 8px;">
+            <span>🌦️</span> Previsión Meteorológica & Clima Habitual (Diciembre y Enero)
+          </h3>
+          <span style="background: #2563EB; color: #FFF; font-weight: 700; font-size: 0.8rem; padding: 4px 12px; border-radius: 20px;">
+            Invierno Mediterráneo Suave · 9-10h Luz
+          </span>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 18px;">
+          <div style="background: #FFFFFF; border-radius: 10px; padding: 14px; border: 1px solid #BFDBFE; text-align: center;">
+            <div style="font-size: 1.4rem;">🌡️</div>
+            <div style="font-weight: 800; font-size: 1.15rem; color: #1E40AF; margin: 4px 0 2px;">8°C a 13°C</div>
+            <div style="font-size: 0.8rem; color: #64748B;">Máximas diurnas (Mínimas 2°C - 5°C de noche)</div>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 10px; padding: 14px; border: 1px solid #BFDBFE; text-align: center;">
+            <div style="font-size: 1.4rem;">☀️</div>
+            <div style="font-weight: 800; font-size: 1.15rem; color: #D97706; margin: 4px 0 2px;">9-10 Horas de Sol</div>
+            <div style="font-size: 0.8rem; color: #64748B;">Cielos limpios y sol de invierno mediterráneo</div>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 10px; padding: 14px; border: 1px solid #BFDBFE; text-align: center;">
+            <div style="font-size: 1.4rem;">💨</div>
+            <div style="font-weight: 800; font-size: 1.15rem; color: #0284C7; margin: 4px 0 2px;">Brisa Tramontana</div>
+            <div style="font-size: 0.8rem; color: #64748B;">Viento seco que disipa nubes y deja ver los Pirineos</div>
+          </div>
+          <div style="background: #FFFFFF; border-radius: 10px; padding: 14px; border: 1px solid #BFDBFE; text-align: center;">
+            <div style="font-size: 1.4rem;">🚗</div>
+            <div style="font-weight: 800; font-size: 1.15rem; color: #059669; margin: 4px 0 2px;">Autovías Secas</div>
+            <div style="font-size: 0.8rem; color: #64748B;">Autopistas de costa libres de nieve y hielo</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.75); border-radius: 10px; padding: 14px 18px; margin-bottom: 12px; font-size: 0.92rem; color: #1E293B; line-height: 1.6;">
+          <strong>¿Qué suele hacer en Carcasona y Narbona en diciembre y enero?</strong><br>
+          La región de Occitania goza de un clima mediterráneo suave. Aunque es invierno, las temperaturas durante las horas centrales del día son muy templadas (entre 10°C y 13°C con sol). Las lluvias son escasas y no hay nieve en las carreteras de la costa. En las murallas de Carcasona puede correr brisa fresca, por lo que es ideal abrigarse bien para los paseos vespertinos.
+        </div>
+
+        <div style="background: #FEF3C7; border: 1px solid #FDE68A; border-radius: 10px; padding: 12px 16px; font-size: 0.9rem; color: #92400E; display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.4rem;">🎒</span>
+          <div>
+            <strong>Recomendación de Ropa (Especial Marco 4 años + Adultos):</strong><br>
+            Plumífero o abrigo cálido cómodo, camiseta térmica interior ligera, calzado con suela de goma antideslizante para caminar con seguridad por los adoquines medievales, bufanda y gorrito para Marco cuando suba a las torres del castillo.
+          </div>
+        </div>
+      </div>
+
+      <!-- LOGÍSTICA VOLVO XC60 -->
+      <div style="background: var(--card-bg); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 35px;">
+        <h3 style="font-size: 1.35rem; font-weight: 800; color: #1E293B; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+          <span>🚗</span> Ruta en Coche: Alcalá de Henares ➔ Carcasona en Volvo XC60
+        </h3>
+        <p style="color: #475569; font-size: 0.95rem; line-height: 1.6;">
+          Viajar en vuestro <strong>Volvo XC60</strong> es la fórmula más económica, cómoda y flexible para una familia de 5 personas: sin límites de equipaje ni restricciones de líquidos, Marco viaja en su sillita infantil de máxima seguridad, y el ahorro en billetes de avión es brutal (¡más de 600 € de ahorro!).
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 15px;">
+          <div style="background: #F8FAFC; border-radius: 12px; padding: 18px; border: 1px solid #E2E8F0;">
+            <strong style="color: #1E293B; font-size: 1.05rem;">📍 Hoja de Ruta (~725 km · 7h netas de autopista):</strong>
+            <ul style="font-size: 0.88rem; color: #475569; line-height: 1.8; padding-left: 18px; margin: 8px 0 0;">
+              <li><strong>Tramo 1:</strong> Alcalá ➔ Zaragoza / Fraga (~300 km · 3h). Parada para estirar las piernas y almuerzo familiar.</li>
+              <li><strong>Tramo 2:</strong> Fraga ➔ La Jonquera / Frontera (~250 km · 2h 20m). Parada de merienda y <em>repostaje de diésel económico en la frontera antes de entrar en Francia</em>.</li>
+              <li><strong>Tramo 3:</strong> La Jonquera ➔ Narbona / Carcasona (~175 km · 1h 40m de autopista A9/A61).</li>
+            </ul>
+          </div>
+          <div style="background: #F0FDF4; border-radius: 12px; padding: 18px; border: 1px solid #BBF7D0;">
+            <strong style="color: #166534; font-size: 1.05rem;">💰 Coste Total de Transporte (Ida y Vuelta):</strong>
+            <ul style="font-size: 0.88rem; color: #166534; line-height: 1.8; padding-left: 18px; margin: 8px 0 0;">
+              <li><strong>Combustible diésel Volvo XC60:</strong> ~1.550 km i/v a 6.8 l/100km ➔ <strong>~170 €</strong>.</li>
+              <li><strong>Peajes autopista francesa (A9/A61):</strong> ➔ <strong>~48 € i/v</strong> (las autopistas catalanas AP-7 son 100% gratuitas).</li>
+              <li><strong>TOTAL TRANSPORTE GRUPO (5 pax):</strong> <span style="font-weight: 800; font-size: 1.1rem; color: #15803D;">~218 € (~44 € / pers)</span>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- EL HOMENAJE GOURMET: LES GRANDS BUFFETS -->
+      <div style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border-radius: 16px; padding: 26px; border: 2px solid #F59E0B; margin-bottom: 35px; box-shadow: 0 8px 20px rgba(245,158,11,0.15);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
+          <h3 style="font-size: 1.4rem; font-weight: 800; color: #B45309; margin: 0; display: flex; align-items: center; gap: 8px;">
+            <span>🧀</span> El Templo Gastronómico: Les Grands Buffets de Narbona
+          </h3>
+          <span style="background: #F59E0B; color: #FFF; font-weight: 800; font-size: 0.85rem; padding: 4px 12px; border-radius: 20px;">
+            Récord Guinness · Más de 111 Quesos
+          </span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; align-items: center;">
+          <div>
+            <p style="color: #78350F; font-size: 0.95rem; line-height: 1.6; margin: 0 0 12px;">
+              Considerado unánimemente el mejor buffet del mundo, decorado al estilo de los grandes salones de banquetes de Versalles. Es una experiencia única a precio cerrado (~52,90 € adultos / niños de 4 años reducida ~20 €):
+            </p>
+            <ul style="font-size: 0.9rem; color: #92400E; line-height: 1.8; margin: 0; padding-left: 18px;">
+              <li><strong>Récord Guinness Oficial:</strong> El mayor mostrador de quesos del planeta con más de 111 variedades afinadas servidas por maestros queseros.</li>
+              <li><strong>Mariscada Ilimitada:</strong> Pirámides de bogavantes, ostras de Bouzigues, langostinos, buey de mar y salmón noruego gravlax.</li>
+              <li><strong>Asador Tradicional:</strong> Cochinillo asado al espeto, magret de pato a la prensa, cordero lechal y *foie gras* artesanal.</li>
+              <li><strong>Paraíso para Marco:</strong> Fuente monumental de chocolate fundido, carrusel de crepes suzette recién hechas, heladería artesanal y sala de juegos infantil.</li>
+            </ul>
+          </div>
+          <div>
+            <img src="img_francia/grands_buffets.jpg" alt="Les Grands Buffets" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); object-fit: cover; max-height: 230px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMELINE DÍA POR DÍA -->
+      <h3 style="font-size: 1.5rem; font-weight: 800; color: #0F172A; margin-bottom: 22px; display: flex; align-items: center; gap: 10px;">
+        <span>📅</span> Planificación Detallada Día por Día (4 Días / 3 Noches)
+      </h3>
+
+      <div class="day-timeline">
+        <!-- DÍA 1 -->
+        <div class="day-item">
+          <div class="day-badge">1</div>
+          <div class="day-card">
+            <div class="day-header">
+              <h4>Día 1 · Alcalá ➔ Costa de Colliure ➔ Llegada a Carcasona Iluminada</h4>
+              <span class="meta-pill">Alcalá ➔ La Jonquera ➔ Colliure ➔ Carcasona (725 km coche)</span>
+            </div>
+            <div class="day-body">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                <img src="img_francia/collioure.jpg" alt="Colliure" style="width: 100%; height: 160px; object-fit: cover; border-radius: 10px;">
+                <img src="img_francia/carcassonne_noche.jpg" alt="Carcasona Noche" style="width: 100%; height: 160px; object-fit: cover; border-radius: 10px;">
+              </div>
+              <p>
+                Salida a las 07:30 h en el Volvo XC60. Parada de descanso en ruta cerca de Lleida. Cruzamos la frontera francesa por La Jonquera y nos desviamos 15 minutos hacia el mar para almorzar en el pintoresco pueblo de pescadores de <strong>Colliure</strong>: paseo entre barquitas catalanas de colores, el Castillo Real sobre la playa y merienda junto al agua. 
+                Continuamos por la A9 hacia <strong>Carcasona</strong> (1h 15m). Check-in en el alojamiento y primer paseo nocturno alrededor de las murallas: contemplar la Cité iluminada de noche con sus 52 torres cónicas doradas es una estampa inolvidable.
+              </p>
+              <div class="kid-box">
+                <div class="emoji">🏰</div>
+                <div>
+                  <div class="title">Momento Estrella Marco:</div>
+                  <div class="desc">Ver aparecer la gigantesca fortaleza iluminada en lo alto de la colina como el castillo de un gigante de cuento.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 2 -->
+        <div class="day-item">
+          <div class="day-badge">2</div>
+          <div class="day-card">
+            <div class="day-header">
+              <h4>Día 2 · Gran Día Medieval: Cité de Carcasona, Castillo Condal & Murallas</h4>
+              <span class="meta-pill">Carcasona Cité Médiévale</span>
+            </div>
+            <div class="day-body">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                <img src="img_francia/carcassonne_cite.jpg" alt="Murallas Carcasona" style="width: 100%; height: 160px; object-fit: cover; border-radius: 10px;">
+                <img src="img_francia/carcassonne_castillo.jpg" alt="Castillo Condal" style="width: 100%; height: 160px; object-fit: cover; border-radius: 10px;">
+              </div>
+              <p>
+                Jornada dedicada a explorar la mayor joya fortificada de Europa. Recorremos las dobles murallas y las lizas de piedra donde los caballeros practicaban sus torneos. 
+                Cruzamos el puente levadizo para visitar el <strong>Castillo Condal (Château Comtal)</strong>, sus almenas con vistas a los Pirineos y la Basílica de Saint-Nazaire con sus espectaculares vidrieras góticas. 
+                Almuerzo con el tradicional <em>Cassoulet de Carcassonne</em> al horno de leña para los adultos. 
+                Por la tarde: si es en diciembre, disfrutamos de la pista de patinaje sobre hielo en los fosos medievales y la noria gigante; si es en enero, paseo tranquilo sin aglomeraciones y compras de espadas y escudos de madera en las tiendas medievales.
+              </p>
+              <div class="kid-box">
+                <div class="emoji">⚔️</div>
+                <div>
+                  <div class="title">Momento Estrella Marco:</div>
+                  <div class="desc">Cruzar el puente levadizo con su escudo de madera y sentirse el guardián de las torres del castillo.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 3 -->
+        <div class="day-item">
+          <div class="day-badge">3</div>
+          <div class="day-card">
+            <div class="day-header">
+              <h4>Día 3 · Safari Salvaje en la Reserva de Sigean & Homenaje en Les Grands Buffets</h4>
+              <span class="meta-pill">Carcasona ➔ Sigean (40 min) ➔ Narbona (20 min)</span>
+            </div>
+            <div class="day-body">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                <img src="img_francia/reserva_sigean.jpg" alt="Reserva Sigean" style="width: 100%; height: 160px; object-fit: cover; border-radius: 10px;">
+                <img src="img_francia/narbonne_canal.jpg" alt="Canal de la Robine Narbona" style="width: 100%; height: 160px; object-fit: cover; border-radius: 10px;">
+              </div>
+              <p>
+                A las 09:30 h entramos en la <strong>Reserva Africana de Sigean</strong>: safari de 1 hora en nuestro propio Volvo XC60 entre manadas de leones en semilibertad, osos tibetanos, jirafas, rinocerontes y cebras caminando junto a las ventanillas del coche. Continuación a pie por la laguna entre flamencos rosas y suricatas. 
+                A las 13:30 h nos dirigimos a Narbona para el gran acontecimiento culinario: **Les Grands Buffets**. 3 horas de festín gastronómico con mariscadas, más de 111 quesos y cascada de chocolate para Marco. 
+                Por la tarde, paseo relajante por el paseo fluvial del <strong>Canal de la Robine</strong> y el Puente de los Mercaderes en Narbona antes de regresar al hotel.
+              </p>
+              <div class="kid-box">
+                <div class="emoji">🦁</div>
+                <div>
+                  <div class="title">Momento Estrella Marco:</div>
+                  <div class="desc">Ver a las jirafas y leones gigantes pasar a un metro de la ventanilla del Volvo y bañar frutas en la fuente de chocolate en el buffet.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DÍA 4 -->
+        <div class="day-item">
+          <div class="day-badge">4</div>
+          <div class="day-card">
+            <div class="day-header">
+              <h4>Día 4 · Toulouse: El Minotauro Gigante de 14m ("Astérion") & Retorno a Alcalá</h4>
+              <span class="meta-pill">Carcasona ➔ Toulouse (50 min) ➔ Alcalá de Henares (720 km)</span>
+            </div>
+            <div class="day-body">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                <img src="img_francia/toulouse_minotauro.jpg" alt="Minotauro Mecánico Toulouse" style="width: 100%; height: 160px; object-fit: cover; border-radius: 10px;">
+                <img src="img_francia/cite_espace.jpg" alt="Cité de l'Espace" style="width: 100%; height: 160px; object-fit: cover; border-radius: 10px;">
+              </div>
+              <p>
+                Trayecto de 50 minutos por autopista A61 hasta Toulouse. Visita a <strong>La Halle de la Machine</strong>: una nave colosal donde cobra vida el <strong>Minotauro gigante mecánico de 14 metros</strong> de madera y acero (*Astérion*), que camina, mueve los ojos, bate las orejas y expulsa chorros de vapor por la nariz. Se puede montar sobre sus lomos en un paseo interactivo único en el mundo. 
+                Opción de ver la maqueta a tamaño real del cohete Ariane 5 en la <strong>Cité de l'Espace</strong>. 
+                Almuerzo ligero en Toulouse e inicio del cómodo viaje de regreso por autopista hacia Alcalá de Henares en el Volvo XC60, llegando a casa hacia las 20:00 h.
+              </p>
+              <div class="kid-box">
+                <div class="emoji">🤖</div>
+                <div>
+                  <div class="title">Momento Estrella Marco:</div>
+                  <div class="desc">Subirse a lomos del Minotauro gigante de madera y ver cómo echa humo por la nariz mientras camina por la pista.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESGLOSE PRESUPUESTARIO FRANCIA -->
+      <div class="budget-card" style="margin-top: 30px;">
+        <h3 style="font-size: 1.35rem; font-weight: 800; color: #1E293B; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+          <span>💰</span> Presupuesto Estimado y Transparente (4 Adultos + Marco 4a)
+        </h3>
+        <table class="table-budget">
+          <thead>
+            <tr style="background: #F1F5F9; border-bottom: 2px solid #CBD5E1;">
+              <th style="padding: 12px; text-align: left;">Concepto</th>
+              <th style="padding: 12px; text-align: center;">Detalle (Volvo XC60 Familiar)</th>
+              <th style="padding: 12px; text-align: right;">Total Estimado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #E2E8F0;">
+              <td style="padding: 12px;"><strong>Transporte (Volvo XC60 i/v)</strong></td>
+              <td style="padding: 12px; text-align: center; color: #64748B;">Combustible diésel (~170 €) + Peajes autopista francesa A9/A61 (~48 €)</td>
+              <td style="padding: 12px; text-align: right; font-weight: 700;">~218 €</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E2E8F0;">
+              <td style="padding: 12px;"><strong>Alojamiento (3 Noches)</strong></td>
+              <td style="padding: 12px; text-align: center; color: #64748B;">Casa rural o apartahotel familiar cerca de la Cité (~110-125 €/noche)</td>
+              <td style="padding: 12px; text-align: right; font-weight: 700;">~350 €</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E2E8F0;">
+              <td style="padding: 12px;"><strong>Homenaje Les Grands Buffets</strong></td>
+              <td style="padding: 12px; text-align: center; color: #64748B;">4 adultos (~52,90 €) + Marco (~20 €) con marisco, 111 quesos y postres</td>
+              <td style="padding: 12px; text-align: right; font-weight: 700;">~230 €</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E2E8F0;">
+              <td style="padding: 12px;"><strong>Entradas (Sigean + Castillo + Minotauro)</strong></td>
+              <td style="padding: 12px; text-align: center; color: #64748B;">Reserva Sigean, Castillo Condal (menores gratis) y Halle de la Machine</td>
+              <td style="padding: 12px; text-align: right; font-weight: 700;">~180 €</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #E2E8F0;">
+              <td style="padding: 12px;"><strong>Resto de Comidas & Caprichos BBB</strong></td>
+              <td style="padding: 12px; text-align: center; color: #64748B;">Almuerzo marinero en Colliure, cassoulet tradicional, crepes y meriendas</td>
+              <td style="padding: 12px; text-align: right; font-weight: 700;">~210 €</td>
+            </tr>
+            <tr style="background: #EFF6FF; font-weight: 800; font-size: 1.05rem;">
+              <td style="padding: 14px; color: #1D4ED8;">TOTAL ESTIMADO GRUPO</td>
+              <td style="padding: 14px; text-align: center; color: #1D4ED8;">4 Días / 3 Noches · 5 Viajeros en Coche Propio</td>
+              <td style="padding: 14px; text-align: right; color: #1D4ED8;">~1.188 € (~238 € / pers en Enero · ~265 € en Diciembre)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 15px;">
+          <button class="btn-portal" onclick="switchTab('overview')" style="background:#E2E8F0; color:#334155;">⬅ Volver a Todos los Viajes</button>
+          <button class="btn-portal" onclick="switchTab('calendario')" style="background:#10B981; color:#FFF;">Ver Comparativa en Calendario ➔</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ========================================== -->
   <!-- TAB BÉLGICA (BRUSELAS, BRUJAS & GANTE) -->
   <!-- ========================================== -->
@@ -10824,10 +11225,13 @@
               <h4 class="holiday-title">Superpuente de la Constitución</h4>
               <p class="holiday-detail">
                 Sábado 5 a Martes 8. Lunes 7 no lectivo / puente familiar.<br>
-                <strong>Plan Maestro Recomendado:</strong> Mercadillos Navideños (Alsacia, Núremberg, Budapest) o San Sebastián.
+                <strong>Planes Preparados en el Portal:</strong><br>
+                • 🇫🇷 <a href="javascript:void(0)" onclick="switchTab('francia')" style="color:#2563EB;font-weight:700;text-decoration:underline;">Sur de Francia en Volvo XC60</a>: Cité de Carcasona navideña con pista de hielo en los fosos, festín en Les Grands Buffets y safari Sigean (~1.188 € total grupo · 0 € en aviones).<br>
+                • 🎄 Mercadillos Navideños: <a href="javascript:void(0)" onclick="switchTab('alsacia')" style="color:#D97706;font-weight:700;text-decoration:underline;">Alsacia</a>, <a href="javascript:void(0)" onclick="switchTab('nuremberg')" style="color:#B45309;font-weight:700;text-decoration:underline;">Núremberg</a> o <a href="javascript:void(0)" onclick="switchTab('budapest')" style="color:#0D9488;font-weight:700;text-decoration:underline;">Budapest</a>.<br>
+                • 🌲 <a href="javascript:void(0)" onclick="switchTab('sanseb')" style="color:#059669;font-weight:700;text-decoration:underline;">San Sebastián & Bera</a> en Volvo XC60.
               </p>
             </div>
-            <span class="holiday-pill pill-rojo">1 Día Pedido · Pico Festivo</span>
+            <span class="holiday-pill pill-rojo">1 Día Pedido · 5 Opciones Listas</span>
           </div>
 
           <div class="holiday-card badge-amarillo">
@@ -10835,11 +11239,13 @@
               <div class="holiday-dates">1 - 4 Enero 2027 (4 días)</div>
               <h4 class="holiday-title">Año Nuevo & Reyes</h4>
               <p class="holiday-detail">
-                Viernes 1 festivo de Año Nuevo a Lunes 4 (Martes 5 libre para Cabalgata de Reyes).<br>
-                <strong>Plan Maestro Confirmado:</strong> 🇮🇹 <strong>Italia Mágica: Venecia, Florencia & Pisa</strong> (Vaporetto Gran Canal, Tren Bala Frecciarossa 300 km/h y Torre Inclinada).
+                Viernes 1 festivo de Año Nuevo a Lunes 4 (Martes 5 libre para Cabalgata de Reyes en Alcalá).<br>
+                <strong>2 Opciones Maestras Listas en el Portal:</strong><br>
+                • 🇮🇹 <a href="javascript:void(0)" onclick="switchTab('italia')" style="color:#059669;font-weight:700;text-decoration:underline;">Italia Mágica</a>: Venecia, Florencia & Pisa (Vaporetto Gran Canal, Tren Bala a 300 km/h y Torre Inclinada · ~1.558 € grupo).<br>
+                • 🇫🇷 <a href="javascript:void(0)" onclick="switchTab('francia')" style="color:#2563EB;font-weight:700;text-decoration:underline;">Sur de Francia en Volvo XC60</a>: Carcasona invernal sin colas, reserva holgada en Les Grands Buffets, safari Sigean y descanso el día 5 para los Reyes (~1.140 € grupo).
               </p>
             </div>
-            <span class="holiday-pill pill-amarillo">0 Días Pedidos · Festividad</span>
+            <span class="holiday-pill pill-amarillo">0 Días Pedidos · 2 Planes Listos</span>
           </div>
         </div>
 
@@ -11129,7 +11535,7 @@
       if (customBtn) {
         customBtn.classList.add('active');
       } else {
-        const tabOrder = ['overview', 'calendario', 'asistente', 'mis-fotos', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania', 'belgica', 'dinamarca', 'birmingham', 'grecia'];
+        const tabOrder = ['overview', 'calendario', 'asistente', 'mis-fotos', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania', 'francia', 'belgica', 'dinamarca', 'birmingham', 'grecia'];
         const activeIdx = tabOrder.indexOf(tabId);
         const navBtns = document.querySelectorAll('.nav-menu > li > .nav-btn:not(.nav-btn-custom)');
         if (activeIdx !== -1 && navBtns[activeIdx]) {

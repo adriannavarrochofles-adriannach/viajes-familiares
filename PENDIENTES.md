@@ -1,3 +1,3 @@
 # PENDIENTES - PORTAL DE VIAJES FAMILIARES
 
-*Sin tareas pendientes activas.* Todas las tareas en curso (planificación e integración en la Web de Viajes y archivo autónomo de WhatsApp de las dos propuestas completas para el Puente de Diciembre: Granada con Alhambra, Nieve Mirlo Blanco y Navidad; y Cantabria con base céntrica en Cabezón de la Sal, Cabárceno, Fuente Dé, Secuoyas de Monte Corona y Altamira, con selector 2+1 vs 4+1, descarte interactivo de actividades, itinerarios al minuto y presupuestos transparentes) han sido completadas, testeadas con Playwright (100% de éxito en escritorio y móvil), y desplegadas en producción.
+*(Sin tareas pendientes activas. Todo al día y verificado).*

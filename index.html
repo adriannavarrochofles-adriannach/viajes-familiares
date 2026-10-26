@@ -217,6 +217,70 @@
     }
     
 
+
+.hero-granada {
+  background: linear-gradient(180deg, rgba(11, 19, 43, 0.78) 0%, rgba(11, 19, 43, 0.94) 100%),
+              url('img_granada/alhambra_generalife.jpg') center/cover no-repeat;
+}
+
+.hero-cantabria {
+  background: linear-gradient(180deg, rgba(11, 19, 43, 0.78) 0%, rgba(11, 19, 43, 0.94) 100%),
+              url('img_cantabria/cabarceno_elefantes.jpg') center/cover no-repeat;
+}
+
+/* Activity item selectors for Granada and Cantabria */
+.gr-activity-item, .ct-activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 14px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+.gr-activity-item:hover { border-color: #F87171; background: #FEF2F2; }
+.gr-activity-item.selected { border-color: #DC2626; background: #FEF2F2; }
+
+.ct-activity-item:hover { border-color: #34D399; background: #ECFDF5; }
+.ct-activity-item.selected { border-color: #059669; background: #ECFDF5; }
+
+.gr-activity-checkbox, .ct-activity-checkbox {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+.gr-activity-checkbox { accent-color: #DC2626; }
+.ct-activity-checkbox { accent-color: #059669; }
+
+.pax-toggle-bar {
+  display: inline-flex;
+  background: #F1F5F9;
+  border-radius: 30px;
+  padding: 4px;
+  margin-bottom: 20px;
+  gap: 4px;
+}
+.pax-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.pax-btn.active {
+  background: #FFFFFF;
+  color: #0F172A;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
 .hero-francia {
   background: linear-gradient(180deg, rgba(11, 19, 43, 0.78) 0%, rgba(11, 19, 43, 0.94) 100%),
               url('img_francia/carcassonne_cite.jpg') center/cover no-repeat;
@@ -1620,7 +1684,7 @@
 
       /* Héroes de sección compactos para no desplazar el contenido */
       .portal-hero, .hero-overview, .hero-sanseb, .hero-alsacia, .hero-nuremberg, 
-      .hero-budapest, .hero-italia, .hero-rumania, .hero-francia, .hero-belgica, .hero-dinamarca, .hero-birmingham, .hero-grecia, .hero-calendario, .hero-asistente {
+      .hero-budapest, .hero-italia, .hero-rumania, .hero-francia, .hero-granada, .hero-cantabria, .hero-belgica, .hero-dinamarca, .hero-birmingham, .hero-grecia, .hero-calendario, .hero-asistente {
         padding: 16px 12px 12px !important;
         max-width: 100% !important;
         overflow-x: hidden !important;
@@ -3169,6 +3233,9 @@
           <li><button class="nav-btn" onclick="switchTab('italia')">🇮🇹 Venecia & Florencia</button></li>
           <li><button class="nav-btn btn-indigo" onclick="switchTab('rumania')">❄️ Transilvania (Rumanía)</button></li>
           <li><button class="nav-btn" style="color: #60A5FA; font-weight: 700;" onclick="switchTab('francia')">🇫🇷 Carcasona & Sur de Francia</button></li>
+          <li><button class="nav-btn" style="color: #F87171; font-weight: 700;" onclick="switchTab('granada')">🇪🇸 Granada & Sierra Nevada</button></li>
+          <li><button class="nav-btn" style="color: #34D399; font-weight: 700;" onclick="switchTab('cantabria')">🇪🇸 Cantabria & Picos</button></li>
+
           <li><button class="nav-btn" onclick="switchTab('belgica')">🇧🇪 Bélgica</button></li>
           <li><button class="nav-btn" onclick="switchTab('dinamarca')">🇩🇰 Dinamarca LEGO</button></li>
           <li><button class="nav-btn" onclick="switchTab('birmingham')">🇬🇧 Birmingham</button></li>
@@ -3423,6 +3490,47 @@
       </div>
 
       <div class="overview-grid">
+
+        
+        <!-- CARD: GRANADA & SIERRA NEVADA (PUENTE DICIEMBRE) -->
+        <div class="trip-card-link" onclick="switchTab('granada')">
+          <img src="img_granada/alhambra_generalife.jpg" alt="Granada y Sierra Nevada" class="trip-card-img">
+          <div class="trip-card-body">
+            <span class="trip-tag" style="background:#DC2626;color:#FFF;">Puente Diciembre · 5 al 8 Dic 2026</span>
+            <h3>Granada & Sierra Nevada: Alhambra, Nieve & Navidad</h3>
+            <p>La Alhambra con Sierra Nevada de fondo, parque de ocio invernal Mirlo Blanco con trineo ruso y roscos de nieve para Marco, Parque de las Ciencias con Biodomo, poblado navideño en el Paseo del Salón con pista de hielo, y tapeo tradicional andaluz.</p>
+            <ul class="trip-meta-list">
+              <li>👥 <strong>Opciones:</strong> 2 Adultos + 1 Niño o 4 Adultos + 1 Niño</li>
+              <li>🚗 <strong>Coche:</strong> Volvo XC60 (425 km · 4h 15m · 0 € peajes)</li>
+              <li>🏡 <strong>Base:</strong> Carmen / Apartamento independiente con cocina</li>
+              <li>❄️ <strong>Nieve & Navidad:</strong> Trineos en Pradollano + Pista de Hielo</li>
+            </ul>
+            <div class="trip-card-footer">
+              <div class="trip-price">Desde ~790 € <span style="font-size:0.85rem;font-weight:700;color:#DC2626;">(~263 € / pers)</span></div>
+              <button class="btn-portal" style="background:#DC2626;color:#FFF;">Ver Planificación ➔</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD: CANTABRIA & PICOS DE EUROPA (PUENTE DICIEMBRE) -->
+        <div class="trip-card-link" onclick="switchTab('cantabria')">
+          <img src="img_cantabria/cabarceno_elefantes.jpg" alt="Cantabria y Cabárceno" class="trip-card-img">
+          <div class="trip-card-body">
+            <span class="trip-tag" style="background:#059669;color:#FFF;">Puente Diciembre · 5 al 8 Dic 2026</span>
+            <h3>Cantabria & Picos: Cabárceno, Santillana, Fuente Dé & Secuoyas</h3>
+            <p>Base céntrica en Cabezón de la Sal. Safari en coche entre elefantes y osos en Cabárceno con teleférico, las secuoyas gigantes de Monte Corona (árboles de 40m de cuento), teleférico de Fuente Dé a 1.823m en Picos de Europa, Neocueva de Altamira y cocido lebaniego.</p>
+            <ul class="trip-meta-list">
+              <li>👥 <strong>Opciones:</strong> 2 Adultos + 1 Niño o 4 Adultos + 1 Niño</li>
+              <li>🚗 <strong>Coche:</strong> Volvo XC60 (395 km · 4h 10m · 0 € peajes)</li>
+              <li>🏡 <strong>Base:</strong> Casona montañesa con chimenea y cocina</li>
+              <li>🌲 <strong>Naturaleza:</strong> Secuoyas + Picos + Fauna salvaje</li>
+            </ul>
+            <div class="trip-card-footer">
+              <div class="trip-price">Desde ~780 € <span style="font-size:0.85rem;font-weight:700;color:#059669;">(~260 € / pers)</span></div>
+              <button class="btn-portal" style="background:#059669;color:#FFF;">Ver Planificación ➔</button>
+            </div>
+          </div>
+        </div>
 
         <!-- CARD 1: SAN SEBASTIÁN -->
         <div class="trip-card-link" onclick="switchTab('sanseb')">
@@ -9634,6 +9742,916 @@
 
   <!-- ========================================== -->
   <!-- TAB BÉLGICA (BRUSELAS, BRUJAS & GANTE) -->
+  
+  <!-- ============================================================================== -->
+  <!-- TAB: GRANADA & SIERRA NEVADA (PUENTE DICIEMBRE)                              -->
+  <!-- ============================================================================== -->
+  <div id="tab-granada" class="tab-view">
+    <section class="portal-hero hero-granada">
+      <div class="hero-badge" style="background: rgba(220, 38, 38, 0.2); color: #FCA5A5; border: 1px solid #DC2626;">
+        🎄 PUENTE DE DICIEMBRE · 5 AL 8 DIC 2026 · EN VOLVO XC60
+      </div>
+      <h1 style="font-size: 2.3rem; font-weight: 800; margin-top: 12px; margin-bottom: 12px;">
+        Granada & Sierra Nevada: Alhambra, Nieve & Poblado Navideño
+      </h1>
+      <p style="max-width: 850px; margin: 0 auto 20px; font-size: 1.05rem; color: #E2E8F0; font-weight: 300;">
+        La combinación más completa para el puente: cultura andalusí milenaria en la Alhambra garantizada, aventura blanca en los trineos del Parque Mirlo Blanco para Marco, Parque de las Ciencias con Biodomo, poblado navideño en el Paseo del Salón con pista de hielo natural y tapeo andaluz tradicional. En el Volvo XC60 familiar desde Alcalá de Henares (425 km, 4h 15m, 0 € peajes).
+      </p>
+
+      <!-- Selector Interactivo de Ocupantes (2+1 vs 4+1) -->
+      <div class="pax-toggle-bar">
+        <button class="pax-btn active" id="gr-btn-pax2" onclick="setGrPax(2)">👨‍👩‍👦 2 Adultos + 1 Niño (Marco 4a)</button>
+        <button class="pax-btn" id="gr-btn-pax4" onclick="setGrPax(4)">👨‍👩‍👧‍👦+👴👵 4 Adultos + 1 Niño (5 personas)</button>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));">
+        <div class="kpi-card">
+          <div class="kpi-label">DURACIÓN</div>
+          <div class="kpi-val">4 Días / 3 Noches</div>
+          <div class="kpi-sub">5 al 8 Dic 2026</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">EQUIPO SELECCIONADO</div>
+          <div class="kpi-val" id="gr-kpi-pax-label">3 Viajeros (2 Ad + Marco)</div>
+          <div class="kpi-sub">En Volvo XC60 (0 € peajes)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">ALOJAMIENTO BASE</div>
+          <div class="kpi-val">Cocina Propia</div>
+          <div class="kpi-sub" id="gr-kpi-hotel-sub">Apto independiente céntrico (~315 €)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">CLIMATOLOGÍA PREVISTA</div>
+          <div class="kpi-val">5°C a 16°C</div>
+          <div class="kpi-sub">Sol y frío seco · Nieve en pistas</div>
+        </div>
+        <div class="kpi-card" style="border: 2px solid #DC2626; background: rgba(220, 38, 38, 0.08);">
+          <div class="kpi-label" style="color:#DC2626;">PRESUPUESTO ESTIMADO</div>
+          <div class="kpi-val" id="gr-kpi-total" style="color:#DC2626;">~790 €</div>
+          <div class="kpi-sub" id="gr-kpi-perpax" style="color:#DC2626; font-weight:700;">~263 € / persona</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="margin-top: 30px;">
+
+      <!-- AVISO PROTOCOLO ENTRADAS ALHAMBRA -->
+      <div style="background: linear-gradient(135deg, #FEF2F2 0%, #FFF1F2 100%); border: 1px solid #FECDD3; border-left: 5px solid #DC2626; border-radius: 12px; padding: 20px; margin-bottom: 30px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+          <span style="font-size: 1.6rem;">🎟️</span>
+          <h3 style="margin: 0; color: #991B1B; font-size: 1.15rem; font-weight: 800;">Protocolo de Garantía de Entradas para la Alhambra (Cualquiera de los Días)</h3>
+        </div>
+        <p style="margin: 0 0 10px 0; color: #7F1D1D; font-size: 0.95rem; line-height: 1.5;">
+          Para asegurar vuestro pase a los <strong>Palacios Nazaríes, Generalife y Alcazaba</strong> en el puente:
+        </p>
+        <ul style="margin: 0 0 10px 0; padding-left: 20px; color: #991B1B; font-size: 0.9rem; line-height: 1.5;">
+          <li><strong>1. Venta oficial a 3 meses vista</strong>: El Patronato oficial (<a href="https://tickets.alhambra-patronato.es" target="_blank" style="color:#DC2626;font-weight:700;text-decoration:underline;">tickets.alhambra-patronato.es</a>) abre el cupo de diciembre el <strong>1 de septiembre</strong>. Tarifa: 19,09 €/adulto y <strong>Marco GRATIS</strong> (sacando su entrada infantil vinculada).</li>
+          <li><strong>2. Alternativa Dobla de Oro (27,30 €)</strong>: Incluye Palacios Nazaríes a la hora exacta que queráis + monumentos andalusíes del Albaicín (suele quedar cupo disponible cuando la general se agota).</li>
+          <li><strong>3. Alternativa Granada Card (36-43 €)</strong>: Bono turístico oficial con Alhambra garantizada + autobús urbano + entrada directa al <strong>Parque de las Ciencias</strong> (ahorro de colas con Marco).</li>
+          <li><strong>4. Cancelaciones a medianoche</strong>: El sistema informático de la Alhambra libera a las 00:00 h las cancelaciones del día siguiente.</li>
+        </ul>
+      </div>
+
+      <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE -->
+      <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; margin-bottom: 35px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+          <div>
+            <h2 style="margin: 0 0 4px 0; color: #0F172A; font-size: 1.35rem; font-weight: 800;">
+              🎯 Selector de Actividades & Opciones para Descartar
+            </h2>
+            <p style="margin: 0; color: #64748B; font-size: 0.88rem;">
+              Marca o desmarca según vuestras preferencias. El presupuesto total y por persona se recalcula automáticamente en vivo.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="filter-pill active" onclick="filterGrActivities('all')">✅ Todas</button>
+            <button class="filter-pill" onclick="filterGrActivities('essential')">🌟 Esenciales + Navidad</button>
+            <button class="filter-pill" onclick="filterGrActivities('kids')">❄️ Nieve & Marco</button>
+            <button class="filter-pill" onclick="filterGrActivities('none')">❌ Descartar Todas</button>
+          </div>
+        </div>
+
+        <!-- Barra de KPI de Actividades -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px; margin-bottom: 20px;">
+          <div>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase;">Actividades Activas</span>
+            <div id="gr-act-count" style="font-size: 1.15rem; font-weight: 800; color: #0F172A;">12 de 13</div>
+          </div>
+          <div>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase;">Coste Actividades Adultos</span>
+            <div id="gr-act-adults-cost" style="font-size: 1.15rem; font-weight: 800; color: #DC2626;">~138 €</div>
+          </div>
+          <div>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase;">Coste Actividades Marco</span>
+            <div id="gr-act-child-cost" style="font-size: 1.15rem; font-weight: 800; color: #16A34A;">~41.50 €</div>
+          </div>
+          <div>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase;">Total Actividades Grupo</span>
+            <div id="gr-act-total-cost" style="font-size: 1.15rem; font-weight: 800; color: #0F172A;">~180 €</div>
+          </div>
+        </div>
+
+        <!-- Lista de Actividades con Checkboxes -->
+        <div id="gr-activity-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px;">
+
+          <!-- 1. ALHAMBRA -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-alhambra" checked data-adult="19.09" data-child="0" data-cat="essential" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🏰 La Alhambra & Palacios Nazaríes</span>
+                <span class="badge-familiar" style="background:#FEE2E2;color:#991B1B;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Imprescindible</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Palacios Nazaríes, Patio de los Leones, Generalife y Alcazaba. Juego de pistas para Marco.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 19,09 €</span>
+                <span style="color:#16A34A;">Marco: GRATIS (&lt;12a)</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 2. PARQUE DE LAS CIENCIAS + BIODOMO -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-ciencias" checked data-adult="11" data-child="9" data-cat="kids" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🔬 Parque Ciencias + Biodomo</span>
+                <span class="badge-marco" style="background:#FEF3C7;color:#B45309;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Top Niños</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Acuario y selva tropical con lemures, tucanes, perezosos y tiburones bajo techo.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 11,00 €</span>
+                <span style="color:#D97706;">Marco: 9,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 3. SALA EXPLORA -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-explora" checked data-adult="0" data-child="0" data-cat="kids" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">👶 Sala Explora (3 a 7 años)</span>
+                <span class="badge-gratis" style="background:#E2E8F0;color:#334155;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">100% Gratis</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Espacio táctil de experimentación científica para tocar agua, espejos y poleas jugando.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: Incluido</span>
+                <span style="color:#16A34A;">Marco: Incluido con entrada</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 4. SIERRA NEVADA MIRLO BLANCO -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-mirlo" checked data-adult="22" data-child="18" data-cat="kids" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">❄️ Parque Mirlo Blanco (Trineos)</span>
+                <span class="badge-familiar" style="background:#E0F2FE;color:#0369A1;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Nieve Familiar</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Pradollano (2.100m). Trineo Ruso en raíles, toboganes de roscos hinchables y bicis-nieve.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: ~22,00 €</span>
+                <span style="color:#0284C7;">Marco: ~18,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 5. TELECABINA AL-ÁNDALUS -->
+          <label class="gr-activity-item">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-telecabina" data-adult="20" data-child="10" data-cat="opcional" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🚠 Telecabina Al-Ándalus (2.700m)</span>
+                <span class="badge-adulto" style="background:#F1F5F9;color:#64748B;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Opcional Nieve</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Subida en cabina panorámica desde Pradollano a Borreguiles para ver altas cumbres sin esquiar.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 20,00 €</span>
+                <span style="color:#64748B;">Marco: 10,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 6. PISTA DE HIELO PASEO DEL SALÓN -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-hielo" checked data-adult="7" data-child="7" data-cat="essential" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">⛸️ Pista de Hielo del Paseo del Salón</span>
+                <span style="background:#FEE2E2;color:#991B1B;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Navidad</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">500 m² de hielo natural bajo los árboles iluminados de la Ciudad de la Navidad (patines incluidos).</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 7,00 €</span>
+                <span style="color:#DC2626;">Marco: 7,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 7. TIOVIVO VENECIANO -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-tiovivo" checked data-adult="0" data-child="3.5" data-cat="kids" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🎠 Tiovivo Veneciano de 2 Plantas</span>
+                <span class="badge-marco" style="background:#FEF3C7;color:#B45309;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Navidad Marco</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Carrousel clásico con caballos y carruajes iluminados en el Paseo del Salón.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: Gratis (acompañante)</span>
+                <span style="color:#D97706;">Marco: 3,50 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 8. TOBOGÁN DE TRINEOS NEUMÁTICOS -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-tobogan" checked data-adult="0" data-child="4" data-cat="kids" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🛷 Tobogán de Trineos Neumáticos</span>
+                <span class="badge-marco" style="background:#FEF3C7;color:#B45309;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Navidad Marco</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Rampa gigante de nieve artificial para deslizarse con rosco hinchable sin peligro.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 0 €</span>
+                <span style="color:#D97706;">Marco: 4,00 € (3 tiradas)</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 9. TREN TURÍSTICO ALBAICÍN -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-trentur" checked data-adult="9" data-child="0" data-cat="essential" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🚂 Tren Panorámico Granada City Tour</span>
+                <span class="badge-familiar" style="background:#DCFCE7;color:#166534;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Familiar</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Sube cómodamente al Albaicín y San Nicolás con techo acristalado sin cansarse con las cuestas.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 9,00 €</span>
+                <span style="color:#16A34A;">Marco: GRATIS (&lt;8a)</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 10. MIRADOR SAN NICOLÁS -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-sannicolas" checked data-adult="0" data-child="0" data-cat="essential" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🌅 Atardecer en Mirador San Nicolás</span>
+                <span class="badge-gratis" style="background:#E2E8F0;color:#334155;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">100% Gratis</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">La puesta de sol más famosa del mundo sobre la Alhambra teñida de oro y Sierra Nevada blanca.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 0,00 €</span>
+                <span style="color:#16A34A;">Marco: 0,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 11. MERCADILLO BIB-RAMBLA Y GRAN ÁRBOL -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-mercadonav" checked data-adult="0" data-child="0" data-cat="essential" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🎄 Mercado Bib-Rambla & Árbol Gigante</span>
+                <span style="background:#FEE2E2;color:#991B1B;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Navidad</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Casetas de madera con figuras de belén, dulces conventuales y árbol transitable de 20m.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: Acceso libre</span>
+                <span style="color:#16A34A;">Acceso libre</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 12. CHOCOLATADA CON CHURROS + PIONONOS -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-merienda" checked data-adult="4" data-child="3" data-cat="essential" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">☕ Churros Fútbol & Piononos Casa Ysla</span>
+                <span class="badge-familiar" style="background:#FEF3C7;color:#B45309;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Gastronomía</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Chocolate caliente artesano con churros en la histórica Chocolatería Fútbol y piononos auténticos.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: ~4,00 €</span>
+                <span style="color:#D97706;">Marco: ~3,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 13. RUTA TAPEO TRADICIONAL -->
+          <label class="gr-activity-item selected">
+            <input type="checkbox" class="gr-activity-checkbox" id="chk-gr-tapeo" checked data-adult="15" data-child="5" data-cat="essential" onchange="updateGrActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🍽️ Ruta de Tapeo Tradicional (Plaza Nueva)</span>
+                <span class="badge-familiar" style="background:#DCFCE7;color:#166534;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">BBB Andaluz</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Platos generosos gratuitos con cada consumición en Los Diamantes, Casa Julio o Castañeda.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: ~15,00 € (3 tapas/bebidas)</span>
+                <span style="color:#166534;">Marco: ~5,00 €</span>
+              </div>
+            </div>
+          </label>
+
+        </div>
+      </section>
+
+      <!-- ITINERARIO DÍA A DÍA PARA HACERLO TODO -->
+      <section style="margin-bottom: 40px;">
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: #0F172A; margin-bottom: 20px;">
+          🗓️ Itinerario Calculado al Minuto (Para Poder Hacerlo Todo Sin Agobios)
+        </h2>
+
+        <div class="timeline">
+
+          <!-- DÍA 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:#DC2626;"></div>
+            <div class="timeline-content">
+              <span class="timeline-day" style="color:#DC2626;">DÍA 1 · SÁBADO 5 DE DICIEMBRE</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.15rem; color: #0F172A;">Ruta en Volvo XC60, Tapeo Andaluz & Encendido Navideño</h3>
+              <p style="font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                • <strong>08:30 h</strong>: Salida desde Alcalá de Henares en el Volvo XC60 por la A-4 directa hacia el sur (425 km, 4h 15m).<br>
+                • <strong>11:00 h</strong>: Parada para estirar piernas y desayuno en el histórico paso de Despeñaperros.<br>
+                • <strong>13:15 h</strong>: Llegada a Granada, aparcamiento y check-in en vuestro apartamento/carmen con cocina propia.<br>
+                • <strong>14:00 h</strong>: Almuerzo de bienvenida a base de tapeo tradicional en Plaza Nueva y Calle Elvira (*Bodegas Castañeda* y *Los Diamantes*: pescaíto frito caliente y jamón ibérico).<br>
+                • <strong>16:30 h</strong>: Subida al Albaicín en el <strong>Tren Turístico Panorámico Granada City Tour</strong> (comodísimo para Marco y los adultos sin cansarse con las cuestas empinadas).<br>
+                • <strong>17:30 h</strong>: <strong>Atardecer en el Mirador de San Nicolás</strong> con la Alhambra iluminándose de dorado y las cumbres nevadas de Sierra Nevada de fondo.<br>
+                • <strong>19:00 h</strong>: Paseo por el centro navideño: Mercado de casitas de madera en Plaza Bib-Rambla y el <strong>Árbol de Navidad gigante transitable por dentro</strong> en la Plaza del Carmen.<br>
+                • <strong>21:00 h</strong>: Cena ligera en el apartamento (cocina propia) para descansar a buen ritmo.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="background:#FEE2E2;color:#991B1B;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:700;">⭐ Momento Marco: Subir en el tren con techo de cristal al Albaicín</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DÍA 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:#DC2626;"></div>
+            <div class="timeline-content">
+              <span class="timeline-day" style="color:#DC2626;">DÍA 2 · DOMINGO 6 DE DICIEMBRE</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.15rem; color: #0F172A;">La Alhambra de Leyenda & "Granada Ciudad de la Navidad"</h3>
+              <p style="font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                • <strong>09:30 h - 13:30 h</strong>: <strong>Visita a La Alhambra y el Generalife</strong> (con hora reservada a Palacios Nazaríes a las 10:30 h). Descubrimiento del Patio de los Leones, Sala de las Dos Hermanas, los jardines con fuentes saltarinas del Generalife y las murallas de la Alcazaba.<br>
+                • <strong>14:00 h</strong>: Comida en una terraza soleada del Campo del Príncipe (barrio del Realejo).<br>
+                • <strong>16:30 h - 19:30 h</strong>: Tarde de ilusión en el <strong>Poblado Navideño del Paseo del Salón</strong>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;1. Patinaje en la <strong>Pista de Hielo natural</strong> familiar.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;2. <strong>Tobogán de trineos neumáticos</strong> para que Marco se deslice sobre roscos hinchables.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3. Paseo en el <strong>Gran Tiovivo Veneciano de 2 plantas</strong> iluminado.<br>
+                • <strong>19:30 h</strong>: Visita al Belén Monumental del Ayuntamiento y merienda-chocolatada con churros calientes en la mítica *Chocolatería Fútbol*.<br>
+                • <strong>21:00 h</strong>: Regreso al apartamento y cena casera en familia.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="background:#FEE2E2;color:#991B1B;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:700;">⭐ Momento Marco: Lanzarse en los trineos neumáticos del Paseo del Salón</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DÍA 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:#DC2626;"></div>
+            <div class="timeline-content">
+              <span class="timeline-day" style="color:#DC2626;">DÍA 3 · LUNES 7 DE DICIEMBRE</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.15rem; color: #0F172A;">Aventura en la Nieve: Parque Mirlo Blanco en Sierra Nevada</h3>
+              <p style="font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                • <strong>09:30 h</strong>: Subida en el Volvo XC60 por la autovía A-395 hasta la estación de <strong>Sierra Nevada / Pradollano (2.100 m)</strong> (32 km, solo 40 min de carretera ancha y cómoda). Aparcamiento en parking subterráneo de la Plaza de Andalucía.<br>
+                • <strong>10:30 h - 14:00 h</strong>: <strong>Parque de Ocio Infantil "Mirlo Blanco"</strong>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>Trineo Ruso</strong>: Montaña rusa sobre raíles en la nieve (Marco monta con un adulto con frenos regulables).<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>Tubing en roscos gigantes</strong> en toboganes acotados y pistas de trineos tradicionales.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Bicis-nieve y juegos libres haciendo muñecos de nieve.<br>
+                • <strong>14:15 h</strong>: Almuerzo caliente de montaña en Pradollano (patatas a lo pobre con huevos y solomillo, y sopas de fideos reconfortantes).<br>
+                • <strong>16:00 h</strong>: Descenso en el coche hacia Granada antes de la caída del sol, evitando cualquier atasco de esquiadores.<br>
+                • <strong>17:30 h</strong>: Tarde de descanso y juegos en el apartamento con la calefacción encendida.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="background:#E0F2FE;color:#0369A1;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:700;">⭐ Momento Marco: Subir en el Trineo Ruso a toda velocidad por la nieve</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DÍA 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:#DC2626;"></div>
+            <div class="timeline-content">
+              <span class="timeline-day" style="color:#DC2626;">DÍA 4 · MARTES 8 DE DICIEMBRE</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.15rem; color: #0F172A;">Parque de las Ciencias, Biodomo & Retorno en Volvo XC60</h3>
+              <p style="font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                • <strong>10:00 h - 13:45 h</strong>: <strong>Parque de las Ciencias de Granada</strong>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>El Biodomo</strong>: Inmersión en una selva tropical real con lemures correteando, tucanes en libertad, perezosos y el túnel subacuático con tiburones leopardo.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>Sala Explora (3 a 7 años)</strong>: Área táctil donde Marco tocará y jugará con la ciencia.<br>
+                • <strong>14:00 h</strong>: Comida de despedida y compra de cajas de piononos artesanos en *Casa Ysla* para llevar a la familia.<br>
+                • <strong>15:30 h - 19:45 h</strong>: Retorno directo en el Volvo XC60 hacia Alcalá de Henares (425 km, 4h 15m sin peajes).
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="background:#DCFCE7;color:#166534;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:700;">⭐ Momento Marco: Ver a los tiburones pasar por encima de su cabeza en el Biodomo</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TABLA DE PRESUPUESTO DINÁMICA -->
+      <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; margin-bottom: 35px;">
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: #0F172A; margin-bottom: 16px;">
+          💶 Presupuesto Transparente & Desglose Dinámico (Granada)
+        </h2>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+            <thead>
+              <tr style="background: #F8FAFC; border-bottom: 2px solid #E2E8F0; text-align: left;">
+                <th style="padding: 12px;">Concepto</th>
+                <th style="padding: 12px;">Detalle & Condiciones</th>
+                <th style="padding: 12px; text-align: right;">Coste Total Grupo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px; font-weight: 700;">🚗 Combustible Volvo XC60</td>
+                <td style="padding: 12px; color: #64748B;">Alcalá-Granada ida/vuelta + Sierra Nevada (~960 km, 0 € peajes)</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700;">95 €</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px; font-weight: 700;">🏡 Alojamiento con Cocina (3 Noches)</td>
+                <td style="padding: 12px; color: #64748B;" id="gr-table-hotel-desc">Apartamento céntrico independiente con cocina propia (~105 €/noche)</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700;" id="gr-table-hotel-cost">315 €</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px; font-weight: 700;">🎟️ Actividades Seleccionadas</td>
+                <td style="padding: 12px; color: #64748B;" id="gr-table-act-desc">Alhambra, Parque Ciencias, Biodomo, Mirlo Blanco nieve y atracciones navideñas</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700;" id="gr-table-act-cost">~180 €</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px; font-weight: 700;">🍽️ Restauración & Compra Cocina</td>
+                <td style="padding: 12px; color: #64748B;" id="gr-table-food-desc">Desayunos y cenas en casa + tapeo andaluz tradicional al mediodía</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700;" id="gr-table-food-cost">~240 €</td>
+              </tr>
+              <tr style="background: #FEF2F2; border-top: 2px solid #DC2626;">
+                <td style="padding: 14px; font-weight: 800; color: #991B1B; font-size: 1.05rem;">TOTAL ESTIMADO VIAJE</td>
+                <td style="padding: 14px; color: #991B1B; font-weight: 700;" id="gr-table-total-sub">Para 3 Viajeros (2 Adultos + Marco 4a)</td>
+                <td style="padding: 14px; text-align: right; font-weight: 800; color: #DC2626; font-size: 1.2rem;" id="gr-table-total-val">~830 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+
+  <!-- ============================================================================== -->
+  <!-- TAB: CANTABRIA & PICOS DE EUROPA (PUENTE DICIEMBRE)                          -->
+  <!-- ============================================================================== -->
+  <div id="tab-cantabria" class="tab-view">
+    <section class="portal-hero hero-cantabria">
+      <div class="hero-badge" style="background: rgba(5, 150, 105, 0.2); color: #6EE7B7; border: 1px solid #059669;">
+        🌲 PUENTE DE DICIEMBRE · 5 AL 8 DIC 2026 · EN VOLVO XC60
+      </div>
+      <h1 style="font-size: 2.3rem; font-weight: 800; margin-top: 12px; margin-bottom: 12px;">
+        Cantabria & Picos de Europa: Cabárceno, Santillana, Fuente Dé & Secuoyas
+      </h1>
+      <p style="max-width: 850px; margin: 0 auto 20px; font-size: 1.05rem; color: #E2E8F0; font-weight: 300;">
+        Base céntrica estratégica en el Valle del Saja (Cabezón de la Sal / Mazcuerras). Safari en el Volvo XC60 entre elefantes y osos con teleférico incluido, el Bosque de Secuoyas gigantes de Monte Corona (árboles de 40m de cuento para Marco), teleférico de Fuente Dé a 1.823m en Picos de Europa, Neocueva de Altamira y casona montañesa con chimenea y cocina.
+      </p>
+
+      <!-- Selector Interactivo de Ocupantes (2+1 vs 4+1) -->
+      <div class="pax-toggle-bar">
+        <button class="pax-btn active" id="ct-btn-pax2" onclick="setCtPax(2)">👨‍👩‍👦 2 Adultos + 1 Niño (Marco 4a)</button>
+        <button class="pax-btn" id="ct-btn-pax4" onclick="setCtPax(4)">👨‍👩‍👧‍👦+👴👵 4 Adultos + 1 Niño (5 personas)</button>
+      </div>
+
+      <!-- KPI Summary Cards -->
+      <div class="kpi-grid" style="grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));">
+        <div class="kpi-card">
+          <div class="kpi-label">DURACIÓN</div>
+          <div class="kpi-val">4 Días / 3 Noches</div>
+          <div class="kpi-sub">5 al 8 Dic 2026</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">EQUIPO SELECCIONADO</div>
+          <div class="kpi-val" id="ct-kpi-pax-label">3 Viajeros (2 Ad + Marco)</div>
+          <div class="kpi-sub">En Volvo XC60 (0 € peajes)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">BASE CÉNTRICA</div>
+          <div class="kpi-val">Valle del Saja</div>
+          <div class="kpi-sub" id="ct-kpi-hotel-sub">Cabezón / Mazcuerras (~285 €)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">CLIMATOLOGÍA PREVISTA</div>
+          <div class="kpi-val">8°C a 14°C</div>
+          <div class="kpi-sub">Verde cantábrico · 0° a 8° en Picos</div>
+        </div>
+        <div class="kpi-card" style="border: 2px solid #059669; background: rgba(5, 150, 105, 0.08);">
+          <div class="kpi-label" style="color:#059669;">PRESUPUESTO ESTIMADO</div>
+          <div class="kpi-val" id="ct-kpi-total" style="color:#059669;">~785 €</div>
+          <div class="kpi-sub" id="ct-kpi-perpax" style="color:#059669; font-weight:700;">~261 € / persona</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="margin-top: 30px;">
+
+      <!-- EXPLICACIÓN ESTRATÉGICA DE LA BASE CÉNTRICA -->
+      <div style="background: linear-gradient(135deg, #ECFDF5 0%, #F0FDF4 100%); border: 1px solid #A7F3D0; border-left: 5px solid #059669; border-radius: 12px; padding: 20px; margin-bottom: 30px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+          <span style="font-size: 1.6rem;">📍</span>
+          <h3 style="margin: 0; color: #065F46; font-size: 1.15rem; font-weight: 800;">¿Por qué Cabezón de la Sal / Mazcuerras es el Centro Perfecto del Viaje?</h3>
+        </div>
+        <p style="margin: 0 0 10px 0; color: #064E3B; font-size: 0.95rem; line-height: 1.5;">
+          Para poder disfrutar de <strong>Cabárceno, Santillana del Mar y Fuente Dé</strong> sin pasar el día en la carretera:
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-top: 10px;">
+          <div style="background: #FFFFFF; padding: 10px; border-radius: 8px; border: 1px solid #D1FAE5;">
+            <strong>🦁 A Cabárceno:</strong> 42 km (30 min directos por la autovía A-8).
+          </div>
+          <div style="background: #FFFFFF; padding: 10px; border-radius: 8px; border: 1px solid #D1FAE5;">
+            <strong>🏰 A Santillana & Altamira:</strong> 18 km (18 min por carretera cómoda).
+          </div>
+          <div style="background: #FFFFFF; padding: 10px; border-radius: 8px; border: 1px solid #D1FAE5;">
+            <strong>🚠 A Fuente Dé / Picos:</strong> 86 km (1h 20m directos por A-8 y Desfiladero de La Hermida).
+          </div>
+          <div style="background: #FFFFFF; padding: 10px; border-radius: 8px; border: 1px solid #D1FAE5;">
+            <strong>🌲 A las Secuoyas de Monte Corona:</strong> 5 km (5 min, ¡al lado de casa!).
+          </div>
+        </div>
+      </div>
+
+      <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE -->
+      <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; margin-bottom: 35px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+          <div>
+            <h2 style="margin: 0 0 4px 0; color: #0F172A; font-size: 1.35rem; font-weight: 800;">
+              🎯 Selector de Actividades & Opciones para Descartar
+            </h2>
+            <p style="margin: 0; color: #64748B; font-size: 0.88rem;">
+              Marca o desmarca planes cántabros. El presupuesto total y por persona se recalcula en tiempo real.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="filter-pill active" onclick="filterCtActivities('all')">✅ Todas</button>
+            <button class="filter-pill" onclick="filterCtActivities('nature')">🌟 Esenciales + Naturaleza</button>
+            <button class="filter-pill" onclick="filterCtActivities('kids')">🦁 Top Marco & Fauna</button>
+            <button class="filter-pill" onclick="filterCtActivities('none')">❌ Descartar Todas</button>
+          </div>
+        </div>
+
+        <!-- Barra de KPI de Actividades -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 12px; margin-bottom: 20px;">
+          <div>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase;">Actividades Activas</span>
+            <div id="ct-act-count" style="font-size: 1.15rem; font-weight: 800; color: #0F172A;">10 de 11</div>
+          </div>
+          <div>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase;">Coste Actividades Adultos</span>
+            <div id="ct-act-adults-cost" style="font-size: 1.15rem; font-weight: 800; color: #059669;">~144 €</div>
+          </div>
+          <div>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase;">Coste Actividades Marco</span>
+            <div id="ct-act-child-cost" style="font-size: 1.15rem; font-weight: 800; color: #16A34A;">~47 €</div>
+          </div>
+          <div>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase;">Total Actividades Grupo</span>
+            <div id="ct-act-total-cost" style="font-size: 1.15rem; font-weight: 800; color: #0F172A;">~191 €</div>
+          </div>
+        </div>
+
+        <!-- Lista de Actividades con Checkboxes -->
+        <div id="ct-activity-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px;">
+
+          <!-- 1. CABÁRCENO SAFARI -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-cabarceno" checked data-adult="25" data-child="15" data-cat="kids" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🦁 Parque de la Naturaleza de Cabárceno</span>
+                <span style="background:#ECFDF5;color:#065F46;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Imprescindible</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Safari en el Volvo XC60 por 750 hectáreas kársticas: elefantes, osos pardos, jirafas y tigres.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 25,00 €</span>
+                <span style="color:#059669;">Marco: 15,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 2. TELEFÉRICO CABÁRCENO -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-telefcab" checked data-adult="0" data-child="0" data-cat="kids" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🚠 Teleférico de Cabárceno (Líneas 1 y 2)</span>
+                <span class="badge-gratis" style="background:#E2E8F0;color:#334155;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Incluido 0 €</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Cabinas cerradas sobrevolando a vista de pájaro los recintos de osos y leones.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: Incluido</span>
+                <span style="color:#16A34A;">Marco: Incluido con entrada</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 3. EXHIBICIONES CABÁRCENO -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-leonesmar" checked data-adult="0" data-child="0" data-cat="kids" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🦭 Leones Marinos & Aves Rapaces</span>
+                <span class="badge-gratis" style="background:#E2E8F0;color:#334155;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Incluido 0 €</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Demostraciones didácticas de saltos y vuelos en directo dentro del parque.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: Incluido</span>
+                <span style="color:#16A34A;">Marco: Incluido con entrada</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 4. TELEFÉRICO FUENTE DÉ -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-fuentede" checked data-adult="22" data-child="7" data-cat="nature" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🚠 Teleférico Fuente Dé (1.823m)</span>
+                <span class="badge-familiar" style="background:#E0F2FE;color:#0369A1;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Picos de Europa</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Salva 753m en 3m 40s hasta el Mirador del Cable. Contacto con la nieve y vistas de postal.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 22,00 €</span>
+                <span style="color:#0369A1;">Marco: 7,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 5. BOSQUE DE SECUOYAS -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-secuoyas" checked data-adult="0" data-child="0" data-cat="kids" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🌲 Bosque de Secuoyas de Monte Corona</span>
+                <span class="badge-gratis" style="background:#DCFCE7;color:#166534;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">100% Gratis</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">848 árboles gigantes de 40m de altura. Paseo de madera llano y mágico de cuento para Marco.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: Entrada Libre</span>
+                <span style="color:#16A34A;">Marco: Entrada Libre</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 6. NEOCUEVA DE ALTAMIRA -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-altamira" checked data-adult="3" data-child="0" data-cat="nature" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🎨 Museo & Neocueva de Altamira</span>
+                <span class="badge-familiar" style="background:#FEE2E2;color:#991B1B;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Patrimonio UNESCO</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Reproducción 100% fiel de los bisontes policromados rupestres y taller infantil de pintura.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 3,00 €</span>
+                <span style="color:#16A34A;">Marco: GRATIS (&lt;12a)</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 7. SANTILLANA MEDIEVAL ILUMINADA -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-santillana" checked data-adult="0" data-child="0" data-cat="nature" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🏰 Santillana Medieval & Sobaos Calientes</span>
+                <span style="background:#FEF3C7;color:#B45309;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Navidad Medieval</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Paseo nocturno con alumbrado cálido y merienda de leche fresca de vaca con sobaos pasiegos.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: Acceso libre</span>
+                <span style="color:#16A34A;">Acceso libre</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 8. CUEVA EL SOPLAO (PLAN B LLUVIA) -->
+          <label class="ct-activity-item">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-soplao" data-adult="14.5" data-child="12" data-cat="opcional" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🚂 Cueva El Soplao con Trenecito</span>
+                <span class="badge-adulto" style="background:#F1F5F9;color:#64748B;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Plan B Lluvia</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">A 25 min de casa. Acceso en trenecito minero cubierto bajo tierra (ideal si hace mal tiempo).</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 14,50 €</span>
+                <span style="color:#64748B;">Marco: 12,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 9. SANTANDER NAVIDEÑO -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-santander" checked data-adult="7" data-child="7" data-cat="kids" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">⛸️ Santander: Pista de Hielo & Porticada</span>
+                <span style="background:#FEE2E2;color:#991B1B;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Navidad</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Pista de patinaje sobre hielo natural, mercadillo y tiovivo clásico en la Plaza Porticada.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: 7,00 €</span>
+                <span style="color:#DC2626;">Marco: 7,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 10. COCIDO LEBANIEGO EN POTES -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-cocidoleb" checked data-adult="22" data-child="10" data-cat="nature" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🍲 Cocido Lebaniego en Potes (Casa Cayo)</span>
+                <span class="badge-familiar" style="background:#FEF3C7;color:#B45309;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">Gastronomía</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Sopa de fideos densa, garbanzos de Liébana, cecina, berza, morcilla y relleno artesano.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: ~22,00 €</span>
+                <span style="color:#D97706;">Marco: ~10,00 €</span>
+              </div>
+            </div>
+          </label>
+
+          <!-- 11. COCIDO MONTAÑÉS EN VALLE DEL SAJA -->
+          <label class="ct-activity-item selected">
+            <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-cocidomont" checked data-adult="18" data-child="8" data-cat="nature" onchange="updateCtActivityCalc()">
+            <div style="flex: 1;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">🥘 Cocido Montañés en el Valle del Saja</span>
+                <span class="badge-familiar" style="background:#DCFCE7;color:#166534;padding:2px 6px;border-radius:6px;font-size:0.72rem;font-weight:700;">BBB Cántabro</span>
+              </div>
+              <p style="font-size: 0.82rem; color: #64748B; margin: 0 0 6px 0;">Alubias blancas estofadas con berza y compango cántabro en una taberna rústica junto a casa.</p>
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; font-weight: 700; border-top: 1px dashed #E2E8F0; padding-top: 4px;">
+                <span>Adultos: ~18,00 €</span>
+                <span style="color:#166534;">Marco: ~8,00 €</span>
+              </div>
+            </div>
+          </label>
+
+        </div>
+      </section>
+
+      <!-- ITINERARIO DÍA A DÍA PARA HACERLO TODO -->
+      <section style="margin-bottom: 40px;">
+        <h2 style="font-size: 1.45rem; font-weight: 800; color: #0F172A; margin-bottom: 20px;">
+          🗓️ Itinerario Calculado al Minuto (Para Poder Hacerlo Todo Sin Agobios)
+        </h2>
+
+        <div class="timeline">
+
+          <!-- DÍA 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:#059669;"></div>
+            <div class="timeline-content">
+              <span class="timeline-day" style="color:#059669;">DÍA 1 · SÁBADO 5 DE DICIEMBRE</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.15rem; color: #0F172A;">Ruta en Volvo XC60, Secuoyas de Cuento & Santillana Iluminada</h3>
+              <p style="font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                • <strong>08:30 h</strong>: Salida desde Alcalá de Henares en el Volvo XC60 por la autovía del Norte A-1 hasta Burgos y A-67 hacia Aguilar de Campoo y Torrelavega (395 km, 4h 10m sin peajes).<br>
+                • <strong>12:45 h</strong>: Llegada a vuestra base céntrica en <strong>Cabezón de la Sal / Mazcuerras</strong>. Check-in en vuestra casona montañesa o apartamento rural independiente.<br>
+                • <strong>13:15 h</strong>: Almuerzo cántabro de bienvenida: rabas crujientes de calamar fresco y solomillo al queso Tresviso.<br>
+                • <strong>15:30 h - 17:00 h</strong>: <strong>El Bosque Mágico de Secuoyas de Monte Corona</strong> (a solo 5 min de la casa). Paseo por pasarelas de madera entre 848 secuoyas gigantes de más de 40m de altura. Terreno 100% llano, libre y seguro para Marco.<br>
+                • <strong>17:45 h - 20:00 h</strong>: <strong>Santillana del Mar con Luces Navideñas</strong> (a 18 min): Paseo por las calles empedradas de la villa medieval y merienda con vaso de leche fresca de vaca y sobaos pasiegos calientes.<br>
+                • <strong>20:30 h</strong>: Regreso a la casa rural, fuego en la chimenea y cena casera en la cocina propia.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="background:#DCFCE7;color:#166534;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:700;">⭐ Momento Marco: Correr entre los troncos colosales de las secuoyas gigantes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DÍA 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:#059669;"></div>
+            <div class="timeline-content">
+              <span class="timeline-day" style="color:#059669;">DÍA 2 · DOMINGO 6 DE DICIEMBRE</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.15rem; color: #0F172A;">Safari en Cabárceno con Teleférico & Tarde en Santander Navideño</h3>
+              <p style="font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                • <strong>09:30 h</strong>: Salida en el coche hacia el <strong>Parque de la Naturaleza de Cabárceno</strong> (42 km, 30 min por la autovía A-8).<br>
+                • <strong>10:00 h - 16:30 h</strong>: <strong>Jornada Completa de Safari en el Volvo XC60</strong>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;1. Circuito en coche viendo elefantes africanos, jirafas, rinocerontes y los enormes recintos de osos pardos cantábricos.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;2. <strong>Teleférico de Cabárceno</strong> (incluido en la entrada): viaje en cabinas cerradas sobrevolando a ras de roca los valles de animales salvajes.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;3. Exhibición de leones marinos y técnicas de vuelo de rapaces.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;4. Comida en el parque en el restaurante *Los Osos* o pic-nic familiar.<br>
+                • <strong>17:30 h</strong>: Excursión de tarde a <strong>Santander Navideño</strong> (a solo 15 min de Cabárceno): Luces en el Paseo Pereda, patinaje en la pista de hielo de la Plaza Porticada y tiovivo clásico.<br>
+                • <strong>20:30 h</strong>: Retorno relajado por la autovía a la casona rural y cena al calor de la leña.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="background:#ECFDF5;color:#065F46;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:700;">⭐ Momento Marco: Ver a los osos desde la cabina flotante del teleférico</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DÍA 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:#059669;"></div>
+            <div class="timeline-content">
+              <span class="timeline-day" style="color:#059669;">DÍA 3 · LUNES 7 DE DICIEMBRE</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.15rem; color: #0F172A;">Desfiladero de La Hermida, Picos de Europa & Cocido Lebaniego</h3>
+              <p style="font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                • <strong>08:45 h</strong>: Salida desde Cabezón por la A-8 hasta Unquera y entrada al impresionante <strong>Desfiladero de La Hermida</strong> (cañón entre paredes verticales de roca caliza).<br>
+                • <strong>10:30 h - 13:00 h</strong>: <strong>Teleférico de Fuente Dé (Picos de Europa)</strong>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Ascenso vertiginoso salvando 753 m en menos de 4 minutos hasta el Mirador del Cable (1.823 m de altitud).<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Vistas infinitas del Macizo Central y primer contacto con la nieve en la estación alta (llevar ropa térmica, gorro y guantes para Marco).<br>
+                • <strong>13:30 h</strong>: Bajada a la villa medieval de <strong>Potes</strong>. Paseo por los puentes de piedra y la Torre del Infantado.<br>
+                • <strong>14:00 h</strong>: <strong>Comida homenaje de Cocido Lebaniego en Casa Cayo</strong> (sopa caliente, garbanzos de la comarca, cecina, berza y relleno).<br>
+                • <strong>16:30 h</strong>: Regreso en coche por el desfiladero disfrutando de los paisajes cántabros y tarde de chimenea en casa.
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="background:#E0F2FE;color:#0369A1;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:700;">⭐ Momento Marco: Tocar la nieve a 1.823 metros en lo alto de Picos de Europa</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DÍA 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background:#059669;"></div>
+            <div class="timeline-content">
+              <span class="timeline-day" style="color:#059669;">DÍA 4 · MARTES 8 DE DICIEMBRE</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.15rem; color: #0F172A;">Neocueva de Altamira, Cocido Montañés & Retorno a Alcalá</h3>
+              <p style="font-size: 0.9rem; color: #475569; line-height: 1.5; margin-bottom: 12px;">
+                • <strong>10:00 h - 12:30 h</strong>: <strong>Museo Nacional y Neocueva de Altamira</strong>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Visita guiada a la réplica exacta de la cueva con los famosos bisontes policromados.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Taller didáctico para niños: cómo pintaban y hacían fuego los primeros humanos.<br>
+                • <strong>13:00 h</strong>: Comida de despedida en el Valle del Saja: <strong>Cocido Montañés auténtico</strong> en cazuela de barro caliente.<br>
+                • <strong>15:30 h - 19:45 h</strong>: Retorno directo en el Volvo XC60 hacia Alcalá de Henares por la A-67 y A-1 (395 km, 4h 10m sin peajes).<br>
+                *(Plan B de contingencia si llueve algún día: Visita a la <strong>Cueva de El Soplao</strong>, a solo 25 min de la casa, donde se accede en un trenecito minero cubierto que fascina a los niños).*
+              </p>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="background:#FEF3C7;color:#B45309;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:700;">⭐ Momento Marco: Pintar con pigmentos de arcilla en el taller de Altamira</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TABLA DE PRESUPUESTO DINÁMICA -->
+      <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; margin-bottom: 35px;">
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: #0F172A; margin-bottom: 16px;">
+          💶 Presupuesto Transparente & Desglose Dinámico (Cantabria)
+        </h2>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+            <thead>
+              <tr style="background: #F8FAFC; border-bottom: 2px solid #E2E8F0; text-align: left;">
+                <th style="padding: 12px;">Concepto</th>
+                <th style="padding: 12px;">Detalle & Condiciones</th>
+                <th style="padding: 12px; text-align: right;">Coste Total Grupo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px; font-weight: 700;">🚗 Combustible Volvo XC60</td>
+                <td style="padding: 12px; color: #64748B;">Alcalá-Cantabria ida/vuelta + rutas Picos y Cabárceno (~1.050 km, 0 € peajes)</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700;">105 €</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px; font-weight: 700;">🏡 Alojamiento con Cocina y Chimenea (3 Noches)</td>
+                <td style="padding: 12px; color: #64748B;" id="ct-table-hotel-desc">Casona montañesa o apartamento rural independiente en Cabezón (~95 €/noche)</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700;" id="ct-table-hotel-cost">285 €</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px; font-weight: 700;">🎟️ Actividades Seleccionadas</td>
+                <td style="padding: 12px; color: #64748B;" id="ct-table-act-desc">Cabárceno + Teleférico + Fuente Dé + Secuoyas + Altamira + Cocidos</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700;" id="ct-table-act-cost">~191 €</td>
+              </tr>
+              <tr style="border-bottom: 1px solid #F1F5F9;">
+                <td style="padding: 12px; font-weight: 700;">🍽️ Restauración & Compra Cocina</td>
+                <td style="padding: 12px; color: #64748B;" id="ct-table-food-desc">Desayunos y cenas en casa + comidas típicas montañesas fuera</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700;" id="ct-table-food-cost">~200 €</td>
+              </tr>
+              <tr style="background: #ECFDF5; border-top: 2px solid #059669;">
+                <td style="padding: 14px; font-weight: 800; color: #065F46; font-size: 1.05rem;">TOTAL ESTIMADO VIAJE</td>
+                <td style="padding: 14px; color: #065F46; font-weight: 700;" id="ct-table-total-sub">Para 3 Viajeros (2 Adultos + Marco 4a)</td>
+                <td style="padding: 14px; text-align: right; font-weight: 800; color: #059669; font-size: 1.2rem;" id="ct-table-total-val">~781 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
   <!-- ========================================== -->
   <div id="tab-belgica" class="tab-view">
     <section class="portal-hero hero-belgica">
@@ -11226,6 +12244,8 @@
               <p class="holiday-detail">
                 Sábado 5 a Martes 8. Lunes 7 no lectivo / puente familiar.<br>
                 <strong>Planes Preparados en el Portal:</strong><br>
+                • 🇪🇸 <a href="javascript:void(0)" onclick="switchTab('granada')" style="color:#DC2626;font-weight:700;text-decoration:underline;">Granada & Sierra Nevada en Volvo XC60</a>: Alhambra garantizada, parque de nieve Mirlo Blanco con trineos para Marco, Parque de las Ciencias y mercado navideño (~790 € a 1.320 € con cocina propia).<br>
+                • 🇪🇸 <a href="javascript:void(0)" onclick="switchTab('cantabria')" style="color:#059669;font-weight:700;text-decoration:underline;">Cantabria & Picos de Europa en Volvo XC60</a>: Base céntrica en Cabezón de la Sal, safari Cabárceno con teleférico, Secuoyas gigantes de 40m, Fuente Dé y Santillana (~780 € a 1.290 € con casona y chimenea).<br>
                 • 🇫🇷 <a href="javascript:void(0)" onclick="switchTab('francia')" style="color:#2563EB;font-weight:700;text-decoration:underline;">Sur de Francia en Volvo XC60</a>: Cité de Carcasona navideña con pista de hielo en los fosos, festín en Les Grands Buffets y safari Sigean (~1.188 € total grupo · 0 € en aviones).<br>
                 • 🎄 Mercadillos Navideños: <a href="javascript:void(0)" onclick="switchTab('alsacia')" style="color:#D97706;font-weight:700;text-decoration:underline;">Alsacia</a>, <a href="javascript:void(0)" onclick="switchTab('nuremberg')" style="color:#B45309;font-weight:700;text-decoration:underline;">Núremberg</a> o <a href="javascript:void(0)" onclick="switchTab('budapest')" style="color:#0D9488;font-weight:700;text-decoration:underline;">Budapest</a>.<br>
                 • 🌲 <a href="javascript:void(0)" onclick="switchTab('sanseb')" style="color:#059669;font-weight:700;text-decoration:underline;">San Sebastián & Bera</a> en Volvo XC60.
@@ -11535,7 +12555,7 @@
       if (customBtn) {
         customBtn.classList.add('active');
       } else {
-        const tabOrder = ['overview', 'calendario', 'asistente', 'mis-fotos', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania', 'francia', 'belgica', 'dinamarca', 'birmingham', 'grecia'];
+        const tabOrder = ['overview', 'calendario', 'asistente', 'mis-fotos', 'sanseb', 'alsacia', 'nuremberg', 'budapest', 'italia', 'rumania', 'francia', 'granada', 'cantabria', 'belgica', 'dinamarca', 'birmingham', 'grecia'];
         const activeIdx = tabOrder.indexOf(tabId);
         const navBtns = document.querySelectorAll('.nav-menu > li > .nav-btn:not(.nav-btn-custom)');
         if (activeIdx !== -1 && navBtns[activeIdx]) {
@@ -14123,6 +15143,179 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
         if (el) el.checked = val;
       }
       updateItActivityCalc();
+    }
+
+
+    // ==========================================================================
+    // MOTORES REACTIVOS: GRANADA & CANTABRIA (PUENTE DICIEMBRE)
+    // ==========================================================================
+    let grAdults = 2;
+    let grChildren = 1;
+    let ctAdults = 2;
+    let ctChildren = 1;
+
+    function setGrPax(pax) {
+      grAdults = pax;
+      document.getElementById('gr-btn-pax2').classList.toggle('active', pax === 2);
+      document.getElementById('gr-btn-pax4').classList.toggle('active', pax === 4);
+      const paxLabel = pax === 2 ? '3 Viajeros (2 Ad + Marco)' : '5 Viajeros (4 Ad + Marco)';
+      const hotelSub = pax === 2 ? 'Apto independiente céntrico (~315 €)' : 'Carmen / Casa 3 hab con cocina (~510 €)';
+      document.getElementById('gr-kpi-pax-label').textContent = paxLabel;
+      document.getElementById('gr-kpi-hotel-sub').textContent = hotelSub;
+      updateGrActivityCalc();
+    }
+
+    function filterGrActivities(type) {
+      const items = document.querySelectorAll('#gr-activity-list .gr-activity-item');
+      items.forEach(item => {
+        const chk = item.querySelector('.gr-activity-checkbox');
+        if (!chk) return;
+        const cat = chk.getAttribute('data-cat');
+        if (type === 'all') chk.checked = true;
+        else if (type === 'none') chk.checked = false;
+        else if (type === 'essential') chk.checked = (cat === 'essential' || cat === 'kids');
+        else if (type === 'kids') chk.checked = (cat === 'kids');
+        item.classList.toggle('selected', chk.checked);
+      });
+      updateGrActivityCalc();
+    }
+
+    function updateGrActivityCalc() {
+      const items = document.querySelectorAll('#gr-activity-list .gr-activity-item');
+      let actAdultCost = 0;
+      let actChildCost = 0;
+      let activeCount = 0;
+
+      items.forEach(item => {
+        const chk = item.querySelector('.gr-activity-checkbox');
+        if (!chk) return;
+        item.classList.toggle('selected', chk.checked);
+        if (chk.checked) {
+          activeCount++;
+          const adultPrice = parseFloat(chk.getAttribute('data-adult') || 0);
+          const childPrice = parseFloat(chk.getAttribute('data-child') || 0);
+          actAdultCost += (adultPrice * grAdults);
+          actChildCost += (childPrice * grChildren);
+        }
+      });
+
+      const actTotal = actAdultCost + actChildCost;
+      const fuelCost = 95;
+      const lodgingCost = grAdults === 2 ? 315 : 510;
+      const foodCost = grAdults === 2 ? 240 : 420;
+      const tripTotal = Math.round(actTotal + fuelCost + lodgingCost + foodCost);
+      const totalPax = grAdults + grChildren;
+      const perPax = Math.round(tripTotal / totalPax);
+
+      const elActCount = document.getElementById('gr-act-count');
+      if (elActCount) elActCount.textContent = `${activeCount} de ${items.length}`;
+      const elAdultCost = document.getElementById('gr-act-adults-cost');
+      if (elAdultCost) elAdultCost.textContent = `~${Math.round(actAdultCost)} €`;
+      const elChildCost = document.getElementById('gr-act-child-cost');
+      if (elChildCost) elChildCost.textContent = `~${actChildCost.toFixed(2)} €`;
+      const elActTotal = document.getElementById('gr-act-total-cost');
+      if (elActTotal) elActTotal.textContent = `~${Math.round(actTotal)} €`;
+
+      const elKpiTotal = document.getElementById('gr-kpi-total');
+      if (elKpiTotal) elKpiTotal.textContent = `~${tripTotal} €`;
+      const elKpiPerPax = document.getElementById('gr-kpi-perpax');
+      if (elKpiPerPax) elKpiPerPax.textContent = `~${perPax} € / persona`;
+
+      // Table updates
+      const elHotelDesc = document.getElementById('gr-table-hotel-desc');
+      if (elHotelDesc) elHotelDesc.textContent = grAdults === 2 ? 'Apartamento céntrico con cocina (~105 €/noche)' : 'Carmen / Casa 3 dormitorios con cocina (~170 €/noche)';
+      const elHotelCost = document.getElementById('gr-table-hotel-cost');
+      if (elHotelCost) elHotelCost.textContent = `${lodgingCost} €`;
+      const elTableAct = document.getElementById('gr-table-act-cost');
+      if (elTableAct) elTableAct.textContent = `~${Math.round(actTotal)} €`;
+      const elTableFood = document.getElementById('gr-table-food-cost');
+      if (elTableFood) elTableFood.textContent = `~${foodCost} €`;
+      const elTableSub = document.getElementById('gr-table-total-sub');
+      if (elTableSub) elTableSub.textContent = grAdults === 2 ? 'Para 3 Viajeros (2 Adultos + Marco 4a)' : 'Para 5 Viajeros (4 Adultos + Marco 4a)';
+      const elTableVal = document.getElementById('gr-table-total-val');
+      if (elTableVal) elTableVal.textContent = `~${tripTotal} €`;
+    }
+
+    function setCtPax(pax) {
+      ctAdults = pax;
+      document.getElementById('ct-btn-pax2').classList.toggle('active', pax === 2);
+      document.getElementById('ct-btn-pax4').classList.toggle('active', pax === 4);
+      const paxLabel = pax === 2 ? '3 Viajeros (2 Ad + Marco)' : '5 Viajeros (4 Ad + Marco)';
+      const hotelSub = pax === 2 ? 'Cabezón / Mazcuerras (~285 €)' : 'Casona montañesa 3 hab con chimenea (~480 €)';
+      document.getElementById('ct-kpi-pax-label').textContent = paxLabel;
+      document.getElementById('ct-kpi-hotel-sub').textContent = hotelSub;
+      updateCtActivityCalc();
+    }
+
+    function filterCtActivities(type) {
+      const items = document.querySelectorAll('#ct-activity-list .ct-activity-item');
+      items.forEach(item => {
+        const chk = item.querySelector('.ct-activity-checkbox');
+        if (!chk) return;
+        const cat = chk.getAttribute('data-cat');
+        if (type === 'all') chk.checked = true;
+        else if (type === 'none') chk.checked = false;
+        else if (type === 'nature') chk.checked = (cat === 'nature' || cat === 'kids');
+        else if (type === 'kids') chk.checked = (cat === 'kids');
+        item.classList.toggle('selected', chk.checked);
+      });
+      updateCtActivityCalc();
+    }
+
+    function updateCtActivityCalc() {
+      const items = document.querySelectorAll('#ct-activity-list .ct-activity-item');
+      let actAdultCost = 0;
+      let actChildCost = 0;
+      let activeCount = 0;
+
+      items.forEach(item => {
+        const chk = item.querySelector('.ct-activity-checkbox');
+        if (!chk) return;
+        item.classList.toggle('selected', chk.checked);
+        if (chk.checked) {
+          activeCount++;
+          const adultPrice = parseFloat(chk.getAttribute('data-adult') || 0);
+          const childPrice = parseFloat(chk.getAttribute('data-child') || 0);
+          actAdultCost += (adultPrice * ctAdults);
+          actChildCost += (childPrice * ctChildren);
+        }
+      });
+
+      const actTotal = actAdultCost + actChildCost;
+      const fuelCost = 105;
+      const lodgingCost = ctAdults === 2 ? 285 : 480;
+      const foodCost = ctAdults === 2 ? 200 : 380;
+      const tripTotal = Math.round(actTotal + fuelCost + lodgingCost + foodCost);
+      const totalPax = ctAdults + ctChildren;
+      const perPax = Math.round(tripTotal / totalPax);
+
+      const elActCount = document.getElementById('ct-act-count');
+      if (elActCount) elActCount.textContent = `${activeCount} de ${items.length}`;
+      const elAdultCost = document.getElementById('ct-act-adults-cost');
+      if (elAdultCost) elAdultCost.textContent = `~${Math.round(actAdultCost)} €`;
+      const elChildCost = document.getElementById('ct-act-child-cost');
+      if (elChildCost) elChildCost.textContent = `~${actChildCost.toFixed(2)} €`;
+      const elActTotal = document.getElementById('ct-act-total-cost');
+      if (elActTotal) elActTotal.textContent = `~${Math.round(actTotal)} €`;
+
+      const elKpiTotal = document.getElementById('ct-kpi-total');
+      if (elKpiTotal) elKpiTotal.textContent = `~${tripTotal} €`;
+      const elKpiPerPax = document.getElementById('ct-kpi-perpax');
+      if (elKpiPerPax) elKpiPerPax.textContent = `~${perPax} € / persona`;
+
+      // Table updates
+      const elHotelDesc = document.getElementById('ct-table-hotel-desc');
+      if (elHotelDesc) elHotelDesc.textContent = ctAdults === 2 ? 'Casona o apartamento rural en Cabezón (~95 €/noche)' : 'Casona montañesa 3 dormitorios con chimenea (~160 €/noche)';
+      const elHotelCost = document.getElementById('ct-table-hotel-cost');
+      if (elHotelCost) elHotelCost.textContent = `${lodgingCost} €`;
+      const elTableAct = document.getElementById('ct-table-act-cost');
+      if (elTableAct) elTableAct.textContent = `~${Math.round(actTotal)} €`;
+      const elTableFood = document.getElementById('ct-table-food-cost');
+      if (elTableFood) elTableFood.textContent = `~${foodCost} €`;
+      const elTableSub = document.getElementById('ct-table-total-sub');
+      if (elTableSub) elTableSub.textContent = ctAdults === 2 ? 'Para 3 Viajeros (2 Adultos + Marco 4a)' : 'Para 5 Viajeros (4 Adultos + Marco 4a)';
+      const elTableVal = document.getElementById('ct-table-total-val');
+      if (elTableVal) elTableVal.textContent = `~${tripTotal} €`;
     }
 
 </script>

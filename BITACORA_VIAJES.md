@@ -1639,3 +1639,21 @@ DETALLE DE LA INTEGRACIÓN:
     - Recompilación offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (98.27 MB, 163 imágenes incrustadas).
     - Commit y push a GitHub main para auto-despliegue en Render.
 ========================================================================================
+
+========================================================================================
+FECHA: 2026-10-27 10:15 | RESPONSABLE: BRÚJULA (Antigravity Travel Agent)
+OBJETIVO: Planificación estratégica y encaje del Balneario Castilla Termal Solares (Balnea Infantil) y Península de La Magdalena en Cantabria.
+ESTADO: COMPLETADO, VALIDADO CON PLAYWRIGHT Y DESPLEGADO.
+
+DETALLE DEL ENCAJE HORARIO Y RUTAS:
+ 1. DISTRIBUCIÓN RECOMENDADA (OPCIÓN 1 · MÁXIMA EFICIENCIA GEOGRÁFICA):
+    - Domingo (Día 2): Mañana de Safari en Cabárceno (10:00 - 14:30 h). A las 15:00 h, desplazamiento de solo 12 min a Castilla Termal Balneario de Solares: sesión de agua caliente a 34°C en la piscina termal y juegos en 'Balnea Infantil' para Marco. A las 18:30 h, paseo por Santander Navideño iluminado frente a la bahía.
+    - Martes (Día 4): Mañana libre antes de volver a Alcalá en la Península de La Magdalena: ver las focas (12:15 h) y pingüinos (12:00 h) comer en las piscinas de roca natural sobre el mar, subir a las 3 Carabelas de Vital Alsar y tren 'El Magdaleno'. Almuerzo marinero y retorno directo por la A-67.
+ 2. OPCIÓN 2 (RELAX TRAS PICOS DE EUROPA):
+    - Domingo tarde: La Magdalena + Santander Navideño.
+    - Lunes tarde: Balneario Solares tras bajar de la nieve y frío de Fuente Dé en Picos de Europa.
+ 3. ACTUALIZACIÓN WEB & DESPLIEGUE:
+    - Incorporada caja de asesoría logística en '#tab-cantabria' explicando las 3 combinaciones.
+    - Recompilado offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (113.93 MB, 163 imágenes incrustadas).
+    - Commit y push a GitHub main para Render.
+========================================================================================

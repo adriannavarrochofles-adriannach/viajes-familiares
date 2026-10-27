@@ -1725,3 +1725,38 @@ DETALLE DE LAS MEJORAS APLICADAS:
     - Recompilado offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (101.98 MB, 173 imágenes incrustadas en base64) en Desktop, OneDrive y Brain.
     - Despliegue en Render y actualización de registros de gobierno.
 ========================================================================================
+
+========================================================================================
+FECHA: 2026-10-27 11:20 | RESPONSABLE: BRÚJULA (Antigravity Travel Agent)
+OBJETIVO: Gestor Inteligente de Fechas Interactivo & Motor de Valoración Estacional por IA ("Asesor de Temporadas Brújula AI") con recálculo dinámico de presupuestos y sincronización en vivo de enlaces Booking.com.
+ESTADO: COMPLETADO, TESTEADO CON PLAYWRIGHT Y DESPLEGADO EN PRODUCCIÓN.
+
+DETALLE DE LAS MEJORAS APLICADAS:
+ 1. GESTOR INTELIGENTE DE FECHAS & ASESOR DE TEMPORADAS BRÚJULA AI (13 DESTINOS):
+    - Componente interactivo desplegado en todas las fichas de viaje, con especial protagonismo en Cantabria y Granada:
+      * Píldoras de selección rápida de fechas recomendadas (Puente de Diciembre, Pre-Navidad Económica, Primavera en Flor, Verano de Playas / Noches Blancas / Sierra Nevada, etc.).
+      * Selector libre de fechas con inputs datepicker (Check-in y Check-out) y botón "Valorar & Aplicar Fechas" con validación de fechas coherentes.
+      * Banner dinámico de valoración por IA (#verdict-text-[dest]): dictamen automático con pros, contras, clima, nivel de aglomeraciones y consejos para Marco (4 años).
+      * Desplegable `<details>` con la Guía Comparativa de las 4 Estaciones (Invierno/Navidad, Primavera, Verano, Otoño), con valoraciones por estrellas (⭐⭐⭐⭐⭐), puntos fuertes y alertas de frío/calor.
+
+ 2. MOTOR INTELIGENTE DE VALORACIÓN ESTACIONAL (evaluateSeasonality):
+    - Función algorítmica que analiza en tiempo real cualquier rango de fechas ingresado por el usuario:
+      * Calcula duración exacta de estancia (días y noches).
+      * Evalúa el mes y factores locales (ej. Cartes y luces en dic, Cabárceno con crías en primavera, playas en verano; trineos en Mirlo Blanco y nieve óptima en enero, Generalife en flor en primavera, calor en verano en Granada; etc.).
+      * Asigna multiplicador de tarifa y redacta la recomendación personalizada en directo.
+
+ 3. SINCRONIZACIÓN EN VIVO DE ENLACES DE RESERVA (updateTabBookingUrls):
+    - Al mover o cambiar las fechas en cualquier destino, todos los botones de reserva a Booking.com (tarjetas de alojamiento, comparadores y enlaces directos) se actualizan dinámicamente con los parámetros checkin y checkout seleccionados.
+    - Sincronización automática de enlaces de Google Flights con las nuevas fechas de ida y vuelta.
+    - Actualización en vivo del badge superior en la cabecera hero (#hero-badge-[dest]) reflejando las fechas activas.
+
+ 4. RECÁLCULO DINÁMICO DE PRESUPUESTOS Y MULTIPLICADORES:
+    - Cantabria: El selector de Pre-Navidad Económica o fechas valle aplica automáticamente un factor de 0.75 sobre el alojamiento (ahorro de 120 € en grupo de 4 adultos), resaltando la celda de alojamiento en verde (#10B981) e indicando el porcentaje de ahorro aplicado.
+    - Granada: El selector de Valle de Nieve Óptimo en enero aplica automáticamente un factor de 0.65 (-35% de descuento, ahorro de 180 €), recalculando en vivo el total y cuota por persona.
+    - Soporte completo integrado en el resto de destinos con matriz recalcMap.
+
+ 5. VERIFICACIÓN AUTOMATIZADA Y COMPILACIÓN OFFLINE:
+    - Testeado con Playwright (test_date_optimizer.py y test_all_dates.py): 100% de aserciones superadas con éxito.
+    - Recompilación exitosa de 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (102.05 MB, 173 imágenes incrustadas en Base64) en Desktop, OneDrive y Artifacts.
+    - Auto-despliegue en producción en Render tras push a GitHub main.
+========================================================================================

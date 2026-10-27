@@ -11905,6 +11905,101 @@
       <!-- BARRA DE ESTADO DEL VIAJE (PENDIENTE / REALIZADO) -->
       <div id="trip-status-bar-francia" class="trip-status-bar" data-trip="francia"></div>
 
+      <!-- GESTOR INTELIGENTE DE FECHAS & ASESOR DE TEMPORADAS BRÚJULA AI (FRANCIA) -->
+      <div class="ai-date-optimizer-box" id="ai-opt-francia" style="margin-bottom: 25px; border-color: #1E40AF;">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">📅</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Gestor Inteligente de Fechas & Asesor de Temporadas · Brújula AI
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Mueve las fechas a tu gusto o elige entre temporadas recomendadas. El sistema valorará pros, contras, clima y actualizará los precios y enlaces de reserva en vivo para viajar con Marco (4 años).
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-francia" style="background:#EFF6FF; color:#1E40AF; border-color:#BFDBFE;">
+            ⚡ Asesor de Fechas Activo
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-francia-base" onclick="setTripDates('francia', '2026-12-05', '2026-12-08', 'base')">
+            🏰 Puente de Diciembre (5 al 8 Dic 2026) <span class="pill-tag-red">Pico Festivo · Luces Medievales</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-francia-prenav" onclick="setTripDates('francia', '2026-11-20', '2026-11-23', 'prenav')">
+            🌟 Pre-Navidad Gourmet (20 al 23 Nov 2026) <span class="pill-tag-green">Grands Buffets fácil · Ahorro ~25%</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-francia-spring" onclick="setTripDates('francia', '2027-04-30', '2027-05-03', 'spring')">
+            🌸 Puente de Mayo (30 Abr al 3 May 2027) <span class="pill-tag-green">Safari Sigean & Minotauro 20°C</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-francia-summer" onclick="setTripDates('francia', '2027-07-09', '2027-07-12', 'summer')">
+            ☀️ Verano & Festival (9 al 12 Jul 2027) <span class="pill-tag-red">Festival Carcasona & Playas Colliure</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-francia-custom" onclick="toggleCustomDates('francia')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <!-- FILA DE SELECCIÓN LIBRE DE FECHAS -->
+        <div class="ai-custom-date-row" id="custom-row-francia" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha de Ida (Check-in):</label>
+            <input type="date" id="input-francia-in" value="2026-12-05">
+          </div>
+          <div class="custom-field">
+            <label>Fecha de Vuelta (Check-out):</label>
+            <input type="date" id="input-francia-out" value="2026-12-08">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('francia')">
+            ⚡ Valorar & Aplicar Fechas
+          </button>
+        </div>
+
+        <!-- BANNER DE VALORACIÓN DINÁMICA POR IA -->
+        <div class="ai-verdict-banner" id="verdict-francia" style="border-left-color: #1E40AF;">
+          <div id="verdict-text-francia">
+            🏰 <strong>Puente de Diciembre (5 al 8 Dic 2026 · 4 días / 3 noches):</strong> Carcasona medieval iluminada como un cuento de hadas; festín en Les Grands Buffets y pista de hielo en Toulouse. Viaje directo en nuestro Volvo XC60 sin aviones.
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE GUÍA COMPLETA DE TEMPORADAS -->
+        <details style="margin-top: 12px; background: #F8FAFC; border-radius: 10px; border: 1px solid #E2E8F0; padding: 10px 14px; font-size: 0.85rem;">
+          <summary style="font-weight: 800; color: #1E40AF; cursor: pointer; user-select: none;">
+            🧭 ¿Cuándo es mejor viajar a Sur de Francia? Comparativa Completa de Temporadas ➔
+          </summary>
+          <div style="margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; font-size: 0.82rem; line-height: 1.45;">
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #1E40AF;">
+              <strong style="color:#1E40AF;">🏰 Diciembre - Enero (Navidad):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5)<br>
+              • <em>Puntos fuertes:</em> Carcasona amurallada iluminada, Les Grands Buffets muy acogedor, pista de hielo en Toulouse.<br>
+              • <em>A tener en cuenta:</em> Días cortos y frío (7-11°C); abrigar bien a Marco.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #10B981;">
+              <strong style="color:#10B981;">🌸 Marzo - Mayo (Primavera):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Recomendada)<br>
+              • <em>Puntos fuertes:</em> Clima excelente (18-21°C), safari de Sigean con crías de animales al sol y Minotauro gigante al aire libre.<br>
+              • <em>A tener en cuenta:</em> Reservar Les Grands Buffets con antelación.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #F59E0B;">
+              <strong style="color:#F59E0B;">☀️ Junio - Agosto (Verano):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5)<br>
+              • <em>Puntos fuertes:</em> Festival Medieval de Carcasona, baños en el puerto marinero de Colliure y terrazas en Toulouse.<br>
+              • <em>A tener en cuenta:</em> Mayor afluencia de turistas y precios de hotel más altos.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #D97706;">
+              <strong style="color:#D97706;">🍂 Septiembre - Noviembre (Otoño):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Ahorro)<br>
+              • <em>Puntos fuertes:</em> Vendimias en el Midi, tarifas valle (-25%), reserva fácil en Grands Buffets y clima templado.<br>
+              • <em>A tener en cuenta:</em> Posibilidad de viento Tramontana ocasional.
+            </div>
+          </div>
+        </details>
+      </div>
+
+
+
 
       <!-- MÓDULO DE ALOJAMIENTOS CON COCINA Y ENLACES DIRECTOS (FRANCIA) -->
       <section class="hotel-section-francia" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 22px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
@@ -12621,7 +12716,7 @@
   <!-- ============================================================================== -->
   <div id="tab-granada" class="tab-view">
     <section class="portal-hero hero-granada">
-      <div class="hero-badge" style="background: rgba(220, 38, 38, 0.2); color: #FCA5A5; border: 1px solid #DC2626;">
+      <div id="hero-badge-granada" class="hero-badge" style="background: rgba(220, 38, 38, 0.2); color: #FCA5A5; border: 1px solid #DC2626;">
         🎄 PUENTE DE DICIEMBRE · 5 AL 8 DIC 2026 · EN VOLVO XC60
       </div>
       <h1 style="font-size: 2.3rem; font-weight: 800; margin-top: 12px; margin-bottom: 12px;">
@@ -12670,6 +12765,101 @@
     <div class="container" style="margin-top: 30px;">
       <!-- BARRA DE ESTADO DEL VIAJE (PENDIENTE / REALIZADO) -->
       <div id="trip-status-bar-granada" class="trip-status-bar" data-trip="granada"></div>
+
+      <!-- GESTOR INTELIGENTE DE FECHAS & ASESOR DE TEMPORADAS BRÚJULA AI (GRANADA) -->
+      <div class="ai-date-optimizer-box" id="ai-opt-granada" style="margin-bottom: 25px; border-color: #DC2626;">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">📅</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Gestor Inteligente de Fechas & Asesor de Temporadas · Brújula AI
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Mueve las fechas a tu gusto o elige entre temporadas recomendadas. El sistema valorará pros, contras, clima y actualizará los precios y enlaces de reserva en vivo para viajar con Marco (4 años).
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-granada" style="background:#FEF2F2; color:#DC2626; border-color:#FECACA;">
+            ⚡ Asesor de Fechas Activo
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-granada-base" onclick="setTripDates('granada', '2026-12-05', '2026-12-08', 'base')">
+            ❄️ Puente de Diciembre (5 al 8 Dic 2026) <span class="pill-tag-red">Pico Festivo · Nieve & Navidad</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-granada-snow" onclick="setTripDates('granada', '2027-01-22', '2027-01-25', 'snow')">
+            ⛷️ Valle de Nieve Óptimo (22 al 25 Ene 2027) <span class="pill-tag-green">Ahorro ~35% (-180 €) · Mejor Nieve</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-granada-reyes" onclick="setTripDates('granada', '2027-01-02', '2027-01-06', 'reyes')">
+            👑 Semana de Reyes Magos (2 al 6 Ene 2027) <span class="pill-tag-red">Máxima Ilusión Niños</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-granada-spring" onclick="setTripDates('granada', '2027-04-16', '2027-04-19', 'spring')">
+            🌺 Primavera & Generalife en Flor (16 al 19 Abr 2027) <span class="pill-tag-green">Alhambra en Flor · 22°C</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-granada-custom" onclick="toggleCustomDates('granada')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <!-- FILA DE SELECCIÓN LIBRE DE FECHAS -->
+        <div class="ai-custom-date-row" id="custom-row-granada" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha de Ida (Check-in):</label>
+            <input type="date" id="input-granada-in" value="2026-12-05">
+          </div>
+          <div class="custom-field">
+            <label>Fecha de Vuelta (Check-out):</label>
+            <input type="date" id="input-granada-out" value="2026-12-08">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('granada')">
+            ⚡ Valorar & Aplicar Fechas
+          </button>
+        </div>
+
+        <!-- BANNER DE VALORACIÓN DINÁMICA POR IA -->
+        <div class="ai-verdict-banner" id="verdict-granada" style="border-left-color: #DC2626;">
+          <div id="verdict-text-granada">
+            ❄️ <strong>Puente de Diciembre (5 al 8 Dic 2026 · 4 días / 3 noches):</strong> Apertura oficial de la temporada de nieve en Sierra Nevada (Parque Mirlo Blanco con trineos y roscos para Marco), mercado navideño en Bib-Rambla y tiovivo clásico en Puerta Real. Entradas de la Alhambra con alta demanda (imprescindible reservar con semanas de antelación).
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE GUÍA COMPLETA DE TEMPORADAS -->
+        <details style="margin-top: 12px; background: #F8FAFC; border-radius: 10px; border: 1px solid #E2E8F0; padding: 10px 14px; font-size: 0.85rem;">
+          <summary style="font-weight: 800; color: #DC2626; cursor: pointer; user-select: none;">
+            🧭 ¿Cuándo es mejor viajar a Granada & Sierra Nevada? Comparativa de Temporadas ➔
+          </summary>
+          <div style="margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; font-size: 0.82rem; line-height: 1.45;">
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #DC2626;">
+              <strong style="color:#DC2626;">❄️ Diciembre - Enero (Nieve & Navidad):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Ideal Niños)<br>
+              • <em>Puntos fuertes:</em> Nieve para trineos en Mirlo Blanco, alumbrado navideño espectacular, tiovivo y churros en Bib-Rambla.<br>
+              • <em>A tener en cuenta:</em> Mucha demanda de entradas para la Alhambra (requiere reservar con antelación) y frío en la sierra.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #10B981;">
+              <strong style="color:#10B981;">⛷️ Finales de Enero - Febrero (Valle de Nieve):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Mejor Nieve y Ahorro)<br>
+              • <em>Puntos fuertes:</em> Máxima calidad de nieve en pistas, cero masificación en trineos, entradas de Alhambra fáciles y ahorro de ~35% en alojamientos.<br>
+              • <em>A tener en cuenta:</em> Ya no hay luces de Navidad.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #F59E0B;">
+              <strong style="color:#F59E0B;">🌸 Marzo - Mayo (Primavera):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Esplendor Cultural)<br>
+              • <em>Puntos fuertes:</em> Jardines del Generalife en plena floración, olor a azahar en el Albaicín, sol suave (20-23°C) y tapeo en terrazas.<br>
+              • <em>A tener en cuenta:</em> A finales de abril ya no suele haber nieve para trineos en cotas bajas.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #64748B;">
+              <strong style="color:#64748B;">☀️ Julio - Agosto (Verano):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐ (3/5)<br>
+              • <em>Puntos fuertes:</em> La sierra ofrece frescor agradable y rutas de senderismo; visitas nocturnas a los palacios nazaríes.<br>
+              • <em>A tener en cuenta:</em> En la ciudad de Granada el calor puede superar los 38°C en horas centrales; no recomendado para niños pequeños en verano.
+            </div>
+          </div>
+        </details>
+      </div>
+
+
 
 
       <!-- MÓDULO DE ALOJAMIENTOS CON COCINA Y ENLACES DIRECTOS (GRANADA) -->
@@ -13391,7 +13581,7 @@
   <!-- ============================================================================== -->
   <div id="tab-cantabria" class="tab-view">
     <section class="portal-hero hero-cantabria">
-      <div class="hero-badge" style="background: rgba(5, 150, 105, 0.2); color: #6EE7B7; border: 1px solid #059669;">
+      <div id="hero-badge-cantabria" class="hero-badge" style="background: rgba(5, 150, 105, 0.2); color: #6EE7B7; border: 1px solid #059669;">
         🌲 PUENTE DE DICIEMBRE · 5 AL 8 DIC 2026 · EN VOLVO XC60
       </div>
       <h1 style="font-size: 2.3rem; font-weight: 800; margin-top: 12px; margin-bottom: 12px;">
@@ -13440,6 +13630,101 @@
     <div class="container" style="margin-top: 30px;">
       <!-- BARRA DE ESTADO DEL VIAJE (PENDIENTE / REALIZADO) -->
       <div id="trip-status-bar-cantabria" class="trip-status-bar" data-trip="cantabria"></div>
+
+      <!-- GESTOR INTELIGENTE DE FECHAS & ASESOR DE TEMPORADAS BRÚJULA AI (CANTABRIA) -->
+      <div class="ai-date-optimizer-box" id="ai-opt-cantabria" style="margin-bottom: 25px; border-color: #059669;">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">📅</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Gestor Inteligente de Fechas & Asesor de Temporadas · Brújula AI
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Mueve las fechas a tu gusto o elige entre temporadas recomendadas. El sistema valorará pros, contras, clima y actualizará los precios y enlaces de reserva en vivo para viajar con Marco (4 años).
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-cantabria" style="background:#ECFDF5; color:#059669; border-color:#A7F3D0;">
+            ⚡ Asesor de Fechas Activo
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-cantabria-base" onclick="setTripDates('cantabria', '2026-12-05', '2026-12-08', 'base')">
+            🎄 Puente de Diciembre (5 al 8 Dic 2026) <span class="pill-tag-red">Pico Festivo · Magia Navideña</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-cantabria-prenav" onclick="setTripDates('cantabria', '2026-11-27', '2026-11-30', 'prenav')">
+            🌟 Pre-Navidad Económica (27 al 30 Nov 2026) <span class="pill-tag-green">Ahorro ~25% (-120 €) · Cero Colas</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-cantabria-spring" onclick="setTripDates('cantabria', '2027-03-25', '2027-03-29', 'spring')">
+            🌸 Primavera & Cabárceno Verde (25 al 29 Mar 2027) <span class="pill-tag-green">Cabárceno en Flor · 18°C</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-cantabria-summer" onclick="setTripDates('cantabria', '2027-07-16', '2027-07-20', 'summer')">
+            ☀️ Verano & Playas del Cantábrico (16 al 20 Jul 2027) <span class="pill-tag-red">Playas El Sardinero & Baños</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-cantabria-custom" onclick="toggleCustomDates('cantabria')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <!-- FILA DE SELECCIÓN LIBRE DE FECHAS -->
+        <div class="ai-custom-date-row" id="custom-row-cantabria" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha de Ida (Check-in):</label>
+            <input type="date" id="input-cantabria-in" value="2026-12-05">
+          </div>
+          <div class="custom-field">
+            <label>Fecha de Vuelta (Check-out):</label>
+            <input type="date" id="input-cantabria-out" value="2026-12-08">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('cantabria')">
+            ⚡ Valorar & Aplicar Fechas
+          </button>
+        </div>
+
+        <!-- BANNER DE VALORACIÓN DINÁMICA POR IA -->
+        <div class="ai-verdict-banner" id="verdict-cantabria" style="border-left-color: #059669;">
+          <div id="verdict-text-cantabria">
+            🎄 <strong>Puente de Diciembre (5 al 8 Dic 2026 · 4 días / 3 noches):</strong> Época ideal si buscáis la magia navideña: el <strong>Poblado Navideño de Cartes</strong> y su Árbol Gigante de 65m están a pleno rendimiento con la Casa de Papá Noel para entregar la carta en persona, y Santander luce pista de hielo y noria sobre la bahía. En Picos de Europa suele haber las primeras nieves. Alojamiento rural con chimenea muy acogedor.
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE GUÍA COMPLETA DE TEMPORADAS -->
+        <details style="margin-top: 12px; background: #F8FAFC; border-radius: 10px; border: 1px solid #E2E8F0; padding: 10px 14px; font-size: 0.85rem;">
+          <summary style="font-weight: 800; color: #059669; cursor: pointer; user-select: none;">
+            🧭 ¿Cuándo es mejor viajar a Cantabria? Comparativa Completa de las 4 Estaciones ➔
+          </summary>
+          <div style="margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; font-size: 0.82rem; line-height: 1.45;">
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #059669;">
+              <strong style="color:#059669;">🎄 Diciembre - Enero (Navidad):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5)<br>
+              • <em>Puntos fuertes:</em> Cartes pueblo de cuento, Árbol gigante, luces en Santander, nieve en Fuente Dé y ambiente de chimenea.<br>
+              • <em>A tener en cuenta:</em> Clima fresco (9-13°C), anochece a las 17:45 h, llevar abrigo térmico para Marco.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #10B981;">
+              <strong style="color:#10B981;">🌸 Marzo - Mayo (Primavera):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Recomendada)<br>
+              • <em>Puntos fuertes:</em> Máximo verdor en Cabárceno con crías de animales, cascadas de deshielo en Picos, clima templado (16-19°C), días largos.<br>
+              • <em>A tener en cuenta:</em> Sin ambientación navideña.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #F59E0B;">
+              <strong style="color:#F59E0B;">☀️ Julio - Agosto (Verano):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5)<br>
+              • <em>Puntos fuertes:</em> Baños en el Sardinero, paseos en barco por la bahía, temperatura agradable de 24°C sin calor extremo.<br>
+              • <em>A tener en cuenta:</em> Alojamiento con tarifas altas (+20%), mayor afluencia en Cabárceno y Potes.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #D97706;">
+              <strong style="color:#D97706;">🍂 Octubre - Noviembre (Otoño):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Ahorro Máximo)<br>
+              • <em>Puntos fuertes:</em> Colores ocres mágicos en el Bosque de Secuoyas, cocido montañés caliente, tarifas valle (-25% de ahorro) y cero esperas.<br>
+              • <em>A tener en cuenta:</em> Mayor probabilidad de lluvia cantábrica (llevar chubasqueros).
+            </div>
+          </div>
+        </details>
+      </div>
+
+
 
 
       <!-- MÓDULO DE ALOJAMIENTOS CON COCINA Y ENLACES DIRECTOS (CANTABRIA) -->
@@ -14248,6 +14533,101 @@
       <!-- BARRA DE ESTADO DEL VIAJE (PENDIENTE / REALIZADO) -->
       <div id="trip-status-bar-belgica" class="trip-status-bar" data-trip="belgica"></div>
 
+      <!-- GESTOR INTELIGENTE DE FECHAS & ASESOR DE TEMPORADAS BRÚJULA AI (BELGICA) -->
+      <div class="ai-date-optimizer-box" id="ai-opt-belgica" style="margin-bottom: 25px; border-color: #0F766E;">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">📅</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Gestor Inteligente de Fechas & Asesor de Temporadas · Brújula AI
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Mueve las fechas a tu gusto o elige entre temporadas recomendadas. El sistema valorará pros, contras, clima y actualizará los precios y enlaces de reserva en vivo para viajar con Marco (4 años).
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-belgica" style="background:#F0FDFA; color:#0F766E; border-color:#99F6E4;">
+            ⚡ Asesor de Fechas Activo
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-belgica-base" onclick="setTripDates('belgica', '2026-12-05', '2026-12-08', 'base')">
+            🎄 Plaisirs d'Hiver (5 al 8 Dic 2026) <span class="pill-tag-red">Pico Festivo · Magia Grand Place</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-belgica-prenav" onclick="setTripDates('belgica', '2026-11-27', '2026-11-30', 'prenav')">
+            🍫 Pre-Navidad Dulce (27 al 30 Nov 2026) <span class="pill-tag-green">Inauguración · Ahorro ~30%</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-belgica-spring" onclick="setTripDates('belgica', '2027-04-09', '2027-04-12', 'spring')">
+            🌸 Primavera & Brujas Floral (9 al 12 Abr 2027) <span class="pill-tag-green">Canales en Flor · Barquitos</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-belgica-summer" onclick="setTripDates('belgica', '2027-07-16', '2027-07-19', 'summer')">
+            ☀️ Verano Flamenco (16 al 19 Jul 2027) <span class="pill-tag-red">22°C templado · Días largos</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-belgica-custom" onclick="toggleCustomDates('belgica')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <!-- FILA DE SELECCIÓN LIBRE DE FECHAS -->
+        <div class="ai-custom-date-row" id="custom-row-belgica" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha de Ida (Check-in):</label>
+            <input type="date" id="input-belgica-in" value="2026-12-05">
+          </div>
+          <div class="custom-field">
+            <label>Fecha de Vuelta (Check-out):</label>
+            <input type="date" id="input-belgica-out" value="2026-12-08">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('belgica')">
+            ⚡ Valorar & Aplicar Fechas
+          </button>
+        </div>
+
+        <!-- BANNER DE VALORACIÓN DINÁMICA POR IA -->
+        <div class="ai-verdict-banner" id="verdict-belgica" style="border-left-color: #0F766E;">
+          <div id="verdict-text-belgica">
+            🎄 <strong>Plaisirs d'Hiver (5 al 8 Dic 2026 · 4 días / 3 noches):</strong> Grand Place de Bruselas con espectáculo 360° de luz y sonido; pista de hielo gigante, mercadillo de Brujas en la plaza del Markt y gofres calientes para Marco.
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE GUÍA COMPLETA DE TEMPORADAS -->
+        <details style="margin-top: 12px; background: #F8FAFC; border-radius: 10px; border: 1px solid #E2E8F0; padding: 10px 14px; font-size: 0.85rem;">
+          <summary style="font-weight: 800; color: #0F766E; cursor: pointer; user-select: none;">
+            🧭 ¿Cuándo es mejor viajar a Bélgica? Comparativa Completa de Temporadas ➔
+          </summary>
+          <div style="margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; font-size: 0.82rem; line-height: 1.45;">
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #0F766E;">
+              <strong style="color:#0F766E;">🎄 Diciembre (Navidad):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Magia)<br>
+              • <em>Puntos fuertes:</em> Uno de los mercadillos más bonitos del mundo en Bruselas y Brujas iluminada por canales.<br>
+              • <em>A tener en cuenta:</em> Frío y días cortos (anochece a las 16:30); llevar abrigo térmico.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #10B981;">
+              <strong style="color:#10B981;">🌸 Abril - Mayo (Primavera):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Recomendada)<br>
+              • <em>Puntos fuertes:</em> Parques y canales en flor, paseos en barca sin frío por Brujas y Gante, días largos.<br>
+              • <em>A tener en cuenta:</em> Sin ambientación navideña.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #F59E0B;">
+              <strong style="color:#F59E0B;">☀️ Junio - Agosto (Verano):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5)<br>
+              • <em>Puntos fuertes:</em> Clima templado excelente (22-24°C sin calor agobiante), terrazas, Alfombra Floral de Bruselas.<br>
+              • <em>A tener en cuenta:</em> Mayor afluencia de turistas en el centro de Brujas.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #D97706;">
+              <strong style="color:#D97706;">🍂 Septiembre - Octubre (Otoño):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Ahorro)<br>
+              • <em>Puntos fuertes:</em> Colores dorados sobre los canales, tarifas de vuelos y hoteles un 25% más baratas.<br>
+              • <em>A tener en cuenta:</em> Probabilidad de lluvias suaves frecuentes.
+            </div>
+          </div>
+        </details>
+      </div>
+
+
+
 
       <!-- MÓDULO DE ALOJAMIENTOS CON COCINA Y ENLACES DIRECTOS (BELGICA) -->
       <section class="hotel-section-belgica" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 22px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
@@ -14914,6 +15294,101 @@
       <!-- BARRA DE ESTADO DEL VIAJE (PENDIENTE / REALIZADO) -->
       <div id="trip-status-bar-dinamarca" class="trip-status-bar" data-trip="dinamarca"></div>
 
+      <!-- GESTOR INTELIGENTE DE FECHAS & ASESOR DE TEMPORADAS BRÚJULA AI (DINAMARCA) -->
+      <div class="ai-date-optimizer-box" id="ai-opt-dinamarca" style="margin-bottom: 25px; border-color: #0284C7;">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">📅</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Gestor Inteligente de Fechas & Asesor de Temporadas · Brújula AI
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Mueve las fechas a tu gusto o elige entre temporadas recomendadas. El sistema valorará pros, contras, clima y actualizará los precios y enlaces de reserva en vivo para viajar con Marco (4 años).
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-dinamarca" style="background:#EFF6FF; color:#0284C7; border-color:#BFDBFE;">
+            ⚡ Asesor de Fechas Activo
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-dinamarca-base" onclick="setTripDates('dinamarca', '2027-06-18', '2027-06-22', 'base')">
+            ☀️ Verano Legoland (18 al 22 Jun 2027) <span class="pill-tag-red">Temporada Estrella · Noches Blancas</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-dinamarca-midsummer" onclick="setTripDates('dinamarca', '2027-06-23', '2027-06-27', 'midsummer')">
+            ✨ Sankt Hans Midsummer (23 al 27 Jun 2027) <span class="pill-tag-red">Fiesta Noche de San Juan en Tivoli</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-dinamarca-spring" onclick="setTripDates('dinamarca', '2027-05-14', '2027-05-18', 'spring')">
+            🌸 Primavera Nórdica (14 al 18 May 2027) <span class="pill-tag-green">Legoland sin esperas · Ahorro ~25%</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-dinamarca-autumn" onclick="setTripDates('dinamarca', '2027-09-17', '2027-09-21', 'autumn')">
+            🍂 Otoño Nórdico (17 al 21 Sep 2027) <span class="pill-tag-green">Tarifas Valle · Copenhague tranquilo</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-dinamarca-custom" onclick="toggleCustomDates('dinamarca')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <!-- FILA DE SELECCIÓN LIBRE DE FECHAS -->
+        <div class="ai-custom-date-row" id="custom-row-dinamarca" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha de Ida (Check-in):</label>
+            <input type="date" id="input-dinamarca-in" value="2027-06-18">
+          </div>
+          <div class="custom-field">
+            <label>Fecha de Vuelta (Check-out):</label>
+            <input type="date" id="input-dinamarca-out" value="2027-06-22">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('dinamarca')">
+            ⚡ Valorar & Aplicar Fechas
+          </button>
+        </div>
+
+        <!-- BANNER DE VALORACIÓN DINÁMICA POR IA -->
+        <div class="ai-verdict-banner" id="verdict-dinamarca" style="border-left-color: #0284C7;">
+          <div id="verdict-text-dinamarca">
+            ☀️ <strong>Verano & Noches Blancas (18 al 22 Jun 2027 · 5 días / 4 noches):</strong> La mejor época absoluta para Dinamarca: Legoland Billund a pleno rendimiento con atracciones de agua, Tivoli Gardens abierto hasta medianoche y sol de medianoche nórdico.
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE GUÍA COMPLETA DE TEMPORADAS -->
+        <details style="margin-top: 12px; background: #F8FAFC; border-radius: 10px; border: 1px solid #E2E8F0; padding: 10px 14px; font-size: 0.85rem;">
+          <summary style="font-weight: 800; color: #0284C7; cursor: pointer; user-select: none;">
+            🧭 ¿Cuándo es mejor viajar a Dinamarca & Legoland? Comparativa Completa de Temporadas ➔
+          </summary>
+          <div style="margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; font-size: 0.82rem; line-height: 1.45;">
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #0284C7;">
+              <strong style="color:#0284C7;">☀️ Junio - Agosto (Verano):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Época Cumbre)<br>
+              • <em>Puntos fuertes:</em> Legoland Billund y LEGO House al 100%, clima agradable (21-23°C), 18 horas de luz solar diaria.<br>
+              • <em>A tener en cuenta:</em> Precios altos en alojamientos en Billund y Copenhague.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #10B981;">
+              <strong style="color:#10B981;">🌸 Mayo (Primavera):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Ahorro y Sin Colas)<br>
+              • <em>Puntos fuertes:</em> Legoland ya abierto pero sin colas; Copenhague en flor, alquiler de bicis muy cómodo.<br>
+              • <em>A tener en cuenta:</em> Brisa marina fresca (14-17°C); llevar cazadora ligera.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #D97706;">
+              <strong style="color:#D97706;">🍂 Septiembre (Otoño Temprano):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5)<br>
+              • <em>Puntos fuertes:</em> Hoteles un 30% más baratos, paseos tranquilos en barca por Nyhavn y Copenhague otoñal.<br>
+              • <em>A tener en cuenta:</em> Legoland reduce horarios entre semana.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #64748B;">
+              <strong style="color:#64748B;">❄️ Noviembre - Diciembre (Navidad):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5 · Magia Hygge)<br>
+              • <em>Puntos fuertes:</em> Tivoli Gardens iluminado como el Polo Norte; ambiente navideño nórdico de cuento.<br>
+              • <em>A tener en cuenta:</em> Mucho frío (0-4°C), anochece a las 15:45 y Legoland cerrado.
+            </div>
+          </div>
+        </details>
+      </div>
+
+
+
 
       <!-- MÓDULO DE ALOJAMIENTOS CON COCINA Y ENLACES DIRECTOS (DINAMARCA) -->
       <section class="hotel-section-dinamarca" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 22px; margin-bottom: 30px; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
@@ -15493,6 +15968,101 @@
     <div class="container">
       <!-- BARRA DE ESTADO DEL VIAJE (PENDIENTE / REALIZADO) -->
       <div id="trip-status-bar-birmingham" class="trip-status-bar" data-trip="birmingham"></div>
+
+      <!-- GESTOR INTELIGENTE DE FECHAS & ASESOR DE TEMPORADAS BRÚJULA AI (BIRMINGHAM) -->
+      <div class="ai-date-optimizer-box" id="ai-opt-birmingham" style="margin-bottom: 25px; border-color: #7C3AED;">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">📅</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Gestor Inteligente de Fechas & Asesor de Temporadas · Brújula AI
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Mueve las fechas a tu gusto o elige entre temporadas recomendadas. El sistema valorará pros, contras, clima y actualizará los precios y enlaces de reserva en vivo para viajar con Marco (4 años).
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-birmingham" style="background:#F5F3FF; color:#7C3AED; border-color:#DDD6FE;">
+            ⚡ Asesor de Fechas Activo
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-birmingham-base" onclick="setTripDates('birmingham', '2027-05-28', '2027-05-31', 'base')">
+            🌸 Primavera Cadbury (28 al 31 May 2027) <span class="pill-tag-green">Clima Óptimo · Justas Warwick</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-birmingham-summer" onclick="setTripDates('birmingham', '2027-07-23', '2027-07-26', 'summer')">
+            ☀️ Verano Medieval (23 al 26 Jul 2027) <span class="pill-tag-red">Warwick Camp · Espectáculo Aves</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-birmingham-autumn" onclick="setTripDates('birmingham', '2027-10-22', '2027-10-25', 'autumn')">
+            🍂 Halloween Warwick (22 al 25 Oct 2027) <span class="pill-tag-green">Misterio & Fábrica Chocolate</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-birmingham-winter" onclick="setTripDates('birmingham', '2026-12-11', '2026-12-14', 'winter')">
+            🎄 Frankfurt Market (11 al 14 Dic 2026) <span class="pill-tag-red">Mercado Navideño Gigante</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-birmingham-custom" onclick="toggleCustomDates('birmingham')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <!-- FILA DE SELECCIÓN LIBRE DE FECHAS -->
+        <div class="ai-custom-date-row" id="custom-row-birmingham" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha de Ida (Check-in):</label>
+            <input type="date" id="input-birmingham-in" value="2027-05-28">
+          </div>
+          <div class="custom-field">
+            <label>Fecha de Vuelta (Check-out):</label>
+            <input type="date" id="input-birmingham-out" value="2027-05-31">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('birmingham')">
+            ⚡ Valorar & Aplicar Fechas
+          </button>
+        </div>
+
+        <!-- BANNER DE VALORACIÓN DINÁMICA POR IA -->
+        <div class="ai-verdict-banner" id="verdict-birmingham" style="border-left-color: #7C3AED;">
+          <div id="verdict-text-birmingham">
+            🌸 <strong>Primavera & Cadbury World (28 al 31 May 2027 · 4 días / 3 noches):</strong> Clima primaveral británico (19-21°C), degustación infinita de chocolate en Cadbury World y torneos de justas medievales a caballo en los jardines del Castillo de Warwick.
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE GUÍA COMPLETA DE TEMPORADAS -->
+        <details style="margin-top: 12px; background: #F8FAFC; border-radius: 10px; border: 1px solid #E2E8F0; padding: 10px 14px; font-size: 0.85rem;">
+          <summary style="font-weight: 800; color: #7C3AED; cursor: pointer; user-select: none;">
+            🧭 ¿Cuándo es mejor viajar a Birmingham & Warwick? Comparativa Completa de Temporadas ➔
+          </summary>
+          <div style="margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; font-size: 0.82rem; line-height: 1.45;">
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #7C3AED;">
+              <strong style="color:#7C3AED;">🌸 Mayo - Junio (Primavera):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Recomendada)<br>
+              • <em>Puntos fuertes:</em> Días largos y templados, jardines ingleses de Warwick en flor, cata de chocolate en Cadbury sin agobios.<br>
+              • <em>A tener en cuenta:</em> Llevar chubasquero ligero por posibles lloviznas típicas.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #F59E0B;">
+              <strong style="color:#F59E0B;">☀️ Julio - Agosto (Verano):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5)<br>
+              • <em>Puntos fuertes:</em> Campamento medieval inmersivo en Warwick con tiro con arco y demostraciones de aves rapaces.<br>
+              • <em>A tener en cuenta:</em> Mayor demanda de hoteles en la zona de Stratford y Warwick.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #EA580C;">
+              <strong style="color:#EA580C;">🍂 Octubre (Halloween):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Diversión Niños)<br>
+              • <em>Puntos fuertes:</em> El castillo se decora para Halloween familiar sin sustos para Marco; chocolate caliente delicioso.<br>
+              • <em>A tener en cuenta:</em> Temperaturas frescas (12-15°C).
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #64748B;">
+              <strong style="color:#64748B;">🎄 Diciembre (Frankfurt Christmas Market):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5)<br>
+              • <em>Puntos fuertes:</em> El mayor mercado navideño alemán fuera de Alemania o Austria en Victoria Square.<br>
+              • <em>A tener en cuenta:</em> Frío y días cortos; anochece a las 16:00 h.
+            </div>
+          </div>
+        </details>
+      </div>
+
+
 
 
       <!-- MÓDULO DE ALOJAMIENTOS CON COCINA Y ENLACES DIRECTOS (BIRMINGHAM) -->
@@ -16108,6 +16678,101 @@
     <div class="container">
       <!-- BARRA DE ESTADO DEL VIAJE (PENDIENTE / REALIZADO) -->
       <div id="trip-status-bar-grecia" class="trip-status-bar" data-trip="grecia"></div>
+
+      <!-- GESTOR INTELIGENTE DE FECHAS & ASESOR DE TEMPORADAS BRÚJULA AI (GRECIA) -->
+      <div class="ai-date-optimizer-box" id="ai-opt-grecia" style="margin-bottom: 25px; border-color: #0284C7;">
+        <div class="ai-opt-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.4rem;">📅</span>
+            <div>
+              <h4 style="margin: 0; font-size: 1.05rem; font-weight: 800; color: #0F172A;">
+                Gestor Inteligente de Fechas & Asesor de Temporadas · Brújula AI
+              </h4>
+              <p style="margin: 0; font-size: 0.82rem; color: #64748B;">
+                Mueve las fechas a tu gusto o elige entre temporadas recomendadas. El sistema valorará pros, contras, clima y actualizará los precios y enlaces de reserva en vivo para viajar con Marco (4 años).
+              </p>
+            </div>
+          </div>
+          <span class="ai-badge-status" id="ai-status-grecia" style="background:#EFF6FF; color:#0284C7; border-color:#BFDBFE;">
+            ⚡ Asesor de Fechas Activo
+          </span>
+        </div>
+
+        <div class="ai-date-pills">
+          <button type="button" class="ai-pill-btn active" id="pill-grecia-base" onclick="setTripDates('grecia', '2027-04-23', '2027-04-27', 'base')">
+            🌸 Primavera Templada (23 al 27 Abr 2027) <span class="pill-tag-green">22°C · Acrópolis sin calor</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-grecia-may" onclick="setTripDates('grecia', '2027-05-21', '2027-05-25', 'may')">
+            ☀️ Sol del Egeo & Baños (21 al 25 May 2027) <span class="pill-tag-green">Primeros Baños · Hidra & Egina</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-grecia-autumn" onclick="setTripDates('grecia', '2027-09-24', '2027-09-28', 'autumn')">
+            🍂 Otoño Dorado (24 al 28 Sep 2027) <span class="pill-tag-green">Mar caliente 25°C · Sin masificación</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-grecia-summer" onclick="setTripDates('grecia', '2027-07-02', '2027-07-06', 'summer')">
+            🏖️ Verano Cruceros (2 al 6 Jul 2027) <span class="pill-tag-red">Playas Atenas & Islas</span>
+          </button>
+          <button type="button" class="ai-pill-btn" id="pill-grecia-custom" onclick="toggleCustomDates('grecia')">
+            🗓️ Probar Otras Fechas...
+          </button>
+        </div>
+
+        <!-- FILA DE SELECCIÓN LIBRE DE FECHAS -->
+        <div class="ai-custom-date-row" id="custom-row-grecia" style="display: none;">
+          <div class="custom-field">
+            <label>Fecha de Ida (Check-in):</label>
+            <input type="date" id="input-grecia-in" value="2027-04-23">
+          </div>
+          <div class="custom-field">
+            <label>Fecha de Vuelta (Check-out):</label>
+            <input type="date" id="input-grecia-out" value="2027-04-27">
+          </div>
+          <button type="button" class="btn-apply-custom" onclick="applyCustomTripDates('grecia')">
+            ⚡ Valorar & Aplicar Fechas
+          </button>
+        </div>
+
+        <!-- BANNER DE VALORACIÓN DINÁMICA POR IA -->
+        <div class="ai-verdict-banner" id="verdict-grecia" style="border-left-color: #0284C7;">
+          <div id="verdict-text-grecia">
+            🌸 <strong>Primavera Templada (23 al 27 Abr 2027 · 5 días / 4 noches):</strong> La época perfecta para subir a la Acrópolis y el Partenón con Marco sin el calor abrasador del verano (22°C de máxima). Crucero de 1 día a las islas de Hidra, Poros y Egina con mar en calma.
+          </div>
+        </div>
+
+        <!-- DESPLEGABLE GUÍA COMPLETA DE TEMPORADAS -->
+        <details style="margin-top: 12px; background: #F8FAFC; border-radius: 10px; border: 1px solid #E2E8F0; padding: 10px 14px; font-size: 0.85rem;">
+          <summary style="font-weight: 800; color: #0284C7; cursor: pointer; user-select: none;">
+            🧭 ¿Cuándo es mejor viajar a Grecia & Islas Sarónicas? Comparativa Completa de Temporadas ➔
+          </summary>
+          <div style="margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; font-size: 0.82rem; line-height: 1.45;">
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #0284C7;">
+              <strong style="color:#0284C7;">🌸 Abril - Mayo (Primavera):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Ideal Niños)<br>
+              • <em>Puntos fuertes:</em> Temperatura perfecta (21-24°C) para caminar y explorar ruinas clásicas sin fatiga; colinas verdes.<br>
+              • <em>A tener en cuenta:</em> El mar puede estar aún fresco para bañarse largo tiempo.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #10B981;">
+              <strong style="color:#10B981;">🍂 Septiembre - Octubre (Otoño):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐⭐ (5/5 · Mar Perfecto)<br>
+              • <em>Puntos fuertes:</em> El agua del Egeo está a 24-25°C de todo el verano; el calor ha bajado y no hay aglomeraciones.<br>
+              • <em>A tener en cuenta:</em> Días algo más cortos que en junio.
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #EF4444;">
+              <strong style="color:#EF4444;">☀️ Junio - Agosto (Verano):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐ (3/5 · Mucho Calor)<br>
+              • <em>Puntos fuertes:</em> Ambiente mediterráneo vibrante, helados, terrazas en Plaka por la noche.<br>
+              • <em>A tener en cuenta:</em> Calor extremo (>37°C a mediodía en la Acrópolis; no recomendado para Marco).
+            </div>
+            <div style="background:#FFF; padding:10px; border-radius:8px; border-left:3px solid #64748B;">
+              <strong style="color:#64748B;">❄️ Noviembre - Febrero (Invierno):</strong><br>
+              • <em>Valoración:</em> ⭐⭐⭐⭐ (4/5 · Cultural Económico)<br>
+              • <em>Puntos fuertes:</em> Acrópolis prácticamente vacía, vuelos y hoteles a 40% de descuento.<br>
+              • <em>A tener en cuenta:</em> Días frescos (13-16°C) y sin cruceros de baño a las islas.
+            </div>
+          </div>
+        </details>
+      </div>
+
+
 
 
       <!-- MÓDULO DE ALOJAMIENTOS CON COCINA Y ENLACES DIRECTOS (GRECIA) -->
@@ -18155,12 +18820,249 @@
         booking_ss: 'Brasov',
         base: { in: '2027-01-01', out: '2027-01-04', mult: 1.0, verdict: '📌 <strong>Tarifa Año Nuevo (1-4 Ene):</strong> Nieve garantizada en los Cárpatos y castillos de Drácula.' },
         opt: { in: '2027-01-22', out: '2027-01-25', mult: 0.57, verdict: '🌟 <strong>Ventana IA Ahorro Óptima (22-25 Ene):</strong> Nieve polvo impecable en Transilvania; vuelos Wizz Air directos a 29€ y hoteles de alta gama a 45€/noche. Ahorro ~43% (~616 €).' }
+      },
+      cantabria: {
+        airport: 'SDR',
+        booking_ss: 'Santillana del Mar, Cantabria',
+        base: { 
+          in: '2026-12-05', 
+          out: '2026-12-08', 
+          mult: 1.0, 
+          verdict: '🎄 <strong>Puente de Diciembre (5 al 8 Dic 2026 · 4 días / 3 noches):</strong> Época ideal si buscáis la magia navideña: el <strong>Poblado Navideño de Cartes</strong> y su Árbol Gigante de 65m están a pleno rendimiento con la Casa de Papá Noel para entregar la carta en persona, y Santander luce pista de hielo y noria sobre la bahía. En Picos de Europa suele haber las primeras nieves. Alojamiento rural con chimenea muy acogedor.' 
+        },
+        prenav: { 
+          in: '2026-11-27', 
+          out: '2026-11-30', 
+          mult: 0.75, 
+          verdict: '🌟 <strong>Ventana Pre-Navidad Económica (27 al 30 Nov 2026 · Ahorro ~25%):</strong> Cartes ya tiene el alumbrado encendido pero sin las aglomeraciones del puente. Alojamientos rurales y casonas con tarifas valle (-25% de ahorro en estancia). Cabárceno muy tranquilo para pasear en el Volvo XC60 sin caravanas.' 
+        },
+        spring: { 
+          in: '2027-03-25', 
+          out: '2027-03-29', 
+          mult: 0.85, 
+          verdict: '🌸 <strong>Primavera & Cabárceno Verde (25 al 29 Mar 2027 · Temporada Recomendada):</strong> La mejor época paisajística para Cantabria con Marco. El Parque de la Naturaleza de Cabárceno está en pleno verdor con crías de animales, temperaturas templadas (17-19°C), cascadas de Picos con deshielo impresionante y días con más horas de luz.' 
+        },
+        summer: { 
+          in: '2027-07-16', 
+          out: '2027-07-20', 
+          mult: 1.20, 
+          verdict: '☀️ <strong>Verano & Playas del Cantábrico (16 al 20 Jul 2027):</strong> Clima suave veraniego (23-25°C sin el agobio del sur). Baños en la Playa de El Sardinero, paseo por la Península de la Magdalena viendo los pingüinos y leones marinos al sol, y paseos en barco por la bahía de Santander. Alta demanda de alojamientos (+20%).' 
+        }
+      },
+      granada: {
+        airport: 'GRX',
+        booking_ss: 'Granada',
+        base: { 
+          in: '2026-12-05', 
+          out: '2026-12-08', 
+          mult: 1.0, 
+          verdict: '❄️ <strong>Puente de Diciembre (5 al 8 Dic 2026 · 4 días / 3 noches):</strong> Apertura oficial de la temporada de nieve en Sierra Nevada (Parque Mirlo Blanco con trineos y roscos para Marco), mercado navideño en Bib-Rambla y tiovivo clásico en Puerta Real. Entradas de la Alhambra con alta demanda (imprescindible reservar con semanas de antelación).' 
+        },
+        snow: { 
+          in: '2027-01-22', 
+          out: '2027-01-25', 
+          mult: 0.65, 
+          verdict: '⛷️ <strong>Ventana Valle de Nieve Óptimo (22 al 25 Ene 2027 · Ahorro ~35%):</strong> Máxima calidad y espesor de nieve en Sierra Nevada fuera de vacaciones escolares. Cero colas en la zona de trineos de Pradollano, fácil disponibilidad de entradas para los Palacios Nazaríes de la Alhambra y tarifas de hotel con un 35% de descuento.' 
+        },
+        reyes: { 
+          in: '2027-01-02', 
+          out: '2027-01-06', 
+          mult: 1.05, 
+          verdict: '👑 <strong>Semana de Reyes Magos (2 al 6 Ene 2027):</strong> Máxima ilusión para Marco: Cabalgata de Reyes histórica de Granada (una de las más antiguas de España), alumbrado navideño a pleno esplendor y ambiente festivo en toda la ciudad combinado con nieve en la sierra.' 
+        },
+        spring: { 
+          in: '2027-04-16', 
+          out: '2027-04-19', 
+          mult: 0.88, 
+          verdict: '🌺 <strong>Primavera & Generalife en Flor (16 al 19 Abr 2027 · Esplendor Cultural):</strong> La mejor época monumental. Los jardines del Generalife y el Albaicín huelen a jazmín y azahar, temperaturas idóneas (21-23°C) para caminar sin calor, y vistas de la Alhambra con Sierra Nevada aún nevada al fondo.' 
+        }
+      },
+      francia: {
+        airport: 'TLS',
+        booking_ss: 'Carcassonne',
+        base: { in: '2026-12-05', out: '2026-12-08', mult: 1.0, verdict: '🏰 <strong>Puente de Diciembre (5 al 8 Dic 2026 · 4 días / 3 noches):</strong> Carcasona medieval iluminada como un cuento de hadas; festín en Les Grands Buffets y pista de hielo en Toulouse. Viaje directo en nuestro Volvo XC60 sin aviones.' },
+        prenav: { in: '2026-11-20', out: '2026-11-23', mult: 0.75, verdict: '🌟 <strong>Pre-Navidad Gourmet (20 al 23 Nov 2026 · Ahorro ~25%):</strong> Mesa en Les Grands Buffets con gran facilidad de reserva, castillo amurallado tranquilo y tarifas valle en casas rurales.' },
+        spring: { in: '2027-04-30', out: '2027-05-03', mult: 0.85, verdict: '🌸 <strong>Puente de Mayo (30 Abr al 3 May 2027 · Safari & Minotauro):</strong> Clima óptimo de 20°C para el safari salvaje de Sigean con crías al sol y el paseo exterior sobre el Minotauro mecánico en Toulouse.' },
+        summer: { in: '2027-07-09', out: '2027-07-12', mult: 1.15, verdict: '☀️ <strong>Verano & Festival Medieval (9 al 12 Jul 2027):</strong> Ambiente festivo en Carcasona, torneos de caballeros medievales, paseos en barco por el Canal du Midi y baños en el puerto de Colliure.' }
+      },
+      belgica: {
+        airport: 'BRU',
+        booking_ss: 'Bruges',
+        base: { in: '2026-12-05', out: '2026-12-08', mult: 1.0, verdict: '🎄 <strong>Plaisirs d\'Hiver (5 al 8 Dic 2026 · 4 días / 3 noches):</strong> Grand Place de Bruselas con espectáculo 360° de luz y sonido; pista de hielo gigante, mercadillo de Brujas en la plaza del Markt y gofres calientes para Marco.' },
+        prenav: { in: '2026-11-27', out: '2026-11-30', mult: 0.70, verdict: '🍫 <strong>Pre-Navidad Dulce (27 al 30 Nov 2026 · Ahorro ~30%):</strong> Fin de semana de inauguración de los mercadillos; cero aglomeraciones en los canales de Brujas y vuelos directos económicos a Bruselas.' },
+        spring: { in: '2027-04-09', out: '2027-04-12', mult: 0.85, verdict: '🌸 <strong>Primavera & Brujas Floral (9 al 12 Abr 2027 · Recomendada):</strong> Canales y cisnes en su momento más fotogénico, paseos en barquito sin frío, parques en flor y visitas a fábricas de chocolate artesanal.' },
+        summer: { in: '2027-07-16', out: '2027-07-19', mult: 1.15, verdict: '☀️ <strong>Verano Flamenco (16 al 19 Jul 2027):</strong> Clima templado muy agradable (22-24°C sin calor agobiante), días largos y ambiente en las terrazas de Gante y Amberes.' }
+      },
+      dinamarca: {
+        airport: 'CPH',
+        booking_ss: 'Billund',
+        base: { in: '2027-06-18', out: '2027-06-22', mult: 1.0, verdict: '☀️ <strong>Verano Legoland & Noches Blancas (18 al 22 Jun 2027 · 5 días / 4 noches):</strong> La mejor época absoluta para Dinamarca: Legoland Billund a pleno rendimiento con atracciones de agua, Tivoli Gardens abierto hasta medianoche y sol de medianoche nórdico.' },
+        midsummer: { in: '2027-06-23', out: '2027-06-27', mult: 1.15, verdict: '✨ <strong>Sankt Hans Midsummer (23 al 27 Jun 2027):</strong> Fiesta mágica de San Juan en los Jardines de Tivoli en Copenhague con hogueras sobre el agua, música en directo y noches sin oscuridad.' },
+        spring: { in: '2027-05-14', out: '2027-05-18', mult: 0.85, verdict: '🌸 <strong>Primavera Nórdica (14 al 18 May 2027 · Ahorro y Sin Colas):</strong> Legoland y LEGO House con tiempos de espera mínimos, paseos en bici por Copenhague y tarifas hoteleras un 25% más bajas.' },
+        autumn: { in: '2027-09-17', out: '2027-09-21', mult: 0.75, verdict: '🍂 <strong>Otoño Nórdico (17 al 21 Sep 2027 · Gran Ahorro):</strong> Ambiente hygge en cafeterías de Nyhavn, vuelos muy económicos y hoteles en Billund a mitad de precio.' }
+      },
+      birmingham: {
+        airport: 'BHX',
+        booking_ss: 'Warwick',
+        base: { in: '2027-05-28', out: '2027-05-31', mult: 1.0, verdict: '🌸 <strong>Primavera Cadbury World (28 al 31 May 2027 · 4 días / 3 noches):</strong> Clima primaveral británico (19-21°C), degustación infinita de chocolate en Cadbury World y torneos de justas medievales a caballo en los jardines del Castillo de Warwick.' },
+        summer: { in: '2027-07-23', out: '2027-07-26', mult: 1.15, verdict: '☀️ <strong>Verano Medieval en Warwick (23 al 26 Jul 2027):</strong> Campamento inmersivo de caballeros, espectáculo de tiro con arco y aves rapaces al aire libre, y recorrido en barca por el río Avon.' },
+        autumn: { in: '2027-10-22', out: '2027-10-25', mult: 0.80, verdict: '🍂 <strong>Halloween Familiar en Warwick (22 al 25 Oct 2027 · Diversión Niños):</strong> El castillo se ambienta con calabazas y fantasmas simpáticos para Marco, cata de chocolate en Cadbury y ahorro del 20% en vuelos.' },
+        winter: { in: '2026-12-11', out: '2026-12-14', mult: 0.85, verdict: '🎄 <strong>Frankfurt Christmas Market (11 al 14 Dic 2026):</strong> El mercado navideño alemán más grande del Reino Unido con noria iluminada, tiovivo tradicional y chocolate caliente en Victoria Square.' }
+      },
+      grecia: {
+        airport: 'ATH',
+        booking_ss: 'Athens',
+        base: { in: '2027-04-23', out: '2027-04-27', mult: 1.0, verdict: '🌸 <strong>Primavera Templada (23 al 27 Abr 2027 · 5 días / 4 noches):</strong> La época perfecta para subir a la Acrópolis y el Partenón con Marco sin el calor abrasador del verano (22°C de máxima). Crucero de 1 día a las islas de Hidra, Poros y Egina con mar en calma.' },
+        may: { in: '2027-05-21', out: '2027-05-25', mult: 0.85, verdict: '☀️ <strong>Sol del Egeo & Primeros Baños (21 al 25 May 2027):</strong> Días soleados y luminosos, baños en aguas cristalinas en las calas de Hidra y terrazas familiares en el animado barrio de Plaka.' },
+        autumn: { in: '2027-09-24', out: '2027-09-28', mult: 0.80, verdict: '🍂 <strong>Otoño Dorado & Mar Caliente (24 al 28 Sep 2027 · Muy Recomendada):</strong> El agua del mar a 25°C ideal para Marco, temperaturas suaves de 26°C y monumentos arqueológicos sin masificación.' },
+        summer: { in: '2027-07-02', out: '2027-07-06', mult: 1.25, verdict: '🏖️ <strong>Verano Mediterráneo (2 al 6 Jul 2027):</strong> Playas de la Costa de Apolo, cruceros entre islas y ambiente festivo nocturno (atención al calor en las horas centrales).' }
       }
     };
 
+    // MOTOR INTELIGENTE DE VALORACIÓN ESTACIONAL (BRÚJULA AI)
+    function evaluateSeasonality(dest, checkin, checkout) {
+      if (!checkin || !checkout) {
+        return { label: 'Fechas Seleccionadas', mult: 1.0, verdict: 'Selecciona fecha de ida y de vuelta para valorar la temporada.' };
+      }
+      const dIn = new Date(checkin);
+      const dOut = new Date(checkout);
+      const nights = Math.max(1, Math.round((dOut - dIn) / (1000 * 60 * 60 * 24)));
+      const month = dIn.getMonth(); // 0 = Ene, ..., 11 = Dic
+      const day = dIn.getDate();
+
+      const fmt = (dStr) => {
+        const p = dStr.split('-');
+        return p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : dStr;
+      };
+      const rangeTxt = `${fmt(checkin)} al ${fmt(checkout)} (${nights} noche${nights > 1 ? 's' : ''})`;
+
+      let mult = 1.0;
+      let seasonName = '';
+      let rating = '⭐⭐⭐⭐';
+      let desc = '';
+
+      if (dest === 'cantabria') {
+        if (month === 11 || (month === 0 && day <= 7)) {
+          seasonName = 'Invierno Mágico & Navidad';
+          mult = (day >= 4 && day <= 9 && month === 11) ? 1.0 : 0.80;
+          rating = '⭐⭐⭐⭐ (4/5)';
+          desc = `Ambiente navideño de cuento con el <strong>Poblado Navideño de Cartes</strong>, Árbol gigante de 65m y luces en Santander. Nieve en cotas altas de Picos de Europa y casonas con chimenea. Llevar abrigo térmico para Marco.`;
+        } else if (month === 0 || month === 1) {
+          seasonName = 'Invierno Tranquilo & Ahorro Máximo';
+          mult = 0.70;
+          rating = '⭐⭐⭐⭐ (4/5 · Valle Ahorro)';
+          desc = `Tarifas en su punto más bajo del año (-30% en alojamiento). Tranquilidad absoluta sin aglomeraciones en Cabárceno y Santillana del Mar. Llevar chubasquero y calzado impermeable.`;
+        } else if (month >= 2 && month <= 4) {
+          seasonName = 'Primavera & Deshielo · Época Dorada';
+          mult = (month === 2 && day >= 25) || (month === 3 && day <= 15) ? 0.90 : 0.85;
+          rating = '⭐⭐⭐⭐⭐ (5/5 · Muy Recomendada)';
+          desc = `<strong>La mejor época para viajar con Marco a Cabárceno:</strong> crías de animales activas, máximo verdor en valles, cascadas espectaculares en Picos de Europa y clima templado (16-19°C) con días más largos.`;
+        } else if (month >= 5 && month <= 7) {
+          seasonName = 'Verano & Playas del Cantábrico';
+          mult = 1.20;
+          rating = '⭐⭐⭐⭐ (4/5 · Temporada Alta)';
+          desc = `Clima ideal de 24°C sin calor agobiante. Baños en la playa de El Sardinero, parque marino de la Magdalena con pingüinos al aire libre y paseos en barco. Alta ocupación en alojamientos.`;
+        } else {
+          seasonName = 'Otoño Dorado & Gastronomía';
+          mult = 0.75;
+          rating = '⭐⭐⭐⭐⭐ (5/5 · Ahorro & Paisaje)';
+          desc = `El Bosque de Secuoyas de Monte Corona luce tonos rojizos mágicos. Época ideal de cocido montañés y senderos tranquilos con un ahorro estimado de ~25% en alojamientos.`;
+        }
+      } else if (dest === 'granada') {
+        if (month === 11 || (month === 0 && day <= 7)) {
+          seasonName = 'Nieve & Luces de Navidad';
+          mult = (day >= 4 && day <= 9 && month === 11) ? 1.0 : (day <= 6 && month === 0 ? 1.05 : 0.85);
+          rating = '⭐⭐⭐⭐⭐ (5/5 · Ilusión Niños)';
+          desc = `Temporada de nieve en Sierra Nevada (trineos y roscos en Mirlo Blanco para Marco), alumbrado navideño en el centro y mercado de Bib-Rambla. Imprescindible reservar Alhambra con antelación.`;
+        } else if (month === 0 || month === 1) {
+          seasonName = 'Valle de Nieve Óptimo & Cero Colas';
+          mult = 0.65;
+          rating = '⭐⭐⭐⭐⭐ (5/5 · Mejor Nieve & Ahorro)';
+          desc = `Espesores máximos de nieve de calidad en la sierra sin masificaciones de vacaciones. Entradas de la Alhambra con gran disponibilidad y ahorro de ~35% en alojamientos.`;
+        } else if (month >= 2 && month <= 4) {
+          seasonName = 'Primavera Andalusí & Generalife en Flor';
+          mult = 0.88;
+          rating = '⭐⭐⭐⭐⭐ (5/5 · Esplendor Cultural)';
+          desc = `Los jardines del Generalife y el Albaicín en su momento más bonito del año, olor a azahar, 20-23°C muy agradables para pasear con niños y nieve visible en las cumbres.`;
+        } else if (month >= 5 && month <= 7) {
+          seasonName = 'Verano de Montaña & Senderismo';
+          mult = 0.95;
+          rating = '⭐⭐⭐ (3/5 · Atención al Calor en Ciudad)';
+          desc = `En Granada capital las temperaturas superan los 37°C a mediodía (difícil para Marco). Ideal si se opta por alojarse en Sierra Nevada / Monachil donde las noches son frescas (16°C).`;
+        } else {
+          seasonName = 'Otoño Suave & Dehesa del Generalife';
+          mult = 0.80;
+          rating = '⭐⭐⭐⭐⭐ (5/5 · Recomendado)';
+          desc = `Temperaturas suaves de 18-22°C, colores de otoño en la colina de la Alhambra, tapeo en terrazas y excelentes precios de alojamiento (-20%).`;
+        }
+      } else {
+        if (month === 11 || (month === 0 && day <= 6)) {
+          seasonName = 'Temporada Festiva / Mercados Navideños';
+          mult = (day >= 4 && day <= 9 && month === 11) ? 1.0 : 0.85;
+          rating = '⭐⭐⭐⭐ (4/5)';
+          desc = `Iluminación de invierno y ambiente festivo. Tarifas altas en puentes y festivos; mayor ahorro en días laborables adyacentes.`;
+        } else if (month === 0 || month === 1) {
+          seasonName = 'Valle Invernal & Tarifas Mínimas';
+          mult = 0.65;
+          rating = '⭐⭐⭐⭐ (4/5 · Gran Ahorro)';
+          desc = `Meses más económicos del año con hasta un 35% de descuento en vuelos y alojamientos. Ideal para viajar tranquilos sin colas.`;
+        } else if (month >= 2 && month <= 4) {
+          seasonName = 'Primavera en Flor · Clima Templado';
+          mult = 0.85;
+          rating = '⭐⭐⭐⭐⭐ (5/5 · Recomendada Familias)';
+          desc = `Temperaturas ideales (17-21°C), parques y monumentos en su mejor momento, días largos y cómodos para viajar con Marco.`;
+        } else if (month >= 5 && month <= 7) {
+          seasonName = 'Verano & Días Largos';
+          mult = 1.15;
+          rating = '⭐⭐⭐⭐ (4/5 · Temporada Alta)';
+          desc = `Máximas horas de luz y actividades al aire libre. Mayor demanda turística y precios más elevados en alojamientos.`;
+        } else {
+          seasonName = 'Otoño Suave · Buen Clima & Precios Bajos';
+          mult = 0.78;
+          rating = '⭐⭐⭐⭐⭐ (5/5 · Ahorro)';
+          desc = `Excelente equilibrio entre clima agradable, menor masificación y tarifas reducidas (-22% de ahorro medio).`;
+        }
+      }
+
+      const verdict = `🗓️ <strong>${seasonName} (${rangeTxt}):</strong> Valoración ${rating}. ${desc}`;
+      return { label: seasonName, mult: mult, verdict: verdict, rating: rating };
+    }
+
+    // SINCRONIZACIÓN DINÁMICA DE ENLACES DE RESERVA EN BOOKING.COM Y VUELOS
+    function updateTabBookingUrls(dest, checkin, checkout) {
+      const tab = document.getElementById('tab-' + dest);
+      if (!tab) return;
+
+      const links = tab.querySelectorAll('a[href*="booking.com"]');
+      links.forEach(link => {
+        let href = link.href;
+        if (href.includes('checkin=')) {
+          href = href.replace(/checkin=[^&]*/, 'checkin=' + checkin);
+        } else {
+          href += (href.includes('?') ? '&' : '?') + 'checkin=' + checkin;
+        }
+        if (href.includes('checkout=')) {
+          href = href.replace(/checkout=[^&]*/, 'checkout=' + checkout);
+        } else {
+          href += '&checkout=' + checkout;
+        }
+        link.href = href;
+      });
+
+      const flightLinks = tab.querySelectorAll('a[href*="google.com/travel/flights"]');
+      const cfg = TRIP_DATE_PROSPECTS[dest];
+      if (cfg && cfg.airport) {
+        flightLinks.forEach(link => {
+          link.href = `https://www.google.com/travel/flights?q=Flights%20to%20${cfg.airport}%20from%20MAD%20on%20${checkin}%20through%20${checkout}`;
+        });
+      }
+    }
+
+    // GESTIÓN DE SELECCIÓN DE FECHAS (PÍLDORAS O PRESETS)
     function setTripDates(dest, checkin, checkout, mode) {
       const cfg = TRIP_DATE_PROSPECTS[dest];
-      if (!cfg) return;
+      let mult = 1.0;
+      let verdict = '';
 
       // Actualizar estilo píldoras
       const box = document.getElementById('ai-opt-' + dest);
@@ -18173,18 +19075,40 @@
         if (customRow && mode !== 'custom') customRow.style.display = 'none';
       }
 
-      // Actualizar dictamen
-      const verdictEl = document.getElementById(`verdict-text-${dest}`);
-      if (verdictEl) {
-        if (mode === 'base') verdictEl.innerHTML = cfg.base.verdict;
-        else if (mode === 'opt') verdictEl.innerHTML = cfg.opt.verdict;
+      // Sincronizar inputs de fecha
+      const inEl = document.getElementById(`input-${dest}-in`);
+      const outEl = document.getElementById(`input-${dest}-out`);
+      if (inEl) inEl.value = checkin;
+      if (outEl) outEl.value = checkout;
+
+      // Obtener dictamen
+      if (cfg && cfg[mode]) {
+        verdict = cfg[mode].verdict;
+        mult = cfg[mode].mult;
+      } else {
+        const evalRes = evaluateSeasonality(dest, checkin, checkout);
+        verdict = evalRes.verdict;
+        mult = evalRes.mult;
       }
 
-      // Actualizar enlaces de aseguramiento (Fase 2)
+      const verdictEl = document.getElementById(`verdict-text-${dest}`);
+      if (verdictEl) verdictEl.innerHTML = verdict;
+
+      // Sincronizar todos los enlaces de Booking en esa pestaña
+      updateTabBookingUrls(dest, checkin, checkout);
+
+      // Actualizar enlaces de aseguramiento (si existen)
       updateVerificationLinks(dest, checkin, checkout);
 
+      // Actualizar badge del hero si existe
+      const heroBadge = document.getElementById(`hero-badge-${dest}`);
+      if (heroBadge) {
+        const fmtD = (s) => { const p = s.split('-'); return p.length === 3 ? `${parseInt(p[2])} ${['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'][parseInt(p[1])-1]}` : s; };
+        heroBadge.innerHTML = `🌲 FECHAS: ${fmtD(checkin).toUpperCase()} AL ${fmtD(checkout).toUpperCase()} · EN VOLVO XC60`;
+      }
+
       // Multiplicar presupuesto en la tabla de ese destino
-      applyProspectiveMultiplier(dest, mode === 'opt' ? cfg.opt.mult : 1.0);
+      applyProspectiveMultiplier(dest, mult);
     }
 
     function toggleCustomDates(dest) {
@@ -18196,7 +19120,7 @@
       const customBtn = document.getElementById(`pill-${dest}-custom`);
       if (customBtn && !isVisible) {
         const box = document.getElementById('ai-opt-' + dest);
-        box.querySelectorAll('.ai-pill-btn').forEach(btn => btn.classList.remove('active'));
+        if (box) box.querySelectorAll('.ai-pill-btn').forEach(btn => btn.classList.remove('active'));
         customBtn.classList.add('active');
       }
     }
@@ -18211,24 +19135,37 @@
       const checkin = inEl.value;
       const checkout = outEl.value;
 
-      // Evaluar estacionalidad por IA
-      const dIn = new Date(checkin);
-      const isNov = dIn.getMonth() === 10;
-      const isJanLate = dIn.getMonth() === 0 && dIn.getDate() > 10;
-      let mult = 0.85;
-      let label = "Fecha a Medida: Tarifa Regular";
-      if (isNov || isJanLate) {
-        mult = 0.65;
-        label = "🌟 Fecha a Medida en Ventana de Ahorro (~35% de descuento estimado)";
+      if (new Date(checkout) <= new Date(checkin)) {
+        alert("La fecha de vuelta debe ser posterior a la fecha de ida.");
+        return;
       }
+
+      // Evaluar estacionalidad y pros/contras por IA
+      const evalRes = evaluateSeasonality(dest, checkin, checkout);
 
       const verdictEl = document.getElementById(`verdict-text-${dest}`);
       if (verdictEl) {
-        verdictEl.innerHTML = `🗓️ <strong>${label}:</strong> Del ${checkin} al ${checkout}. Descuentos aplicados en vuelos y alojamientos.`;
+        verdictEl.innerHTML = evalRes.verdict;
       }
 
+      // Destacar píldora personalizada
+      const box = document.getElementById('ai-opt-' + dest);
+      if (box) {
+        box.querySelectorAll('.ai-pill-btn').forEach(btn => btn.classList.remove('active'));
+        const customBtn = document.getElementById(`pill-${dest}-custom`);
+        if (customBtn) customBtn.classList.add('active');
+      }
+
+      // Actualizar badge del hero si existe
+      const heroBadge = document.getElementById(`hero-badge-${dest}`);
+      if (heroBadge) {
+        const fmtD = (s) => { const p = s.split('-'); return p.length === 3 ? `${parseInt(p[2])} ${['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'][parseInt(p[1])-1]}` : s; };
+        heroBadge.innerHTML = `🌲 FECHAS: ${fmtD(checkin).toUpperCase()} AL ${fmtD(checkout).toUpperCase()} · EN VOLVO XC60`;
+      }
+
+      updateTabBookingUrls(dest, checkin, checkout);
       updateVerificationLinks(dest, checkin, checkout);
-      applyProspectiveMultiplier(dest, mult);
+      applyProspectiveMultiplier(dest, evalRes.mult);
     }
 
     function updateVerificationLinks(dest, checkin, checkout) {
@@ -18241,15 +19178,27 @@
       const adults = currentAdults || 2;
       const children = currentChildren || 1;
 
-      if (flightBtn) {
+      if (flightBtn && cfg.airport) {
         flightBtn.href = `https://www.google.com/travel/flights?q=Flights%20to%20${cfg.airport}%20from%20MAD%20on%20${checkin}%20through%20${checkout}`;
       }
-      if (hotelBtn) {
+      if (hotelBtn && cfg.booking_ss) {
         hotelBtn.href = `https://www.booking.com/searchresults.es.html?ss=${encodeURIComponent(cfg.booking_ss)}&checkin=${checkin}&checkout=${checkout}&group_adults=${adults}&group_children=${children}&age=4&no_rooms=1`;
       }
     }
 
     function applyProspectiveMultiplier(dest, mult) {
+      if (dest === 'cantabria') {
+        window.ctLodgingMultiplier = mult;
+        if (typeof updateCtActivityCalc === 'function') updateCtActivityCalc();
+        return;
+      }
+
+      if (dest === 'granada') {
+        window.grLodgingMultiplier = mult;
+        if (typeof updateGrActivityCalc === 'function') updateGrActivityCalc();
+        return;
+      }
+
       // Si la fecha cambia a ventana de ahorro, aplica el factor en los valores visuales
       const totalPax = (currentAdults || 2) + (currentChildren || 1);
       
@@ -20123,7 +21072,9 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
 
       const actTotal = actAdultCost + actChildCost;
       const fuelCost = 95;
-      const lodgingCost = grAdults === 2 ? 315 : 510;
+      const lodgingBase = grAdults === 2 ? 315 : 510;
+      const mult = (typeof window.grLodgingMultiplier !== 'undefined') ? window.grLodgingMultiplier : 1.0;
+      const lodgingCost = Math.round(lodgingBase * mult);
       const foodCost = grAdults === 2 ? 240 : 420;
       const tripTotal = Math.round(actTotal + fuelCost + lodgingCost + foodCost);
       const totalPax = grAdults + grChildren;
@@ -20145,9 +21096,21 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
 
       // Table updates
       const elHotelDesc = document.getElementById('gr-table-hotel-desc');
-      if (elHotelDesc) elHotelDesc.textContent = grAdults === 2 ? 'Apartamento céntrico con cocina (~105 €/noche)' : 'Carmen / Casa 3 dormitorios con cocina (~170 €/noche)';
+      if (elHotelDesc) {
+        const multSuffix = mult < 0.95 ? ` (Ahorro ~${Math.round((1 - mult) * 100)}% aplicado)` : (mult > 1.05 ? ` (Temporada alta +${Math.round((mult - 1) * 100)}%)` : '');
+        elHotelDesc.textContent = (grAdults === 2 ? 'Apartamento céntrico con cocina (~105 €/noche)' : 'Carmen / Casa 3 dormitorios con cocina (~170 €/noche)') + multSuffix;
+      }
       const elHotelCost = document.getElementById('gr-table-hotel-cost');
-      if (elHotelCost) elHotelCost.textContent = `${lodgingCost} €`;
+      if (elHotelCost) {
+        elHotelCost.textContent = `${lodgingCost} €`;
+        if (mult < 0.95) {
+          elHotelCost.style.color = '#10B981';
+          elHotelCost.style.fontWeight = '800';
+        } else {
+          elHotelCost.style.color = '';
+          elHotelCost.style.fontWeight = '';
+        }
+      }
       const elTableAct = document.getElementById('gr-table-act-cost');
       if (elTableAct) elTableAct.textContent = `~${Math.round(actTotal)} €`;
       const elTableFood = document.getElementById('gr-table-food-cost');
@@ -20205,7 +21168,9 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
 
       const actTotal = actAdultCost + actChildCost;
       const fuelCost = 105;
-      const lodgingCost = ctAdults === 2 ? 285 : 480;
+      const lodgingBase = ctAdults === 2 ? 285 : 480;
+      const mult = (typeof window.ctLodgingMultiplier !== 'undefined') ? window.ctLodgingMultiplier : 1.0;
+      const lodgingCost = Math.round(lodgingBase * mult);
       const foodCost = ctAdults === 2 ? 200 : 380;
       const tripTotal = Math.round(actTotal + fuelCost + lodgingCost + foodCost);
       const totalPax = ctAdults + ctChildren;
@@ -20227,9 +21192,21 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
 
       // Table updates
       const elHotelDesc = document.getElementById('ct-table-hotel-desc');
-      if (elHotelDesc) elHotelDesc.textContent = ctAdults === 2 ? 'Casona o apartamento rural en Cabezón (~95 €/noche)' : 'Casona montañesa 3 dormitorios con chimenea (~160 €/noche)';
+      if (elHotelDesc) {
+        const multSuffix = mult < 0.95 ? ` (Ahorro ~${Math.round((1 - mult) * 100)}% aplicado)` : (mult > 1.05 ? ` (Temporada alta +${Math.round((mult - 1) * 100)}%)` : '');
+        elHotelDesc.textContent = (ctAdults === 2 ? 'Casona o apartamento rural en Cabezón (~95 €/noche)' : 'Casona montañesa 3 dormitorios con chimenea (~160 €/noche)') + multSuffix;
+      }
       const elHotelCost = document.getElementById('ct-table-hotel-cost');
-      if (elHotelCost) elHotelCost.textContent = `${lodgingCost} €`;
+      if (elHotelCost) {
+        elHotelCost.textContent = `${lodgingCost} €`;
+        if (mult < 0.95) {
+          elHotelCost.style.color = '#10B981';
+          elHotelCost.style.fontWeight = '800';
+        } else {
+          elHotelCost.style.color = '';
+          elHotelCost.style.fontWeight = '';
+        }
+      }
       const elTableAct = document.getElementById('ct-table-act-cost');
       if (elTableAct) elTableAct.textContent = `~${Math.round(actTotal)} €`;
       const elTableFood = document.getElementById('ct-table-food-cost');

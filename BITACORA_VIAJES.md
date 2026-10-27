@@ -1600,3 +1600,22 @@ DETALLE TÉCNICO DE LA IMPLEMENTACIÓN:
     - Test suite Playwright 100% aprobado (marcado de Granada, desaparición de pendientes, visualización en realizados, comprobación de banner interior, desmarcado y respuesta móvil 375x667 sin overflow).
     - Recompilación offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (96.49 MB, 160 imágenes incrustadas en Base64).
 ========================================================================================
+
+========================================================================================
+FECHA: 2026-10-27 10:00 | RESPONSABLE: BRÚJULA (Antigravity Travel Agent)
+OBJETIVO: Integración en Cantabria del Poblado Navideño de Cartes (Camino Real iluminado, Árbol Gigante de 65m y Casa de Papá Noel) y de la opción termal familiar de Castilla Termal Balneario de Solares (Balnea Infantil).
+ESTADO: COMPLETADO, VALIDADO CON PLAYWRIGHT Y DESPLEGADO.
+
+DETALLE DE LAS NOVEDADES:
+ 1. POBLADO NAVIDEÑO DE CARTES (#tab-cantabria):
+    - Ubicación: A solo 14 minutos (17 km por autovía A-8) de nuestra base céntrica de Cabezón de la Sal.
+    - Atractivos: Camino Real medieval del siglo XVII decorado con soldados de plomo, galletas de jengibre y luces de cuento; Gran Árbol de Navidad de 65 metros (el más alto de Europa); Parque Mágico de luces del Ánsar; Casa de Papá Noel para entregar la carta en mano; mercado con chocolate caliente y churros. Acceso 100% gratuito.
+ 2. CASTILLA TERMAL BALNEARIO DE SOLARES:
+    - Ubicación: A 12 minutos del Parque de la Naturaleza de Cabárceno.
+    - Atractivos: Aguas termales calientes a 34°C; espacio exclusivo 'Balnea Infantil' con toboganes suaves, chorros interactivos y juegos acuáticos para Marco (4 años). Combo ideal tras el safari matinal.
+ 3. DESPLIEGUE & RECURSOS:
+    - Descarga de fotografías HD: 'cartes_poblado_navideno.jpg' y 'solares_balneario_infantil.jpg'.
+    - Checkboxes interactivos añadidos con recálculo dinámico en el presupuesto de Cantabria.
+    - Recompilación offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (97.93 MB, 162 imágenes incrustadas).
+    - Suite Playwright ejecutada con éxito 100% (cero desbordamiento horizontal en móvil 375x667).
+========================================================================================

@@ -103,6 +103,21 @@ ESTADO NUEVO:
   3. Validado al 100% con Playwright (desktop 1280x900 y móvil iPhone 390x844), recompilado PORTAL_VIAJES_FAMILIARES_WHATSAPP.html (102.11 MB, 173 fotos base64) y desplegado en Render.
 REVERSIÓN: git checkout HEAD~1 o restaurar desde index.html.bak_planner2.
 ========================================================================================
+========================================================================================
+TIMESTAMP: 2026-10-27 15:45:00 CEST
+AUTOR: Antigravity Travel Agent
+ACCIÓN: SUSTITUCIÓN_INTEGRAL_FOTOS_REALES_ALOJAMIENTOS_Y_ACTIVIDADES
+OBJETIVO: Resolver la queja del usuario ("Y sigues sin poner las fotos reales de alojamientos, actividades, etc").
+ESTADO ANTERIOR: Varias fotos de alojamientos y actividades eran imágenes genéricas de stock de Unsplash o estaban rotas (ej. mujer con carpeta naranja en Altamira, leones de sabana africana en Cabárceno en vez de leones marinos, ensalada verde en cocido lebaniego, rascacielos de Manhattan en Santander, reunión en trajes para Mirlo Blanco, células al microscopio para el Biodomo, mansiones modernas para casonas de piedra).
+ESTADO NUEVO: 100% de fotografías reales y auténticas verificadas desde Wikimedia Commons y archivos oficiales:
+  - Cantabria Alojamientos (6 fotos reales): Fachadas señoriales de Plaza de Pombo (Santander), Playa y paseo de El Sardinero, Casona de Fuentes Pila (Mazcuerras/Cabezón), Puente y casas de Liérganes, Casa de los Bustamante en Santillana del Mar, Torre del Infantado en Potes.
+  - Cantabria Actividades (14 fotos reales): Secuoyas gigantes reales de Monte Corona, Olla de barro de cocido montañés, Bisontes polícromos reales de la Neocueva de Altamira, Colegiata y plaza empedrada de Santillana del Mar, Camino Real medieval de Cartes, Elefantes y karst de Cabárceno, Panorámica del karst de Cabárceno, Leones marinos al sol en las rocas (Otaria flavescens), Gran Hotel Balneario de Solares, Bahía de Santander, Muro vertical y teleférico de Fuente Dé en Picos de Europa, Cocido lebaniego con garbanzos y carnes, Helictitas excéntricas de la Cueva de El Soplao, Costa de la Península de La Magdalena.
+  - Granada Alojamientos (6 fotos reales): Fachadas históricas de la Iglesia y plaza de Santo Domingo en el Realejo, Casas históricas de Campo del Príncipe, Carrera del Darro con puente y fondo de la Alhambra, Pueblo de montaña de Monachil, Carretera y chalets de Cenes de la Vega, Cortijo tradicional andaluz en Granada (Píñar).
+  - Granada Actividades (12 fotos reales): Plaza Bib-Rambla con cafés y fuente, Puerta Real iluminada, Paseo del Salón con farolas históricas, Fuente y Patio de los Leones de la Alhambra, Estanque y jardines del Carmen de los Mártires, Atardecer panorámico sobre la Alhambra desde el Mirador de San Nicolás, Pistas nevadas de Pradollano en Sierra Nevada (Mirlo Blanco), Pico Veleta nevado desde Borreguiles, Calle Calderería Nueva nocturna con farolillos árabes, Acuario y selva interior del Biodomo en el Parque de las Ciencias, Puente colgante de madera de Los Cahorros de Monachil, Casas cueva del Museo del Sacromonte.
+  - Sincronizadas las rutas en index.html y OUTLOOK_ACTIVITIES (0 imágenes rotas de 177).
+  - Testeado con Playwright (100% OK), recompilado offline en PORTAL_VIAJES_FAMILIARES_WHATSAPP.html (104.92 MB, 173 fotos base64) y desplegado en Render.
+REVERSIÓN: git checkout d5fd054
+========================================================================================
 ```
 
 *(El monitor autónomo y cualquier modificación futura añadirán nuevas entradas a este bloque con su fecha y hora exacta).*

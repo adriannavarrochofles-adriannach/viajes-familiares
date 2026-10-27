@@ -1619,3 +1619,23 @@ DETALLE DE LAS NOVEDADES:
     - Recompilación offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (97.93 MB, 162 imágenes incrustadas).
     - Suite Playwright ejecutada con éxito 100% (cero desbordamiento horizontal en móvil 375x667).
 ========================================================================================
+
+========================================================================================
+FECHA: 2026-10-27 10:10 | RESPONSABLE: BRÚJULA (Antigravity Travel Agent)
+OBJETIVO: Integración de la visita a la Península de La Magdalena en Santander (Parque Marino con focas, leones marinos y pingüinos 100% gratuito, carabelas piratas de Vital Alsar y tren 'El Magdaleno').
+ESTADO: COMPLETADO, VALIDADO CON PLAYWRIGHT Y DESPLEGADO.
+
+DETALLE DE LA INTEGRACIÓN:
+ 1. PARQUE MARINO DE LA MAGDALENA (#tab-cantabria):
+    - Ubicación: Península de La Magdalena, Santander (a 20 min de Cabárceno y 35 min de Cabezón).
+    - Características: Piscinas naturales de roca marina al aire libre alimentadas por las mareas del Mar Cantábrico donde nadan y juegan focas, leones marinos y pingüinos.
+    - Acceso 100% gratuito tanto a los miradores del parque marino como a toda la península real.
+    - Horarios de alimentación con saltos en vivo: Focas y leones marinos a las 12:15 h y 17:00 h; pingüinos a las 12:00 h y 17:30 h.
+    - Actividades infantiles complementarias: Subir a las 3 Carabelas de madera de Vital Alsar para jugar a los piratas, tren turístico infantil 'El Magdaleno' y columpios entre pinos frente a las playas de El Sardinero.
+ 2. ACTUALIZACIÓN WEB & DESPLIEGUE:
+    - Descarga y optimización de fotografía real 'magdalena_animales_marinos.jpg' (267 KB).
+    - Checkbox interactivo en Cantabria con zoom y lightbox.
+    - Actualizado el itinerario del Día 2 con la opción favorita infantil de La Magdalena + Santander Navideño iluminado con noria y pista de hielo.
+    - Recompilación offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (98.27 MB, 163 imágenes incrustadas).
+    - Commit y push a GitHub main para auto-despliegue en Render.
+========================================================================================

@@ -1760,3 +1760,38 @@ DETALLE DE LAS MEJORAS APLICADAS:
     - Recompilación exitosa de 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (102.05 MB, 173 imágenes incrustadas en Base64) en Desktop, OneDrive y Artifacts.
     - Auto-despliegue en producción en Render tras push a GitHub main.
 ========================================================================================
+
+========================================================================================
+FECHA: 2026-10-27 15:12 | RESPONSABLE: BRÚJULA (Antigravity Travel Agent)
+OBJETIVO: Diagnóstico y corrección de las 4 cajas blancas vacías en la vista móvil de Cantabria y Granada (reportado por Adrián: "Qué es eso").
+ESTADO: COMPLETADO, VERIFICADO CON PLAYWRIGHT Y DESPLEGADO EN PRODUCCIÓN.
+
+DETALLE DE LAS MEJORAS APLICADAS:
+ 1. DIAGNÓSTICO DEL PROBLEMA:
+    - En la cabecera hero de Cantabria y Granada, las 5 tarjetas de resumen rápido (Duración, Ocupantes, Base Céntrica, Clima y Presupuesto) estaban estructuradas como `<div class="kpi-card">`.
+    - La clase global `.kpi-card` imponía `background: var(--card-bg)` (#FFFFFF), mientras que sus etiquetas internas (.kpi-label, .kpi-val, .kpi-sub) heredaban `color: #FFFFFF` de `.portal-hero`.
+    - Resultado en móvil: El texto era 100% blanco sobre fondo blanco (invisible) y en vista responsive se apilaban verticalmente a ancho completo como 4-5 grandes rectángulos blancos vacíos.
+
+ 2. SOLUCIÓN TÉCNICA Y REDISEÑO GLASSMÓRFICO:
+    - Se aplicó una regla scoped `.portal-hero .kpi-card` con estética de cuadro de mandos oscuro translúcido:
+      * Fondo: `rgba(15, 23, 42, 0.82)` con desenfoque de fondo `backdrop-filter: blur(12px)`.
+      * Borde: sutil y elegante `1px solid rgba(255, 255, 255, 0.16)`.
+      * Jerarquía de color:
+        - `.kpi-label`: `#94A3B8` (texto en plata/pizarra, mayúsculas, tamaño 0.68rem).
+        - `.kpi-val`: `#38BDF8` (cian eléctrico brillante, peso 900, tamaño 1.12rem).
+        - `.kpi-sub`: `#CBD5E1` (gris claro legible, tamaño 0.73rem).
+      * Tarjetas de presupuesto luminosas:
+        - Cantabria: borde verde esmeralda (#059669) con fondo translúcido y texto verde brillante (#34D399 / #6EE7B7).
+        - Granada: borde rojo rubí (#DC2626) con fondo translúcido y texto rubí brillante (#F87171 / #FCA5A5).
+
+ 3. RESPONSIVE COMPACTO EN MÓVIL (2 COLUMNAS):
+    - En lugar de ocupar una columna por tarjeta (5 bloques verticales largos), en pantallas móviles (<768px) las 4 primeras tarjetas se distribuyen automáticamente en 2 columnas compactas (179px cada una) formando un grid 2x2.
+    - La tarjeta de presupuesto se expande a las 2 columnas completas al pie del bloque.
+    - La altura vertical requerida se reduce a la mitad (~300px en lugar de ~600px), dejando a la vista inmediata el selector de fechas y el itinerario sin scroll excesivo.
+
+ 4. VERIFICACIÓN Y COMPILACIÓN OFFLINE:
+    - Verificado con Playwright en resolución exacta de iPhone (390x844) en `test_mobile_cards_final.py`: 100% aprobado.
+    - Capturas generadas: `test_cantabria_kpis_fixed.png` y `test_granada_kpis_fixed.png`.
+    - Recompilado `PORTAL_VIAJES_FAMILIARES_WHATSAPP.html` (102.05 MB, 173 imágenes incrustadas en Base64) en Desktop, OneDrive y Brain.
+    - Commit y push a GitHub main para auto-despliegue en Render.
+========================================================================================

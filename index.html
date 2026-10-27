@@ -3654,7 +3654,75 @@
       width: 100%;
     }
 
-  </style>
+  
+    /* HERO KPI SUMMARY STRIP (CANTABRIA & GRANADA) - GLASSMORPHIC STYLING */
+    .portal-hero .kpi-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+      gap: 12px !important;
+      margin-top: 18px !important;
+      margin-bottom: 8px !important;
+      width: 100% !important;
+      max-width: 1100px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .portal-hero .kpi-card {
+      background: rgba(15, 23, 42, 0.82) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.16) !important;
+      border-radius: 14px !important;
+      padding: 12px 16px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      text-align: left !important;
+      gap: 3px !important;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35) !important;
+      box-sizing: border-box !important;
+    }
+    .portal-hero .kpi-label {
+      font-size: 0.68rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.8px !important;
+      text-transform: uppercase !important;
+      color: #94A3B8 !important;
+      margin-bottom: 2px !important;
+    }
+    .portal-hero .kpi-val {
+      font-size: 1.12rem !important;
+      font-weight: 900 !important;
+      color: #38BDF8 !important;
+      line-height: 1.25 !important;
+    }
+    .portal-hero .kpi-sub {
+      font-size: 0.73rem !important;
+      font-weight: 500 !important;
+      color: #CBD5E1 !important;
+      line-height: 1.25 !important;
+    }
+    @media (max-width: 768px) {
+      .portal-hero .kpi-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        margin-top: 14px !important;
+        margin-bottom: 6px !important;
+      }
+      .portal-hero .kpi-grid .kpi-card:last-child {
+        grid-column: span 2 !important;
+      }
+      .portal-hero .kpi-card {
+        padding: 10px 12px !important;
+      }
+      .portal-hero .kpi-val {
+        font-size: 0.98rem !important;
+      }
+      .portal-hero .kpi-sub {
+        font-size: 0.68rem !important;
+      }
+    }
+</style>
 </head>
 <body>
 
@@ -12754,10 +12822,10 @@
           <div class="kpi-val">5°C a 16°C</div>
           <div class="kpi-sub">Sol y frío seco · Nieve en pistas</div>
         </div>
-        <div class="kpi-card" style="border: 2px solid #DC2626; background: rgba(220, 38, 38, 0.08);">
-          <div class="kpi-label" style="color:#DC2626;">PRESUPUESTO ESTIMADO</div>
-          <div class="kpi-val" id="gr-kpi-total" style="color:#DC2626;">~790 €</div>
-          <div class="kpi-sub" id="gr-kpi-perpax" style="color:#DC2626; font-weight:700;">~263 € / persona</div>
+        <div class="kpi-card" style="border: 1.5px solid #DC2626 !important; background: rgba(220, 38, 38, 0.22) !important;">
+          <div class="kpi-label" style="color:#FCA5A5 !important;">PRESUPUESTO ESTIMADO</div>
+          <div class="kpi-val" id="gr-kpi-total" style="color:#F87171 !important;">~790 €</div>
+          <div class="kpi-sub" id="gr-kpi-perpax" style="color:#FECACA !important; font-weight:700;">~263 € / persona</div>
         </div>
       </div>
     </section>
@@ -13619,10 +13687,10 @@
           <div class="kpi-val">8°C a 14°C</div>
           <div class="kpi-sub">Verde cantábrico · 0° a 8° en Picos</div>
         </div>
-        <div class="kpi-card" style="border: 2px solid #059669; background: rgba(5, 150, 105, 0.08);">
-          <div class="kpi-label" style="color:#059669;">PRESUPUESTO ESTIMADO</div>
-          <div class="kpi-val" id="ct-kpi-total" style="color:#059669;">~785 €</div>
-          <div class="kpi-sub" id="ct-kpi-perpax" style="color:#059669; font-weight:700;">~261 € / persona</div>
+        <div class="kpi-card" style="border: 1.5px solid #059669 !important; background: rgba(5, 150, 105, 0.22) !important;">
+          <div class="kpi-label" style="color:#6EE7B7 !important;">PRESUPUESTO ESTIMADO</div>
+          <div class="kpi-val" id="ct-kpi-total" style="color:#34D399 !important;">~785 €</div>
+          <div class="kpi-sub" id="ct-kpi-perpax" style="color:#A7F3D0 !important; font-weight:700;">~261 € / persona</div>
         </div>
       </div>
     </section>

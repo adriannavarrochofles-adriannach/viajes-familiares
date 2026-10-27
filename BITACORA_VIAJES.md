@@ -1687,3 +1687,41 @@ DETALLE TÉCNICO Y RESOLUCIÓN:
     - Recompilado offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (98.28 MB) en Desktop, OneDrive y Brain.
     - Commit y push a GitHub main para auto-despliegue en Render.
 ========================================================================================
+
+========================================================================================
+FECHA: 2026-10-27 10:55 | RESPONSABLE: BRÚJULA (Antigravity Travel Agent)
+OBJETIVO: Auditoría integral y corrección de imágenes repetidas, fotos erróneas y optimización de fichas de alojamiento con fotografías reales de interiores/casonas en Cantabria, Granada y destinos globales.
+ESTADO: COMPLETADO, TESTEADO CON PLAYWRIGHT Y DESPLEGADO EN PRODUCCIÓN.
+
+DETALLE DE LAS MEJORAS APLICADAS:
+ 1. RESOLUCIÓN DE IMÁGENES REPETIDAS & FOTOS DISONANTES EN ALOJAMIENTOS:
+    - Diagnóstico: Se detectó que varias fichas de alojamiento utilizaban fotos de actividades o monumentos (ej. en Granada un hotel mostraba el Biodomo del Museo de las Ciencias y otro la Alhambra; en Cantabria los apartamentos Pombo repetían la foto de las luces de la bahía y los apartamentos de Santillana repetían la plaza del pueblo). Además, varias fotos eran miniaturas de baja resolución (<30 KB).
+    - Alojamientos de Cantabria (6 Nuevas Fotografías de Alta Resolución a 1400px):
+      * 'Apartamentos Pombo & Bahía de Santander': Nueva foto 'hotel_pombo_santander.jpg' (237 KB, salón escandinavo moderno y cocina equipada).
+      * 'Suites & Apartamentos Playa del Sardinero': Nueva foto 'hotel_sardinero_playa.jpg' (224 KB, apartamento costero con terraza y luz natural).
+      * 'Casona Montañesa del Saja': Nueva foto 'casona_saja_cabezon.jpg' (201 KB, auténtica casona de piedra con jardín y chimenea en Cabezón).
+      * 'Posada & Apartamentos del Río Miera (Liérganes)': Nueva foto 'posada_lierganes_rural.jpg' (130 KB, habitación rústica con techos de madera).
+      * 'Posadas & Apartamentos El Marqués (Santillana)': Nueva foto 'apartamento_marques_santillana.jpg' (186 KB, apartamento rústico con vigas de madera y cocina propia).
+      * 'Apartamentos Rurales Picos de Europa (Potes)': Nueva foto 'apartamentos_picos_potes.jpg' (283 KB, chalet alpino de madera con chimenea y vistas a las cumbres).
+    - Alojamientos de Granada (6 Nuevas Fotografías de Alta Resolución a 1400px):
+      * 'Apartamentos Realejo Alhambra Living': Nueva foto 'hotel_realejo_granada.jpg' (232 KB, salón andaluz contemporáneo con cocina completa).
+      * 'Apartamentos Suites Campo del Príncipe': Nueva foto 'hotel_campo_principe_granada.jpg' (201 KB, suite familiar con vigas de madera en el centro histórico).
+      * 'Cármenes & Apartamentos Mirador del Darro': Nueva foto 'carmen_darro_granada.jpg' (217 KB, patio tradicional de Carmen granadino con fuente y terraza).
+      * 'Casas Rurales & Apartamentos Valle de Monachil': Nueva foto 'casa_rural_monachil_valle.jpg' (416 KB, casa de campo rústica con chimenea al pie de Sierra Nevada).
+      * 'Apartamentos & Villas Ruta de Sierra Nevada (Cenes)': Nueva foto 'villa_sierra_nevada_cenes.jpg' (179 KB, villa de montaña con terraza, chimenea y cocina).
+      * 'Cortijos & Chalets Familiares La Zubia': Nueva foto 'cortijo_zubia_granada.jpg' (341 KB, cortijo andaluz tradicional independiente con porche y jardín privado).
+    - Alojamientos Globales Corregidos:
+      * Bélgica: 'brussels_laeken_apt.jpg' (sustituye la foto del monumento Atomium).
+      * Dinamarca: 'copenhagen_nordic_apt.jpg' (sustituye la foto de la estatua de La Sirenita).
+      * Birmingham: 'birmingham_serviced_apt.jpg' (sustituye la foto del acuario SEA LIFE).
+      * Grecia: 'athens_flisvos_apt.jpg' (sustituye la foto de los burros de Hidra).
+
+ 2. OPTIMIZACIÓN DE IMÁGENES DE ACTIVIDADES:
+    - Actualizadas y descargadas a máxima definición (1400px): Teleférico de Cabárceno, Leones Marinos, Luces y Noria de Santander Navideño, Cocido Montañés en olla de barro, Cocido Lebaniego tradicional, Sala Explora infantil de Ciencias en Granada, Pista de hielo y Trineos de Mirlo Blanco.
+
+ 3. VERIFICACIÓN Y DESPLIEGUE:
+    - Cero imágenes duplicadas entre alojamientos y actividades en Cantabria y Granada (Shared with Act = False en el 100% de alojamientos).
+    - Playwright test 100% exitoso en escritorio y móvil.
+    - Recompilado offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (101.98 MB, 173 imágenes incrustadas en base64) en Desktop, OneDrive y Brain.
+    - Despliegue en Render y actualización de registros de gobierno.
+========================================================================================

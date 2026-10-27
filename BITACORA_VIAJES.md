@@ -1657,3 +1657,33 @@ DETALLE DEL ENCAJE HORARIO Y RUTAS:
     - Recompilado offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (113.93 MB, 163 imágenes incrustadas).
     - Commit y push a GitHub main para Render.
 ========================================================================================
+
+========================================================================================
+FECHA: 2026-10-27 10:35 | RESPONSABLE: BRÚJULA (Antigravity Travel Agent)
+OBJETIVO: Corrección del bug de navegación hacia Cantabria (San Sebastián desbordado fuera de tab-view) y estructuración completa del itinerario de 4 días madrugando con el 100% de actividades integradas.
+ESTADO: COMPLETADO, VALIDADO CON PLAYWRIGHT Y DESPLEGADO EN PRODUCCIÓN.
+
+DETALLE TÉCNICO Y RESOLUCIÓN:
+ 1. DIAGNÓSTICO Y CORRECCIÓN DEL BUG DE NAVEGACIÓN:
+    - Causa raíz 1 (Desbordamiento HTML): En una edición anterior, la etiqueta de apertura <div id="tab-sanseb" class="tab-view"> quedó truncada y se cerró inmediatamente (</div>), dejando toda la sección de San Sebastián fuera de cualquier contenedor .tab-view. Debido a ello, San Sebastián permanecía siempre visible en la pantalla (display: block) cualquiera que fuese la pestaña activa.
+    - Causa raíz 2 (Cola duplicada): Existía un bloque duplicado de 413 KB al final del fichero index.html después de la primera etiqueta </html> (contenía pestañas duplicadas de Dinamarca, Birmingham, Grecia, Calendario y Asistente).
+    - Causa raíz 3 (Indexación de switchTab): La barra de navegación carecía de atributos data-tab en los botones principales, produciendo desalineación al insertar el botón de Realizados.
+    - Solución aplicada:
+      * Reubicado #overview-empty-realizados dentro de #tab-overview.
+      * Encapsulada la sección completa de San Sebastián dentro de <div id="tab-sanseb" class="tab-view">.
+      * Eliminada la cola duplicada de 413 KB tras </html> (reduciendo index.html a un tamaño limpio de 1.27 MB).
+      * Asignado el atributo data-tab a todos los botones del menú de navegación.
+      * Añadido window.scrollTo({ top: 0, behavior: 'instant' }) en switchTab para situar siempre la vista en la cabecera del destino seleccionado.
+
+ 2. ITINERARIO MAESTRO MADRUGANDO (100% DE ACTIVIDADES SIN RENUNCIAR A NADA):
+    - Día 1 (Sábado 5): Salida temprana (07:30 h) de Alcalá en Volvo XC60. Llegada a Cabezón de la Sal (11:45 h). Secuoyas Gigantes de Monte Corona (12:15 h), gran Cocido Montañés en el Valle del Saja (13:45 h), Museo y Neocueva de Altamira con taller didáctico infantil (15:30 h), casco medieval y merienda de sobaos en Santillana del Mar (17:15 h) y noche mágica en el Poblado Navideño de Cartes con su Árbol Gigante de 65m y entrega de carta en mano en la Casa de Papá Noel (18:45 h). Retorno a la casona rural y chimenea.
+    - Día 2 (Domingo 6 · Madrugando): Salida a las 08:15 h. Parque de la Naturaleza de Cabárceno (08:45 h - 13:45 h): safari en el Volvo XC60 entre elefantes, osos y jirafas + teleférico panorámico cerrado + leones marinos. A las 15:15 h, Castilla Termal Balneario de Solares (a 12 min): 2h30 en agua mineral a 34°C con zona exclusiva 'Balnea Infantil' (toboganes y chorros para Marco). A las 18:00 h, Santander Navideño frente a la Bahía: paseo de Pereda iluminado, Noria Gigante panorámica y pista de hielo en Plaza Porticada.
+    - Día 3 (Lunes 7 · Madrugando): Salida a las 08:00 h. Ruta paisajística por el Desfiladero de La Hermida. Teleférico de Fuente Dé (Picos de Europa): subida de 753m a 1.823m con mirador sobre las nubes, muñecos y juegos de nieve para Marco. A las 13:00 h, Potes: casco histórico y festín de Cocido Lebaniego en Casa Cayo. Parada de regreso con opción de Cueva de El Soplao (tren subterráneo) o tarde de chimenea en la casona rural.
+    - Día 4 (Martes 8): Salida a las 09:00 h. Península de La Magdalena en Santander (¡100% Gratis!): parque marino al aire libre con focas, leones marinos y pingüinos bañándose en piscinas de roca natural sobre el Cantábrico, espectáculo de comida guiada (12:00 h pingüinos, 12:15 h focas), 3 carabelas piratas de madera de Vital Alsar y parque infantil frente a la playa. Almuerzo marinero con rabas frescas en Puerto Chico (13:15 h). Retorno directo y descansado en el Volvo XC60 por la A-67 y A-1 (15:00 h - 19:10 h, 395 km sin peajes).
+
+ 3. VERIFICACIÓN Y REGISTRO:
+    - 14 actividades con checkboxes dinámicos sincronizados.
+    - Suite Playwright ejecutada con éxito 100% en escritorio y móvil (375x667).
+    - Recompilado offline 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (98.28 MB) en Desktop, OneDrive y Brain.
+    - Commit y push a GitHub main para auto-despliegue en Render.
+========================================================================================

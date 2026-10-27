@@ -50,6 +50,27 @@
 
 ```
 ========================================================================================
+TIMESTAMP: 2026-10-27 22:30:00 CEST
+AUTOR: Antigravity Travel Agent
+ACCIÓN: ORGANIZADOR_OUTLOOK_MODERNO_SIN_FOTOS_Y_ARRASTRE_TACTIL_CON_LA_MANO
+OBJETIVO: Atender la directiva de Adrián Navarro:
+  «Sobre el organizador de días, lo quiero más moderno, sin fotos ahí, y que pueda moverlo con la mano, que aparezca los días como la agenda de Outlook, que pueda mover arrastrando por horas y días».
+ESTADO ANTERIOR: El planificador incluía miniaturas de fotos dentro de las tarjetas de evento, carecía de arrastre táctil nativo para smartphones/tablets (requería pulsar botones de texto para mover en móvil) y no tenía estética Outlook 365 pura.
+ESTADO NUEVO:
+  1. Diseño ultra-moderno estilo Microsoft Outlook 365 puro:
+     - 100% libre de fotos dentro de las tarjetas del calendario, priorizando la legibilidad ejecutiva de la agenda.
+     - Indicador vertical de color por categoría, cabecera de franja horaria destacada (HH:MM - HH:MM), título nítido en negrita, chips de métricas compactas (⏱️ In situ, 🚗 Trayecto Volvo XC60, ⏳ Total bloque, 💶 Precio) y tirador de arrastre visual (⠿).
+  2. Arrastre táctil con el dedo ("Con la mano") en smartphones y tablets:
+     - Controlador táctil completo con Touch Events (touchstart, touchmove, touchend, touchcancel) que genera un elemento flotante (#outlook-touch-ghost) siguiendo el dedo con inclinación y sombra realista, evitando el scroll de página durante el arrastre.
+     - Detección precisa de tarjetas destino (indicadores visuales superior/inferior), zonas de soltado por día y pestañas selectoras de día (D1, D2, D3, D4).
+  3. Reorganización dinámica por horas y de día en día:
+     - Al soltar dentro del mismo día, permuta la secuencia y recalcula todas las horas en vivo.
+     - Al soltar en otro día o sobre la pestaña de otro día, transfiere la actividad, actualiza los contadores de horas in situ, tiempos de conducción en Volvo XC60 y semáforos de ritmo ('✅ Ritmo Ideal Marco (4a)' vs '⚠️ Día Intenso').
+  4. Doble motor de arrastre: Soporte unificado tanto para ratón en escritorio (HTML5 Drag & Drop) como para el dedo en pantallas táctiles móviles, además de los botones rápidos de microajuste accesible ([▲], [▼], [D1-D4]).
+  5. Verificado con suite de Playwright (100% passed, 0 errores en consola) y recompilado offline PORTAL_VIAJES_FAMILIARES_WHATSAPP.html (104.93 MB).
+REVERSIÓN: git revert del commit correspondiente o restaurar desde copia de seguridad.
+========================================================================================
+========================================================================================
 TIMESTAMP: 2026-09-29 16:24:00 CEST
 AUTOR: Antigravity Travel Agent
 ACCIÓN: INICIALIZACIÓN_PERFIL_Y_MEMORIA

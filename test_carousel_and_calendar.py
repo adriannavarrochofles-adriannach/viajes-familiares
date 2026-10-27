@@ -21,7 +21,7 @@ with sync_playwright() as p:
     page.on("console", lambda msg: console_errors.append(msg.text) if msg.type == "error" else None)
     page.on("pageerror", lambda err: console_errors.append(str(err)))
 
-    page.goto(FILE_URL, wait_until="networkidle")
+    page.goto(FILE_URL, wait_until="domcontentloaded")
     time.sleep(1)
 
     # Navigate to Cantabria tab
@@ -148,7 +148,7 @@ with sync_playwright() as p:
     # TEST 2: MOBILE VIEWPORT (iPhone 14 / 390 x 844)
     # ----------------------------------------------------
     mobile_page = browser.new_page(viewport={"width": 390, "height": 844}, is_mobile=True)
-    mobile_page.goto(FILE_URL, wait_until="networkidle")
+    mobile_page.goto(FILE_URL, wait_until="domcontentloaded")
     time.sleep(1)
 
     mobile_page.click('.nav-btn[data-tab="cantabria"]')

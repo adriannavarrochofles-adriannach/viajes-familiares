@@ -3867,29 +3867,51 @@
     }
 
     /* ========================================================================== */
-    /* 2. PLANIFICADOR DE ACTIVIDADES TIPO CALENDARIO OUTLOOK (DRAG & DROP)       */
+    /* 2. PLANIFICADOR DE ACTIVIDADES TIPO AGENDA OUTLOOK 365 (MODERNO & TÁCTIL)  */
     /* ========================================================================== */
     .outlook-planner-wrapper {
       background: #FFFFFF;
       border: 1px solid #E2E8F0;
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
       margin-bottom: 35px;
+      position: relative;
     }
     .outlook-header-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 14px;
-      padding-bottom: 16px;
+      gap: 16px;
+      padding-bottom: 18px;
       border-bottom: 1px solid #E2E8F0;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+    }
+    .outlook-header-titles h3 {
+      margin: 0 0 6px 0;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .outlook-header-titles p {
+      margin: 0;
+      font-size: 0.84rem;
+      color: #64748B;
+      line-height: 1.5;
+    }
+    .outlook-header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
     }
     .btn-outlook-action {
-      padding: 8px 14px;
-      border-radius: 8px;
+      padding: 8px 16px;
+      border-radius: 10px;
       font-family: 'Outfit', sans-serif;
       font-size: 0.82rem;
       font-weight: 700;
@@ -3897,273 +3919,419 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       border: 1px solid transparent;
     }
     .btn-outlook-reset {
-      background: #F1F5F9;
+      background: #F8FAFC;
       color: #475569;
-      border-color: #CBD5E1;
+      border-color: #E2E8F0;
     }
     .btn-outlook-reset:hover {
-      background: #E2E8F0;
+      background: #F1F5F9;
       color: #0F172A;
+      border-color: #CBD5E1;
     }
     .btn-outlook-export {
-      background: linear-gradient(135deg, #0284C7, #0369A1);
+      background: #0284C7;
       color: #FFFFFF;
       box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
     }
     .btn-outlook-export:hover {
-      background: linear-gradient(135deg, #0369A1, #075985);
+      background: #0369A1;
       transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.35);
     }
+
+    /* Pestañas selectoras para móvil */
     .outlook-mobile-day-tabs {
       display: none;
-      gap: 6px;
+      gap: 8px;
       overflow-x: auto;
-      padding-bottom: 10px;
-      margin-bottom: 12px;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
       scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
     .outlook-mobile-day-tabs::-webkit-scrollbar {
       display: none;
     }
-    .outlook-day-tab-btn {
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: #F1F5F9;
-      border: 1px solid #CBD5E1;
-      font-size: 0.78rem;
+    .btn-mobile-day-tab {
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      font-size: 0.8rem;
       font-weight: 700;
       color: #475569;
       white-space: nowrap;
       cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
     }
-    .outlook-day-tab-btn.active {
+    .btn-mobile-day-tab.active {
       background: #0F172A;
       color: #FFFFFF;
       border-color: #0F172A;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.2);
     }
+    .btn-mobile-day-tab.tab-drop-active {
+      background: #0284C7 !important;
+      color: #FFFFFF !important;
+      border-color: #0284C7 !important;
+      transform: scale(1.06);
+      box-shadow: 0 0 12px rgba(2, 132, 199, 0.5);
+    }
+
+    /* Cuadrícula de 4 días estilo Outlook */
     .outlook-days-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      align-items: flex-start;
+      gap: 16px;
+      align-items: stretch;
     }
     .outlook-day-col {
       background: #F8FAFC;
       border: 1px solid #E2E8F0;
-      border-radius: 12px;
+      border-radius: 14px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      min-height: 480px;
+      min-height: 520px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .outlook-day-col:hover {
+      border-color: #CBD5E1;
     }
     .outlook-day-header {
       background: #0F172A;
       color: #FFFFFF;
-      padding: 12px 14px;
-      border-bottom: 2px solid #059669;
+      padding: 14px 14px 12px 14px;
+      border-bottom: 3px solid #059669;
+      position: relative;
     }
     .outlook-day-header.gr-day-hdr {
       border-bottom-color: #DC2626;
     }
     .outlook-day-title {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 800;
-      margin: 0 0 2px 0;
+      margin: 0 0 3px 0;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .outlook-day-sub {
+    .outlook-day-summary {
       font-size: 0.72rem;
       color: #94A3B8;
-      margin: 0 0 6px 0;
+      margin: 0 0 8px 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-    .outlook-day-metrics {
+    .outlook-day-kpis {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       flex-wrap: wrap;
     }
-    .day-metric-pill {
+    .day-kpi-pill {
       font-size: 0.68rem;
       font-weight: 700;
       padding: 2px 7px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.12);
-      color: #E2E8F0;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #F1F5F9;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .day-pace-pill {
+    .day-pacing-badge {
+      display: inline-block;
       font-size: 0.68rem;
       font-weight: 800;
-      padding: 2px 7px;
-      border-radius: 12px;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .pacing-optimal {
       background: #ECFDF5;
       color: #065F46;
+      border: 1px solid #A7F3D0;
     }
-    .outlook-day-dropzone {
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      flex-grow: 1;
-      min-height: 380px;
-      transition: background 0.2s ease;
-    }
-    .outlook-day-dropzone.drag-over {
-      background: #EFF6FF !important;
-      outline: 2px dashed #0284C7;
-      border-radius: 8px;
+    .pacing-heavy {
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
     }
 
-    /* TARJETA DE ACTIVIDAD OUTLOOK (DRAGGABLE EVENT BLOCK) */
+    /* Zona de soltado de actividades */
+    .outlook-day-dropzone {
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+      min-height: 420px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      border-radius: 0 0 14px 14px;
+    }
+    .outlook-day-dropzone.dropzone-active {
+      background: #EFF6FF !important;
+      outline: 2px dashed #0284C7;
+      outline-offset: -4px;
+    }
+    .ev-empty-slot {
+      padding: 24px 12px;
+      text-align: center;
+      color: #94A3B8;
+      font-size: 0.78rem;
+      border: 2px dashed #CBD5E1;
+      border-radius: 10px;
+      margin: auto 0;
+      background: #FFFFFF;
+    }
+
+    /* ========================================================================== */
+    /* TARJETA DE ACTIVIDAD OUTLOOK MODERNA (SIN FOTOS, LIMPIA, ULTRA-ESTILIZADA) */
+    /* ========================================================================== */
     .outlook-event-card {
       background: #FFFFFF;
       border: 1px solid #E2E8F0;
-      border-left: 5px solid #059669;
+      border-left: 5px solid var(--cat-accent, #059669);
       border-radius: 10px;
-      padding: 10px 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      padding: 12px 12px 10px 12px;
+      box-shadow: 0 2px 5px rgba(15, 23, 42, 0.04);
       cursor: grab;
       user-select: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 8px;
+      position: relative;
     }
     .outlook-event-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+      border-color: #CBD5E1;
+    }
+    .outlook-event-card:active {
+      cursor: grabbing;
     }
     .outlook-event-card.is-dragging {
-      opacity: 0.45;
-      cursor: grabbing;
-      transform: scale(0.97);
+      opacity: 0.35 !important;
+      border: 2px dashed #0284C7 !important;
+      transform: scale(0.98);
     }
-    .ev-card-top {
+    .outlook-event-card.drag-hover-top {
+      border-top: 3px solid #0284C7 !important;
+    }
+    .outlook-event-card.drag-hover-bottom {
+      border-bottom: 3px solid #0284C7 !important;
+    }
+
+    /* Cabecera del bloque: Franja Horaria en negrita y Categoría */
+    .ev-card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 6px;
-    }
-    .ev-drag-handle {
-      font-size: 1.1rem;
-      color: #94A3B8;
-      cursor: grab;
-      line-height: 1;
+      gap: 8px;
     }
     .ev-time-badge {
-      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
       font-weight: 800;
       color: #0F172A;
       background: #F1F5F9;
-      padding: 2px 7px;
+      padding: 3px 8px;
       border-radius: 6px;
+      border: 1px solid #E2E8F0;
+      letter-spacing: -0.2px;
     }
-    .ev-cat-badge {
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 6px;
-      background: #ECFDF5;
-      color: #065F46;
-    }
-    .ev-card-title-row {
+    .ev-header-right {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
-    .ev-thumb-img {
-      width: 44px;
-      height: 44px;
+    .ev-cat-pill {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 7px;
       border-radius: 6px;
-      object-fit: cover;
-      flex-shrink: 0;
+      text-transform: capitalize;
     }
-    .ev-card-title {
-      font-size: 0.84rem;
+    .ev-drag-handle {
+      font-size: 1rem;
+      color: #94A3B8;
+      cursor: grab;
+      line-height: 1;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .ev-drag-handle:hover {
+      background: #F1F5F9;
+      color: #475569;
+    }
+
+    /* Título principal del evento */
+    .ev-title {
+      font-size: 0.9rem;
       font-weight: 800;
-      color: #1E293B;
-      line-height: 1.25;
-      flex-grow: 1;
+      color: #0F172A;
+      line-height: 1.3;
+      margin: 0;
+      letter-spacing: -0.2px;
     }
-    .ev-metrics-row {
+
+    /* Barra de métricas: Duración in situ, Trayecto Volvo XC60 y Coste */
+    .ev-metrics-bar {
       display: flex;
       align-items: center;
       gap: 6px;
       flex-wrap: wrap;
-      font-size: 0.72rem;
-      color: #64748B;
     }
-    .ev-metric-pill {
+    .ev-chip {
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 5px;
       background: #F8FAFC;
       border: 1px solid #E2E8F0;
-      padding: 1px 6px;
-      border-radius: 4px;
-    }
-    .ev-total-pill {
-      font-weight: 700;
-      color: #0F172A;
-      background: #E2E8F0;
-    }
-    .ev-bottom-row {
-      display: flex;
-      justify-content: space-between;
+      color: #475569;
+      display: inline-flex;
       align-items: center;
-      font-size: 0.72rem;
-      margin-top: 2px;
-    }
-    .ev-loc-pill {
-      color: #64748B;
-      font-weight: 600;
-    }
-    .ev-price-pill {
-      color: #059669;
-      font-weight: 800;
-    }
-    .ev-mobile-move-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       gap: 4px;
+    }
+    .ev-chip strong {
+      color: #0F172A;
+    }
+    .chip-insitu {
+      background: #F0FDF4;
+      border-color: #DCFCE7;
+      color: #166534;
+    }
+    .chip-travel {
+      background: #EFF6FF;
+      border-color: #DBEAFE;
+      color: #1E40AF;
+    }
+    .chip-total {
+      background: #F1F5F9;
+      border-color: #E2E8F0;
+      color: #0F172A;
+      font-weight: 700;
+    }
+    .chip-price {
+      background: #FAF5FF;
+      border-color: #F3E8FF;
+      color: #6B21A8;
+      font-weight: 700;
+    }
+
+    /* Barra de ubicación y breve detalle explicativo */
+    .ev-location-bar {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      font-size: 0.74rem;
+      color: #64748B;
+      line-height: 1.35;
+      background: #F8FAFC;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid #F1F5F9;
+    }
+    .ev-loc-pin {
+      flex-shrink: 0;
+      font-size: 0.78rem;
+      margin-top: 1px;
+    }
+    .ev-loc-text strong {
+      color: #334155;
+    }
+
+    /* Barra de controles rápidos para ajuste táctil accesible / teclado */
+    .ev-quick-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
       padding-top: 6px;
       border-top: 1px dashed #E2E8F0;
-      margin-top: 4px;
+      margin-top: 2px;
     }
-    .btn-ev-move {
+    .ev-reorder-btns {
+      display: flex;
+      gap: 4px;
+    }
+    .btn-ev-quick {
       background: #F1F5F9;
       border: 1px solid #CBD5E1;
-      border-radius: 4px;
+      border-radius: 5px;
       font-size: 0.68rem;
       font-weight: 700;
-      padding: 2px 6px;
+      padding: 2px 7px;
       cursor: pointer;
       color: #475569;
+      transition: all 0.15s ease;
     }
-    .btn-ev-move:hover {
+    .btn-ev-quick:hover {
       background: #E2E8F0;
       color: #0F172A;
     }
-    .ev-day-selector-wrap {
+    .ev-day-switches {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
     }
-    .ev-select-day {
+    .ev-day-lbl {
       font-size: 0.68rem;
-      padding: 2px 4px;
+      font-weight: 700;
+      color: #94A3B8;
+      margin-right: 2px;
+    }
+    .btn-day-pill {
+      min-width: 24px;
+      height: 20px;
+      padding: 0 4px;
       border-radius: 4px;
       border: 1px solid #CBD5E1;
       background: #FFFFFF;
-      font-weight: 700;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #475569;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      transition: all 0.15s ease;
+    }
+    .btn-day-pill:hover {
+      background: #F1F5F9;
       color: #0F172A;
+    }
+    .btn-day-pill.active {
+      background: #0F172A;
+      color: #FFFFFF;
+      border-color: #0F172A;
+    }
+
+    /* Elemento flotante para arrastre táctil con el dedo (con la mano) */
+    #outlook-touch-ghost {
+      position: fixed !important;
+      z-index: 99999 !important;
+      pointer-events: none !important;
+      opacity: 0.95 !important;
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.28), 0 6px 14px rgba(0,0,0,0.12) !important;
+      transform: translate(-50%, -50%) rotate(2deg) scale(1.03) !important;
+      background: #FFFFFF !important;
+      border-radius: 12px !important;
+      border: 2px solid #0284C7 !important;
+      box-sizing: border-box !important;
     }
 
     @media (max-width: 1024px) {
@@ -4181,6 +4349,9 @@
       }
       .outlook-day-col {
         min-height: auto !important;
+      }
+      .outlook-planner-wrapper {
+        padding: 16px;
       }
     }
 </style>
@@ -14003,8 +14174,8 @@
         <div id="outlook-planner-granada" class="outlook-planner-wrapper">
           <div class="outlook-header-bar">
             <div class="outlook-header-titles">
-              <h3>📅 Planificador de Actividades por Días — Calendario Estilo Outlook</h3>
-              <p>Reorganiza tu itinerario libremente: <strong>Arrastra con el ratón</strong> cualquier actividad para cambiar su hora o moverla de día. En móvil usa los botones rápidos <strong>[▲] [▼]</strong> y <strong>[Día]</strong>. Los horarios de inicio, fin y traslados en Volvo XC60 se recalculan en vivo.</p>
+              <h3>📅 Agenda de Días y Horas — Estilo Outlook 365</h3>
+              <p>Organiza la agenda familiar a vuestro gusto: <strong>arrastra con la mano / dedo en el móvil o con el ratón</strong> cualquier bloque entre horas o entre días. Horarios de ruta en Volvo XC60 y tiempos in situ recalculados en vivo.</p>
             </div>
             <div class="outlook-header-actions">
               <button type="button" class="btn-outlook-action btn-outlook-reset" onclick="resetOutlookSchedule('granada')" title="Restablecer el orden óptimo recomendado">
@@ -14018,11 +14189,11 @@
 
           <!-- Pestañas para móvil -->
           <div class="outlook-mobile-day-tabs" id="mobile-tabs-granada">
-            <button type="button" class="btn-mobile-day-tab active" onclick="switchOutlookMobileDay('granada', 'all', this)">Todos los Días</button>
-            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('granada', 1, this)">Día 1 (Sáb 5)</button>
-            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('granada', 2, this)">Día 2 (Dom 6)</button>
-            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('granada', 3, this)">Día 3 (Lun 7)</button>
-            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('granada', 4, this)">Día 4 (Mar 8)</button>
+            <button type="button" class="btn-mobile-day-tab active" data-day="all" onclick="switchOutlookMobileDay('granada', 'all', this)">Todos los Días</button>
+            <button type="button" class="btn-mobile-day-tab" data-day="1" onclick="switchOutlookMobileDay('granada', 1, this)">Día 1 · Sáb 5</button>
+            <button type="button" class="btn-mobile-day-tab" data-day="2" onclick="switchOutlookMobileDay('granada', 2, this)">Día 2 · Dom 6</button>
+            <button type="button" class="btn-mobile-day-tab" data-day="3" onclick="switchOutlookMobileDay('granada', 3, this)">Día 3 · Lun 7</button>
+            <button type="button" class="btn-mobile-day-tab" data-day="4" onclick="switchOutlookMobileDay('granada', 4, this)">Día 4 · Mar 8</button>
           </div>
 
           <!-- Cuadrícula de Días (se llena dinámicamente con renderOutlookPlanner) -->
@@ -14992,8 +15163,8 @@
         <div id="outlook-planner-cantabria" class="outlook-planner-wrapper">
           <div class="outlook-header-bar">
             <div class="outlook-header-titles">
-              <h3>📅 Planificador de Actividades por Días — Calendario Estilo Outlook</h3>
-              <p>Reorganiza tu itinerario libremente: <strong>Arrastra con el ratón</strong> cualquier actividad para cambiar su hora o moverla de día. En móvil usa los botones rápidos <strong>[▲] [▼]</strong> y <strong>[Día]</strong>. Los horarios de inicio, fin y traslados en Volvo XC60 se recalculan en vivo.</p>
+              <h3>📅 Agenda de Días y Horas — Estilo Outlook 365</h3>
+              <p>Organiza la agenda familiar a vuestro gusto: <strong>arrastra con la mano / dedo en el móvil o con el ratón</strong> cualquier bloque entre horas o entre días. Horarios de ruta en Volvo XC60 y tiempos in situ recalculados en vivo.</p>
             </div>
             <div class="outlook-header-actions">
               <button type="button" class="btn-outlook-action btn-outlook-reset" onclick="resetOutlookSchedule('cantabria')" title="Restablecer el orden óptimo recomendado">
@@ -15007,11 +15178,11 @@
 
           <!-- Pestañas para móvil -->
           <div class="outlook-mobile-day-tabs" id="mobile-tabs-cantabria">
-            <button type="button" class="btn-mobile-day-tab active" onclick="switchOutlookMobileDay('cantabria', 'all', this)">Todos los Días</button>
-            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('cantabria', 1, this)">Día 1 (Sáb 5)</button>
-            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('cantabria', 2, this)">Día 2 (Dom 6)</button>
-            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('cantabria', 3, this)">Día 3 (Lun 7)</button>
-            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('cantabria', 4, this)">Día 4 (Mar 8)</button>
+            <button type="button" class="btn-mobile-day-tab active" data-day="all" onclick="switchOutlookMobileDay('cantabria', 'all', this)">Todos los Días</button>
+            <button type="button" class="btn-mobile-day-tab" data-day="1" onclick="switchOutlookMobileDay('cantabria', 1, this)">Día 1 · Sáb 5</button>
+            <button type="button" class="btn-mobile-day-tab" data-day="2" onclick="switchOutlookMobileDay('cantabria', 2, this)">Día 2 · Dom 6</button>
+            <button type="button" class="btn-mobile-day-tab" data-day="3" onclick="switchOutlookMobileDay('cantabria', 3, this)">Día 3 · Lun 7</button>
+            <button type="button" class="btn-mobile-day-tab" data-day="4" onclick="switchOutlookMobileDay('cantabria', 4, this)">Día 4 · Mar 8</button>
           </div>
 
           <!-- Cuadrícula de Días (se llena dinámicamente con renderOutlookPlanner) -->
@@ -23219,7 +23390,7 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       }
     }
 
-    // RENDERIZADO PRINCIPAL DEL CALENDARIO OUTLOOK
+    // RENDERIZADO PRINCIPAL DEL CALENDARIO OUTLOOK 365
     function renderOutlookPlanner(dest) {
       if (!window.outlookState[dest]) {
         window.outlookState[dest] = loadOutlookState(dest);
@@ -23258,58 +23429,61 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
                  id="card-${dest}-${act.id}"
                  data-act-id="${act.id}"
                  data-day="${day}"
+                 data-dest="${dest}"
                  data-index="${index}"
                  draggable="true"
                  ondragstart="handleOutlookDragStart(event, '${dest}', '${act.id}', ${day})"
                  ondragend="handleOutlookDragEnd(event)"
                  ondragover="handleOutlookDragOver(event)"
                  ondrop="handleOutlookDrop(event, '${dest}', ${day}, '${act.id}')"
-                 style="border-left-color: ${act.color};">
+                 style="--cat-accent: ${act.color}; border-left-color: ${act.color};">
               
-              <div class="ev-top-row">
-                <span class="ev-time-badge">🕒 ${timeBadgeText}</span>
-                <div style="display:flex; gap:6px; align-items:center;">
-                  <span class="ev-cat-badge" style="background:${act.color};">${act.cat}</span>
-                  <span class="ev-price-badge">${act.price}</span>
+              <div class="ev-card-header">
+                <div class="ev-time-badge">
+                  <span class="ev-clock-icon">🕒</span>
+                  <span class="ev-time-text">${timeBadgeText}</span>
+                </div>
+                <div class="ev-header-right">
+                  <span class="ev-cat-pill" style="background:${act.color}18; color:${act.color}; border: 1px solid ${act.color}40;">${act.cat}</span>
+                  <span class="ev-drag-handle" title="Arrastra con el ratón o con el dedo">⠿</span>
                 </div>
               </div>
 
-              <div class="ev-card-content">
-                <div class="ev-card-text">
-                  <h4 class="ev-title">${act.name}</h4>
-                  
-                  <div class="ev-metrics-row">
-                    <span class="ev-metric-pill ev-pill-insitu" title="Tiempo que se tarda en hacerlo">
-                      ⏱️ In situ: ${formatMinutesToHours(act.duration)}
-                    </span>
-                    <span class="ev-metric-pill ev-pill-travel" title="Tiempo que se tarda en ir en el Volvo XC60">
-                      🚗 Trayecto: ${act.travel}m
-                    </span>
-                    <span class="ev-metric-pill ev-pill-total" title="Duración total estimada del bloque">
-                      ⏳ Total: ${formatMinutesToHours(totalDuration)}
-                    </span>
-                  </div>
+              <h4 class="ev-title">${act.name}</h4>
 
-                  <p class="ev-desc">${act.desc}</p>
-                  <div class="ev-loc-row">📍 <strong>${act.loc}</strong></div>
-                </div>
-
-                <div class="ev-card-thumb" onclick="openPhotoLightbox('${act.img}', '${act.name}')" title="Pulsar para ampliar foto">
-                  <img src="${act.img}" alt="${act.name}" loading="lazy">
-                  <span class="ev-thumb-zoom">🔍</span>
-                </div>
+              <div class="ev-metrics-bar">
+                <span class="ev-chip chip-insitu ev-pill-insitu" title="Tiempo que se tarda en hacerlo">
+                  ⏱️ In situ: <strong>${formatMinutesToHours(act.duration)}</strong>
+                </span>
+                <span class="ev-chip chip-travel ev-pill-travel" title="Tiempo que se tarda en ir en el Volvo XC60">
+                  🚗 Trayecto: <strong>${act.travel}m</strong>
+                </span>
+                <span class="ev-chip chip-total ev-pill-total" title="Duración total estimada del bloque">
+                  ⏳ Total: <strong>${formatMinutesToHours(totalDuration)}</strong>
+                </span>
+                <span class="ev-chip chip-price" title="Coste aproximado">
+                  💶 ${act.price}
+                </span>
               </div>
 
-              <!-- Barra de controles táctiles para móvil -->
-              <div class="ev-mobile-move-bar">
-                <span class="ev-move-lbl">Mover:</span>
-                <button type="button" class="btn-ev-move" onclick="moveOutlookActTime('${dest}', '${act.id}', -1)" title="Subir / adelantar horario">▲ Subir hora</button>
-                <button type="button" class="btn-ev-move" onclick="moveOutlookActTime('${dest}', '${act.id}', 1)" title="Bajar / retrasar horario">▼ Bajar hora</button>
-                <span class="ev-move-lbl" style="margin-left:auto;">A Día:</span>
-                <button type="button" class="btn-ev-day ${day===1?'curr-day':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 1)">D1</button>
-                <button type="button" class="btn-ev-day ${day===2?'curr-day':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 2)">D2</button>
-                <button type="button" class="btn-ev-day ${day===3?'curr-day':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 3)">D3</button>
-                <button type="button" class="btn-ev-day ${day===4?'curr-day':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 4)">D4</button>
+              <div class="ev-location-bar">
+                <span class="ev-loc-pin">📍</span>
+                <div class="ev-loc-text"><strong>${act.loc}</strong> · ${act.desc}</div>
+              </div>
+
+              <!-- Barra de controles rápidos para ajuste táctil / teclado -->
+              <div class="ev-quick-actions">
+                <div class="ev-reorder-btns">
+                  <button type="button" class="btn-ev-quick btn-ev-move" onclick="moveOutlookActTime('${dest}', '${act.id}', -1)" title="Subir / adelantar horario">▲ Subir</button>
+                  <button type="button" class="btn-ev-quick btn-ev-move" onclick="moveOutlookActTime('${dest}', '${act.id}', 1)" title="Bajar / retrasar horario">▼ Bajar</button>
+                </div>
+                <div class="ev-day-switches">
+                  <span class="ev-day-lbl">Día:</span>
+                  <button type="button" class="btn-day-pill btn-ev-day ${day===1?'active curr-day':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 1)" title="Mover a Día 1">D1</button>
+                  <button type="button" class="btn-day-pill btn-ev-day ${day===2?'active':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 2)" title="Mover a Día 2">D2</button>
+                  <button type="button" class="btn-day-pill btn-ev-day ${day===3?'active':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 3)" title="Mover a Día 3">D3</button>
+                  <button type="button" class="btn-day-pill btn-ev-day ${day===4?'active':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 4)" title="Mover a Día 4">D4</button>
+                </div>
               </div>
             </div>
           `;
@@ -23323,8 +23497,8 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
         const finishTimeStr = actIds.length > 0 ? formatMinsToClock(curMins - 15) : formatMinsToClock(conf.startMins);
 
         gridHtml += `
-          <div class="outlook-day-col" id="col-${dest}-day-${day}">
-            <div class="outlook-day-header">
+          <div class="outlook-day-col" id="col-${dest}-day-${day}" data-day="${day}">
+            <div class="outlook-day-header ${dest==='granada'?'gr-day-hdr':''}">
               <div class="outlook-day-title">${conf.name}</div>
               <div class="outlook-day-summary">${conf.summary}</div>
               
@@ -23344,7 +23518,7 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
                  ondragover="handleOutlookDragOver(event)"
                  ondragleave="handleOutlookDragLeave(event)"
                  ondrop="handleOutlookDrop(event, '${dest}', ${day}, null)">
-              ${cardsHtml || '<div class="ev-empty-slot">Arrastra actividades aquí para asignarlas a este día</div>'}
+              ${cardsHtml || '<div class="ev-empty-slot">Arrastra actividades aquí con la mano o ratón para asignarlas a este día</div>'}
             </div>
           </div>
         `;
@@ -23353,7 +23527,56 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       grid.innerHTML = gridHtml;
     }
 
-    // MANEJO DE DRAG & DROP (HTML5 ESCRITORIO)
+    // ACCIÓN CENTRALIZADA DE SOLTADO (COMPATIBLE RATÓN Y TÁCTIL)
+    function executeOutlookDropAction(dest, actId, fromDay, targetDay, targetActId, insertAfter) {
+      if (!dest || !actId || !targetDay) return;
+      const state = window.outlookState[dest];
+      if (!state) return;
+
+      fromDay = parseInt(fromDay, 10);
+      targetDay = parseInt(targetDay, 10);
+      if (isNaN(fromDay) || isNaN(targetDay)) return;
+
+      const fromList = state[fromDay];
+      if (!fromList) return;
+      const fromIdx = fromList.indexOf(actId);
+      if (fromIdx !== -1) {
+        fromList.splice(fromIdx, 1);
+      }
+
+      const toList = state[targetDay];
+      if (!toList) return;
+
+      if (targetActId && targetActId !== actId) {
+        const toIdx = toList.indexOf(targetActId);
+        if (toIdx !== -1) {
+          const insertIdx = insertAfter ? toIdx + 1 : toIdx;
+          toList.splice(insertIdx, 0, actId);
+        } else {
+          toList.push(actId);
+        }
+      } else {
+        toList.push(actId);
+      }
+
+      saveOutlookState(dest);
+      renderOutlookPlanner(dest);
+
+      // Si estamos en vista móvil por pestañas individuales, cambiar a la pestaña de destino
+      const mobileTabs = document.getElementById(`mobile-tabs-${dest}`);
+      if (mobileTabs && window.innerWidth <= 768) {
+        const activeTab = mobileTabs.querySelector('.btn-mobile-day-tab.active');
+        const activeDay = activeTab ? activeTab.getAttribute('data-day') : 'all';
+        if (activeDay !== 'all' && parseInt(activeDay, 10) !== targetDay) {
+          const targetBtn = mobileTabs.querySelector(`.btn-mobile-day-tab[data-day="${targetDay}"]`);
+          if (targetBtn) {
+            switchOutlookMobileDay(dest, targetDay, targetBtn);
+          }
+        }
+      }
+    }
+
+    // MANEJO DE DRAG & DROP PARA RATÓN (HTML5 ESCRITORIO)
     let outlookDragData = null;
 
     function handleOutlookDragStart(event, dest, actId, fromDay) {
@@ -23372,7 +23595,10 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       const targetCard = event.target.closest('.outlook-event-card');
       const dropzone = event.target.closest('.outlook-day-dropzone');
       if (targetCard) {
-        targetCard.classList.add('drag-hover');
+        const rect = targetCard.getBoundingClientRect();
+        const isBottom = (event.clientY - rect.top) > (rect.height / 2);
+        targetCard.classList.remove('drag-hover-top', 'drag-hover-bottom');
+        targetCard.classList.add(isBottom ? 'drag-hover-bottom' : 'drag-hover-top');
       } else if (dropzone) {
         dropzone.classList.add('dropzone-active');
       }
@@ -23381,16 +23607,15 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
     function handleOutlookDragLeave(event) {
       const targetCard = event.target.closest('.outlook-event-card');
       const dropzone = event.target.closest('.outlook-day-dropzone');
-      if (targetCard) targetCard.classList.remove('drag-hover');
+      if (targetCard) targetCard.classList.remove('drag-hover-top', 'drag-hover-bottom');
       if (dropzone) dropzone.classList.remove('dropzone-active');
     }
 
     function handleOutlookDrop(event, dest, targetDay, targetActId) {
       event.preventDefault();
       event.stopPropagation();
-      document.querySelectorAll('.drag-hover').forEach(el => el.classList.remove('drag-hover'));
-      document.querySelectorAll('.dropzone-active').forEach(el => el.classList.remove('dropzone-active'));
-      document.querySelectorAll('.is-dragging').forEach(el => el.classList.remove('is-dragging'));
+      document.querySelectorAll('.drag-hover-top, .drag-hover-bottom, .dropzone-active, .is-dragging')
+        .forEach(el => el.classList.remove('drag-hover-top', 'drag-hover-bottom', 'dropzone-active', 'is-dragging'));
 
       let data = outlookDragData;
       if (!data && event.dataTransfer) {
@@ -23400,43 +23625,197 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       }
       if (!data || data.dest !== dest) return;
 
-      const actId = data.actId;
-      const fromDay = parseInt(data.fromDay, 10);
-      targetDay = parseInt(targetDay, 10);
-      const state = window.outlookState[dest];
-      if (!state) return;
-
-      // Retirar de la lista origen
-      const fromList = state[fromDay];
-      const fromIdx = fromList.indexOf(actId);
-      if (fromIdx !== -1) {
-        fromList.splice(fromIdx, 1);
+      let insertAfter = false;
+      if (targetActId && event.currentTarget) {
+        const rect = event.currentTarget.getBoundingClientRect();
+        insertAfter = (event.clientY - rect.top) > (rect.height / 2);
       }
 
-      // Insertar en la lista destino
-      const toList = state[targetDay];
-      if (targetActId && targetActId !== actId) {
-        const toIdx = toList.indexOf(targetActId);
-        if (toIdx !== -1) {
-          toList.splice(toIdx, 0, actId);
-        } else {
-          toList.push(actId);
-        }
-      } else {
-        toList.push(actId);
-      }
-
-      saveOutlookState(dest);
-      renderOutlookPlanner(dest);
+      executeOutlookDropAction(dest, data.actId, data.fromDay, targetDay, targetActId, insertAfter);
       outlookDragData = null;
     }
 
     function handleOutlookDragEnd(event) {
-      document.querySelectorAll('.drag-hover').forEach(el => el.classList.remove('drag-hover'));
-      document.querySelectorAll('.dropzone-active').forEach(el => el.classList.remove('dropzone-active'));
-      document.querySelectorAll('.is-dragging').forEach(el => el.classList.remove('is-dragging'));
+      document.querySelectorAll('.drag-hover-top, .drag-hover-bottom, .dropzone-active, .is-dragging')
+        .forEach(el => el.classList.remove('drag-hover-top', 'drag-hover-bottom', 'dropzone-active', 'is-dragging'));
       outlookDragData = null;
     }
+
+    // ==========================================================================
+    // CONTROLADOR DE ARRASTRE TÁCTIL ("MOVER CON LA MANO" PARA SMARTPHONES/TABLETS)
+    // ==========================================================================
+    let touchState = {
+      active: false,
+      preparing: false,
+      cardEl: null,
+      cloneEl: null,
+      actId: null,
+      fromDay: null,
+      dest: null,
+      startX: 0,
+      startY: 0,
+      targetDay: null,
+      targetActId: null,
+      insertAfter: false
+    };
+
+    function initOutlookTouchSupport() {
+      if (window._outlookTouchInitialized) return;
+      window._outlookTouchInitialized = true;
+
+      document.addEventListener('touchstart', onOutlookTouchStart, { passive: false });
+      document.addEventListener('touchmove', onOutlookTouchMove, { passive: false });
+      document.addEventListener('touchend', onOutlookTouchEnd, { passive: false });
+      document.addEventListener('touchcancel', onOutlookTouchCancel, { passive: false });
+    }
+
+    function onOutlookTouchStart(e) {
+      if (e.touches.length !== 1) return;
+      const touch = e.touches[0];
+
+      // Ignorar toques sobre botones de reordenación o interactivos
+      if (e.target.closest('button, select, input, a')) return;
+
+      const card = e.target.closest('.outlook-event-card');
+      if (!card) return;
+
+      touchState.preparing = true;
+      touchState.active = false;
+      touchState.cardEl = card;
+      touchState.actId = card.getAttribute('data-act-id');
+      touchState.fromDay = parseInt(card.getAttribute('data-day'), 10);
+      touchState.dest = card.id.includes('cantabria') ? 'cantabria' : 'granada';
+      touchState.startX = touch.clientX;
+      touchState.startY = touch.clientY;
+      touchState.targetDay = null;
+      touchState.targetActId = null;
+      touchState.insertAfter = false;
+    }
+
+    function onOutlookTouchMove(e) {
+      if (!touchState.preparing && !touchState.active) return;
+      const touch = e.touches[0];
+      const dx = touch.clientX - touchState.startX;
+      const dy = touch.clientY - touchState.startY;
+
+      // Umbral mínimo de 6px para diferenciar toque de arrastre
+      if (touchState.preparing && !touchState.active) {
+        if (Math.hypot(dx, dy) > 6) {
+          touchState.active = true;
+          touchState.preparing = false;
+
+          const card = touchState.cardEl;
+          const clone = card.cloneNode(true);
+          clone.id = 'outlook-touch-ghost';
+          clone.style.width = `${card.offsetWidth}px`;
+          clone.style.left = `${touch.clientX}px`;
+          clone.style.top = `${touch.clientY}px`;
+          document.body.appendChild(clone);
+          touchState.cloneEl = clone;
+
+          card.classList.add('is-dragging');
+          if (navigator.vibrate) navigator.vibrate(25);
+        } else {
+          return;
+        }
+      }
+
+      if (touchState.active) {
+        e.preventDefault(); // Detener scroll de la página para mover con la mano fluidamente
+
+        if (touchState.cloneEl) {
+          touchState.cloneEl.style.left = `${touch.clientX}px`;
+          touchState.cloneEl.style.top = `${touch.clientY}px`;
+        }
+
+        document.querySelectorAll('.drag-hover-top, .drag-hover-bottom, .dropzone-active, .tab-drop-active')
+          .forEach(el => el.classList.remove('drag-hover-top', 'drag-hover-bottom', 'dropzone-active', 'tab-drop-active'));
+
+        const elem = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (!elem) return;
+
+        // Comprobar si se pasa el dedo sobre una pestaña de día (móvil)
+        const tabBtn = elem.closest('.btn-mobile-day-tab');
+        if (tabBtn) {
+          tabBtn.classList.add('tab-drop-active');
+          const dayVal = tabBtn.getAttribute('data-day');
+          if (dayVal && dayVal !== 'all') {
+            touchState.targetDay = parseInt(dayVal, 10);
+            touchState.targetActId = null;
+            return;
+          }
+        }
+
+        // Comprobar si se pasa el dedo sobre otra tarjeta
+        const targetCard = elem.closest('.outlook-event-card');
+        if (targetCard && targetCard !== touchState.cardEl) {
+          const rect = targetCard.getBoundingClientRect();
+          const isBottom = (touch.clientY - rect.top) > (rect.height / 2);
+          targetCard.classList.add(isBottom ? 'drag-hover-bottom' : 'drag-hover-top');
+          touchState.targetDay = parseInt(targetCard.getAttribute('data-day'), 10);
+          touchState.targetActId = targetCard.getAttribute('data-act-id');
+          touchState.insertAfter = isBottom;
+          return;
+        }
+
+        // Comprobar si se pasa sobre una zona de soltado de día
+        const dropzone = elem.closest('.outlook-day-dropzone');
+        if (dropzone) {
+          dropzone.classList.add('dropzone-active');
+          touchState.targetDay = parseInt(dropzone.getAttribute('data-day'), 10);
+          touchState.targetActId = null;
+          return;
+        }
+
+        // Comprobar si se pasa sobre una columna de día
+        const col = elem.closest('.outlook-day-col');
+        if (col) {
+          const match = col.id.match(/day-(\d+)/);
+          if (match) {
+            touchState.targetDay = parseInt(match[1], 10);
+            touchState.targetActId = null;
+          }
+        }
+      }
+    }
+
+    function onOutlookTouchEnd(e) {
+      if (touchState.active) {
+        e.preventDefault();
+        executeOutlookDropAction(
+          touchState.dest,
+          touchState.actId,
+          touchState.fromDay,
+          touchState.targetDay,
+          touchState.targetActId,
+          touchState.insertAfter
+        );
+        if (navigator.vibrate) navigator.vibrate([20, 30, 20]);
+      }
+      cleanOutlookTouch();
+    }
+
+    function onOutlookTouchCancel(e) {
+      cleanOutlookTouch();
+    }
+
+    function cleanOutlookTouch() {
+      if (touchState.cloneEl && touchState.cloneEl.parentNode) {
+        touchState.cloneEl.parentNode.removeChild(touchState.cloneEl);
+      }
+      if (touchState.cardEl) {
+        touchState.cardEl.classList.remove('is-dragging');
+      }
+      document.querySelectorAll('.drag-hover-top, .drag-hover-bottom, .dropzone-active, .tab-drop-active')
+        .forEach(el => el.classList.remove('drag-hover-top', 'drag-hover-bottom', 'dropzone-active', 'tab-drop-active'));
+      touchState.active = false;
+      touchState.preparing = false;
+      touchState.cardEl = null;
+      touchState.cloneEl = null;
+    }
+
+    // Inicializar soporte táctil inmediatamente
+    initOutlookTouchSupport();
 
     // CONTROLES DE MOVIMIENTO PARA MÓVIL Y TECLADO
     function moveOutlookActTime(dest, actId, dir) {
@@ -23469,7 +23848,7 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
         const list = state[day];
         const idx = list.indexOf(actId);
         if (idx !== -1) {
-          if (day === targetDay) return; // ya está en ese día
+          if (day === targetDay) return;
           list.splice(idx, 1);
           state[targetDay].push(actId);
           saveOutlookState(dest);

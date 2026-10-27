@@ -84,6 +84,25 @@ OBJETIVO: Centralizar todos los logs, planes, infraestructura y procedimientos d
 ESTADO ANTERIOR: Múltiples artefactos individuales sin ledger centralizado.
 ESTADO NUEVO: Bitácora activa en C:\Users\ANAVARRO\.gemini\config\BITACORA_VIAJES.md y replicada en Escritorio.
 ========================================================================================
+========================================================================================
+TIMESTAMP: 2026-10-27 15:25:00 CEST
+AUTOR: Antigravity Travel Agent
+ACCIÓN: CARRUSEL_MONORFILA_ALOJAMIENTOS_Y_CALENDARIO_OUTLOOK_ARRISTRABLE
+OBJETIVO: Atender la directiva de Adrián Navarro:
+  1. Alojamientos en una sola fila horizontal con scroll y flechas de navegación para comparar y seleccionar el favorito con recálculo dinámico de presupuesto.
+  2. Planificador de actividades por días con bloques horarios, desglose de tiempos ("horas que se tarda en hacerlo e ir"), drag & drop y controles táctiles móviles tipo Outlook.
+ESTADO ANTERIOR: Alojamientos en grid vertical de varias filas; actividades en formato estático cronológico sin posibilidad de reorganización interactiva ni arrastre.
+ESTADO NUEVO:
+  1. Alojamientos estructurados en carrusel horizontal con scroll suave y scroll-snap (.hotel-cards-container), barra de navegación con flechas [◀ Anterior] / [Siguiente ▶], botón de selección interactiva [🔘 Elegir este Alojamiento] -> [✅ Alojamiento Seleccionado] y recálculo en vivo de la fila de alojamiento y el KPI presupuestario total del viaje.
+  2. Planificador interactivo por días estilo Calendario de Outlook (.outlook-planner-wrapper):
+     - Organizado en 4 columnas de días (Día 1, 2, 3, 4) con cabeceras que totalizan horas in situ, tiempo de trayecto en Volvo XC60 y semáforo de ritmo ('Ritmo Ideal Marco (4a)' vs 'Día Intenso').
+     - Tarjetas de actividad interactivas (.outlook-event-card) con franja horaria automática (HH:MM - HH:MM), categoría, thumbnail ampliable, desglose de métricas ("⏱️ In situ", "🚗 Trayecto Volvo" y "⏳ Total") y barra de botones táctiles para móvil ([▲ Subir hora], [▼ Bajar hora], [Mover a Día: D1, D2, D3, D4]).
+     - Drag & Drop completo para ratón (HTML5 DnD) entre horas del mismo día o entre días distintos, con recálculo dinámico en cadena de horarios de inicio/fin.
+     - Persistencia en localStorage, botón [🔄 Restablecer Orden] y exportación directa a calendario [📥 Descargar Calendario (.ics para Outlook / iPhone)].
+     - Selector de vistas [📅 Calendario Outlook] / [📖 Guía Detallada].
+  3. Validado al 100% con Playwright (desktop 1280x900 y móvil iPhone 390x844), recompilado PORTAL_VIAJES_FAMILIARES_WHATSAPP.html (102.11 MB, 173 fotos base64) y desplegado en Render.
+REVERSIÓN: git checkout HEAD~1 o restaurar desde index.html.bak_planner2.
+========================================================================================
 ```
 
 *(El monitor autónomo y cualquier modificación futura añadirán nuevas entradas a este bloque con su fecha y hora exacta).*

@@ -3722,6 +3722,467 @@
         font-size: 0.68rem !important;
       }
     }
+
+    /* ========================================================================== */
+    /* 1. CAROUSEL HORIZONTAL DE ALOJAMIENTOS EN UNA SOLA FILA CON SCROLL         */
+    /* ========================================================================== */
+    .hotel-cards-container {
+      display: flex !important;
+      flex-direction: row !important;
+      overflow-x: auto !important;
+      scroll-snap-type: x mandatory !important;
+      -webkit-overflow-scrolling: touch !important;
+      gap: 18px !important;
+      padding: 12px 6px 24px 6px !important;
+      margin-top: 15px !important;
+      margin-bottom: 25px !important;
+      scrollbar-width: thin !important;
+      scrollbar-color: #059669 #F1F5F9 !important;
+    }
+    .hotel-cards-container::-webkit-scrollbar {
+      height: 9px !important;
+    }
+    .hotel-cards-container::-webkit-scrollbar-track {
+      background: #F1F5F9 !important;
+      border-radius: 10px !important;
+    }
+    .hotel-cards-container::-webkit-scrollbar-thumb {
+      background: #CBD5E1 !important;
+      border-radius: 10px !important;
+    }
+    .hotel-cards-container::-webkit-scrollbar-thumb:hover {
+      background: #059669 !important;
+    }
+    .hotel-card {
+      min-width: 320px !important;
+      max-width: 340px !important;
+      flex: 0 0 320px !important;
+      scroll-snap-align: start !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      background: #FFFFFF !important;
+      border: 1.5px solid #E2E8F0 !important;
+      border-radius: 14px !important;
+      overflow: hidden !important;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04) !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+      position: relative !important;
+    }
+    .hotel-card:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+    }
+    .hotel-card.selected-hotel {
+      border: 2.5px solid #059669 !important;
+      box-shadow: 0 8px 25px rgba(5, 150, 105, 0.22) !important;
+      background: #F0FDF4 !important;
+    }
+    .hotel-card.selected-hotel-gr {
+      border: 2.5px solid #DC2626 !important;
+      box-shadow: 0 8px 25px rgba(220, 38, 38, 0.22) !important;
+      background: #FEF2F2 !important;
+    }
+    .badge-hotel-selected {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      z-index: 10;
+      letter-spacing: 0.4px;
+    }
+    .badge-hotel-selected-gr {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: linear-gradient(135deg, #EF4444, #DC2626);
+      color: #FFFFFF;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      z-index: 10;
+      letter-spacing: 0.4px;
+    }
+    .btn-select-hotel {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 8px;
+      border: 1.5px solid #CBD5E1;
+      background: #F8FAFC;
+      color: #334155;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      margin-top: 10px;
+    }
+    .btn-select-hotel:hover {
+      background: #F1F5F9;
+      border-color: #94A3B8;
+    }
+    .btn-select-hotel.active-selected {
+      background: linear-gradient(135deg, #059669, #10B981);
+      color: #FFFFFF;
+      border-color: #059669;
+      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
+    }
+    .btn-select-hotel.active-selected-gr {
+      background: linear-gradient(135deg, #DC2626, #EF4444);
+      color: #FFFFFF;
+      border-color: #DC2626;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+    }
+    .btn-scroll-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      color: #1E293B;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .btn-scroll-arrow:hover {
+      background: #059669;
+      color: #FFFFFF;
+      border-color: #059669;
+    }
+
+    /* ========================================================================== */
+    /* 2. PLANIFICADOR DE ACTIVIDADES TIPO CALENDARIO OUTLOOK (DRAG & DROP)       */
+    /* ========================================================================== */
+    .outlook-planner-wrapper {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      margin-bottom: 35px;
+    }
+    .outlook-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #E2E8F0;
+      margin-bottom: 16px;
+    }
+    .btn-outlook-action {
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .btn-outlook-reset {
+      background: #F1F5F9;
+      color: #475569;
+      border-color: #CBD5E1;
+    }
+    .btn-outlook-reset:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+    .btn-outlook-export {
+      background: linear-gradient(135deg, #0284C7, #0369A1);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+    }
+    .btn-outlook-export:hover {
+      background: linear-gradient(135deg, #0369A1, #075985);
+      transform: translateY(-1px);
+    }
+    .outlook-mobile-day-tabs {
+      display: none;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      scrollbar-width: none;
+    }
+    .outlook-mobile-day-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .outlook-day-tab-btn {
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #475569;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .outlook-day-tab-btn.active {
+      background: #0F172A;
+      color: #FFFFFF;
+      border-color: #0F172A;
+    }
+    .outlook-days-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .outlook-day-col {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 480px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .outlook-day-header {
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 12px 14px;
+      border-bottom: 2px solid #059669;
+    }
+    .outlook-day-header.gr-day-hdr {
+      border-bottom-color: #DC2626;
+    }
+    .outlook-day-title {
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin: 0 0 2px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .outlook-day-sub {
+      font-size: 0.72rem;
+      color: #94A3B8;
+      margin: 0 0 6px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .outlook-day-metrics {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .day-metric-pill {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #E2E8F0;
+    }
+    .day-pace-pill {
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 12px;
+      background: #ECFDF5;
+      color: #065F46;
+    }
+    .outlook-day-dropzone {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex-grow: 1;
+      min-height: 380px;
+      transition: background 0.2s ease;
+    }
+    .outlook-day-dropzone.drag-over {
+      background: #EFF6FF !important;
+      outline: 2px dashed #0284C7;
+      border-radius: 8px;
+    }
+
+    /* TARJETA DE ACTIVIDAD OUTLOOK (DRAGGABLE EVENT BLOCK) */
+    .outlook-event-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-left: 5px solid #059669;
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      cursor: grab;
+      user-select: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .outlook-event-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+    .outlook-event-card.is-dragging {
+      opacity: 0.45;
+      cursor: grabbing;
+      transform: scale(0.97);
+    }
+    .ev-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+    .ev-drag-handle {
+      font-size: 1.1rem;
+      color: #94A3B8;
+      cursor: grab;
+      line-height: 1;
+    }
+    .ev-time-badge {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #0F172A;
+      background: #F1F5F9;
+      padding: 2px 7px;
+      border-radius: 6px;
+    }
+    .ev-cat-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: #ECFDF5;
+      color: #065F46;
+    }
+    .ev-card-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ev-thumb-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .ev-card-title {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #1E293B;
+      line-height: 1.25;
+      flex-grow: 1;
+    }
+    .ev-metrics-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      font-size: 0.72rem;
+      color: #64748B;
+    }
+    .ev-metric-pill {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .ev-total-pill {
+      font-weight: 700;
+      color: #0F172A;
+      background: #E2E8F0;
+    }
+    .ev-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      margin-top: 2px;
+    }
+    .ev-loc-pill {
+      color: #64748B;
+      font-weight: 600;
+    }
+    .ev-price-pill {
+      color: #059669;
+      font-weight: 800;
+    }
+    .ev-mobile-move-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+      padding-top: 6px;
+      border-top: 1px dashed #E2E8F0;
+      margin-top: 4px;
+    }
+    .btn-ev-move {
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      border-radius: 4px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      cursor: pointer;
+      color: #475569;
+    }
+    .btn-ev-move:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+    .ev-day-selector-wrap {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .ev-select-day {
+      font-size: 0.68rem;
+      padding: 2px 4px;
+      border-radius: 4px;
+      border: 1px solid #CBD5E1;
+      background: #FFFFFF;
+      font-weight: 700;
+      color: #0F172A;
+    }
+
+    @media (max-width: 1024px) {
+      .outlook-days-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .outlook-mobile-day-tabs {
+        display: flex !important;
+      }
+      .outlook-days-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .outlook-day-col {
+        min-height: auto !important;
+      }
+    }
 </style>
 </head>
 <body>
@@ -12953,9 +13414,19 @@
           <button type="button" class="hotel-zone-filter-btn" onclick="filterHotelsByZone('granada', 'afueras', this)">🌲 A las Afueras · Merece la Pena (3)</button>
         </div>
 
-        <div class="hotel-cards-container">
+        
+        <div class="hotel-carousel-nav-bar">
+          <div class="hotel-carousel-hint">
+            <span>↔️ <strong>Desliza horizontalmente</strong> para comparar las 6 opciones · Elige tu favorita para recalcular presupuesto</span>
+          </div>
+          <div class="hotel-carousel-arrows">
+            <button type="button" class="btn-scroll-arrow" onclick="scrollHotelCarousel('granada', -1)" aria-label="Alojamiento anterior">◀ Anterior</button>
+            <button type="button" class="btn-scroll-arrow" onclick="scrollHotelCarousel('granada', 1)" aria-label="Alojamiento siguiente">Siguiente ▶</button>
+          </div>
+        </div>
+<div class="hotel-cards-container">
           
-      <div class="hotel-card" data-zone="ciudad">
+      <div class="hotel-card selected-hotel-gr" data-zone="ciudad">
         <div class="hotel-card-img-wrap" style="cursor: pointer;" onclick="openPhotoLightbox('img_granada/hotel_realejo_granada.jpg', 'Apartamentos Realejo Alhambra Living — 🏙️ Salón moderno con cocina completa en el Realejo')">
           <img src="img_granada/hotel_realejo_granada.jpg" alt="Apartamentos Realejo Alhambra Living" class="hotel-card-img" loading="lazy">
           <span class="hotel-tag-badge">🏙️ Céntrico · Cocina</span>
@@ -12980,6 +13451,7 @@
                 <strong>510 € (3 noches · 2-3 habs · ~170 €/noche)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel selected-btn" id="btn-hotel-gr_realejo" onclick="selectTripHotel('granada', 'gr_realejo', 315, 510, 'Apartamentos Realejo Alhambra Living', this)">✅ Alojamiento Seleccionado</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Realejo+Granada&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13012,6 +13484,7 @@
                 <strong>540 € (3 noches · Suite Familiar 2 habs)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-gr_principe" onclick="selectTripHotel('granada', 'gr_principe', 345, 540, 'Apartamentos Suites Campo del Príncipe', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Campo+del+Principe+Granada&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13044,6 +13517,7 @@
                 <strong>570 € (3 noches · Carmen completo 2 plantas)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-gr_darro" onclick="selectTripHotel('granada', 'gr_darro', 360, 570, 'Cármenes & Apartamentos Mirador del Darro', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Albaicin+Granada+Apartamentos&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13076,6 +13550,7 @@
                 <strong>390 € (3 noches · Casa completa 3 habs · ~130 €/noche)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-gr_monachil" onclick="selectTripHotel('granada', 'gr_monachil', 240, 390, 'Casas Rurales & Apartamentos Valle de Monachil', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Monachil+Granada&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13108,6 +13583,7 @@
                 <strong>360 € (3 noches · Apartamento 2-3 habs · ~120 €/noche)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-gr_cenes" onclick="selectTripHotel('granada', 'gr_cenes', 225, 360, 'Apartamentos & Villas Ruta de Sierra Nevada (Cenes)', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Cenes+de+la+Vega+Granada&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13140,6 +13616,7 @@
                 <strong>405 € (3 noches · Chalet completo · ~135 €/noche)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-gr_zubia" onclick="selectTripHotel('granada', 'gr_zubia', 255, 405, 'Cortijos & Chalets Familiares La Zubia', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=La+Zubia+Granada&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13505,7 +13982,54 @@
           🗓️ Itinerario Calculado al Minuto (Para Poder Hacerlo Todo Sin Agobios)
         </h2>
 
-        <div class="timeline">
+        
+        <!-- ================================================================== -->
+        <!-- SELECTOR DE VISTA: CALENDARIO OUTLOOK vs GUÍA CRONOLÓGICA        -->
+        <!-- ================================================================== -->
+        <div class="itinerary-view-header">
+          <div class="itinerary-view-nav">
+            <button type="button" class="itinerary-view-btn active" id="btn-view-cal-granada" onclick="setItineraryView('granada', 'calendar')">
+              📅 Calendario Interactivo Outlook (Arrastra Horas y Días)
+            </button>
+            <button type="button" class="itinerary-view-btn" id="btn-view-tl-granada" onclick="setItineraryView('granada', 'timeline')">
+              📖 Guía Editorial Completa Paso a Paso
+            </button>
+          </div>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- PLANIFICADOR OUTLOOK INTERACTIVO GRANADA                           -->
+        <!-- ================================================================== -->
+        <div id="outlook-planner-granada" class="outlook-planner-wrapper">
+          <div class="outlook-header-bar">
+            <div class="outlook-header-titles">
+              <h3>📅 Planificador de Actividades por Días — Calendario Estilo Outlook</h3>
+              <p>Reorganiza tu itinerario libremente: <strong>Arrastra con el ratón</strong> cualquier actividad para cambiar su hora o moverla de día. En móvil usa los botones rápidos <strong>[▲] [▼]</strong> y <strong>[Día]</strong>. Los horarios de inicio, fin y traslados en Volvo XC60 se recalculan en vivo.</p>
+            </div>
+            <div class="outlook-header-actions">
+              <button type="button" class="btn-outlook-action btn-outlook-reset" onclick="resetOutlookSchedule('granada')" title="Restablecer el orden óptimo recomendado">
+                🔄 Restablecer Orden
+              </button>
+              <button type="button" class="btn-outlook-action btn-outlook-export" onclick="exportToICalendar('granada')" title="Descargar archivo de calendario .ics para Microsoft Outlook y Apple Calendar">
+                📥 Descargar Calendario (.ics)
+              </button>
+            </div>
+          </div>
+
+          <!-- Pestañas para móvil -->
+          <div class="outlook-mobile-day-tabs" id="mobile-tabs-granada">
+            <button type="button" class="btn-mobile-day-tab active" onclick="switchOutlookMobileDay('granada', 'all', this)">Todos los Días</button>
+            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('granada', 1, this)">Día 1 (Sáb 5)</button>
+            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('granada', 2, this)">Día 2 (Dom 6)</button>
+            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('granada', 3, this)">Día 3 (Lun 7)</button>
+            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('granada', 4, this)">Día 4 (Mar 8)</button>
+          </div>
+
+          <!-- Cuadrícula de Días (se llena dinámicamente con renderOutlookPlanner) -->
+          <div class="outlook-days-grid" id="outlook-grid-granada"></div>
+        </div>
+
+        <div class="timeline" id="timeline-granada">
 
           <!-- DÍA 1 -->
           <div class="timeline-item">
@@ -13818,7 +14342,17 @@
           <button type="button" class="hotel-zone-filter-btn" onclick="filterHotelsByZone('cantabria', 'afueras', this)">🌲 A las Afueras · Merece la Pena (4)</button>
         </div>
 
-        <div class="hotel-cards-container">
+        
+        <div class="hotel-carousel-nav-bar">
+          <div class="hotel-carousel-hint">
+            <span>↔️ <strong>Desliza horizontalmente</strong> para comparar las 6 opciones · Elige tu favorita para recalcular presupuesto</span>
+          </div>
+          <div class="hotel-carousel-arrows">
+            <button type="button" class="btn-scroll-arrow" onclick="scrollHotelCarousel('cantabria', -1)" aria-label="Alojamiento anterior">◀ Anterior</button>
+            <button type="button" class="btn-scroll-arrow" onclick="scrollHotelCarousel('cantabria', 1)" aria-label="Alojamiento siguiente">Siguiente ▶</button>
+          </div>
+        </div>
+<div class="hotel-cards-container">
           
       <div class="hotel-card" data-zone="ciudad">
         <div class="hotel-card-img-wrap" style="cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/hotel_pombo_santander.jpg', 'Apartamentos Pombo & Bahía de Santander — 🏙️ Salón moderno y cocina equipada en Santander Centro')">
@@ -13845,6 +14379,7 @@
                 <strong>525 € (3 noches · Apartamento 2-3 habs · ~175 €/noche)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-ct_pombo" onclick="selectTripHotel('cantabria', 'ct_pombo', 330, 525, 'Apartamentos Pombo & Bahía de Santander', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Santander+Centro&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13877,6 +14412,7 @@
                 <strong>540 € (3 noches · Suite Familiar 2 habs)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-ct_sardinero" onclick="selectTripHotel('cantabria', 'ct_sardinero', 345, 540, 'Suites & Apartamentos Playa del Sardinero', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=El+Sardinero+Santander&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13884,7 +14420,7 @@
           </div>
         </div>
       </div>
-      <div class="hotel-card" data-zone="afueras">
+      <div class="hotel-card selected-hotel" data-zone="afueras">
         <div class="hotel-card-img-wrap" style="cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/casona_saja_cabezon.jpg', 'Casona Montañesa del Saja — 🌲 Auténtica casona de piedra con jardín y chimenea en Cabezón de la Sal')">
           <img src="img_cantabria/casona_saja_cabezon.jpg" alt="Casona Montañesa del Saja (Mazcuerras / Cabezón de la Sal)" class="hotel-card-img" loading="lazy">
           <span class="hotel-tag-badge">🌲 Afueras · Merece la Pena</span>
@@ -13909,6 +14445,7 @@
                 <strong>480 € (3 noches · Casona 3 habs · ~160 €/noche)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel selected-btn" id="btn-hotel-ct_casona_saja" onclick="selectTripHotel('cantabria', 'ct_casona_saja', 285, 480, 'Casona Montañesa del Saja (Mazcuerras / Cabezón de la Sal)', this)">✅ Alojamiento Seleccionado</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Cabezon+de+la+Sal+Cantabria&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13941,6 +14478,7 @@
                 <strong>450 € (3 noches · Apartamento Familiar 2-3 habs)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-ct_lierganes" onclick="selectTripHotel('cantabria', 'ct_lierganes', 270, 450, 'Posada & Apartamentos del Río Miera (Liérganes)', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Lierganes+Cantabria&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -13973,6 +14511,7 @@
                 <strong>490 € (3 noches · Casa 2-3 habs)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-ct_santillana" onclick="selectTripHotel('cantabria', 'ct_santillana', 295, 490, 'Posadas & Apartamentos El Marqués (Santillana del Mar)', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Santillana+del+Mar&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -14005,6 +14544,7 @@
                 <strong>435 € (3 noches · Apartamento 3 habs)</strong>
               </div>
             </div>
+            <button type="button" class="btn-select-hotel" id="btn-hotel-ct_potes" onclick="selectTripHotel('cantabria', 'ct_potes', 260, 435, 'Apartamentos Rurales Picos de Europa (Potes / Ojedo)', this)">🔘 Elegir este Alojamiento</button>
             <a href="https://www.booking.com/searchresults.es.html?ss=Potes+Cantabria&checkin=2026-12-05&checkout=2026-12-08&group_adults=2&group_children=1&age=4" target="_blank" rel="noopener noreferrer" class="btn-booking">
               <span>🔍 Ver Disponibilidad en Booking.com</span>
               <span style="font-size: 0.9rem;">➔</span>
@@ -14431,7 +14971,54 @@
           </div>
         </div>
 
-        <div class="timeline">
+        
+        <!-- ================================================================== -->
+        <!-- SELECTOR DE VISTA: CALENDARIO OUTLOOK vs GUÍA CRONOLÓGICA        -->
+        <!-- ================================================================== -->
+        <div class="itinerary-view-header">
+          <div class="itinerary-view-nav">
+            <button type="button" class="itinerary-view-btn active" id="btn-view-cal-cantabria" onclick="setItineraryView('cantabria', 'calendar')">
+              📅 Calendario Interactivo Outlook (Arrastra Horas y Días)
+            </button>
+            <button type="button" class="itinerary-view-btn" id="btn-view-tl-cantabria" onclick="setItineraryView('cantabria', 'timeline')">
+              📖 Guía Editorial Completa Paso a Paso
+            </button>
+          </div>
+        </div>
+
+        <!-- ================================================================== -->
+        <!-- PLANIFICADOR OUTLOOK INTERACTIVO CANTABRIA                         -->
+        <!-- ================================================================== -->
+        <div id="outlook-planner-cantabria" class="outlook-planner-wrapper">
+          <div class="outlook-header-bar">
+            <div class="outlook-header-titles">
+              <h3>📅 Planificador de Actividades por Días — Calendario Estilo Outlook</h3>
+              <p>Reorganiza tu itinerario libremente: <strong>Arrastra con el ratón</strong> cualquier actividad para cambiar su hora o moverla de día. En móvil usa los botones rápidos <strong>[▲] [▼]</strong> y <strong>[Día]</strong>. Los horarios de inicio, fin y traslados en Volvo XC60 se recalculan en vivo.</p>
+            </div>
+            <div class="outlook-header-actions">
+              <button type="button" class="btn-outlook-action btn-outlook-reset" onclick="resetOutlookSchedule('cantabria')" title="Restablecer el orden óptimo recomendado">
+                🔄 Restablecer Orden
+              </button>
+              <button type="button" class="btn-outlook-action btn-outlook-export" onclick="exportToICalendar('cantabria')" title="Descargar archivo de calendario .ics para Microsoft Outlook y Apple Calendar">
+                📥 Descargar Calendario (.ics)
+              </button>
+            </div>
+          </div>
+
+          <!-- Pestañas para móvil -->
+          <div class="outlook-mobile-day-tabs" id="mobile-tabs-cantabria">
+            <button type="button" class="btn-mobile-day-tab active" onclick="switchOutlookMobileDay('cantabria', 'all', this)">Todos los Días</button>
+            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('cantabria', 1, this)">Día 1 (Sáb 5)</button>
+            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('cantabria', 2, this)">Día 2 (Dom 6)</button>
+            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('cantabria', 3, this)">Día 3 (Lun 7)</button>
+            <button type="button" class="btn-mobile-day-tab" onclick="switchOutlookMobileDay('cantabria', 4, this)">Día 4 (Mar 8)</button>
+          </div>
+
+          <!-- Cuadrícula de Días (se llena dinámicamente con renderOutlookPlanner) -->
+          <div class="outlook-days-grid" id="outlook-grid-cantabria"></div>
+        </div>
+
+        <div class="timeline" id="timeline-cantabria">
 
           <!-- DÍA 1 -->
           <div class="timeline-item">
@@ -18159,6 +18746,12 @@
     let currentTab = 'overview';
 
     function switchTab(tabId) {
+      if (tabId === 'cantabria' && typeof renderOutlookPlanner === 'function') {
+        renderOutlookPlanner('cantabria');
+      } else if (tabId === 'granada' && typeof renderOutlookPlanner === 'function') {
+        renderOutlookPlanner('granada');
+      }
+
       currentTab = tabId;
       document.querySelectorAll('.tab-view').forEach(el => el.classList.remove('active'));
       const target = document.getElementById('tab-' + tabId);
@@ -21140,7 +21733,7 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
 
       const actTotal = actAdultCost + actChildCost;
       const fuelCost = 95;
-      const lodgingBase = grAdults === 2 ? 315 : 510;
+      const lodgingBase = window.grSelectedHotel ? (grAdults === 2 ? window.grSelectedHotel.price2 : window.grSelectedHotel.price4) : (grAdults === 2 ? 315 : 510);
       const mult = (typeof window.grLodgingMultiplier !== 'undefined') ? window.grLodgingMultiplier : 1.0;
       const lodgingCost = Math.round(lodgingBase * mult);
       const foodCost = grAdults === 2 ? 240 : 420;
@@ -21166,7 +21759,9 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       const elHotelDesc = document.getElementById('gr-table-hotel-desc');
       if (elHotelDesc) {
         const multSuffix = mult < 0.95 ? ` (Ahorro ~${Math.round((1 - mult) * 100)}% aplicado)` : (mult > 1.05 ? ` (Temporada alta +${Math.round((mult - 1) * 100)}%)` : '');
-        elHotelDesc.textContent = (grAdults === 2 ? 'Apartamento céntrico con cocina (~105 €/noche)' : 'Carmen / Casa 3 dormitorios con cocina (~170 €/noche)') + multSuffix;
+        const hName = window.grSelectedHotel ? window.grSelectedHotel.name : (grAdults === 2 ? 'Apartamento céntrico Realejo' : 'Apartamento 3 dormitorios Realejo / Centro');
+        const nightly = Math.round(lodgingCost / 3);
+        elHotelDesc.textContent = `${hName} (~${nightly} €/noche)` + multSuffix;
       }
       const elHotelCost = document.getElementById('gr-table-hotel-cost');
       if (elHotelCost) {
@@ -21236,7 +21831,7 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
 
       const actTotal = actAdultCost + actChildCost;
       const fuelCost = 105;
-      const lodgingBase = ctAdults === 2 ? 285 : 480;
+      const lodgingBase = window.ctSelectedHotel ? (ctAdults === 2 ? window.ctSelectedHotel.price2 : window.ctSelectedHotel.price4) : (ctAdults === 2 ? 285 : 480);
       const mult = (typeof window.ctLodgingMultiplier !== 'undefined') ? window.ctLodgingMultiplier : 1.0;
       const lodgingCost = Math.round(lodgingBase * mult);
       const foodCost = ctAdults === 2 ? 200 : 380;
@@ -21262,7 +21857,9 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       const elHotelDesc = document.getElementById('ct-table-hotel-desc');
       if (elHotelDesc) {
         const multSuffix = mult < 0.95 ? ` (Ahorro ~${Math.round((1 - mult) * 100)}% aplicado)` : (mult > 1.05 ? ` (Temporada alta +${Math.round((mult - 1) * 100)}%)` : '');
-        elHotelDesc.textContent = (ctAdults === 2 ? 'Casona o apartamento rural en Cabezón (~95 €/noche)' : 'Casona montañesa 3 dormitorios con chimenea (~160 €/noche)') + multSuffix;
+        const hName = window.ctSelectedHotel ? window.ctSelectedHotel.name : (ctAdults === 2 ? 'Casona o apartamento en Cabezón' : 'Casona montañesa 3 dormitorios con chimenea');
+        const nightly = Math.round(lodgingCost / 3);
+        elHotelDesc.textContent = `${hName} (~${nightly} €/noche)` + multSuffix;
       }
       const elHotelCost = document.getElementById('ct-table-hotel-cost');
       if (elHotelCost) {
@@ -22131,6 +22728,882 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
         }
       });
     }
+
+
+
+/* ========================================================================== */
+    /* 2. MOTOR DEL CALENDARIO TIPO OUTLOOK Y CARRUSEL DE ALOJAMIENTOS          */
+    /* ========================================================================== */
+
+    // 1. GESTIÓN DEL CARRUSEL DE ALOJAMIENTOS
+    function scrollHotelCarousel(dest, dir) {
+      const container = document.querySelector(`#tab-${dest} .hotel-cards-container`);
+      if (!container) return;
+      const scrollStep = 340;
+      container.scrollBy({ left: dir * scrollStep, behavior: 'smooth' });
+    }
+
+    window.ctSelectedHotel = {
+      id: 'ct_casona_saja',
+      name: 'Casona Montañesa del Saja (Cabezón)',
+      price2: 285,
+      price4: 480
+    };
+
+    window.grSelectedHotel = {
+      id: 'gr_realejo',
+      name: 'Apartamentos Realejo Alhambra Living',
+      price2: 315,
+      price4: 510
+    };
+
+    function selectTripHotel(dest, hotelId, price2, price4, hotelName, btnEl) {
+      if (dest === 'cantabria') {
+        window.ctSelectedHotel = { id: hotelId, name: hotelName, price2: price2, price4: price4 };
+        try { localStorage.setItem('ct_selected_hotel', JSON.stringify(window.ctSelectedHotel)); } catch(e){}
+        const container = document.querySelector('#tab-cantabria .hotel-cards-container');
+        if (container) {
+          container.querySelectorAll('.btn-select-hotel').forEach(btn => {
+            btn.classList.remove('selected-btn');
+            btn.textContent = '🔘 Elegir este Alojamiento';
+          });
+          container.querySelectorAll('.hotel-card').forEach(card => card.classList.remove('selected-hotel'));
+        }
+        if (btnEl) {
+          btnEl.classList.add('selected-btn');
+          btnEl.textContent = '✅ Alojamiento Seleccionado';
+          const parentCard = btnEl.closest('.hotel-card');
+          if (parentCard) parentCard.classList.add('selected-hotel');
+        }
+        if (typeof updateCtActivityCalc === 'function') updateCtActivityCalc();
+      } else if (dest === 'granada') {
+        window.grSelectedHotel = { id: hotelId, name: hotelName, price2: price2, price4: price4 };
+        try { localStorage.setItem('gr_selected_hotel', JSON.stringify(window.grSelectedHotel)); } catch(e){}
+        const container = document.querySelector('#tab-granada .hotel-cards-container');
+        if (container) {
+          container.querySelectorAll('.btn-select-hotel').forEach(btn => {
+            btn.classList.remove('selected-btn');
+            btn.textContent = '🔘 Elegir este Alojamiento';
+          });
+          container.querySelectorAll('.hotel-card').forEach(card => card.classList.remove('selected-hotel-gr'));
+        }
+        if (btnEl) {
+          btnEl.classList.add('selected-btn');
+          btnEl.textContent = '✅ Alojamiento Seleccionado';
+          const parentCard = btnEl.closest('.hotel-card');
+          if (parentCard) parentCard.classList.add('selected-hotel-gr');
+        }
+        if (typeof updateGrActivityCalc === 'function') updateGrActivityCalc();
+      }
+    }
+
+    // 2. MASTER DATASET DE ACTIVIDADES (CANTABRIA & GRANADA)
+    const OUTLOOK_ACTIVITIES = {
+      // Cantabria (14 planes)
+      ct_secuoyas: {
+        id: "ct_secuoyas",
+        dest: "cantabria",
+        name: "🌲 Secuoyas Gigantes de Monte Corona",
+        cat: "🌲 Naturaleza",
+        color: "#059669",
+        duration: 75,
+        travel: 10,
+        loc: "Cabezón de la Sal",
+        price: "100% GRATIS",
+        img: "img_cantabria/secuoyas_cantabria.jpg",
+        desc: "Pasarelas llanas de madera ideales para Marco entre 848 secuoyas gigantes de 40m de altura."
+      },
+      ct_cocido_montanes: {
+        id: "ct_cocido_montanes",
+        dest: "cantabria",
+        name: "🥘 Cocido Montañés en Valle del Saja",
+        cat: "🍲 Gastronomía",
+        color: "#D97706",
+        duration: 90,
+        travel: 15,
+        loc: "Valle del Saja",
+        price: "18 € ad · 8 € ni",
+        img: "img_cantabria/cocido_montanes.jpg",
+        desc: "Almuerzo tradicional montañés con chimenea de leña, alubias de Liébana y berza fresca."
+      },
+      ct_altamira: {
+        id: "ct_altamira",
+        dest: "cantabria",
+        name: "🦬 Neocueva y Museo de Altamira",
+        cat: "🏛️ Prehistoria",
+        color: "#0284C7",
+        duration: 90,
+        travel: 15,
+        loc: "Santillana del Mar",
+        price: "3 € ad · Marco GRATIS",
+        img: "img_cantabria/altamira_neocueva.jpg",
+        desc: "Réplica 1:1 de los techos de bisontes policromados con talleres táctiles didácticos infantiles."
+      },
+      ct_santillana: {
+        id: "ct_santillana",
+        dest: "cantabria",
+        name: "🏘️ Villa Medieval de Santillana del Mar",
+        cat: "🏰 Villa Medieval",
+        color: "#7C3AED",
+        duration: 75,
+        travel: 5,
+        loc: "Santillana del Mar",
+        price: "100% GRATIS",
+        img: "img_cantabria/santillana_del_mar.jpg",
+        desc: "Calles empedradas peatonales sin coches y degustación de sobaos pasiegos artesanos calientes."
+      },
+      ct_cartes: {
+        id: "ct_cartes",
+        dest: "cantabria",
+        name: "🎄 Poblado Navideño de Cartes & Árbol 65m",
+        cat: "🎅 Navidad Mágica",
+        color: "#DC2626",
+        duration: 120,
+        travel: 15,
+        loc: "Cartes",
+        price: "100% GRATIS",
+        img: "img_cantabria/cartes_poblado_navideno.jpg",
+        desc: "Camino Real medieval decorado como cuento de hadas, Casa de Papá Noel y el Árbol gigante iluminado."
+      },
+      ct_cabarceno_safari: {
+        id: "ct_cabarceno_safari",
+        dest: "cantabria",
+        name: "🦁 Cabárceno Safari en Volvo XC60",
+        cat: "🦁 Safari Volvo",
+        color: "#059669",
+        duration: 180,
+        travel: 30,
+        loc: "Cabárceno",
+        price: "25 € ad · 15 € ni",
+        img: "img_cantabria/cabarceno_elefantes.jpg",
+        desc: "Ruta en nuestro coche entre elefantes, osos pardos, jirafas y rinocerontes en semilibertad."
+      },
+      ct_teleferico_cabarceno: {
+        id: "ct_teleferico_cabarceno",
+        dest: "cantabria",
+        name: "🚡 Teleférico Panorámico de Cabárceno",
+        cat: "🚡 Vuelo Aéreo",
+        color: "#0D9488",
+        duration: 60,
+        travel: 0,
+        loc: "Cabárceno",
+        price: "Incluido en entrada",
+        img: "img_cantabria/teleferico_cabarceno.jpg",
+        desc: "Cabinas cerradas sobrevolando el gran recinto de osos y el paisaje kárstico de arcilla roja."
+      },
+      ct_leones_marinos: {
+        id: "ct_leones_marinos",
+        dest: "cantabria",
+        name: "🦭 Exhibición de Leones Marinos",
+        cat: "🦭 Zoo Marino",
+        color: "#0284C7",
+        duration: 60,
+        travel: 0,
+        loc: "Cabárceno",
+        price: "Incluido en entrada",
+        img: "img_cantabria/leones_marinos_cabarceno.jpg",
+        desc: "Demostración de destreza y acrobacias marinas con gradas cubiertas especialmente divertidas para Marco."
+      },
+      ct_solares: {
+        id: "ct_solares",
+        dest: "cantabria",
+        name: "♨️ Balneario Castilla Termal Solares 34°C",
+        cat: "♨️ Termalismo Infantil",
+        color: "#7C3AED",
+        duration: 150,
+        travel: 15,
+        loc: "Solares",
+        price: "38 € ad · 32 € ni",
+        img: "img_cantabria/solares_balneario_infantil.jpg",
+        desc: "Piscina termal a 34°C con zona Balnea Infantil con toboganes y chorros de agua caliente."
+      },
+      ct_santander_navidad: {
+        id: "ct_santander_navidad",
+        dest: "cantabria",
+        name: "⛸️ Santander Navideño, Noria & Pista Hielo",
+        cat: "⛸️ Luces Bahía",
+        color: "#DC2626",
+        duration: 150,
+        travel: 20,
+        loc: "Santander Centro",
+        price: "7 € pista hielo",
+        img: "img_cantabria/santander_navidad_bahia.jpg",
+        desc: "Alumbrado de la Plaza Porticada, noria gigante sobre la bahía y churros con chocolate frente al mar."
+      },
+      ct_fuente_de: {
+        id: "ct_fuente_de",
+        dest: "cantabria",
+        name: "🚠 Teleférico Fuente Dé Picos de Europa (1.823m)",
+        cat: "🏔️ Alta Montaña",
+        color: "#0284C7",
+        duration: 180,
+        travel: 75,
+        loc: "Fuente Dé",
+        price: "22 € ad · 7 € ni",
+        img: "img_cantabria/fuente_de_teleferico.jpg",
+        desc: "Subida vertiginosa de 753m en 4 minutos a la nieve de Picos de Europa y mirador volado de cristal."
+      },
+      ct_cocido_lebaniego: {
+        id: "ct_cocido_lebaniego",
+        dest: "cantabria",
+        name: "🍲 Potes & Cocido Lebaniego Tradicional",
+        cat: "🍲 Gastronomía",
+        color: "#D97706",
+        duration: 150,
+        travel: 25,
+        loc: "Potes",
+        price: "22 € ad · 10 € ni",
+        img: "img_cantabria/cocido_lebaniego.jpg",
+        desc: "Garbanzos lebaniegos estofados con compango y cecina en mesón histórico del barrio de la Solana."
+      },
+      ct_soplao: {
+        id: "ct_soplao",
+        dest: "cantabria",
+        name: "🚂 Cueva de El Soplao en Tren Minero",
+        cat: "🚂 Aventura Subterránea",
+        color: "#475569",
+        duration: 90,
+        travel: 50,
+        loc: "Rábago",
+        price: "14.50 € ad · 12 € ni",
+        img: "img_cantabria/soplao_cueva.jpg",
+        desc: "Viaje en tren minero bajo tierra descubriendo la 'Capilla Sixtina' de las estalactitas excéntricas."
+      },
+      ct_magdalena: {
+        id: "ct_magdalena",
+        dest: "cantabria",
+        name: "🐬 Península de La Magdalena (Focas & Carabelas)",
+        cat: "🐬 Fauna Marina",
+        color: "#0D9488",
+        duration: 195,
+        travel: 35,
+        loc: "Santander Bahía",
+        price: "100% GRATIS",
+        img: "img_cantabria/magdalena_animales_marinos.jpg",
+        desc: "Parque marino con focas, leones marinos y pingüinos en roca marina natural + 3 carabelas piratas a escala real."
+      },
+
+      // Granada (12 planes)
+      gr_tapeo_bibrambla: {
+        id: "gr_tapeo_bibrambla",
+        dest: "granada",
+        name: "🍲 Tapeo Tradicional en Plaza Bib-Rambla",
+        cat: "🍲 Gastronomía",
+        color: "#D97706",
+        duration: 90,
+        travel: 10,
+        loc: "Granada Centro",
+        price: "15 € ad · 8 € ni",
+        img: "img_granada/churros_bibrambla.jpg",
+        desc: "Tapas andaluzas de bienvenida y chocolate con churros en la plaza más emblemática."
+      },
+      gr_tiovivo_navidad: {
+        id: "gr_tiovivo_navidad",
+        dest: "granada",
+        name: "🎠 Tiovivo Clásico & Encendido Navideño",
+        cat: "🎅 Navidad Mágica",
+        color: "#DC2626",
+        duration: 60,
+        travel: 10,
+        loc: "Puerta Real",
+        price: "3.50 € tiovivo",
+        img: "img_granada/tiovivo_navideno.jpg",
+        desc: "Tiovivo tradicional de época de dos plantas iluminado para Marco junto a los abetos de Puerta Real."
+      },
+      gr_poblado_salon: {
+        id: "gr_poblado_salon",
+        dest: "granada",
+        name: "⛸️ Poblado Navideño Paseo del Salón & Hielo",
+        cat: "🎅 Navidad Mágica",
+        color: "#DC2626",
+        duration: 120,
+        travel: 10,
+        loc: "Paseo del Salón",
+        price: "6 € pista hielo",
+        img: "img_granada/pista_hielo_salon.jpg",
+        desc: "Cabañas de madera, pista de patinaje sobre hielo natural y noria iluminada sobre el Genil."
+      },
+      gr_alhambra: {
+        id: "gr_alhambra",
+        dest: "granada",
+        name: "👑 La Alhambra & Palacios Nazaríes",
+        cat: "👑 Patrimonio Mundial",
+        color: "#DC2626",
+        duration: 210,
+        travel: 15,
+        loc: "La Alhambra",
+        price: "19.09 € ad · Marco GRATIS",
+        img: "img_granada/alhambra_generalife.jpg",
+        desc: "Visita confirmada oficial a los Palacios Nazaríes, Patio de los Leones y jardines del Generalife."
+      },
+      gr_carmen_martires: {
+        id: "gr_carmen_martires",
+        dest: "granada",
+        name: "🦚 Carmen de los Mártires & Jardines",
+        cat: "🌲 Jardines Históricos",
+        color: "#0D9488",
+        duration: 90,
+        travel: 10,
+        loc: "Colina Alhambra",
+        price: "100% GRATIS",
+        img: "img_granada/carmen_martires.jpg",
+        desc: "Jardines románticos con estanque, patos y pavos reales libres en un oasis de tranquilidad."
+      },
+      gr_albaicin_nicolas: {
+        id: "gr_albaicin_nicolas",
+        dest: "granada",
+        name: "🌅 Mirador de San Nicolás al Atardecer",
+        cat: "🏰 Mirador Mágico",
+        color: "#7C3AED",
+        duration: 120,
+        travel: 20,
+        loc: "Albaicín Alto",
+        price: "100% GRATIS",
+        img: "img_granada/mirador_san_nicolas.jpg",
+        desc: "La puesta de sol más famosa del mundo con la Alhambra tiñéndose de rojo y guitarras en vivo."
+      },
+      gr_sierra_nevada: {
+        id: "gr_sierra_nevada",
+        dest: "granada",
+        name: "❄️ Mirlo Blanco Sierra Nevada (Trineos)",
+        cat: "⛷️ Nieve Familiar",
+        color: "#0284C7",
+        duration: 210,
+        travel: 35,
+        loc: "Pradollano (2.100m)",
+        price: "24 € ad · 18 € ni",
+        img: "img_granada/mirlo_blanco_trineos.jpg",
+        desc: "Pistas seguras de trineos, roscos de nieve y alfombra mecánica para subir sin esfuerzo con Marco."
+      },
+      gr_telecabina: {
+        id: "gr_telecabina",
+        dest: "granada",
+        name: "🚡 Telecabina Al-Ándalus a Borreguiles",
+        cat: "⛷️ Alta Montaña",
+        color: "#0D9488",
+        duration: 90,
+        travel: 0,
+        loc: "Sierra Nevada",
+        price: "20 € ad · 12 € ni",
+        img: "img_granada/telecabina_borreguiles.jpg",
+        desc: "Subida en cabina panorámica a 2.700m con vistas impresionantes a los picos del Veleta y Mulhacén."
+      },
+      gr_teterias: {
+        id: "gr_teterias",
+        dest: "granada",
+        name: "🫖 Teterías Árabes de Calle Calderería",
+        cat: "🍲 Cultura & Dulces",
+        color: "#D97706",
+        duration: 75,
+        travel: 25,
+        loc: "Bajo Albaicín",
+        price: "100% GRATIS paseo",
+        img: "img_granada/teteria_caldereria.jpg",
+        desc: "Ambiente de zoco oriental con té moruno caliente, pastelillos de miel y farolillos de colores."
+      },
+      gr_ciencias_biodomo: {
+        id: "gr_ciencias_biodomo",
+        dest: "granada",
+        name: "🔬 Parque de las Ciencias con Biodomo",
+        cat: "🌿 Ciencia & Selva",
+        color: "#059669",
+        duration: 240,
+        travel: 15,
+        loc: "Granada",
+        price: "11 € ad · 9 € ni",
+        img: "img_granada/parque_ciencias_biodomo.jpg",
+        desc: "Selva tropical viva con perezosos, tucanes y acuario de tiburones, más Sala Explora interactiva infantil."
+      },
+      gr_cahorros: {
+        id: "gr_cahorros",
+        dest: "granada",
+        name: "🌉 Puentes Colgantes de Los Cahorros",
+        cat: "🌲 Aventura Naturaleza",
+        color: "#059669",
+        duration: 120,
+        travel: 20,
+        loc: "Monachil",
+        price: "100% GRATIS",
+        img: "img_granada/cahorros_monachil.jpg",
+        desc: "Paseo llano de cañón fluvial con puentes colgantes de madera que encantan a niños y adultos."
+      },
+      gr_flamenco_sacromonte: {
+        id: "gr_flamenco_sacromonte",
+        dest: "granada",
+        name: "💃 Cuevas de Sacromonte & Almuerzo Andaluz",
+        cat: "🎭 Folclore & Tradición",
+        color: "#7C3AED",
+        duration: 90,
+        travel: 20,
+        loc: "Sacromonte",
+        price: "100% GRATIS paseo",
+        img: "img_granada/carmenes_albaicin.jpg",
+        desc: "Paseo de despedida por las casas-cueva encaladas frente a la colina roja de la Alhambra."
+      }
+    };
+
+    // Configuración base de días y horarios de salida
+    const OUTLOOK_DAYS_CONFIG = {
+      cantabria: {
+        1: { name: "Día 1 · Sábado 5 Dic", dateStr: "2026-12-05", startMins: 11 * 60 + 45, summary: "Llegada desde Alcalá, Secuoyas, Cocido y Cartes" },
+        2: { name: "Día 2 · Domingo 6 Dic", dateStr: "2026-12-06", startMins: 8 * 60 + 45, summary: "Cabárceno Safari, Balneario Solares y Santander" },
+        3: { name: "Día 3 · Lunes 7 Dic", dateStr: "2026-12-07", startMins: 8 * 60 + 30, summary: "Teleférico Fuente Dé, Cocido Lebaniego y El Soplao" },
+        4: { name: "Día 4 · Martes 8 Dic", dateStr: "2026-12-08", startMins: 9 * 60 + 30, summary: "Zoo Marino Magdalena, Carabelas y Retorno" }
+      },
+      granada: {
+        1: { name: "Día 1 · Sábado 5 Dic", dateStr: "2026-12-05", startMins: 12 * 60 + 30, summary: "Llegada desde Alcalá, Tapeo Bib-Rambla, Tiovivo y Poblado Navideño" },
+        2: { name: "Día 2 · Domingo 6 Dic", dateStr: "2026-12-06", startMins: 9 * 60 + 0, summary: "La Alhambra Nazarí, Carmen Mártires y San Nicolás al Atardecer" },
+        3: { name: "Día 3 · Lunes 7 Dic", dateStr: "2026-12-07", startMins: 8 * 60 + 45, summary: "Sierra Nevada Trineos Mirlo Blanco, Telecabina y Teterías" },
+        4: { name: "Día 4 · Martes 8 Dic", dateStr: "2026-12-08", startMins: 9 * 60 + 30, summary: "Parque de las Ciencias con Biodomo, Cahorros y Sacromonte" }
+      }
+    };
+
+    // Estado por defecto de actividades por día
+    const OUTLOOK_DEFAULTS = {
+      cantabria: {
+        1: ['ct_secuoyas', 'ct_cocido_montanes', 'ct_altamira', 'ct_santillana', 'ct_cartes'],
+        2: ['ct_cabarceno_safari', 'ct_teleferico_cabarceno', 'ct_leones_marinos', 'ct_solares', 'ct_santander_navidad'],
+        3: ['ct_fuente_de', 'ct_cocido_lebaniego', 'ct_soplao'],
+        4: ['ct_magdalena']
+      },
+      granada: {
+        1: ['gr_tapeo_bibrambla', 'gr_tiovivo_navidad', 'gr_poblado_salon'],
+        2: ['gr_alhambra', 'gr_carmen_martires', 'gr_albaicin_nicolas'],
+        3: ['gr_sierra_nevada', 'gr_telecabina', 'gr_teterias'],
+        4: ['gr_ciencias_biodomo', 'gr_cahorros', 'gr_flamenco_sacromonte']
+      }
+    };
+
+    window.outlookState = {
+      cantabria: null,
+      granada: null
+    };
+
+    // Funciones auxiliares de formateo de tiempo
+    function formatMinutesToHours(minutes) {
+      const h = Math.floor(minutes / 60);
+      const m = minutes % 60;
+      if (h === 0) return `${m}m`;
+      if (m === 0) return `${h}h`;
+      return `${h}h ${m}m`;
+    }
+
+    function formatMinsToClock(totalMins) {
+      const normalized = Math.max(0, totalMins) % (24 * 60);
+      const h = Math.floor(normalized / 60);
+      const m = normalized % 60;
+      return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')} h`;
+    }
+
+    // Inicialización y carga de estado desde localStorage
+    function loadOutlookState(dest) {
+      try {
+        const saved = localStorage.getItem(`portal_viajes_planner_${dest}`);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed[1] && parsed[2] && parsed[3] && parsed[4]) {
+            return parsed;
+          }
+        }
+      } catch (e) {
+        console.warn("Could not load planner state for", dest, e);
+      }
+      return JSON.parse(JSON.stringify(OUTLOOK_DEFAULTS[dest]));
+    }
+
+    function saveOutlookState(dest) {
+      try {
+        localStorage.setItem(`portal_viajes_planner_${dest}`, JSON.stringify(window.outlookState[dest]));
+      } catch (e) {
+        console.warn("Could not save planner state for", dest, e);
+      }
+    }
+
+    // RENDERIZADO PRINCIPAL DEL CALENDARIO OUTLOOK
+    function renderOutlookPlanner(dest) {
+      if (!window.outlookState[dest]) {
+        window.outlookState[dest] = loadOutlookState(dest);
+      }
+      const grid = document.getElementById(`outlook-grid-${dest}`);
+      if (!grid) return;
+
+      const state = window.outlookState[dest];
+      const daysConf = OUTLOOK_DAYS_CONFIG[dest];
+      let gridHtml = '';
+
+      for (let day = 1; day <= 4; day++) {
+        const conf = daysConf[day];
+        const actIds = state[day] || [];
+        let curMins = conf.startMins;
+        let totalInSitu = 0;
+        let totalTravel = 0;
+
+        let cardsHtml = '';
+        actIds.forEach((actId, index) => {
+          const act = OUTLOOK_ACTIVITIES[actId];
+          if (!act) return;
+
+          totalInSitu += act.duration;
+          totalTravel += act.travel;
+
+          const startAct = curMins + act.travel;
+          const endAct = startAct + act.duration;
+          curMins = endAct + 15; // 15 min de margen / aparcamiento
+
+          const timeBadgeText = `${formatMinsToClock(startAct)} - ${formatMinsToClock(endAct)}`;
+          const totalDuration = act.duration + act.travel;
+
+          cardsHtml += `
+            <div class="outlook-event-card" 
+                 id="card-${dest}-${act.id}"
+                 data-act-id="${act.id}"
+                 data-day="${day}"
+                 data-index="${index}"
+                 draggable="true"
+                 ondragstart="handleOutlookDragStart(event, '${dest}', '${act.id}', ${day})"
+                 ondragend="handleOutlookDragEnd(event)"
+                 ondragover="handleOutlookDragOver(event)"
+                 ondrop="handleOutlookDrop(event, '${dest}', ${day}, '${act.id}')"
+                 style="border-left-color: ${act.color};">
+              
+              <div class="ev-top-row">
+                <span class="ev-time-badge">🕒 ${timeBadgeText}</span>
+                <div style="display:flex; gap:6px; align-items:center;">
+                  <span class="ev-cat-badge" style="background:${act.color};">${act.cat}</span>
+                  <span class="ev-price-badge">${act.price}</span>
+                </div>
+              </div>
+
+              <div class="ev-card-content">
+                <div class="ev-card-text">
+                  <h4 class="ev-title">${act.name}</h4>
+                  
+                  <div class="ev-metrics-row">
+                    <span class="ev-metric-pill ev-pill-insitu" title="Tiempo que se tarda en hacerlo">
+                      ⏱️ In situ: ${formatMinutesToHours(act.duration)}
+                    </span>
+                    <span class="ev-metric-pill ev-pill-travel" title="Tiempo que se tarda en ir en el Volvo XC60">
+                      🚗 Trayecto: ${act.travel}m
+                    </span>
+                    <span class="ev-metric-pill ev-pill-total" title="Duración total estimada del bloque">
+                      ⏳ Total: ${formatMinutesToHours(totalDuration)}
+                    </span>
+                  </div>
+
+                  <p class="ev-desc">${act.desc}</p>
+                  <div class="ev-loc-row">📍 <strong>${act.loc}</strong></div>
+                </div>
+
+                <div class="ev-card-thumb" onclick="openPhotoLightbox('${act.img}', '${act.name}')" title="Pulsar para ampliar foto">
+                  <img src="${act.img}" alt="${act.name}" loading="lazy">
+                  <span class="ev-thumb-zoom">🔍</span>
+                </div>
+              </div>
+
+              <!-- Barra de controles táctiles para móvil -->
+              <div class="ev-mobile-move-bar">
+                <span class="ev-move-lbl">Mover:</span>
+                <button type="button" class="btn-ev-move" onclick="moveOutlookActTime('${dest}', '${act.id}', -1)" title="Subir / adelantar horario">▲ Subir hora</button>
+                <button type="button" class="btn-ev-move" onclick="moveOutlookActTime('${dest}', '${act.id}', 1)" title="Bajar / retrasar horario">▼ Bajar hora</button>
+                <span class="ev-move-lbl" style="margin-left:auto;">A Día:</span>
+                <button type="button" class="btn-ev-day ${day===1?'curr-day':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 1)">D1</button>
+                <button type="button" class="btn-ev-day ${day===2?'curr-day':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 2)">D2</button>
+                <button type="button" class="btn-ev-day ${day===3?'curr-day':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 3)">D3</button>
+                <button type="button" class="btn-ev-day ${day===4?'curr-day':''}" onclick="moveOutlookActToDay('${dest}', '${act.id}', 4)">D4</button>
+              </div>
+            </div>
+          `;
+        });
+
+        const totalActiveMinutes = totalInSitu + totalTravel;
+        const pacingBadge = totalActiveMinutes <= 430
+          ? '<span class="day-pacing-badge pacing-optimal">✅ Ritmo Ideal Marco (4a)</span>'
+          : '<span class="day-pacing-badge pacing-heavy">⚠️ Día Intenso (Madrugar)</span>';
+
+        const finishTimeStr = actIds.length > 0 ? formatMinsToClock(curMins - 15) : formatMinsToClock(conf.startMins);
+
+        gridHtml += `
+          <div class="outlook-day-col" id="col-${dest}-day-${day}">
+            <div class="outlook-day-header">
+              <div class="outlook-day-title">${conf.name}</div>
+              <div class="outlook-day-summary">${conf.summary}</div>
+              
+              <div class="outlook-day-kpis">
+                <span class="day-kpi-pill">🎯 ${actIds.length} planes</span>
+                <span class="day-kpi-pill">⏱️ ${formatMinutesToHours(totalInSitu)}</span>
+                <span class="day-kpi-pill">🚗 ${totalTravel}m Volvo</span>
+                <span class="day-kpi-pill">🏁 Final: ~${finishTimeStr}</span>
+              </div>
+              <div style="margin-top: 6px;">${pacingBadge}</div>
+            </div>
+
+            <div class="outlook-day-dropzone" 
+                 id="dropzone-${dest}-${day}"
+                 data-dest="${dest}"
+                 data-day="${day}"
+                 ondragover="handleOutlookDragOver(event)"
+                 ondragleave="handleOutlookDragLeave(event)"
+                 ondrop="handleOutlookDrop(event, '${dest}', ${day}, null)">
+              ${cardsHtml || '<div class="ev-empty-slot">Arrastra actividades aquí para asignarlas a este día</div>'}
+            </div>
+          </div>
+        `;
+      }
+
+      grid.innerHTML = gridHtml;
+    }
+
+    // MANEJO DE DRAG & DROP (HTML5 ESCRITORIO)
+    let outlookDragData = null;
+
+    function handleOutlookDragStart(event, dest, actId, fromDay) {
+      outlookDragData = { dest, actId, fromDay };
+      if (event.dataTransfer) {
+        event.dataTransfer.setData('text/plain', JSON.stringify(outlookDragData));
+        event.dataTransfer.effectAllowed = 'move';
+      }
+      const card = event.target.closest('.outlook-event-card');
+      if (card) card.classList.add('is-dragging');
+    }
+
+    function handleOutlookDragOver(event) {
+      event.preventDefault();
+      if (event.dataTransfer) event.dataTransfer.dropEffect = 'move';
+      const targetCard = event.target.closest('.outlook-event-card');
+      const dropzone = event.target.closest('.outlook-day-dropzone');
+      if (targetCard) {
+        targetCard.classList.add('drag-hover');
+      } else if (dropzone) {
+        dropzone.classList.add('dropzone-active');
+      }
+    }
+
+    function handleOutlookDragLeave(event) {
+      const targetCard = event.target.closest('.outlook-event-card');
+      const dropzone = event.target.closest('.outlook-day-dropzone');
+      if (targetCard) targetCard.classList.remove('drag-hover');
+      if (dropzone) dropzone.classList.remove('dropzone-active');
+    }
+
+    function handleOutlookDrop(event, dest, targetDay, targetActId) {
+      event.preventDefault();
+      event.stopPropagation();
+      document.querySelectorAll('.drag-hover').forEach(el => el.classList.remove('drag-hover'));
+      document.querySelectorAll('.dropzone-active').forEach(el => el.classList.remove('dropzone-active'));
+      document.querySelectorAll('.is-dragging').forEach(el => el.classList.remove('is-dragging'));
+
+      let data = outlookDragData;
+      if (!data && event.dataTransfer) {
+        try {
+          data = JSON.parse(event.dataTransfer.getData('text/plain'));
+        } catch(e) {}
+      }
+      if (!data || data.dest !== dest) return;
+
+      const actId = data.actId;
+      const fromDay = parseInt(data.fromDay, 10);
+      targetDay = parseInt(targetDay, 10);
+      const state = window.outlookState[dest];
+      if (!state) return;
+
+      // Retirar de la lista origen
+      const fromList = state[fromDay];
+      const fromIdx = fromList.indexOf(actId);
+      if (fromIdx !== -1) {
+        fromList.splice(fromIdx, 1);
+      }
+
+      // Insertar en la lista destino
+      const toList = state[targetDay];
+      if (targetActId && targetActId !== actId) {
+        const toIdx = toList.indexOf(targetActId);
+        if (toIdx !== -1) {
+          toList.splice(toIdx, 0, actId);
+        } else {
+          toList.push(actId);
+        }
+      } else {
+        toList.push(actId);
+      }
+
+      saveOutlookState(dest);
+      renderOutlookPlanner(dest);
+      outlookDragData = null;
+    }
+
+    function handleOutlookDragEnd(event) {
+      document.querySelectorAll('.drag-hover').forEach(el => el.classList.remove('drag-hover'));
+      document.querySelectorAll('.dropzone-active').forEach(el => el.classList.remove('dropzone-active'));
+      document.querySelectorAll('.is-dragging').forEach(el => el.classList.remove('is-dragging'));
+      outlookDragData = null;
+    }
+
+    // CONTROLES DE MOVIMIENTO PARA MÓVIL Y TECLADO
+    function moveOutlookActTime(dest, actId, dir) {
+      const state = window.outlookState[dest];
+      if (!state) return;
+
+      for (let day = 1; day <= 4; day++) {
+        const list = state[day];
+        const idx = list.indexOf(actId);
+        if (idx !== -1) {
+          const newIdx = idx + dir;
+          if (newIdx >= 0 && newIdx < list.length) {
+            const temp = list[idx];
+            list[idx] = list[newIdx];
+            list[newIdx] = temp;
+            saveOutlookState(dest);
+            renderOutlookPlanner(dest);
+          }
+          return;
+        }
+      }
+    }
+
+    function moveOutlookActToDay(dest, actId, targetDay) {
+      const state = window.outlookState[dest];
+      if (!state) return;
+      targetDay = parseInt(targetDay, 10);
+
+      for (let day = 1; day <= 4; day++) {
+        const list = state[day];
+        const idx = list.indexOf(actId);
+        if (idx !== -1) {
+          if (day === targetDay) return; // ya está en ese día
+          list.splice(idx, 1);
+          state[targetDay].push(actId);
+          saveOutlookState(dest);
+          renderOutlookPlanner(dest);
+          return;
+        }
+      }
+    }
+
+    function resetOutlookSchedule(dest) {
+      if (confirm('¿Restablecer el itinerario recomendado original para ' + (dest==='cantabria'?'Cantabria':'Granada') + '?')) {
+        window.outlookState[dest] = JSON.parse(JSON.stringify(OUTLOOK_DEFAULTS[dest]));
+        saveOutlookState(dest);
+        renderOutlookPlanner(dest);
+      }
+    }
+
+    // PESTAÑAS MÓVILES PARA VER DÍAS
+    function switchOutlookMobileDay(dest, dayNum, btnEl) {
+      const parent = document.getElementById(`mobile-tabs-${dest}`);
+      if (parent) {
+        parent.querySelectorAll('.btn-mobile-day-tab').forEach(b => b.classList.remove('active'));
+      }
+      if (btnEl) btnEl.classList.add('active');
+
+      const grid = document.getElementById(`outlook-grid-${dest}`);
+      if (!grid) return;
+
+      const cols = grid.querySelectorAll('.outlook-day-col');
+      if (dayNum === 'all') {
+        cols.forEach(col => col.style.display = 'flex');
+      } else {
+        const targetId = `col-${dest}-day-${dayNum}`;
+        cols.forEach(col => {
+          col.style.display = col.id === targetId ? 'flex' : 'none';
+        });
+      }
+    }
+
+    // SELECTOR DE VISTAS (CALENDARIO OUTLOOK vs GUÍA CRONOLÓGICA)
+    function setItineraryView(dest, view) {
+      const planner = document.getElementById(`outlook-planner-${dest}`);
+      const timeline = document.getElementById(`timeline-${dest}`);
+      const btnCal = document.getElementById(`btn-view-cal-${dest}`);
+      const btnTl = document.getElementById(`btn-view-tl-${dest}`);
+
+      if (view === 'calendar') {
+        if (planner) planner.style.display = 'block';
+        if (timeline) timeline.style.display = 'none';
+        if (btnCal) btnCal.classList.add('active');
+        if (btnTl) btnTl.classList.remove('active');
+      } else {
+        if (planner) planner.style.display = 'none';
+        if (timeline) timeline.style.display = 'block';
+        if (btnCal) btnCal.classList.remove('active');
+        if (btnTl) btnTl.classList.add('active');
+      }
+    }
+
+    // EXPORTACIÓN A CALENDARIO OUTLOOK / APPLE (.ICS)
+    function exportToICalendar(dest) {
+      const state = window.outlookState[dest] || OUTLOOK_DEFAULTS[dest];
+      const daysConf = OUTLOOK_DAYS_CONFIG[dest];
+      const tripName = dest === 'cantabria' ? 'Cantabria Navidad 2026' : 'Granada Navidad 2026';
+
+      let icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Portal Viajes Familiares//Outlook Planner 2026//ES',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        `X-WR-CALNAME:Itinerario Familiar ${tripName}`,
+        'X-WR-TIMEZONE:Europe/Madrid'
+      ];
+
+      for (let day = 1; day <= 4; day++) {
+        const conf = daysConf[day];
+        const dateStrClean = conf.dateStr.replace(/-/g, '');
+        const actIds = state[day] || [];
+        let curMins = conf.startMins;
+
+        actIds.forEach((actId, idx) => {
+          const act = OUTLOOK_ACTIVITIES[actId];
+          if (!act) return;
+
+          const startAct = curMins + act.travel;
+          const endAct = startAct + act.duration;
+          curMins = endAct + 15;
+
+          const formatIcsTime = (mins) => {
+            const h = String(Math.floor(mins / 60)).padStart(2, '0');
+            const m = String(mins % 60).padStart(2, '0');
+            return `${h}${m}00`;
+          };
+
+          const dtStart = `${dateStrClean}T${formatIcsTime(startAct)}`;
+          const dtEnd = `${dateStrClean}T${formatIcsTime(endAct)}`;
+          const nowStr = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+          const uid = `${dest}_${act.id}_${dateStrClean}_${idx}@portalviajes`;
+
+          icsContent.push('BEGIN:VEVENT');
+          icsContent.push(`UID:${uid}`);
+          icsContent.push(`DTSTAMP:${nowStr}`);
+          icsContent.push(`DTSTART:${dtStart}`);
+          icsContent.push(`DTEND:${dtEnd}`);
+          icsContent.push(`SUMMARY:${act.name}`);
+          icsContent.push(`LOCATION:${act.loc}`);
+          icsContent.push(`DESCRIPTION:⏱️ In situ: ${formatMinutesToHours(act.duration)} | 🚗 Trayecto Volvo: ${act.travel}m | 💰 Precio: ${act.price}\\n${act.desc}`);
+          icsContent.push('STATUS:CONFIRMED');
+          icsContent.push('END:VEVENT');
+        });
+      }
+
+      icsContent.push('END:VCALENDAR');
+      const icsString = icsContent.join('\r\n');
+
+      const blob = new Blob([icsString], { type: 'text/calendar;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', `Itinerario_${dest==='cantabria'?'Cantabria':'Granada'}_Navidad_2026.ics`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Inicializar planificadores al cargar
+    document.addEventListener('DOMContentLoaded', function() {
+      try {
+        renderOutlookPlanner('cantabria');
+        renderOutlookPlanner('granada');
+      } catch (e) {
+        console.error("Error initializing Outlook planners:", e);
+      }
+    });
 
 </script>
   <!-- BOTÓN FLOTANTE ASISTENTE BRÚJULA AI (ACCESIBLE EN ESCRITORIO) -->

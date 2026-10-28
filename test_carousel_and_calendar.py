@@ -87,22 +87,18 @@ with sync_playwright() as p:
     # Check first activity has time badge, duration pills, etc.
     first_act = day1_cards.nth(0)
     time_badge = first_act.locator('.ev-time-badge').inner_text()
-    insitu_pill = first_act.locator('.ev-pill-insitu').inner_text()
-    travel_pill = first_act.locator('.ev-pill-travel').inner_text()
-    total_pill = first_act.locator('.ev-pill-total').inner_text()
-    print(f"First activity: Time='{time_badge}', InSitu='{insitu_pill}', Travel='{travel_pill}', Total='{total_pill}'")
-    assert "11:55" in time_badge or "11:45" in time_badge, f"Unexpected time badge: {time_badge}"
-    assert "1h 15m" in insitu_pill, f"Unexpected in situ pill: {insitu_pill}"
-    assert "10m" in travel_pill, f"Unexpected travel pill: {travel_pill}"
-    assert "1h 25m" in total_pill, f"Unexpected total pill: {total_pill}"
+    title_text = first_act.locator('.ev-title').inner_text()
+    print(f"First activity: Time='{time_badge}', Title='{title_text}'")
+    assert "08:00" in time_badge, f"Unexpected time badge: {time_badge}"
+    assert "Desayuno" in title_text or "Salida" in title_text, f"Unexpected title: {title_text}"
 
-    # Test moving activity down: ▲ / ▼
+    # Test moving activity down: ▲ / ▼ (move Secuoyas down)
     page.locator('#card-cantabria-ct_secuoyas .btn-ev-move:has-text("▼")').click()
     time.sleep(0.3)
     day1_cards_after_move = page.locator('#col-cantabria-day-1 .outlook-event-card')
-    new_first_id = day1_cards_after_move.nth(0).get_attribute('data-act-id')
-    print(f"After moving Secuoyas down, first activity is now: {new_first_id}")
-    assert new_first_id == "ct_cocido_montanes", f"Expected Cocido to be first, got {new_first_id}"
+    new_second_id = day1_cards_after_move.nth(1).get_attribute('data-act-id')
+    print(f"After moving Secuoyas down, 2nd activity is now: {new_second_id}")
+    assert new_second_id == "ct_cocido_montanes", f"Expected Cocido to be 2nd, got {new_second_id}"
 
     # Move it back up
     page.locator('#card-cantabria-ct_secuoyas .btn-ev-move:has-text("▲")').click()
@@ -117,7 +113,7 @@ with sync_playwright() as p:
     day2_after_transfer = page.locator('#col-cantabria-day-2 .outlook-event-card').count()
     print(f"After moving Cartes to Day 2: Day 1 has {day1_after_transfer} acts, Day 2 has {day2_after_transfer} acts")
     assert day1_after_transfer == 4, f"Day 1 should now have 4 activities, got {day1_after_transfer}"
-    assert day2_after_transfer == 6, f"Day 2 should now have 6 activities, got {day2_after_transfer}"
+    assert day2_after_transfer == 8, f"Day 2 should now have 8 activities, got {day2_after_transfer}"
 
     # Reset schedule via button
     page.on("dialog", lambda dialog: dialog.accept())

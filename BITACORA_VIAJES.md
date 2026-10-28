@@ -50,6 +50,30 @@
 
 ```
 ========================================================================================
+TIMESTAMP: 2026-10-28 07:45:00 CEST
+AUTOR: Antigravity Travel Agent
+ACCIÓN: REORGANIZACION_LOGICA_ITINERARIO_SANTANDER_Y_BLOQUES_COMIDA_COMPLETO
+OBJETIVO: Atender la directiva de Adrián Navarro:
+  «Mírate el orden que pusiste las actividades de Santander, no tiene ninguna lógica, y tiene que haber siempre pausas para desayunar, comer, cenar».
+DIAGNÓSTICO Y CORRECCIÓN LOGÍSTICA:
+  1. Incoherencia Geográfica Previa:
+     - Santander capital estaba partida arbitrariamente entre el Día 2 (bahía y mercadillo nocturno tras Cabárceno y Solares) y el Día 4 (Península de La Magdalena), forzando doble trayecto y agotamiento.
+     - Día 1 saturaba actividades sin margen para cenar ni reposar tras 4h de viaje en el Volvo XC60.
+  2. Ausencia de Pausas de Comidas:
+     - Las actividades se encadenaban con solo 15 min de traslado sin pausas de Desayuno, Almuerzo/Comida ni Cena.
+  3. Solución Estructurada Implementada:
+     - DÍA 1 (Valle del Saja & Magia Navideña): Salida en Volvo XC60 -> Secuoyas Gigantes de Monte Corona -> Comida típica (Cocido Montañés en cazuela humeante) -> Check-in casona rural con chimenea -> Poblado Navideño de Cartes iluminado (Casa de Papá Noel para Marco) -> Cena familiar.
+     - DÍA 2 (Safari & Termalismo): Desayuno montañés con sobaos -> Cabárceno Safari + Teleférico panorámico -> Comida tradicional cántabra en Solares -> Balneario de Solares a 34°C con piscina infantil termal para Marco -> Liérganes histórico (merienda chocolate y churros) -> Cena de picoteo con quesucos.
+     - DÍA 3 (Alta Montaña Picos & Subterráneo): Desayuno -> Desfiladero de La Hermida y Teleférico Fuente Dé (1.823m con nieve) -> Comida de gala (Cocido Lebaniego en Potes) -> Cueva de El Soplao en tren subterráneo -> Santillana del Mar medieval iluminada -> Cena montañesa en casona.
+     - DÍA 4 (Santander Capital Integral & Retorno): Desayuno & check-out -> Península de La Magdalena (pingüinos, focas, leones marinos y carabelas piratas 100% gratis) -> Comida marinera de rabas en Puerto Chico/Bahía -> Santander Navideño (Noria gigante panorámica y Plaza Porticada) -> Retorno fluido en Volvo XC60 a Alcalá de Henares -> Cena en casa.
+     - Granada: Añadidos también bloques estructurados de Desayuno, Almuerzo/Comida y Cena para los 4 días.
+     - Versión del planificador actualizada a OUTLOOK_PLANNER_VERSION = "2026-10-28_v2_comidas_logicas" para refresco inmediato en navegador.
+VERIFICACIÓN:
+  - Playwright test suite pasando al 100% con 0 errores de consola en desktop y móvil.
+  - Recompilado PORTAL_VIAJES_FAMILIARES_WHATSAPP.html (104.95 MB, 173 imágenes base64 embebidas) en Desktop, OneDrive y Brain.
+========================================================================================
+
+========================================================================================
 TIMESTAMP: 2026-10-27 22:30:00 CEST
 AUTOR: Antigravity Travel Agent
 ACCIÓN: ORGANIZADOR_OUTLOOK_MODERNO_SIN_FOTOS_Y_ARRASTRE_TACTIL_CON_LA_MANO

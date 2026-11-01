@@ -1943,3 +1943,29 @@ DETALLE DE LAS MEJORAS APLICADAS:
     - Recompilación offline completa de 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (104.95 MB, 173 imágenes incrustadas en Base64) en Desktop, OneDrive y Artifacts.
     - Auto-despliegue en producción en Render tras push a GitHub main.
 ========================================================================================
+
+========================================================================================
+FECHA: 2026-11-01 21:35 | RESPONSABLE: BRÚJULA (Antigravity Travel Agent)
+OBJETIVO: Integración en la App de Regla de Reserva Inteligente (Marco Colecho: 4 vs 2 adultos) y Catálogo de Alternativas a Fuente Dé para el Día 2.
+ESTADO: COMPLETADO, VERIFICADO CON PLAYWRIGHT (DESKTOP & MÓVIL), RECOMPILADO OFFLINE Y DESPLEGADO.
+
+DETALLE DE LAS MEJORAS APLICADAS:
+ 1. CONSEJO DE RESERVA INTELIGENTE EN EL MÓDULO DE ALOJAMIENTOS (INDEX.HTML):
+    - Se ha incorporado en la cabecera del carrusel de alojamientos un banner informativo destacado:
+      * Al dormir Marco (4 años) en la cama de matrimonio compartida con los padres (colecho), no es necesario pagar por camas supletorias ni filtrar por chalets sobredimensionados de 3-4 dormitorios.
+      * Si viaja el grupo de 5 (4 adultos + Marco): buscar para 4 adultos (2 dormitorios dobles), ahorrando entre 80 € y 150 € respecto a casas de 3-4 habs.
+      * Si viaja el núcleo familiar de 3 (2 adultos + Marco): buscar para 2 adultos (1 dormitorio / apartamento de 1 hab), ahorrando más de 120 €.
+      * Nota de registro formal para Booking: cómo añadir en observaciones el registro del menor a coste 0 €.
+
+ 2. CATÁLOGO DE ALTERNATIVAS A FUENTE DÉ EN EL TIMELINE (DÍA 2 CANTABRIA):
+    - Se ha añadido una caja estructurada de contingencia y alternativas en el Día 2 para casos de viento/cierre del teleférico, niebla o preferencia por evitar alta montaña y curvas de desfiladero:
+      * Alternativa 1 (Costa y Fantasía de Gaudí · A solo 12 min sin curvas): Comillas & El Capricho de Gaudí (castillo de cuento con girasoles de cerámica, cueva y torre musical) + Palacio de Sobrellano + comida marinera en San Vicente de la Barquera frente a las marismas de Oyambre.
+      * Alternativa 2 (Prehistoria 100% Techada y Climatizada · A solo 14 min): Museo y Neocueva de Altamira en Santillana del Mar (réplica 1:1 de los bisontes con talleres infantiles y cine 3D a 18°C constantes, ideal con lluvia o frío).
+      * Alternativa 3 (Pueblo Rústico de Cuento & Bosque · A 25 min): Bárcena Mayor & Parque Natural Saja-Besaya (pueblo peatonal de piedra y madera, puente sobre el río Argoza, vacas tudancas y cocido montañés de caserío sin curvas pronunciadas).
+    - Incorporadas en 'OUTLOOK_ACTIVITIES' de Cantabria las actividades alternativas: 'ct_gaudi_comillas' y 'ct_altamira' para su uso dinámico en el planificador.
+
+ 3. VERIFICACIÓN Y COMPILACIÓN OFFLINE:
+    - Test Playwright automatizado ('test_carousel_and_calendar.py') superado al 100% con 0 errores de consola en Desktop (1280x900) y Móvil (iPhone 14).
+    - Recompilación exitosa de 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (104.95 MB, 173 imágenes incrustadas en Base64) en Desktop, OneDrive y Artifacts.
+    - Sincronización y commit a GitHub main para auto-despliegue en Render.
+========================================================================================

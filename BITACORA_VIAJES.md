@@ -1969,3 +1969,33 @@ DETALLE DE LAS MEJORAS APLICADAS:
     - Recompilación exitosa de 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (104.95 MB, 173 imágenes incrustadas en Base64) en Desktop, OneDrive y Artifacts.
     - Sincronización y commit a GitHub main para auto-despliegue en Render.
 ========================================================================================
+
+## [01/11/2026 22:45] AUDITORÍA DE MERCADO Y FIJACIÓN DE ALOJAMIENTOS CON TARIFAS REALES EN VIVO (CANTABRIA, GRANADA, SAN SEBASTIÁN)
+- **Directiva de Adrián Navarro**:
+  *«todos, fijalos con sus fotos y enlaces. ya de paso, quiero que todos los viajes que tenemos progrmados, sea asi, que revises los precios reales, no estimaciones»*.
+- **Acciones y Resultados**:
+  1. **Cantabria (Liérganes & Solares · 5–8 Dic 2026)**:
+     - 6 alojamientos verificados en vivo en Booking.com con fotos de alta resolución descargadas y enlaces directos:
+       * **Hostería La Moraleja (Solares · 4 min de Liérganes)**: 225 € (2 ad + Marco) / 480 € (4 ad + Marco) · Nota 9,0 · Parking gratis.
+       * **Posada Giraldilla (Liérganes Casco Histórico)**: 285 € (2 ad) / 615 € (4 ad) · Nota 9,0 · En el corazón monumental.
+       * **La Calleja Real (Liérganes)**: 276 € (2 ad) / 449 € (4 ad) · Nota 8,3 · Casona montañesa.
+       * **Apartamentos Turísticos Los Picos (Liérganes)**: 304 € (2 ad) / 427 € (4 ad) · Nota 8,7 · Cocina completa.
+       * **Hotel Casona El Arral (Liérganes)**: 370 € (2 ad) / 739 € (4 ad) · Nota 9,2 · Casona de piedra con jardín.
+       * **Apartamentos La Casa de los Ríos (Liérganes)**: 495 € (2 ad) / 990 € (4 ad) · Nota 9,3 · (Coincide al 100% con la captura real aportada por Adrián).
+  2. **Granada (5–8 Dic 2026 · Puente de la Constitución)**:
+     - Scrapeado en vivo y actualizadas tarjetas con fotos reales de Booking y enlaces directos:
+       * **Barceló Granada Congress 5★**: 382 € (2 ad) / 764 € (4 ad) · Nota 8,9 Fabuloso · Garaje propio y acceso sin multas ZBE.
+       * **Eurostars San Antón 4★**: 509 € (2 ad) / 950 € (4 ad) · Nota 9,3 Fantástico · En plena calle comercial peatonal llana.
+       * **Senator Granada Spa Hotel 4★**: 479 € (2 ad) / 920 € (4 ad) · Nota 8,4 Muy bien · Spa urbano Acquaplaya.
+       * **Genteel Home San Antón (Apto 2 Dorms)**: 450 € (2 ad) / 642 € (4 ad) · Nota 8,4 · Excelente para 4 adultos + Marco (160 €/pareja).
+       * **Hospedería Puerta los Cahorros (Monachil · Sierra Nevada)**: 247 € (2 ad) / 494 € (4 ad) · Nota 9,0 · Máximo ahorro y parking gratis en la base de la nieve.
+       * **ADANAR Muralla Zirí Centro Premium**: 717 € (2 ad) / 755 € (4 ad) · Nota 8,8 · Monumental.
+  3. **San Sebastián & Costa Vasca (5–8 Dic 2026)**:
+     - Actualizadas tarjetas con tarifas reales de Booking, enlaces directos y fotos:
+       * **Casa Rural Maidanea (Hondarribia en plena naturaleza)**: 315 € (2 ad) / 630 € (4 ad) · Nota 9,1 · Caserío con pradera y parking gratis.
+       * **Hotel & Apartamentos Jauregui (Hondarribia Marina)**: 375 € (2 ad) / 579 € (4 ad) · Nota 8,7 · Barrio de pescadores y pintxos.
+       * **Barceló Costa Vasca 4★ (Ondarreta)**: 437 € (2 ad) / 874 € (4 ad) · Nota 8,3 · Bahía de La Concha.
+       * **Villa Eugenia Boutique Hotel (Gros)**: 494 € (2 ad) / 889 € (4 ad) · Nota 9,1 · Villa señorial con encanto.
+  4. **Verificación y Despliegue**:
+     - Suite Playwright (Cantabria, Granada, San Sebastián): 100% aprobada sin ningún error de consola.
+     - Standalone compilado en Desktop, OneDrive y Brain.

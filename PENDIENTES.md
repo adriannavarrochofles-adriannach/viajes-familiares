@@ -1,3 +1,3 @@
 # PENDIENTES - PORTAL DE VIAJES FAMILIARES
 
-*(Sin tareas pendientes activas. Todo el sistema verificado 100%, sincronizado y en producción).*
+*(Sin tareas pendientes activas. Todo el catálogo de viajes auditado con precios reales en vivo y desplegado).* 

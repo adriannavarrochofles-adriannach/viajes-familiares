@@ -3,10 +3,12 @@ from playwright.sync_api import sync_playwright
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-print("Starting Playwright verification of Hotel Carousel and Outlook Calendar...")
+print("Starting Playwright verification of Hotel Carousel and Outlook Calendar (Cabarceno Day 4)...")
 
 INDEX_PATH = os.path.abspath("index.html")
 FILE_URL = f"file:///{INDEX_PATH.replace(os.sep, '/')}"
+
+ARTIFACTS_DIR = r"C:\Users\ANAVARRO\.gemini\antigravity\brain\520f1cd2-1b21-4165-8006-9960d094228a"
 
 with sync_playwright() as p:
     browser = p.chromium.launch(headless=True)
@@ -79,40 +81,51 @@ with sync_playwright() as p:
     assert cols.count() == 4, f"Expected 4 day columns, got {cols.count()}"
     print(f"Found {cols.count()} day columns in Outlook planner")
 
-    # Check Day 1 activities count and headers
+    # Check Day 1 activities count (6 activities: salida, secuoyas, cocido montanes, casona, cartes, cena)
     day1_cards = page.locator('#col-cantabria-day-1 .outlook-event-card')
     print(f"Day 1 initial activities: {day1_cards.count()}")
-    assert day1_cards.count() == 8, f"Expected 8 activities on Day 1, got {day1_cards.count()}"
+    assert day1_cards.count() == 6, f"Expected 6 activities on Day 1, got {day1_cards.count()}"
 
-    # Check first activity has time badge, duration pills, etc.
+    # Check Day 4 activities count (5 activities: desayuno, cabarceno safari, teleferico, almuerzo, retorno quer)
+    day4_cards = page.locator('#col-cantabria-day-4 .outlook-event-card')
+    print(f"Day 4 initial activities: {day4_cards.count()}")
+    assert day4_cards.count() == 5, f"Expected 5 activities on Day 4, got {day4_cards.count()}"
+
+    # Check first activity on Day 1 has time badge 07:45, title with Quer/Salida
     first_act = day1_cards.nth(0)
     time_badge = first_act.locator('.ev-time-badge').inner_text()
     title_text = first_act.locator('.ev-title').inner_text()
-    print(f"First activity: Time='{time_badge}', Title='{title_text}'")
-    assert "05:15" in time_badge, f"Unexpected time badge: {time_badge}"
+    print(f"First activity Day 1: Time='{time_badge}', Title='{title_text}'")
+    assert "07:45" in time_badge, f"Unexpected time badge: {time_badge}"
     assert "Quer" in title_text or "Salida" in title_text, f"Unexpected title: {title_text}"
 
-    # Test moving activity down: ▲ / ▼ (move Cabárceno down)
-    page.locator('#card-cantabria-ct_cabarceno_safari .btn-ev-move:has-text("▼")').click()
+    # Check Day 4 has Cabarceno at 09:30
+    cabarceno_act = page.locator('#card-cantabria-ct_cabarceno_safari')
+    cab_time = cabarceno_act.locator('.ev-time-badge').inner_text()
+    print(f"Cabárceno Day 4 Time='{cab_time}'")
+    assert "09:30" in cab_time, f"Cabarceno should be at 09:30 h, got {cab_time}"
+
+    # Test moving activity down: ▲ / ▼ (move Secuoyas down on Day 1)
+    page.locator('#card-cantabria-ct_secuoyas .btn-ev-move:has-text("▼")').click()
     time.sleep(0.3)
     day1_cards_after_move = page.locator('#col-cantabria-day-1 .outlook-event-card')
     new_third_id = day1_cards_after_move.nth(2).get_attribute('data-act-id')
-    print(f"After moving Cabarceno down, 3rd activity is now: {new_third_id}")
-    assert new_third_id == "ct_teleferico_cabarceno", f"Expected Teleférico to be 3rd, got {new_third_id}"
+    print(f"After moving Secuoyas down, 3rd activity is now: {new_third_id}")
+    assert new_third_id == "ct_secuoyas", f"Expected Secuoyas to be 3rd, got {new_third_id}"
 
     # Move it back up
-    page.locator('#card-cantabria-ct_cabarceno_safari .btn-ev-move:has-text("▲")').click()
+    page.locator('#card-cantabria-ct_secuoyas .btn-ev-move:has-text("▲")').click()
     time.sleep(0.3)
 
-    # Test moving an activity to another day (e.g. Move Balneario to Day 2)
+    # Test moving an activity to another day (e.g. Move Balneario from Day 3 to Day 2)
     solares_d2_btn = page.locator('#card-cantabria-ct_solares .btn-ev-day:has-text("D2")')
     solares_d2_btn.click()
     time.sleep(0.3)
 
-    day1_after_transfer = page.locator('#col-cantabria-day-1 .outlook-event-card').count()
+    day3_after_transfer = page.locator('#col-cantabria-day-3 .outlook-event-card').count()
     day2_after_transfer = page.locator('#col-cantabria-day-2 .outlook-event-card').count()
-    print(f"After moving Balneario to Day 2: Day 1 has {day1_after_transfer} acts, Day 2 has {day2_after_transfer} acts")
-    assert day1_after_transfer == 7, f"Day 1 should now have 7 activities, got {day1_after_transfer}"
+    print(f"After moving Balneario to Day 2: Day 3 has {day3_after_transfer} acts, Day 2 has {day2_after_transfer} acts")
+    assert day3_after_transfer == 6, f"Day 3 should now have 6 activities, got {day3_after_transfer}"
     assert day2_after_transfer == 7, f"Day 2 should now have 7 activities, got {day2_after_transfer}"
 
     # Reset schedule via button
@@ -121,8 +134,10 @@ with sync_playwright() as p:
     time.sleep(0.5)
 
     day1_restored = page.locator('#col-cantabria-day-1 .outlook-event-card').count()
-    print(f"After Reset: Day 1 has {day1_restored} activities")
-    assert day1_restored == 8, f"Expected 8 restored activities, got {day1_restored}"
+    day3_restored = page.locator('#col-cantabria-day-3 .outlook-event-card').count()
+    print(f"After Reset: Day 1 has {day1_restored}, Day 3 has {day3_restored} activities")
+    assert day1_restored == 6, f"Expected 6 restored activities on Day 1, got {day1_restored}"
+    assert day3_restored == 7, f"Expected 7 restored activities on Day 3, got {day3_restored}"
 
     # Test view switch to timeline and back
     page.click('#btn-view-tl-cantabria')
@@ -137,8 +152,10 @@ with sync_playwright() as p:
     # Take desktop screenshot
     page.locator('#outlook-planner-cantabria').scroll_into_view_if_needed()
     time.sleep(0.3)
-    page.screenshot(path="artifact_test_desktop_calendar.png", full_page=False)
-    print("Desktop screenshot captured: artifact_test_desktop_calendar.png")
+    os.makedirs(ARTIFACTS_DIR, exist_ok=True)
+    shot_desktop = os.path.join(ARTIFACTS_DIR, "artifact_cabarceno_dia4_desktop.png")
+    page.screenshot(path=shot_desktop, full_page=False)
+    print(f"Desktop screenshot captured: {shot_desktop}")
 
     # ----------------------------------------------------
     # TEST 2: MOBILE VIEWPORT (iPhone 14 / 390 x 844)
@@ -154,23 +171,24 @@ with sync_playwright() as p:
     mobile_carousel = mobile_page.locator('#tab-cantabria .hotel-cards-container')
     assert mobile_carousel.is_visible(), "Mobile hotel carousel should be visible"
     
-    # Check mobile tabs in planner
-    tab_d2 = mobile_page.locator('#mobile-tabs-cantabria button:has-text("Día 2")')
-    assert tab_d2.is_visible(), "Mobile day 2 tab should be visible"
-    tab_d2.click()
+    # Check mobile tabs in planner (check Day 4)
+    tab_d4 = mobile_page.locator('#mobile-tabs-cantabria button:has-text("Día 4")')
+    assert tab_d4.is_visible(), "Mobile day 4 tab should be visible"
+    tab_d4.click()
     time.sleep(0.3)
 
     col1_disp = mobile_page.locator('#col-cantabria-day-1').evaluate("el => window.getComputedStyle(el).display")
-    col2_disp = mobile_page.locator('#col-cantabria-day-2').evaluate("el => window.getComputedStyle(el).display")
-    print(f"Mobile tab 'Día 2' active: Col 1 display={col1_disp}, Col 2 display={col2_disp}")
+    col4_disp = mobile_page.locator('#col-cantabria-day-4').evaluate("el => window.getComputedStyle(el).display")
+    print(f"Mobile tab 'Día 4' active: Col 1 display={col1_disp}, Col 4 display={col4_disp}")
     assert col1_disp == "none", "Col 1 should be hidden"
-    assert col2_disp == "flex", "Col 2 should be displayed"
+    assert col4_disp == "flex", "Col 4 should be displayed"
 
-    # Scroll down to calendar card (Fuente Dé is on Day 2)
-    mobile_page.locator('#card-cantabria-ct_fuente_de').scroll_into_view_if_needed()
+    # Scroll down to Cabarceno card on Day 4
+    mobile_page.locator('#card-cantabria-ct_cabarceno_safari').scroll_into_view_if_needed()
     time.sleep(0.3)
-    mobile_page.screenshot(path="artifact_test_mobile_calendar.png", full_page=False)
-    print("Mobile screenshot captured: artifact_test_mobile_calendar.png")
+    shot_mobile = os.path.join(ARTIFACTS_DIR, "artifact_cabarceno_dia4_mobile.png")
+    mobile_page.screenshot(path=shot_mobile, full_page=False)
+    print(f"Mobile screenshot captured: {shot_mobile}")
 
     print("\nConsole errors during test:", console_errors)
     assert len(console_errors) == 0, f"Found console errors: {console_errors}"

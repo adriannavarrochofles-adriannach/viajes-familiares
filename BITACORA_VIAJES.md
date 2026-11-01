@@ -1907,3 +1907,39 @@ DETALLE DE LAS MEJORAS APLICADAS:
     - Recompilado `PORTAL_VIAJES_FAMILIARES_WHATSAPP.html` (102.05 MB, 173 imágenes incrustadas en Base64) en Desktop, OneDrive y Brain.
     - Commit y push a GitHub main para auto-despliegue en Render.
 ========================================================================================
+
+========================================================================================
+FECHA: 2026-11-01 19:40 | RESPONSABLE: BRÚJULA (Antigravity Travel Agent)
+OBJETIVO: Reorganización integral del viaje a Cantabria: Cabárceno en el Día 4 (Martes 8 de Diciembre) antes del retorno directo a Quer por la A-67, Balneario de Solares en la tarde del Día 3, y Salida cómoda el Sábado (Día 1) a las 07:45 h tras desayuno.
+ESTADO: COMPLETADO, TESTEADO CON PLAYWRIGHT (DESKTOP & MÓVIL), RECOMPILADO OFFLINE Y DESPLEGADO.
+
+DETALLE DE LAS MEJORAS APLICADAS:
+ 1. EVALUACIÓN ESTRATÉGICA DE LA PROPUESTA DE ADRIÁN NAVARRO:
+    - Trasladar el Parque de Cabárceno al último día (Día 4, Martes 8) en lugar del primer día por la mañana es una decisión logística y operativa magistral:
+      * Evita el madrugón extremo del sábado a las 05:15 h para 4 adultos y Marco (4 años), permitiendo salir de Quer a una hora civilizada (07:45 h) tras desayunar calientes en casa y cargando el Volvo XC60 sin prisas.
+      * Geometría de retorno óptima: Las taquillas y accesos de Cabárceno (Obregón / Penagos) están en el enlace directo de la autovía A-67 sur (hacia Reinosa, Aguilar de Campoo, Palencia/Burgos y Guadalajara). Al terminar el safari y comer, el Volvo XC60 emprende el camino a casa sin tener que entrar a Santander ni hacer kilómetros de retroceso.
+      * Los animales en invierno a las 09:30 h de la mañana están activos, comiendo y sin colas.
+      * El safari en coche por Cabárceno se hace dentro del Volvo XC60 con la calefacción puesta, por lo que llevar el maletero con las maletas ya cargadas del check-out es 100% cómodo y seguro.
+      * Salida de Cabárceno tras el almuerzo cántabro a las 15:30 h -> llegada a Quer a las 19:15 h con luz de tarde, lo que deja tiempo para deshacer maletas, baño de Marco y cena relajada antes de volver a la rutina el miércoles.
+
+ 2. REORGANIZACIÓN INTEGRAL DE LOS 4 DÍAS:
+    - DÍA 1 (SÁBADO 5): Salida de Quer (07:45 h) en Volvo XC60 -> Parada en Lerma -> Monumento Natural de las Secuoyas de Monte Corona (848 secuoyas de 40m, pasarelas llanas ideales para Marco) -> Comida de cazuela tradicional de Cocido Montañés en el Valle del Saja -> Check-in en la Casona del Saja & siesta reparadora de Marco -> Poblado Navideño de Cartes iluminado al anochecer (Árbol gigante de 65m, soldados cascanueces, casitas de elfos y entrega de carta en mano a Papá Noel) -> Cena familiar junto a la chimenea en la casona.
+    - DÍA 2 (DOMINGO 6): Desayuno -> Desfiladero de La Hermida -> Teleférico de Fuente Dé (ascenso vertiginoso a 1.823m con nieve asegurada para Marco) -> Comida de Cocido Lebaniego en Potes -> Cueva de El Soplao en tren minero subterráneo -> Santillana del Mar medieval iluminada -> Cena en casona.
+    - DÍA 3 (LUNES 7): Desayuno -> Santander Capital: Península de La Magdalena (pingüinos, focas, leones marinos y carabelas piratas 100% GRATIS) -> Comida marinera tradicional de rabas en la Bahía / Puerto Chico -> Santander Navideño (Plaza Porticada, mercadillo y noria) -> Tarde de balneario: Castilla Termal Balneario de Solares (aguas termales a 34°C + Balnea Infantil con chorros y toboganes para Marco) -> Liérganes histórico (merienda de chocolate con churros en el pueblo de las leyendas) -> Cena y chimenea en la casona.
+    - DÍA 4 (MARTES 8): Desayuno de despedida y check-out de la casona (08:10 h - 08:55 h) -> Trayecto cómodo de 25 min -> Cabárceno Safari en el Volvo XC60 a primera hora (09:30 h - 12:00 h, apertura de puertas) -> Teleférico panorámico sobre los osos y exhibición de rapaces (12:00 h) -> Almuerzo cántabro de despedida en Cabárceno / Penagos (13:40 h - 15:15 h) -> Retorno directo por la A-67 hacia el sur (15:30 h, 375 km, 3h 45m) -> Llegada a Quer a las 19:15 h con luz de tarde.
+
+ 3. ACTUALIZACIÓN TÉCNICA DEL PORTAL (INDEX.HTML):
+    - Hero cabecera y cuadro resumen de ruta actualizados con las distancias y horarios exactos.
+    - Timeline Cantabria (#timeline-cantabria) con la nueva secuencia de los 4 días.
+    - Planificador interactivo estilo Outlook (OUTLOOK_ACTIVITIES, OUTLOOK_DAYS_CONFIG y OUTLOOK_DEFAULTS) reconfigurado con todas las actividades secuenciadas de forma 100% lógica:
+      * Horario Día 1: 07:45 h (Quer).
+      * Horario Día 4: 08:10 h (Desayuno y check-out) -> 09:30 h llegada exacta a Cabárceno en la apertura.
+      * Nuevo hash de versión: OUTLOOK_PLANNER_VERSION = "2026-11-01_v4_cabarceno_dia4_retorno_quer".
+      * Mantiene arrastre táctil / mouse, botones ▲/▼ de reordenación, trasvase entre días (D1..D4) y sincronización con tabla de presupuesto y enlaces de Google Maps.
+
+ 4. VERIFICACIÓN Y COMPILACIÓN OFFLINE:
+    - Test Playwright automatizado ('test_carousel_and_calendar.py') superado con 0 errores de consola en Desktop (1280x900) y Móvil (iPhone 14, 390x844).
+    - Capturas generadas: 'artifact_cabarceno_dia4_desktop.png' y 'artifact_cabarceno_dia4_mobile.png'.
+    - Recompilación offline completa de 'PORTAL_VIAJES_FAMILIARES_WHATSAPP.html' (104.95 MB, 173 imágenes incrustadas en Base64) en Desktop, OneDrive y Artifacts.
+    - Auto-despliegue en producción en Render tras push a GitHub main.
+========================================================================================

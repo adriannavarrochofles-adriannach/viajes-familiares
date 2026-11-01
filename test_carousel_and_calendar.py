@@ -82,38 +82,38 @@ with sync_playwright() as p:
     # Check Day 1 activities count and headers
     day1_cards = page.locator('#col-cantabria-day-1 .outlook-event-card')
     print(f"Day 1 initial activities: {day1_cards.count()}")
-    assert day1_cards.count() == 5, f"Expected 5 activities on Day 1, got {day1_cards.count()}"
+    assert day1_cards.count() == 8, f"Expected 8 activities on Day 1, got {day1_cards.count()}"
 
     # Check first activity has time badge, duration pills, etc.
     first_act = day1_cards.nth(0)
     time_badge = first_act.locator('.ev-time-badge').inner_text()
     title_text = first_act.locator('.ev-title').inner_text()
     print(f"First activity: Time='{time_badge}', Title='{title_text}'")
-    assert "08:00" in time_badge, f"Unexpected time badge: {time_badge}"
-    assert "Desayuno" in title_text or "Salida" in title_text, f"Unexpected title: {title_text}"
+    assert "05:15" in time_badge, f"Unexpected time badge: {time_badge}"
+    assert "Quer" in title_text or "Salida" in title_text, f"Unexpected title: {title_text}"
 
-    # Test moving activity down: ▲ / ▼ (move Secuoyas down)
-    page.locator('#card-cantabria-ct_secuoyas .btn-ev-move:has-text("▼")').click()
+    # Test moving activity down: ▲ / ▼ (move Cabárceno down)
+    page.locator('#card-cantabria-ct_cabarceno_safari .btn-ev-move:has-text("▼")').click()
     time.sleep(0.3)
     day1_cards_after_move = page.locator('#col-cantabria-day-1 .outlook-event-card')
-    new_second_id = day1_cards_after_move.nth(1).get_attribute('data-act-id')
-    print(f"After moving Secuoyas down, 2nd activity is now: {new_second_id}")
-    assert new_second_id == "ct_cocido_montanes", f"Expected Cocido to be 2nd, got {new_second_id}"
+    new_third_id = day1_cards_after_move.nth(2).get_attribute('data-act-id')
+    print(f"After moving Cabarceno down, 3rd activity is now: {new_third_id}")
+    assert new_third_id == "ct_teleferico_cabarceno", f"Expected Teleférico to be 3rd, got {new_third_id}"
 
     # Move it back up
-    page.locator('#card-cantabria-ct_secuoyas .btn-ev-move:has-text("▲")').click()
+    page.locator('#card-cantabria-ct_cabarceno_safari .btn-ev-move:has-text("▲")').click()
     time.sleep(0.3)
 
-    # Test moving an activity to another day (e.g. Move Cartes to Day 2)
-    cartes_d2_btn = page.locator('#card-cantabria-ct_cartes .btn-ev-day:has-text("D2")')
-    cartes_d2_btn.click()
+    # Test moving an activity to another day (e.g. Move Balneario to Day 2)
+    solares_d2_btn = page.locator('#card-cantabria-ct_solares .btn-ev-day:has-text("D2")')
+    solares_d2_btn.click()
     time.sleep(0.3)
 
     day1_after_transfer = page.locator('#col-cantabria-day-1 .outlook-event-card').count()
     day2_after_transfer = page.locator('#col-cantabria-day-2 .outlook-event-card').count()
-    print(f"After moving Cartes to Day 2: Day 1 has {day1_after_transfer} acts, Day 2 has {day2_after_transfer} acts")
-    assert day1_after_transfer == 4, f"Day 1 should now have 4 activities, got {day1_after_transfer}"
-    assert day2_after_transfer == 8, f"Day 2 should now have 8 activities, got {day2_after_transfer}"
+    print(f"After moving Balneario to Day 2: Day 1 has {day1_after_transfer} acts, Day 2 has {day2_after_transfer} acts")
+    assert day1_after_transfer == 7, f"Day 1 should now have 7 activities, got {day1_after_transfer}"
+    assert day2_after_transfer == 7, f"Day 2 should now have 7 activities, got {day2_after_transfer}"
 
     # Reset schedule via button
     page.on("dialog", lambda dialog: dialog.accept())
@@ -122,7 +122,7 @@ with sync_playwright() as p:
 
     day1_restored = page.locator('#col-cantabria-day-1 .outlook-event-card').count()
     print(f"After Reset: Day 1 has {day1_restored} activities")
-    assert day1_restored == 5, f"Expected 5 restored activities, got {day1_restored}"
+    assert day1_restored == 8, f"Expected 8 restored activities, got {day1_restored}"
 
     # Test view switch to timeline and back
     page.click('#btn-view-tl-cantabria')
@@ -166,8 +166,8 @@ with sync_playwright() as p:
     assert col1_disp == "none", "Col 1 should be hidden"
     assert col2_disp == "flex", "Col 2 should be displayed"
 
-    # Scroll down to calendar card
-    mobile_page.locator('#card-cantabria-ct_cabarceno_safari').scroll_into_view_if_needed()
+    # Scroll down to calendar card (Fuente Dé is on Day 2)
+    mobile_page.locator('#card-cantabria-ct_fuente_de').scroll_into_view_if_needed()
     time.sleep(0.3)
     mobile_page.screenshot(path="artifact_test_mobile_calendar.png", full_page=False)
     print("Mobile screenshot captured: artifact_test_mobile_calendar.png")

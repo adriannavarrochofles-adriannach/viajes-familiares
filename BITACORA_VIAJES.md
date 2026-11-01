@@ -50,6 +50,39 @@
 
 ```
 ========================================================================================
+TIMESTAMP: 2026-11-01 19:30:00 CEST
+AUTOR: Brújula - Asistente Personal de Viajes Familiares
+ACCIÓN: RECALCULO_CANTABRIA_SALIDA_QUER_CABARCENO_PRIMERA_HORA_Y_BALNEARIO
+OBJETIVO: Atender la directiva de Adrián Navarro:
+  «vuelve a calcular el viaje a santander, alojamientos, si hay los mismos o hay mejores, y a que hora abre cabarcenos, me gustaría ir el mismo sabado a primera hora, directos desde quer, calculame a que hora debo de sarlir para llegar, asi aprovechamos el primer dia a tope, y luego lo demas, quiero ir al balneario tambien».
+DIAGNÓSTICO Y CÁLCULOS LOGÍSTICOS:
+  1. Horarios Oficiales de Cabárceno en Sábado (Invierno / Diciembre):
+     - Taquillas y apertura de recintos: 09:30 h (cierre a las 18:00 h).
+     - Teleférico panorámico: de 11:00 h a 17:00 h (última subida 16:30 h).
+     - Exhibición de técnicas de vuelo de aves rapaces: 12:00 h y 16:00 h.
+     - Leones marinos: instalación y lago visitables de forma continua (sin espectáculo de gradas por bienestar animal).
+  2. Cálculo de Ruta y Horario de Salida desde Quer (Guadalajara) en Volvo XC60:
+     - Distancia: 378 km (Quer -> N-320 -> A-1 Somosierra/Burgos -> A-67 Reinosa/Cabárceno).
+     - Tiempo de conducción: 3h 45m (0 € en peajes).
+     - Parada recomendada para Marco (4 años) y los adultos: 25-30 min en Lerma (km 200, mitad de camino) para café caliente, estirar piernas y baño.
+     - Hora exacta de salida de Quer: 05:15 h (Marco duerme las primeras 2h plácidamente en su sillita).
+     - Llegada a taquillas de Cabárceno: 09:25 h (justo 5 min antes de abrir a las 09:30 h, ¡primeros coches en entrar!).
+  3. Reorganización del Itinerario Completo (4 Días):
+     - DÍA 1 (SÁBADO 5 DIC): Salida 05:15 h de Quer -> Desayuno Lerma 07:15 h -> Cabárceno Safari 09:30 h con animales frescos y activos + Teleférico y Rapaces 12:00 h -> Almuerzo cántabro en Solares 14:00 h -> Castilla Termal Balneario de Solares 15:45 h (aguas a 34°C + Balnea Infantil con toboganes para Marco) -> Liérganes histórico & chocolate con churros 18:30 h -> Check-in Casona del Saja con chimenea y cena 20:25 h.
+     - DÍA 2 (DOMINGO 6 DIC): Desayuno -> Desfiladero de La Hermida y Teleférico Fuente Dé (1.823m con nieve para Marco) -> Comida Cocido Lebaniego en Potes -> Cueva de El Soplao en tren minero subterráneo -> Santillana del Mar medieval iluminada -> Cena en casona.
+     - DÍA 3 (LUNES 7 DIC): Desayuno -> Bosque de Secuoyas Gigantes de Monte Corona (árboles de 40m) -> Comida de Cocido Montañés en cazuela humeante en Valle del Saja -> Descanso y siesta de Marco en la casona -> Poblado Navideño de Cartes iluminado al anochecer (Árbol 65m y entrega de carta en mano a Papá Noel) -> Cena al fuego.
+     - DÍA 4 (MARTES 8 DIC): Check-out cómodo -> Península de La Magdalena en Santander (pingüinos, focas, leones marinos y carabelas piratas 100% GRATIS) -> Comida marinera de Rabas en la Bahía / Puerto Chico -> Santander Navideño (Noria gigante panorámica y Plaza Porticada) -> Retorno directo en Volvo XC60 a Quer (378 km) -> Llegada a Quer 21:00 h y cena en casa.
+  4. Auditoría de Alojamientos:
+     - Ratificado Casona Montañesa del Saja (Cabezón de la Sal / Mazcuerras) como TOP 1 absoluto (chimenea de leña, jardín vallado seguro para Marco, cocina y centro geográfico equidistante).
+     - Analizadas alternativas: Posada Río Miera en Liérganes (a 6 min del balneario), Cabañas Pasiegas / Leyendas del Miera, Hotel Balneario Castilla Termal (se aconseja pase de día para ahorrar 850 € durmiendo en casona), Potes y Santander.
+  5. Ajustes Técnicos:
+     - Actualizado index.html, configurados márgenes de colchón `buffer` lógicos en `OUTLOOK_ACTIVITIES`.
+     - OUTLOOK_PLANNER_VERSION = "2026-11-01_v3_cabarceno_sabado_quer".
+     - Validado 100% con tests Playwright en desktop y móvil.
+     - Recompilado PORTAL_VIAJES_FAMILIARES_WHATSAPP.html (104.95 MB, 173 imágenes base64 embebidas) en Desktop, OneDrive y Brain.
+========================================================================================
+
+========================================================================================
 TIMESTAMP: 2026-10-28 07:45:00 CEST
 AUTOR: Antigravity Travel Agent
 ACCIÓN: REORGANIZACION_LOGICA_ITINERARIO_SANTANDER_Y_BLOQUES_COMIDA_COMPLETO

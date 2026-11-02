@@ -48,6 +48,27 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 15:54] — CANTABRIA: GALERÍAS FOTOGRÁFICAS COMPLETAS EN LOS 4 DÍAS (48/48 IMÁGENES VERIFICADAS), DESGLOSE FINANCIERO CON «EL MOLINO DE MATEO» Y PUBLICACIÓN EN GITHUB PAGES
+* **Auditoría Visual y Galerías Fotográficas en #timeline-cantabria:**
+  - Integradas **16 tarjetas fotográficas interactivas (con zoom lightbox)** repartidas en los 4 días de la ruta:
+    * **Día 1:** soplao_cueva.jpg (Tren Minero El Soplao), secuoyas_cantabria.jpg (Bosque de Secuoyas), ltamira_neocueva.jpg (Neocueva de Altamira Gratis Sáb tarde), cartes_poblado_navideno.jpg (Navidad en Cartes y Árbol 65m).
+    * **Día 2:** santona_faro_caballo.jpg (Crucero Faro del Caballo), laredo_atalaya_playa.jpg (Túnel de La Atalaya y Playa Salvé en Laredo), castro_urdiales_castillo.jpg (Castillo-Faro de Santa Ana y Puente Romano), molino_mateo_solares.jpg (Barbacoa nocturna en El Molino de Mateo).
+    * **Día 3:** magdalena_animales_marinos.jpg (Focas y Pingüinos en La Magdalena), solares_balneario_infantil.jpg (Piscina Termal 34°C y Balnea Infantil en Solares), lierganes_puente_mayor.jpg (Puente Mayor de Liérganes), santander_navidad_bahia.jpg (Navidad y Hielo en Santander).
+    * **Día 4:** cabarceno_elefantes.jpg (Safari en Volvo XC60), 	eleferico_cabarceno.jpg (Teleférico gratis), leones_marinos_cabarceno.jpg (Show Leones Marinos), cabarceno_paisaje.jpg (Salida directa A-67 a Quer).
+  - **Verificación Playwright:** 48 de 48 imágenes en #tab-cantabria cargadas al 100% (Broken: 0).
+* **Cálculo Exacto de Costos (Grupo 5 Personas: 4 Adultos + Marco de 4 años):**
+  - **Alojamiento (El Molino de Mateo · Solares · 3 noches):** **501,00 €** (250,50 € por pareja).
+  - **Combustible Volvo XC60 (~1.008 km · 0 € peajes):** **105,00 €** (52,50 € por pareja).
+  - **Entradas y Actividades Oficiales (Total: 431,50 €):**
+    * **Cueva El Soplao + Tren Minero (Sáb 12:00h):** 4 ad × 15 € + 1 niño × 12,50 € = **72,50 €**.
+    * **Museo y Neocueva de Altamira (Sáb 16:00h):** **0,00 € (¡GRATIS sábados tarde desde las 14:00h!)**.
+    * **Barco al Faro del Caballo en Santoña (Dom 10:30h):** 4 ad × 15 € + Marco gratis = **60,00 €**.
+    * **Castilla Termal Balneario de Solares (Lun 15:00h – 17:00h):** 4 ad × 38 € + 1 niño × 32 € = **184,00 €**.
+    * **Parque de la Naturaleza de Cabárceno + Teleférico incluido (Mar 09:30h):** 4 ad × 25 € + 1 niño × 15 € = **115,00 €**.
+    * **Secuoyas, Poblado Navideño de Cartes, Laredo, Castillo-Faro de Castro-Urdiales, Península de La Magdalena (focas/pingüinos/galeones) y Mercados Navideños:** **0,00 € (Gratis)**.
+  - **Comidas, Desayunos y Barbacoa en Casa:** **~380,00 €** (190,00 € por pareja).
+  - **TOTAL GLOBAL 5 PERSONAS (4 DÍAS / 3 NOCHES):** **1.417,50 €** (**~708,75 € por pareja** con absolutamente TODO incluido: casa de 3 habs, gasolina, balneario, Cabárceno, El Soplao, barco en Santoña, barbacoa y comidas).
+
 ### [2026-11-02 15:42] — CANTABRIA: FIJACIÓN DE «EL MOLINO DE MATEO» COMO BASE OFICIAL + INCORPORACIÓN DE CUEVA EL SOPLAO (TREN MINERO) Y NEOCUEVA DE ALTAMIRA (GRATIS SÁBADO TARDE) EN DÍA 1 + BALNEARIO SOLARES IMPRESCINDIBLE
 * **Directivas de Adrián:**
   - *«Y las cuevas del soplado no se puede meter?»*

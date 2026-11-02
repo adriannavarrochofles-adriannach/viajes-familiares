@@ -4716,7 +4716,152 @@
       outline: 3px solid #0284C7 !important;
       outline-offset: 2px !important;
     }
-</style>
+
+    /* === MÓDULO DE COMIDAS Y CENAS POR DÍA (FUERA VS EN CASA) === */
+    .meals-module-section {
+      background: #FFFFFF;
+      border: 2px solid #F59E0B;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 30px;
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.08);
+    }
+    .meals-module-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #FDE68A;
+    }
+    .meals-preset-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn-meal-preset {
+      background: #FFFBEB;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-meal-preset:hover {
+      background: #FEF3C7;
+      border-color: #F59E0B;
+    }
+    .btn-meal-preset.active {
+      background: #D97706;
+      color: #FFFFFF;
+      border-color: #B45309;
+      box-shadow: 0 2px 6px rgba(217, 119, 6, 0.25);
+    }
+    .meals-days-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 14px;
+    }
+    .meal-day-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .meal-day-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #0F172A;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E2E8F0;
+    }
+    .meal-slot-box {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 11px 12px;
+      transition: all 0.15s ease;
+    }
+    .meal-slot-box.mode-out {
+      border-left: 4px solid #F59E0B;
+    }
+    .meal-slot-box.mode-home {
+      border-left: 4px solid #10B981;
+    }
+    .meal-slot-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .meal-slot-label {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #1E293B;
+    }
+    .meal-toggle-group {
+      display: inline-flex;
+      background: #F1F5F9;
+      border-radius: 8px;
+      padding: 2px;
+      border: 1px solid #CBD5E1;
+    }
+    .btn-meal-toggle {
+      border: none;
+      background: transparent;
+      padding: 4px 8px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #64748B;
+      transition: all 0.15s ease;
+    }
+    .btn-meal-toggle.active-out {
+      background: #F59E0B;
+      color: #FFFFFF;
+    }
+    .btn-meal-toggle.active-home {
+      background: #10B981;
+      color: #FFFFFF;
+    }
+    .meal-option-block {
+      font-size: 0.79rem;
+      line-height: 1.45;
+      color: #334155;
+      padding: 7px 9px;
+      border-radius: 8px;
+      margin-top: 6px;
+    }
+    .meal-option-out {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+    }
+    .meal-option-home {
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+    }
+    .meal-option-block.dimmed {
+      opacity: 0.58;
+      background: #F8FAFC;
+      border: 1px dashed #CBD5E1;
+    }
+
+  </style>
 </head>
 <body>
 <!-- STICKY TOP MENU -->
@@ -5327,9 +5472,7 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
 <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:8px 12px;margin:0 0 12px 0;font-size:0.8rem;color:#1E3A8A;">📌 <strong>Precios reales Booking (consultado el 01/11/2026):</strong> Importes sujetos a variación según disponibilidad. <strong>Importante:</strong> declarar siempre a <strong>Marco (1 niño · 4 años)</strong> en el buscador de Booking (ya preconfigurado con <code>&amp;group_children=1&amp;age=4</code> en los enlaces) para que el hotel confirme colecho o cama supletoria.</div>
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-sanseb">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-sanseb">📊 Ordenar alojamientos:</label>
@@ -5495,6 +5638,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-sanseb" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — San Sebastián, Hondarribia y Costa Vasca (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Ruta de pintxos en la Parte Vieja de Donostia (~18 €/ad) | 🥪 Picnic en ruta A-1 (~5 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento con productos locales (~7 €/pers) | 🍽️ Fuera: Sidrería tradicional vasca con txuleta al txotx (~24 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Asador marinero en Getaria / Zarautz (~22 €/ad) | 🏡 Casa: Comida en el apartamento (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena tranquila en casa tras ver el encendido de La Concha (~7 €/pers) | 🍽️ Fuera: Pintxos calientes en el barrio de Gros (~16 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Tabernas marineras en Hondarribia (Calle San Nicolás, ~19 €/ad) | 🥪 Bocatas en Monte Igueldo (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento (~7 €/pers) | 🍽️ Fuera: Cazuelitas y raciones en el centro (~17 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Asador en Burgos / Lerma en ruta A-1 (~18 €/ad) | 🥪 Bocatas preparados en casa (~5 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (SS) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -6635,7 +6879,6 @@
 </div>
 <!-- FOOTER -->
 </div>
-
 <!-- ========================================== -->
 <!-- TAB 3: ITALIA -->
 <!-- ========================================== -->
@@ -6690,8 +6933,6 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-nuremberg">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-nuremberg">📊 Ordenar alojamientos:</label>
@@ -6853,6 +7094,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-nuremberg" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Núremberg, Rothenburg y Baviera Navideña (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Drei im Weggla (3 salchichas de Núremberg en panecillo, ~5–8 €/pers en Hauptmarkt).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento (~8 €/pers) | 🍽️ Fuera: Bratwursthäusle o cervecería histórica bávara (~18 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Gasthof tradicional en Rothenburg ob der Tauber (Schnitzel / Spätzle, ~17 €/ad) | 🥪 Picnic (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena caliente en el apartamento tras Playmobil FunPark (~7 €/pers) | 🍽️ Fuera: Taberna francona (~17 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Rauchbier y codillo en Bamberg (Schlenkerla, ~18 €/ad) | 🏡 Casa: Comida en el apartamento (~7 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en casa con Lebkuchen de postre (~7 €/pers) | 🍽️ Fuera: Puestos del Christkindlesmarkt (~12 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Comida en Múnich / Núremberg antes del regreso (~16 €/ad) | 🥪 Bocatas (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (NUR) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -7740,8 +8082,6 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-budapest">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-budapest">📊 Ordenar alojamientos:</label>
@@ -7903,6 +8243,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-budapest" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Budapest Termal y Mercadillos de Adviento (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Mercado Central de Budapest (Lángos con crema agria y queso + Goulash, ~12 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento céntrico (~6 €/pers) | 🍽️ Fuera: Puestos de la Basílica de San Esteban (~14 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Restaurante húngaro BBB en Pest (Menza / Hungarikum Bisztró / Frici Papa, ~14–18 €/ad) | 🏡 Casa (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena caliente en el apartamento tras el Balneario Széchenyi (~6 €/pers) | 🍽️ Fuera: Ruin Bar / Street food Karaván (~13 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Bistro en la colina de Buda junto al Bastión de los Pescadores (~16 €/ad) | 🥪 Picnic (~5 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en casa (~6 €/pers) | 🍽️ Fuera: Cena tradicional junto al Danubio + Kürtőskalács (~16 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Almuerzo en Plaza Vörösmarty antes de ir al aeropuerto (~14 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (BUD) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -8794,8 +9235,6 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-alsacia">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-alsacia">📊 Ordenar alojamientos:</label>
@@ -8957,6 +9396,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-alsacia" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Alsacia Navideña (Estrasburgo, Colmar y Eguisheim) (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Puestos del Christkindelsmärik (Bretzels, salchichas y Baguette Flambée, ~14 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena caliente en el apartamento (~8 €/pers) | 🍽️ Fuera: Winstub alsaciana tradicional (Tarte Flambée / Flammkuchen, ~18 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Mercado cubierto de Colmar (Marché Couvert, ~16 €/ad) | 🥪 Picnic en ruta de pueblos (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento con quesos Munster (~8 €/pers) | 🍽️ Fuera: Choucroute garnie en Petite Venise (~20 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Taberna tradicional en Riquewihr / Kaysersberg (~18 €/ad) | 🥪 Bocadillos calientes en los mercadillos (~9 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena de despedida en el apartamento (~7 €/pers) | 🍽️ Fuera: Brasserie en Petite France de Estrasburgo (~19 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Comida rápida en Basilea / Mulhouse antes del vuelo (~15 €/ad) | 🥪 Bocatas (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (AL) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -9907,6 +10447,8 @@
 </div>
 </div>
 </section>
+<!-- MÓDULO APARTE: OPCIONES DE COMIDA Y CENA POR DÍA (FUERA VS EN CASA) -->
+
 <!-- TABLA DE PRESUPUESTO DINÁMICA -->
 <section style="margin-bottom: 50px;">
 <!-- MÓDULO INTELIGENTE: PROSPECCIÓN IA & ASEGURAMIENTO DE PRECIOS -->
@@ -10087,9 +10629,7 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
 <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:8px 12px;margin:0 0 12px 0;font-size:0.8rem;color:#1E3A8A;">📌 <strong>Precios reales Booking (consultado el 01/11/2026):</strong> Importes sujetos a variación según disponibilidad. <strong>Importante:</strong> declarar siempre a <strong>Marco (1 niño · 4 años)</strong> en el buscador de Booking (ya preconfigurado con <code>&amp;group_children=1&amp;age=4</code> en los enlaces) para que el hotel confirme colecho o cama supletoria.</div>
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-italia">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-italia">📊 Ordenar alojamientos:</label>
@@ -10251,6 +10791,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-italia" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Toscana, Florencia, Pisa y Cinque Terre (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1–2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Mercato Centrale de Florencia o All'Antico Vinaio (Schiacciata rellena, ~11 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el agroturismo/apartamento toscano (~7 €/pers) | 🍽️ Fuera: Trattoria en Oltrarno (Pappardelle al cinghiale / Bistecca, ~20 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3–4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Osteria en Siena / San Gimignano + helado en Gelateria Dondoli (~17 €/ad) | 🥪 Picnic en el Chianti (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el alojamiento con pasta fresca (~7 €/pers) | 🍽️ Fuera: Pizzería en Lucca / Pisa (~14 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 5–6</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Cuculli y fritura de pescado en cucurucho en Vernazza / Monterosso (Cinque Terre, ~15 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento (~7 €/pers) | 🍽️ Fuera: Trattoria marinera en La Spezia / Porto Venere (~18 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 7</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Almuerzo de despedida en Bolonia / Florencia antes del vuelo (~16 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- 🌦️ PREVISIÓN METEOROLÓGICA ITALIA (AÑO NUEVO) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -11832,8 +12473,6 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-rumania">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-rumania">📊 Ordenar alojamientos:</label>
@@ -11995,6 +12634,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-rumania" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Transilvania, Bucarest y Castillos (Bran y Peleș) (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Caru' cu Bere en Bucarest (Sarmale y Mici tradicionales, ~14 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena caliente en el apartamento (~5 €/pers) | 🍽️ Fuera: Hanu' lui Manuc en el centro histórico (~15 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Taberna sajona en Brașov (Ciorbă de burtă / Goulash transilvano y Papanași, ~13 €/ad) | 🏡 Casa (~5 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento de Brașov (~5 €/pers) | 🍽️ Fuera: Mercadillo navideño de Piața Sfatului (~11 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Restaurante tradicional junto al Castillo de Bran / Sinaia (~14 €/ad) | 🥪 Picnic (~5 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el alojamiento (~5 €/pers) | 🍽️ Fuera: Sergiana en Brașov (~15 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Almuerzo en Therme București o centro antes del vuelo (~14 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (RO) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -13132,9 +13872,7 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
 <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:8px 12px;margin:0 0 12px 0;font-size:0.8rem;color:#1E3A8A;">📌 <strong>Precios reales Booking (consultado el 01/11/2026):</strong> Importes sujetos a variación según disponibilidad. <strong>Importante:</strong> declarar siempre a <strong>Marco (1 niño · 4 años)</strong> en el buscador de Booking (ya preconfigurado con <code>&amp;group_children=1&amp;age=4</code> en los enlaces) para que el hotel confirme colecho o cama supletoria.</div>
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-francia">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-francia">📊 Ordenar alojamientos:</label>
@@ -13296,6 +14034,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-francia" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Sur de Francia (Carcassonne, Toulouse y Narbona) (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Brasserie en ruta o bistró en Carcassonne (~19 €/ad) | 🥪 Picnic de viaje (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento con quesos franceses y pato (~8 €/pers) | 🍽️ Fuera: Cassoulet tradicional dentro de La Cité (~22 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Marché Victor Hugo / bistró en Toulouse (~18 €/ad) | 🥪 Bocatas tras Cité de l'Espace (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena caliente en apartamento (~7 €/pers) | 🍽️ Fuera: Crêperie bretona en el centro de Toulouse (~15 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Les Grands Buffets de Narbona o mercado (~20–25 €/ad) | 🏡 Casa: Comida en el alojamiento (~7 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en casa tras paseo navideño (~7 €/pers) | 🍽️ Fuera: Brasserie junto al Canal du Midi (~17 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Menú de regreso en Girona / La Jonquera (~17 €/ad) | 🥪 Bocatas de casa (~5 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (FR) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -14026,10 +14865,7 @@
             🏙️ 3 Ciudad · 🌲 3 Afueras
           </span>
 </div>
-
 <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;padding:8px 12px;margin:0 0 12px 0;font-size:0.8rem;color:#1E3A8A;">📌 <strong>Precios reales Booking (consultado el 01/11/2026):</strong> Importes sujetos a variación según disponibilidad. <strong>Importante:</strong> declarar siempre a <strong>Marco (1 niño · 4 años)</strong> en el buscador de Booking (ya preconfigurado con <code>&amp;group_children=1&amp;age=4</code> en los enlaces) para que el hotel confirme colecho o cama supletoria.</div>
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-granada">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-granada">📊 Ordenar alojamientos:</label>
@@ -14749,6 +15585,108 @@
 </div>
 </div>
 </details>
+<!-- MÓDULO APARTE DE COMIDA Y CENA POR DÍA (GRANADA) -->
+<details class="trip-collapsible" id="meals-section-granada" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Granada &amp; Sierra Nevada (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1 · Sáb 5</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Parada en ruta A-4 (Consuegra/Despeñaperros, ~14 €/ad) o tapas en Plaza Nueva.
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa / 🍽️ Fuera: Tapas gratis con cada consumición en Calle Navas / Realejo (~12 €/ad) o cena en el apartamento (~6 €/pers).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2 · Dom 6</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Jardines de Zoraya / Mirador de Morayma (Albaicín) o raciones en Plaza Larga (~18 €/ad) | 🏡 Casa: Comida rápida en apartamento Realejo (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena caliente en el apartamento tras ver las luces (~6 €/pers) | 🍽️ Fuera: Tapas en Paseo de los Tristes / Plaza Bib-Rambla (~14 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3 · Lun 7</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Restaurantes de Pradollano (Sierra Nevada, menú montañés ~18 €/ad) | 🥪 Picnic: Bocadillos calientes en zona de trineos (~5 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento tras el Parque de las Ciencias (~6 €/pers) | 🍽️ Fuera: Bodegas Castañeda / Los Diamantes (~15 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4 · Mar 8</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Asador tradicional en Jaén / Valdepeñas en ruta A-4 (~17 €/ad) | 🥪 Bocatas de casa (~5 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Ya en casa en Quer (0 € en ruta).
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 </section>
 <!-- TABLA DE PRESUPUESTO DINÁMICA -->
 <section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; margin-bottom: 35px;">
@@ -14974,8 +15912,6 @@
           </span>
 </div>
 <!-- TARJETA PRINCIPAL DESTACADA: ALOJAMIENTO FIJADO OFICIAL (CASA DE POSTAS) -->
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-cantabria">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-cantabria">📊 Ordenar alojamientos:</label>
@@ -15055,7 +15991,6 @@
 <!-- ========================================== -->
 <!-- ZONA A: HUB ORIENTAL (LIÉRGANES & SOLARES) -->
 <!-- ========================================== -->
-
 <!-- HOTEL 0: APTO PEDREÑA GOLF Y SURF (CHOLLO REAL COMPARTIDO POR ADRIÁN · 360 € · NOTA 9,6) -->
 <div class="hotel-card" data-hotel-id="ct_pedrena_golf" data-price2="306" data-price4="360" data-rating="9.6" data-score="96.50" data-sqm="70" data-zone="afueras"><div class="hotel-rank-ribbon"><span class="rank-pos-badge">#2 de 16</span><span class="rank-meta-pills">⭐ 9,6 · 💶 360 € (5p) · 📐 70 m²</span></div>
 <div class="hotel-card-img-wrap" onclick="openPhotoLightbox('img_cantabria/apto_pedrena_golf_surf.jpg', 'Apto Pedreña Golf y Surf — ⭐ 9,6 Excepcional · 70 m², 2 dormitorios, terraza y parking gratis en Pedreña (360 € total)')" style="cursor: pointer;">
@@ -15593,7 +16528,6 @@
 <!-- ======================================================== -->
 <!-- ZONA B: HUB OCCIDENTAL ALTERNATIVO (COMILLAS & SANTILLANA) -->
 <!-- ======================================================== -->
-
 <!-- HOTEL 6: ABBA COMILLAS APARTMENTS (COMILLAS) -->
 <div class="hotel-card" data-hotel-id="ct_abba_comillas" data-price2="260" data-price4="468" data-rating="8.6" data-score="83.00" data-sqm="60" data-zone="centro"><div class="hotel-rank-ribbon"><span class="rank-pos-badge">#14 de 16</span><span class="rank-meta-pills">⭐ 8,6 · 💶 468 € (5p) · 📐 60 m²</span></div>
 <div class="hotel-card-img-wrap" onclick="openPhotoLightbox('img_cantabria/abba_comillas_apartments.jpg', 'Abba Comillas Apartments — ⭐ 8,6 Fabuloso (1.368 comentarios) · Complejo residencial junto al campo de golf y a 900m del centro de Comillas')" style="cursor: pointer;">
@@ -15728,7 +16662,6 @@
 </div>
 </div></section>
 <!-- DESPLEGABLE: OTRAS 10 OPCIONES DE ALOJAMIENTO Y COMPARATIVA DE ZONAS -->
-
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
 <div class="trip-collapsible-left">
@@ -16330,7 +17263,208 @@
 </details>
 </section>
 <!-- TABLA DE PRESUPUESTO DINÁMICA -->
-<section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; margin-bottom: 35px;">
+<section class="meals-module-section" id="meals-section-cantabria">
+<div class="meals-module-header">
+<div>
+<span style="background: #FEF3C7; color: #B45309; padding: 3px 10px; border-radius: 999px; font-size: 0.73rem; font-weight: 800; text-transform: uppercase;">🍽️ Gastronomía Cántabra BBB vs. Cocina/Barbacoa en Casa de Postas</span>
+<h2 style="font-size: 1.3rem; font-weight: 800; color: #0F172A; margin: 4px 0 2px 0;">
+        🍴 Opciones de Comida y Cena por Día (Elige Fuera o en Casa)
+      </h2>
+<p style="font-size: 0.83rem; color: #475569; margin: 0;">
+        Tienes las <strong>2 alternativas listas en cada comida y cena</strong> según dónde os pille la ruta. Pulsa en cada bloque <strong>«🍽️ Fuera»</strong> o <strong>«🏡 En Casa»</strong> para simular el presupuesto.
+      </p>
+</div>
+<div class="meals-preset-bar">
+<button class="btn-meal-preset active" id="ct-meal-preset-balanced" onclick="setAllCtMeals('balanced')" type="button">⚖️ Equilibrado (Comidas Fuera + Cenas Casa)</button>
+<button class="btn-meal-preset" id="ct-meal-preset-allout" onclick="setAllCtMeals('all_out')" type="button">🍽️ Todo Fuera (Restaurantes BBB)</button>
+<button class="btn-meal-preset" id="ct-meal-preset-saver" onclick="setAllCtMeals('max_home')" type="button">🏡 Ahorro en Casa (Cenas + 2 Comidas Casa)</button>
+</div>
+</div>
+<!-- Barra resumen rápida de coste de comidas -->
+<div style="background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; font-size: 0.83rem;">
+<div>
+<strong style="color: #92400E;">📊 Selección actual de Comidas/Cenas:</strong>
+<span id="ct-meals-summary-label" style="color: #78350F; font-weight: 700; margin-left: 6px;">4 Comidas Fuera + 3 Cenas en Casa (incl. Barbacoa) + Desayunos</span>
+</div>
+<div style="display: flex; align-items: center; gap: 12px;">
+<span style="color: #475569;">Coste estimado grupo: <strong id="ct-meals-total-badge" style="color: #B45309; font-size: 1rem;">~340 €</strong></span>
+<span id="ct-meals-perpax-badge" style="background: #ECFDF5; color: #065F46; border: 1px solid #6EE7B7; padding: 2px 8px; border-radius: 999px; font-weight: 800; font-size: 0.75rem;">~68 € / persona</span>
+</div>
+</div>
+<div class="meals-days-grid">
+<!-- DÍA 1: SÁBADO 5 DIC -->
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>🌲 Día 1 · Sábado 5 Dic</span>
+<span style="font-size: 0.74rem; color: #0369A1; background: #E0F2FE; padding: 2px 8px; border-radius: 6px;">Ruta Saja / Comillas / Cartes</span>
+</div>
+<!-- Comida Día 1 -->
+<div class="meal-slot-box mode-out" id="ct-slot-d1-lunch">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (13:35–14:50h)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d1-lunch-out" onclick="setCtMealMode(1, 'lunch', 'out')" type="button">🍽️ Fuera (~81 €)</button>
+<button class="btn-meal-toggle" id="btn-ct-d1-lunch-home" onclick="setCtMealMode(1, 'lunch', 'home')" type="button">🥪 Picnic (~25 €)</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d1-lunch-out">
+<strong>🍽️ Si coméis FUERA (Ruente / Caviedes / Cabezón):</strong><br/>
+          • <strong>Mesón Casa Cofiño</strong> (Caviedes) o <strong>El Jardín de Ruente / Ciclos</strong> (Ruente): cocido montañés tradicional y carnes del Saja (~18–20 €/ad).<br/>
+          • <strong>El Bodegón</strong> (Cabezón de la Sal) o <strong>Galeón</strong> (Comillas): menú cántabro rápido junto a Secuoyas (~16–18 €/ad).
+        </div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d1-lunch-home">
+<strong>🥪 Si coméis de CASA / PICNIC:</strong><br/>
+          • Bocadillos de tortilla/ibéricos y empanada traídos de Quer en los merenderos del <strong>Monte Corona (Secuoyas)</strong> o mirador de Carmona (~5 €/pers).
+        </div>
+</div>
+<!-- Cena Día 1 -->
+<div class="meal-slot-box mode-home" id="ct-slot-d1-dinner">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (20:30–21:15h)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle" id="btn-ct-d1-dinner-out" onclick="setCtMealMode(1, 'dinner', 'out')" type="button">🍽️ Fuera (~68 €)</button>
+<button class="btn-meal-toggle active-home" id="btn-ct-d1-dinner-home" onclick="setCtMealMode(1, 'dinner', 'home')" type="button">🏡 En Casa (~32 €)</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-home" id="opt-ct-d1-dinner-home">
+<strong>🏡 Si cenáis en CASA (Casa de Postas, Meruelo):</strong><br/>
+          • Llegada a las 20:50h: cena caliente en el apartamento (sopa/pasta para Marco, tabla de quesucos cántabros, embutido y tortilla) (~6–7 €/pers).
+        </div>
+<div class="meal-option-block meal-option-out dimmed" id="opt-ct-d1-dinner-out">
+<strong>🍽️ Si cenáis FUERA (Cartes o Meruelo):</strong><br/>
+          • <strong>Mesón / Pizzería en Santiago de Cartes</strong> (a las 20:10h justo al terminar de ver el Poblado Navideño): rabas, hamburguesas o pizzas (~14–16 €/ad).<br/>
+          • <strong>Asador / Hostería en San Mamés de Meruelo</strong> (a 2 min del alojamiento): raciones y picoteo caliente (~15 €/ad).
+        </div>
+</div>
+</div>
+<!-- DÍA 2: DOMINGO 6 DIC -->
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>⚓ Día 2 · Domingo 6 Dic</span>
+<span style="font-size: 0.74rem; color: #0369A1; background: #E0F2FE; padding: 2px 8px; border-radius: 6px;">Ruta Noja / Santoña / Laredo / Castro</span>
+</div>
+<!-- Comida Día 2 -->
+<div class="meal-slot-box mode-out" id="ct-slot-d2-lunch">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (13:30–15:00h)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d2-lunch-out" onclick="setCtMealMode(2, 'lunch', 'out')" type="button">🍽️ Fuera (~85 €)</button>
+<button class="btn-meal-toggle" id="btn-ct-d2-lunch-home" onclick="setCtMealMode(2, 'lunch', 'home')" type="button">🏡 En Casa (~28 €)</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d2-lunch-out">
+<strong>🍽️ Si coméis FUERA (Puerto de Laredo o Santoña):</strong><br/>
+          • <strong>Taberna El Pescador / El Náutico / Ruiloba</strong> (Laredo): rabas frescas, marmita de bonito, bocartes rebozados y menú marinero (~18–20 €/ad).<br/>
+          • <strong>Restaurante La Marisma / As de Guía</strong> (Santoña): arroz marinero o picoteo de anchoas y pimientos asados (~17–19 €/ad).
+        </div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d2-lunch-home">
+<strong>🏡 Si coméis en CASA (Meruelo está a 12 min de Santoña):</strong><br/>
+          • Como <strong>Casa de Postas</strong> os pilla al lado de Isla/Noja/Santoña, podéis pasar 1h a comer en casa (pasta/filetes) antes de ir a Laredo (~5–6 €/pers).
+        </div>
+</div>
+<!-- Cena Día 2 -->
+<div class="meal-slot-box mode-home" id="ct-slot-d2-dinner">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (20:30–21:15h)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle" id="btn-ct-d2-dinner-out" onclick="setCtMealMode(2, 'dinner', 'out')" type="button">🍽️ Fuera (~70 €)</button>
+<button class="btn-meal-toggle active-home" id="btn-ct-d2-dinner-home" onclick="setCtMealMode(2, 'dinner', 'home')" type="button">🔥 BBQ Casa (~48 €)</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-home" id="opt-ct-d2-dinner-home">
+<strong>🔥 Si cenáis en CASA (Barbacoa en Casa de Postas):</strong><br/>
+          • ¡Plan estrella! Aprovechar la <strong>barbacoa del jardín privado</strong> para asar chuletón de vaca tudanca, chorizos criollos y abrir unas latas de anchoas de Santoña (~10 €/pers).
+        </div>
+<div class="meal-option-block meal-option-out dimmed" id="opt-ct-d2-dinner-out">
+<strong>🍽️ Si cenáis FUERA (Castro-Urdiales o Noja):</strong><br/>
+          • <strong>Mesón Marinero / Bar Amarras / La Fuente</strong> (Puerto de Castro-Urdiales, 20:00h): cazuelitas, rabas y pinchos calientes frente a las luces del puerto (~15–17 €/ad).<br/>
+          • <strong>Restaurante Ciaboga / Pizzería en Noja</strong> (a 8 min de casa): pizzas artesanas o raciones (~14 €/ad).
+        </div>
+</div>
+</div>
+<!-- DÍA 3: LUNES 7 DIC -->
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>♨️ Día 3 · Lunes 7 Dic</span>
+<span style="font-size: 0.74rem; color: #0369A1; background: #E0F2FE; padding: 2px 8px; border-radius: 6px;">Ruta Solares / Liérganes / Santander</span>
+</div>
+<!-- Comida Día 3 -->
+<div class="meal-slot-box mode-out" id="ct-slot-d3-lunch">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (13:50–15:10h)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d3-lunch-out" onclick="setCtMealMode(3, 'lunch', 'out')" type="button">🍽️ Fuera (~85 €)</button>
+<button class="btn-meal-toggle" id="btn-ct-d3-lunch-home" onclick="setCtMealMode(3, 'lunch', 'home')" type="button">🏡 En Casa (~28 €)</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d3-lunch-out">
+<strong>🍽️ Si coméis FUERA (Barrio Pesquero Santander o Liérganes):</strong><br/>
+          • <strong>Barrio Pesquero Santander (Los Peñucas / Casa Sotero / La Gaviota)</strong>: rabas de calamar, paella marinera o pescado fresco con parking fácil (~18–21 €/ad).<br/>
+          • <strong>El Cantábrico / La Juguetería</strong> (Liérganes) al salir del chocolate con churros (~17 €/ad).
+        </div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d3-lunch-home">
+<strong>🏡 Si coméis en CASA (Meruelo está a 15 min de Liérganes):</strong><br/>
+          • Pasar por <strong>Casa de Postas</strong> a comer caliente tras el Balneario de Solares antes de ir toda la tarde a Santander (~5–6 €/pers).
+        </div>
+</div>
+<!-- Cena Día 3 -->
+<div class="meal-slot-box mode-home" id="ct-slot-d3-dinner">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (20:30–21:15h)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle" id="btn-ct-d3-dinner-out" onclick="setCtMealMode(3, 'dinner', 'out')" type="button">🍽️ Fuera (~72 €)</button>
+<button class="btn-meal-toggle active-home" id="btn-ct-d3-dinner-home" onclick="setCtMealMode(3, 'dinner', 'home')" type="button">🏡 En Casa (~30 €)</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-home" id="opt-ct-d3-dinner-home">
+<strong>🏡 Si cenáis en CASA (Casa de Postas, a 20 min por A-8):</strong><br/>
+          • Regreso a las 20:30h tras ver el encendido de Santander para cenar tranquilos en pijama y liquidar las provisiones de la nevera (~6 €/pers).
+        </div>
+<div class="meal-option-block meal-option-out dimmed" id="opt-ct-d3-dinner-out">
+<strong>🍽️ Si cenáis FUERA (Santander Centro Navideño):</strong><br/>
+          • <strong>Bodega del Riojano / Casa Lita / Cañadío</strong> (Santander Centro): pinchos gourmet, tortillas rellenas y croquetas (~16–18 €/ad).<br/>
+          • <strong>Mercado del Este / Hamburguesería junto a Plaza Porticada</strong>: cena informal rápida a pie de las luces (~14–15 €/ad).
+        </div>
+</div>
+</div>
+<!-- DÍA 4: MARTES 8 DIC -->
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>🦒 Día 4 · Martes 8 Dic</span>
+<span style="font-size: 0.74rem; color: #0369A1; background: #E0F2FE; padding: 2px 8px; border-radius: 6px;">Safari Cabárceno y Vuelta A-67</span>
+</div>
+<!-- Comida Día 4 -->
+<div class="meal-slot-box mode-out" id="ct-slot-d4-lunch">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (14:15–15:30h)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d4-lunch-out" onclick="setCtMealMode(4, 'lunch', 'out')" type="button">🍽️ Fuera (~78 €)</button>
+<button class="btn-meal-toggle" id="btn-ct-d4-lunch-home" onclick="setCtMealMode(4, 'lunch', 'home')" type="button">🥪 Bocatas (~22 €)</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d4-lunch-out">
+<strong>🍽️ Si coméis FUERA (Cabárceno / Obregón o Ruta A-67):</strong><br/>
+          • <strong>Restaurante Los Elefantes</strong> (dentro de Cabárceno, junto a la pradera de elefantes) o <strong>Mesón en Obregón / Sobarzo</strong> (a 3 min de la salida): menú cántabro (~16–19 €/ad).<br/>
+          • <strong>Asador en Aguilar de Campoo</strong> (ya en ruta por la A-67 para quitaros 1h de viaje antes de comer) (~16 €/ad).
+        </div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d4-lunch-home">
+<strong>🥪 Si preparáis BOCATAS / TÁPER en Casa de Postas:</strong><br/>
+          • Preparar bocadillos calientes de lomo/queso o tortilla en la cocina antes del check-out (09:00h) y comer en los <strong>merenderos cubiertos del Lago del Acebo (Cabárceno)</strong> (~4–5 €/pers).
+        </div>
+</div>
+<!-- Cena Día 4 -->
+<div class="meal-slot-box mode-home" style="background: #F0FDF4; border-color: #BBF7D0;">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🏠 Cena (20:00h · Ya en Quer)</span>
+<span style="background: #DCFCE7; color: #166534; font-size: 0.72rem; font-weight: 800; padding: 2px 8px; border-radius: 999px;">0 € en ruta</span>
+</div>
+<div style="font-size: 0.78rem; color: #166534; line-height: 1.4;">
+          • Saliendo de Cabárceno a las 15:40h llegáis a <strong>Quer sobre las 19:30–19:45h</strong> para cenar ya tranquilamente en vuestra casa (con sobaos y quesada de Vega de Pas de postre).
+        </div>
+</div>
+</div>
+</div>
+</section><section style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; margin-bottom: 35px;">
 <h2 style="font-size: 1.35rem; font-weight: 800; color: #0F172A; margin-bottom: 16px;">
           💶 Presupuesto Transparente &amp; Desglose Dinámico (Cantabria)
         </h2>
@@ -16521,8 +17655,6 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-belgica">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-belgica">📊 Ordenar alojamientos:</label>
@@ -16684,6 +17816,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-belgica" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Bruselas, Brujas y Gante (Cuento de Hadas) (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Friterie tradicional belga (Maison Antoine / Fritland: patatas fritas + carbonnade, ~11 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento (~7 €/pers) | 🍽️ Fuera: Moules-frites (mejillones al vapor) cerca de Grand Place (~20 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Brasserie flamenca en Brujas (estofado a la cerveza + gofre caliente, ~19 €/ad) | 🥪 Picnic (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena caliente en el apartamento de Bruselas (~7 €/pers) | 🍽️ Fuera: Mercadillo Plaisirs d'Hiver (raclette y tartiflette, ~14 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Comida junto al canal Graslei en Gante (Amadeus ribs o estofado, ~18 €/ad) | 🥪 Bocatas (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento (~7 €/pers) | 🍽️ Fuera: Brasserie en el barrio de Sablon / Sainte-Catherine (~18 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Almuerzo tras el Atomium / Mini-Europe (~15 €/ad) | 🥪 Bocatas (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (BE) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -17318,8 +18551,6 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-dinamarca">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-dinamarca">📊 Ordenar alojamientos:</label>
@@ -17481,6 +18712,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-dinamarca" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Copenhague, Jardines Tivoli y Billund (Legoland) (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Torvehallerne (mercado gastronómico cubierto: Smørrebrød danés, ~16 €/ad) | 🏡 Casa (~8 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento para ahorrar en Dinamarca (~8 €/pers) | 🍽️ Fuera: Tivoli Food Hall junto a las luces (~18 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Broens Gadekøkken / Reffen street food en Nyhavn (~16 €/ad) | 🥪 Picnic danés (~7 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena caliente en el apartamento (~8 €/pers) | 🍽️ Fuera: Puestos navideños de Kongens Nytorv / Tivoli (~17 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Buffet familiar dentro de LEGO House / Legoland Billund (~20 €/ad) | 🥪 Bocatas (~7 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el alojamiento (~8 €/pers) | 🍽️ Fuera: Restaurante familiar en Vesterbro (~20 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Panadería tradicional danesa (Kanelsnegle + sándwiches calientes, ~13 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (DK) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -18030,8 +19362,6 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-birmingham">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-birmingham">📊 Ordenar alojamientos:</label>
@@ -18193,6 +19523,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-birmingham" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Birmingham, Cadbury World, Warwick y Frankfurt Market (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Frankfurt Christmas Market en Victoria Square (Bratwurst, pretzels y chocolate caliente, ~13 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena caliente en el apartamento (~7 €/pers) | 🍽️ Fuera: Pub tradicional inglés en The Mailbox / Brindleyplace (Fish &amp; Chips / Pie, ~17 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Cafetería de Cadbury World en Bournville o pub en Warwick (~15 €/ad) | 🥪 Picnic (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento (~7 €/pers) | 🍽️ Fuera: Balti Triangle (auténtico curry de Birmingham, ~16 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Tea room histórico en Stratford-upon-Avon / Cotswolds (~16 €/ad) | 🥪 Bocatas (~6 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena tranquila en casa (~7 €/pers) | 🍽️ Fuera: Gastropub en Jewellery Quarter (~18 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Sunday Roast o desayuno inglés completo antes del vuelo (~15 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Llegada a casa en Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (BM) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -18778,8 +20209,6 @@
             🏙️ 2 Ciudad · 🌲 2 Afueras
           </span>
 </div>
-
-
 <div class="hotel-master-control-bar" id="hotel-control-bar-grecia">
 <div class="hotel-sort-group">
 <label class="hotel-sort-label" for="hotel-sort-select-grecia">📊 Ordenar alojamientos:</label>
@@ -18941,6 +20370,107 @@
 </div>
 </div>
 </section>
+<details class="trip-collapsible" id="meals-section-grecia" style="margin: 18px 0; border-color: #FCD34D; background: #FFFBEB;">
+<summary class="trip-collapsible-summary" style="color: #92400E;">
+<div class="trip-collapsible-left">
+<span>🍽️ Opciones de Comida y Cena por Día — Atenas Clásica, Delfos, Meteora y Peloponeso (Fuera en Restaurante BBB vs. En Casa)</span>
+<span class="trip-collapsible-sub">(Comparativa diaria para decidir sobre la marcha si coméis/cenáis fuera o en el apartamento)</span>
+</div>
+<span class="trip-collapsible-toggle-pill"></span>
+</summary>
+<div class="trip-collapsible-body" style="background: #FFFFFF;">
+<div class="meals-days-grid">
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 1</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Taberna tradicional en Plaka / Monastiraki (Souvlaki, Gyros y Tzatziki, ~13 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento con ensalada griega y queso feta (~6 €/pers) | 🍽️ Fuera: Terraza con vistas a la Acrópolis iluminada (~19 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 2–3</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Taberna familiar en Arachova / Delfos (Moussaka y cordero asado, ~16 €/ad) | 🥪 Picnic (~5 €/pers).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el alojamiento (~6 €/pers) | 🍽️ Fuera: Taberna en Kalambaka al pie de los monasterios de Meteora (~16 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 4–5</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Puerto de Nauplia / Micenas (pescado fresco y calamares en el Peloponeso, ~18 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏡 Casa: Cena en el apartamento (~6 €/pers) | 🍽️ Fuera: Barrio de Psirri en Atenas con música en vivo (~17 €/ad).
+            </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title">
+<span>📅 Día 6–7</span>
+<span style="font-size: 0.72rem; color: #B45309; background: #FEF3C7; padding: 2px 7px; border-radius: 6px;">Fuera vs. Casa</span>
+</div>
+<div class="meal-slot-box mode-out">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (Mediodía)</span>
+</div>
+<div class="meal-option-block meal-option-out" style="margin-top:0;">
+              🍽️ Fuera: Cabo Sunión / Riviera Ateniense (taberna marinera frente al Egeo, ~19 €/ad).
+            </div>
+</div>
+<div class="meal-slot-box mode-home">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (Noche)</span>
+</div>
+<div class="meal-option-block meal-option-home" style="margin-top:0;">
+              🏠 Regreso a Madrid y llegada a Quer.
+            </div>
+</div>
+</div>
+</div>
+</div>
+</details>
 <!-- SELECTOR DINÁMICO DE ACTIVIDADES CON DESCARTE (GRC) -->
 <details class="trip-collapsible">
 <summary class="trip-collapsible-summary">
@@ -23322,6 +24852,122 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       if (elTableVal) elTableVal.textContent = `~${tripTotal} €`;
     }
 
+    
+    // === MOTOR INTERACTIVO DE COMIDAS Y CENAS POR DÍA (CANTABRIA) ===
+    window.ctMealsState = {
+      d1_lunch: 'out',
+      d1_dinner: 'home',
+      d2_lunch: 'out',
+      d2_dinner: 'home',
+      d3_lunch: 'out',
+      d3_dinner: 'home',
+      d4_lunch: 'out'
+    };
+
+    function getCtMealSlotCost(slotKey, mode, adults, children) {
+      // Precios realistas por adulto y niño (Marco 4a)
+      const rates = {
+        d1_lunch:  { out: { ad: 18, ch: 9 }, home: { ad: 5, ch: 5 } },
+        d1_dinner: { out: { ad: 15, ch: 8 }, home: { ad: 6.5, ch: 5 } },
+        d2_lunch:  { out: { ad: 19, ch: 9 }, home: { ad: 5.5, ch: 5 } },
+        d2_dinner: { out: { ad: 15.5, ch: 8 }, home: { ad: 10, ch: 7 } }, // BBQ Chuletón en casa
+        d3_lunch:  { out: { ad: 19, ch: 9 }, home: { ad: 5.5, ch: 5 } },
+        d3_dinner: { out: { ad: 16, ch: 8 }, home: { ad: 6, ch: 5 } },
+        d4_lunch:  { out: { ad: 17.5, ch: 8 }, home: { ad: 4.5, ch: 4 } }
+      };
+      const r = rates[slotKey][mode];
+      return Math.round((r.ad * adults) + (r.ch * children));
+    }
+
+    function setCtMealMode(day, meal, mode) {
+      const key = `d${day}_${meal}`;
+      window.ctMealsState[key] = mode;
+      // Clear active preset highlight if manual change doesn't match preset
+      syncCtMealsUI();
+      updateCtActivityCalc();
+    }
+
+    function setAllCtMeals(preset) {
+      if (preset === 'balanced') {
+        window.ctMealsState = {
+          d1_lunch: 'out', d1_dinner: 'home',
+          d2_lunch: 'out', d2_dinner: 'home',
+          d3_lunch: 'out', d3_dinner: 'home',
+          d4_lunch: 'out'
+        };
+      } else if (preset === 'all_out') {
+        window.ctMealsState = {
+          d1_lunch: 'out', d1_dinner: 'out',
+          d2_lunch: 'out', d2_dinner: 'out',
+          d3_lunch: 'out', d3_dinner: 'out',
+          d4_lunch: 'out'
+        };
+      } else if (preset === 'max_home') {
+        window.ctMealsState = {
+          d1_lunch: 'home', d1_dinner: 'home',
+          d2_lunch: 'out',  d2_dinner: 'home',
+          d3_lunch: 'out',  d3_dinner: 'home',
+          d4_lunch: 'home'
+        };
+      }
+      syncCtMealsUI(preset);
+      updateCtActivityCalc();
+    }
+
+    function syncCtMealsUI(activePreset) {
+      const ad = (typeof ctAdults !== 'undefined') ? ctAdults : 4;
+      const ch = (typeof ctChildren !== 'undefined') ? ctChildren : 1;
+      const slots = [
+        { day: 1, meal: 'lunch', key: 'd1_lunch', homeLabel: '🥪 Picnic' },
+        { day: 1, meal: 'dinner', key: 'd1_dinner', homeLabel: '🏡 En Casa' },
+        { day: 2, meal: 'lunch', key: 'd2_lunch', homeLabel: '🏡 En Casa' },
+        { day: 2, meal: 'dinner', key: 'd2_dinner', homeLabel: '🔥 BBQ Casa' },
+        { day: 3, meal: 'lunch', key: 'd3_lunch', homeLabel: '🏡 En Casa' },
+        { day: 3, meal: 'dinner', key: 'd3_dinner', homeLabel: '🏡 En Casa' },
+        { day: 4, meal: 'lunch', key: 'd4_lunch', homeLabel: '🥪 Bocatas' }
+      ];
+
+      slots.forEach(s => {
+        const mode = window.ctMealsState[s.key];
+        const box = document.getElementById(`ct-slot-d${s.day}-${s.meal}`);
+        const btnOut = document.getElementById(`btn-ct-d${s.day}-${s.meal}-out`);
+        const btnHome = document.getElementById(`btn-ct-d${s.day}-${s.meal}-home`);
+        const optOut = document.getElementById(`opt-ct-d${s.day}-${s.meal}-out`);
+        const optHome = document.getElementById(`opt-ct-d${s.day}-${s.meal}-home`);
+
+        const costOut = getCtMealSlotCost(s.key, 'out', ad, ch);
+        const costHome = getCtMealSlotCost(s.key, 'home', ad, ch);
+
+        if (btnOut) {
+          btnOut.textContent = `🍽️ Fuera (~${costOut} €)`;
+          btnOut.classList.toggle('active-out', mode === 'out');
+        }
+        if (btnHome) {
+          btnHome.textContent = `${s.homeLabel} (~${costHome} €)`;
+          btnHome.classList.toggle('active-home', mode === 'home');
+        }
+        if (box) {
+          box.classList.toggle('mode-out', mode === 'out');
+          box.classList.toggle('mode-home', mode === 'home');
+        }
+        if (optOut) optOut.classList.toggle('dimmed', mode !== 'out');
+        if (optHome) optHome.classList.toggle('dimmed', mode !== 'home');
+      });
+
+      // Update preset buttons
+      const st = window.ctMealsState;
+      const isBalanced = st.d1_lunch==='out' && st.d2_lunch==='out' && st.d3_lunch==='out' && st.d4_lunch==='out' && st.d1_dinner==='home' && st.d2_dinner==='home' && st.d3_dinner==='home';
+      const isAllOut = Object.values(st).every(v => v === 'out');
+      const isMaxHome = st.d1_lunch==='home' && st.d4_lunch==='home' && st.d1_dinner==='home' && st.d2_dinner==='home' && st.d3_dinner==='home';
+
+      const bBal = document.getElementById('ct-meal-preset-balanced');
+      const bOut = document.getElementById('ct-meal-preset-allout');
+      const bSav = document.getElementById('ct-meal-preset-saver');
+      if (bBal) bBal.classList.toggle('active', isBalanced);
+      if (bOut) bOut.classList.toggle('active', isAllOut);
+      if (bSav) bSav.classList.toggle('active', isMaxHome);
+    }
+
     function setCtPax(pax) {
       ctAdults = pax;
       document.getElementById('ct-btn-pax2').classList.toggle('active', pax === 2);
@@ -23372,7 +25018,27 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       const lodgingBase = window.ctSelectedHotel ? (ctAdults === 2 ? window.ctSelectedHotel.price2 : window.ctSelectedHotel.price4) : (ctAdults === 2 ? 285 : 480);
       const mult = (typeof window.ctLodgingMultiplier !== 'undefined') ? window.ctLodgingMultiplier : 1.0;
       const lodgingCost = Math.round(lodgingBase * mult);
-      const foodCost = ctAdults === 2 ? 180 : 340;
+      // Cálculo dinámico según selección de Comidas y Cenas (Fuera vs En Casa)
+      if (typeof syncCtMealsUI === 'function') syncCtMealsUI();
+      let foodCost = ctAdults === 2 ? 180 : 340;
+      let lunchesOut = 4, dinnersOut = 0;
+      if (window.ctMealsState && typeof getCtMealSlotCost === 'function') {
+        const breakfastsAndChurros = (ctAdults * 7) + (ctChildren * 5); // 3 desayunos en casa + chocolate con churros Liérganes
+        let mealsSum = breakfastsAndChurros;
+        lunchesOut = 0;
+        dinnersOut = 0;
+        ['d1_lunch','d2_lunch','d3_lunch','d4_lunch'].forEach(k => {
+          const m = window.ctMealsState[k] || 'out';
+          if (m === 'out') lunchesOut++;
+          mealsSum += getCtMealSlotCost(k, m, ctAdults, ctChildren);
+        });
+        ['d1_dinner','d2_dinner','d3_dinner'].forEach(k => {
+          const m = window.ctMealsState[k] || 'home';
+          if (m === 'out') dinnersOut++;
+          mealsSum += getCtMealSlotCost(k, m, ctAdults, ctChildren);
+        });
+        foodCost = Math.round(mealsSum);
+      }
       const tripTotal = Math.round(actTotal + fuelCost + lodgingCost + foodCost);
       const totalPax = ctAdults + ctChildren;
       const perPax = Math.round(tripTotal / totalPax);
@@ -23414,6 +25080,22 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       if (elTableAct) elTableAct.textContent = `~${Math.round(actTotal)} €`;
       const elTableFood = document.getElementById('ct-table-food-cost');
       if (elTableFood) elTableFood.textContent = `~${foodCost} €`;
+      const lunchesHome = 4 - lunchesOut;
+      const dinnersHome = 3 - dinnersOut;
+      const summaryParts = [];
+      if (lunchesOut > 0) summaryParts.push(`${lunchesOut} Comida${lunchesOut>1?'s':''} Fuera`);
+      if (lunchesHome > 0) summaryParts.push(`${lunchesHome} Comida${lunchesHome>1?'s':''} en Casa/Picnic`);
+      if (dinnersOut > 0) summaryParts.push(`${dinnersOut} Cena${dinnersOut>1?'s':''} Fuera`);
+      if (dinnersHome > 0) summaryParts.push(`${dinnersHome} Cena${dinnersHome>1?'s':''} en Casa/BBQ`);
+      const summaryText = summaryParts.join(' + ') + ' + 3 Desayunos en Casa y Churros';
+      const elTableFoodDesc = document.getElementById('ct-table-food-desc');
+      if (elTableFoodDesc) elTableFoodDesc.textContent = summaryText;
+      const elMealsSumLabel = document.getElementById('ct-meals-summary-label');
+      if (elMealsSumLabel) elMealsSumLabel.textContent = summaryText;
+      const elMealsBadge = document.getElementById('ct-meals-total-badge');
+      if (elMealsBadge) elMealsBadge.textContent = `~${foodCost} €`;
+      const elMealsPerPax = document.getElementById('ct-meals-perpax-badge');
+      if (elMealsPerPax) elMealsPerPax.textContent = `~${Math.round(foodCost / totalPax)} € / persona`;
       const elTableSub = document.getElementById('ct-table-total-sub');
       if (elTableSub) elTableSub.textContent = ctAdults === 2 ? 'Para 3 Viajeros (2 Adultos + Marco 4a)' : 'Para 5 Viajeros (4 Adultos + Marco 4a)';
       const elTableVal = document.getElementById('ct-table-total-val');

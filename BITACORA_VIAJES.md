@@ -48,6 +48,17 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 15:18] — CANTABRIA: TARIFA MÓVIL «EL BOSQUE DE CUBAS» (463 €), INCORPORACIÓN DE «PINEDA NOJA» (349 €) Y «PILAR ARNUERO» (355 €) + EJE COSTA ORIENTAL (SANTOÑA · LAREDO · CASTRO-URDIALES)
+* **Análisis de las 3 nuevas capturas de Adrián:**
+  1. **Apartamentos El Bosque De Cubas (Cubas / Ribamontán al Monte):** Actualizado a **463 €** con el descuento de **`-51 € Precio solo para móvil`** para 4 adultos (Apartamento de 2 dormitorios, 70 m², lavadora, lavavajillas, terraza en bosque).
+  2. **Apartamentos Pineda (Noja · Calle Los Pinares 61):** **349 € con 10% Descuento Genius** (388 € sin Genius) para 4 adultos. Apartamento de 60 m² con 2 dormitorios, terraza con **vistas al mar** en primera línea de Noja y parking gratis (Nota 8,1 · Ubicación 9,4).
+  3. **Apartamento de Pilar - 7000 (Arnuero · Barrio San Pedro 2):** **355 €** para 4 adultos. Apartamento de 48 m² con 2 dormitorios, jardín y barbacoa en Arnuero (Nota 7,9).
+* **Nuevos Planes Costa Oriental (Santoña · Laredo · Castro-Urdiales):**
+  - Añadidas 2 nuevas tarjetas interactivas al calculador de Cantabria (`chk-ct-santona` y `chk-ct-castro`):
+    * **⛴️ Santoña & Laredo:** Barco acristalado por la Bahía de Santoña hasta el Faro del Caballo (15 € adulto, Marco gratis), conserveras de anchoa sobada a mano y Puebla Vieja medieval de Laredo + mirador de La Atalaya.
+    * **🏰 Castro-Urdiales:** Castillo-Faro medieval de Santa Ana (gratis), Puente Romano sobre el Cantábrico, iglesia gótica de Santa María y ruta de rabas/pinchos en su puerto pesquero.
+
+
 ### [2026-11-02 15:11] — CANTABRIA: INCORPORACIÓN DE «APARTAMENTOS EL BOSQUE DE CUBAS» (514 €) Y «APARTAMENTOS VILLACARRIEDO» (375 € / 525 €)
 * **Capturas enviadas por Adrián:**
   1. **Apartamentos El Bosque De Cubas** (`https://www.booking.com/hotel/es/ecovillas-el-bosque-de-cubas.es.html`):

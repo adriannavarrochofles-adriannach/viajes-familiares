@@ -48,6 +48,37 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 14:38] — CANTABRIA: GRUPO 5 PERSONAS, ALOJAMIENTOS REALES BOOKING, PLANO DE RUTAS & SUSTITUCIÓN DE FUENTE DÉ
+* **Directiva de Usuario:** «Seremos 5, haz búsquedas de alojamientos reales y quita fuente de por otra cosa que podamos hacer con el niño», «Y haz un dibujo con el plano de los viajes de todos los días para ver los km y recorridos que haríamos» y «Y al quitar fuente de , lo mismo compensa otra ubicación».
+* **Composición del Grupo Familiar:** 5 personas (4 adultos + 1 niño de 4 años, Marco). Salida desde Quer (Guadalajara) en Volvo XC60.
+* **Precios Reales Verificados en Vivo (Booking.com 5–8 Dic 2026 para 5 pax):**
+  - **Hub Liérganes / Solares (Junto a Cabárceno y Balneario):**
+    1. *El Molino de Mateo (Solares / Liérganes)*: **501 €** (Casa entera independiente de 3 dormitorios completos, chimenea, jardín y parking en la puerta · Nota 9,3). Seleccionado por defecto.
+    2. *Apartamentos Turísticos Los Picos (Liérganes casco)*: **502 €** (Apto Superior 45 m², parking privado · Nota 8,7).
+    3. *Casa de Robles Cantabria (Valles Pasiegos)*: **533 €** (Chalet de 3 dormitorios y **2 baños completos**, chimenea · Nota 9,6).
+    4. *Apartamentos La Albarca (Solares)*: **578 €** (Apto 2 dorms a 2 min del Balneario · Nota 8,8).
+    5. *Jardines Villaverde (Solares)*: **637 €** (Apto terraza 2 dorms de diseño moderno · Nota 9,6).
+  - **Hub Costa Occidental Alternativo (Comillas / Santillana / Suances):**
+    1. *Abba Comillas Apartments (Comillas)*: **468 €** (Apto Superior 2 dorms, jardines, 1.368 opiniones · Nota 8,6).
+    2. *Apartamentos La Fuente de Enmedio (Suances)*: **450 €** (Apto 2 dorms a pie de playa · Nota 8,8).
+    3. *Comillas Pueblo El Capricho (Comillas)*: **525 €** (Dúplex 2 dorms y **2 baños completos** a 200m de Gaudí · Nota 9,2).
+    4. *Apartamentos Ciudad de Petra (Santillana del Mar)*: **567 €** (Dúplex 2 dorms y **2 baños completos** junto a Altamira · Nota 9,2).
+* **Plano Oficial de Rutas Diarias & Kilómetros (`img_cantabria/plano_rutas_cantabria_diario.png`):**
+  - D1: Quer ➔ Secuoyas de Cabezón ➔ Poblado Navideño de Cartes ➔ Liérganes (428 km)
+  - D2: Neocueva de Altamira ➔ Santillana del Mar ➔ El Capricho de Gaudí (97 km · 0 curvas)
+  - D3: Santander Ciudad & Península de La Magdalena ➔ Balneario de Solares (44 km)
+  - D4: Parque de Cabárceno Safari ➔ Quer directo por A-67 (405 km)
+  - Total: 974 km (0 € peajes). Ahorro neto al quitar Fuente Dé: -143 km y -2h 30m de curvas.
+* **Sustitución de Fuente Dé (Día 2 Infantil):**
+  - Eliminado el teleférico de alta montaña y el Desfiladero de La Hermida.
+  - Añadido **Museo y Neocueva de Altamira** (18°C techada, bisontes prehistóricos en relieve, cine 3D y talleres de fuego real para Marco; 3 € adultos, Marco GRATIS).
+  - Almuerzo en **Santillana del Mar** medieval peatonal sin coches con cocido montañés y sobaos pasiegos.
+  - Tarde en **El Capricho de Gaudí en Comillas** (castillo de cuento con girasoles de cerámica, persianas musicales y cuevas en el jardín; 7 € adultos, Marco GRATIS).
+* **Infraestructura y Verificación:**
+  - Actualizado `index.html` con calculadora reactiva ajustada a 5 pax, nuevo componente interactivo del plano de rutas, comparativa estratégica de hubs y enlaces reales a Booking.
+  - Auditado con Playwright: 0 errores de consola, reactividad 100% verificada.
+
+
 ```
 ========================================================================================
 TIMESTAMP: 2026-11-01 19:30:00 CEST

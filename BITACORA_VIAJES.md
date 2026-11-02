@@ -48,6 +48,33 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 14:52] — CANTABRIA: PLANOS CARTOGRÁFICOS REALES (ESRI WORLD MAP TILES), VISOR INTERACTIVO POR DÍAS & SELECCIÓN DE CASAS INDEPENDIENTES PARA 5 PERSONAS
+* **Directivas Atendidas:**
+  - «Y si vamos 5, prefiero una casa independiente»
+  - «Busca para 4 adultos y 1 niño o cuatro adultos y el niño duerme con nosotros si lo permiten»
+  - «Y dame el dibujo del plano que te pedí»
+  - «Pero un plano real, o mejor un plano con la ruta de cada día y uno con todos»
+* **Planos Geográficos Reales con Cartografía Esri World Street Map:**
+  - Generados 5 mapas HD (1280x860 px) mediante Playwright y Leaflet con coordenadas GPS reales de municipios, costas, autovías (A-1, A-67, A-8, CA-131, CA-135), trazados con relieve topográfico y marcadores con código cromático:
+    1. `plano_rutas_real_general.png` (974 km totales · visión panorámica Quer ➔ Burgos ➔ Reinosa ➔ Cantabria ➔ Quer).
+    2. `plano_rutas_real_dia1.png` (428 km · Quer ➔ Secuoyas ➔ Cartes Navideño ➔ Liérganes).
+    3. `plano_rutas_real_dia2.png` (97 km · Liérganes ➔ Neocueva Altamira ➔ Santillana ➔ Gaudí Comillas).
+    4. `plano_rutas_real_dia3.png` (44 km · Liérganes ➔ Santander Bahía & Focas Magdalena ➔ Balneario Solares 34°C).
+    5. `plano_rutas_real_dia4.png` (405 km · Liérganes ➔ Cabárceno Safari ➔ Autovía A-67 directa a Quer).
+  - Integrado en `index.html` un **Visor Interactivo por Pestañas** con selector de día, actualización en tiempo real de imagen y ficha descriptiva, y botón de zoom directo al Lightbox HD.
+* **Selección Prioritaria de Casas & Chalets Independientes (5 Personas · 5–8 Dic 2026):**
+  - **El Molino de Mateo (Solares / Liérganes)**: **501 €** (Casa entera 3 dormitorios, jardín privado, barbacoa, parking en la puerta · Nota 9,3). Opción seleccionada por defecto.
+  - **Casa de Robles Cantabria (Valles Pasiegos)**: **533 €** (Chalet unifamiliar independiente, 3 dormitorios, **2 baños completos**, salón con chimenea de leña, finca cerrada · Nota 9,6).
+  - **La Casita de la Venta (Costa Suances / Santillana)**: **499 €** (Chalet unifamiliar de 100 m², 3 dormitorios, jardín cerrado de césped con porche · Nota 8,1).
+  - **La Casonia (Riotuerto / Valles Pasiegos)**: **660 €** (Casona de piedra cántabra de 165 m², 3 dormitorios, **2 baños completos**, finca de 500 m² · Nota 9,7).
+  - **Chalet en Pámanes (Junto a Cabárceno)**: **870 €** (Chalet independiente de 182 m², 1.000 m² de jardín · Nota 9,1).
+* **Política de Ocupación Infantil / Cama Compartida (Colecho Marco 4 años):**
+  - Al alquilar **casa entera o chalet independiente**, la tarifa es a precio cerrado por la propiedad completa (hasta 6 personas), por lo que Marco tiene garantizada su plaza sin suplementos y con absoluta privacidad.
+  - En hoteles de 4 adultos (2 habitaciones dobles), hoteles como *Hotel Termas de Liérganes* (480 € con desayuno) permiten oficialmente a niños menores de 12 años alojarse **gratis** en camas existentes o con cuna supletoria a 0 €.
+* **Recompilación Offline Standalone:**
+  - Recompilado `PORTAL_VIAJES_FAMILIARES_WHATSAPP.html` (104.69 MB) con 181 imágenes codificadas íntegramente en Base64 para acceso sin conexión ni caídas de servidor.
+
+
 ### [2026-11-02 14:38] — CANTABRIA: GRUPO 5 PERSONAS, ALOJAMIENTOS REALES BOOKING, PLANO DE RUTAS & SUSTITUCIÓN DE FUENTE DÉ
 * **Directiva de Usuario:** «Seremos 5, haz búsquedas de alojamientos reales y quita fuente de por otra cosa que podamos hacer con el niño», «Y haz un dibujo con el plano de los viajes de todos los días para ver los km y recorridos que haríamos» y «Y al quitar fuente de , lo mismo compensa otra ubicación».
 * **Composición del Grupo Familiar:** 5 personas (4 adultos + 1 niño de 4 años, Marco). Salida desde Quer (Guadalajara) en Volvo XC60.

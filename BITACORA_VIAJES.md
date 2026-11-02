@@ -48,6 +48,23 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 15:31] — CANTABRIA: REDISEÑO INTEGRAL DE RUTA DE 4 DÍAS (COSTA ORIENTAL + SANTANDER & BALNEARIO + CABÁRCENO A LA VUELTA), PLANES PARA MARCO, NAVIDADES NOCTURNAS Y RECOMENDACIÓN DE ALOJAMIENTO CON BARBACOA
+* **Directivas Atendidas:**
+  - «Contando estos alojamientos, más económicos, vi alguno con barbacoa, cuál cogerías y haz de nuevo la ruta, cabarceno a la vuelta imprescindible y un día al balneario y Santander imprescindible»
+  - «Con cosas para hacer con Marco, y todo lo de Navidad por las noches»
+* **Recomendación de Alojamiento (Económicos & Con Barbacoa):**
+  1. **Con Barbacoa al Precio más Económico (355 €)**: **Apartamento de Pilar - 7000 (Arnuero · Barrio San Pedro 2)** — 48 m², 2 dormitorios, jardín con mesas exteriores y **barbacoa privada** (Nota 7,9).
+  2. **Mejor Equilibrio Global Calidad / Espacio / Ubicación (360 € – 463 €)**:
+     - **Apto Pedreña Golf y Surf (360 € · Nota 9,6 · 70 m² · Terraza)**: en el centro exacto de toda la ruta (a 8 min del Balneario de Solares, 15 min de Santander o en barco Los Reginas desde Pedreña, 15 min de Cabárceno y 22 min de Santoña/Laredo).
+     - **Apartamentos El Bosque De Cubas (463 € precio móvil · Nota 9,0 · 70 m²)**: eco-villas de madera en un bosque iluminado en Cubas (a 6 min de Solares, 10 min de Liérganes, 14 min de Cabárceno y 22 min de Santoña).
+  3. **Casa Independiente de 3 Dormitorios con Barbacoa (501 €)**: **El Molino de Mateo (Solares)** — 94 m², 3 dormitorios, jardín vallado y **barbacoa**, a 4 min del Balneario de Solares y 10 min de Cabárceno (Nota 9,3).
+* **Nueva Ruta Oficial de 4 Días (954 km totales · 0 € peajes) con Marco de día + Navidad de noche:**
+  - **Día 1 (Sáb 5 Dic · 398 km):** Subida desde Quer ➔ Bosque de Secuoyas Gigantes con Marco ➔ Comida Cocido Montañés ➔ **Noche Navideña 1:** Poblado Navideño de Cartes (Árbol de 65 m, Casa de Papá Noel y Parque Mágico de los Elfos).
+  - **Día 2 (Dom 6 Dic · 115 km — Costa Oriental):** **Mañana con Marco en Santoña:** Crucero en Barco al Faro del Caballo (15 € adulto / Marco gratis) + Centro de las Marismas + Anchoas ➔ **Laredo:** Túnel de roca de La Atalaya y Puebla Vieja ➔ **Castro-Urdiales:** Almuerzo marinero, Castillo-Faro medieval de Santa Ana y Puente Romano ➔ **Noche Navideña 2:** Puerto iluminado de Castro-Urdiales + Aldea de la Navidad de Noja / Sarón + Barbacoa nocturna.
+  - **Día 3 (Lun 7 Dic · 48 km — Imprescindible Santander & Balneario):** **Mañana con Marco en Santander:** Península de La Magdalena (Trenecito El Magdaleno, Parque Marino gratuito con focas, leones marinos y pingüinos + 3 Galeones piratas de madera) ➔ Comida en Puerto Chico ➔ **Tarde Imprescindible:** **Balneario de Solares (34°C + Balnea Infantil)** ➔ **Noche Navideña 3:** Paseo iluminado en Liérganes + **Gran Navidad de Santander** (Pista de Hielo en Plaza Porticada, Tobogán Gigante de Trineos en Alfonso XIII, Trenuco navideño y 50+ casetas en Alameda de Oviedo).
+  - **Día 4 (Mar 8 Dic · 393 km — Imprescindible Cabárceno a la vuelta):** **09:30h – 14:15h Safari completo en el Parque de la Naturaleza de Cabárceno** en el Volvo XC60 + Teleférico gratis + Leones marinos ➔ Comida junto al parque ➔ **15:30h Regreso directo por A-67 y A-1 a Quer** (llegada 19:15h).
+* **Cartografía Real Actualizada:** Regenerados los 5 planos Esri World Street Map y recompilado PORTAL_VIAJES_FAMILIARES_WHATSAPP.html.
+
 ### [2026-11-02 15:18] — CANTABRIA: TARIFA MÓVIL «EL BOSQUE DE CUBAS» (463 €), INCORPORACIÓN DE «PINEDA NOJA» (349 €) Y «PILAR ARNUERO» (355 €) + EJE COSTA ORIENTAL (SANTOÑA · LAREDO · CASTRO-URDIALES)
 * **Análisis de las 3 nuevas capturas de Adrián:**
   1. **Apartamentos El Bosque De Cubas (Cubas / Ribamontán al Monte):** Actualizado a **463 €** con el descuento de **`-51 € Precio solo para móvil`** para 4 adultos (Apartamento de 2 dormitorios, 70 m², lavadora, lavavajillas, terraza en bosque).

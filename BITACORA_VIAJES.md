@@ -48,6 +48,20 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 16:22] — CANTABRIA: ELIMINACIÓN DEL BARCO DE SANTOÑA (-60 €), CORRECCIÓN LOGÍSTICA DEL DÍA 3 (CERO IDAS Y VENIDAS: MAÑANA BALNEARIO/LIÉRGANES ➔ TARDE-NOCHE SEGUIDA EN SANTANDER) Y AMPLIACIÓN DE PARADAS EN LOS 4 DÍAS
+* **Directivas de Adrián:**
+  - *«El barco de Santoña no lo vamos a hacer, el día 3 no me cuadra mucho, Santander, solares, Liérganes 1hora, y luego otra vez Santander para volver al apartamento? Un lío no?»*
+  - *«Rellénalo con más cosas»*
+* **Mejoras Aplicadas:**
+  1. **Sin Barco en Santoña (`-60 €` en entradas):** En Santoña se hace ruta terrestre completa (Paseo del Pasaje, cañones del Fuerte de San Martín, subida en coche al Mirador de la Virgen del Puerto en el Monte Buciero y visita/degustación en conservera de Anchoas de Santoña).
+  2. **Día 3 100% Lineal (Cero idas y venidas a Santander):**
+     - **Mañana en el Valle Sur (al lado de casa, a 4–8 min):** `09:00–11:00` **Balneario de Solares** (primer turno infantil oficial en la piscina a 34°C) ➔ `11:05–11:25` paso de 20 min por **El Molino de Mateo** a dejar bañadores húmedos ➔ `11:35–12:50` **Liérganes Monumental** (Puente Mayor y Hombre Pez) + **Real Fábrica de Cañones de La Cavada** (Arco de Carlos III y cañones gigantes) ➔ `13:00–13:30` subida en coche al **Mirador 360° de Peña Cabarga** (justo de camino a Santander).
+     - **Mediodía, Tarde y Noche TODO DE SEGUIDO en Santander (`13:45–20:35` · un único viaje de ida y otro de vuelta):** Comida en Barrio Pesquero/Puerto Chico ➔ Península de La Magdalena (focas, pingüinos y galeones), El Sardinero y Faro de Cabo Mayor con luz de día ➔ Centro Botín iluminado y Gran Navidad en el centro de Santander (Trineos, Hielo, Tiovivo y 50+ casetas) ➔ `20:55` regreso único de 15 min a casa para cenar a las `21:00h`.
+  3. **Más Paradas Añadidas en Todos los Días:**
+     - **Día 1 (7 paradas):** Cueva El Soplao + **Mirador y Pueblo Histórico de Carmona** + Cocido y Fuentona de Ruente + Secuoyas + Comillas (Capricho de Gaudí y Sobrellano) + **Cascada y Acantilados de El Bolao** + Altamira (Gratis) y Santillana iluminada + Navidad en Cartes.
+     - **Día 2 (7 paradas):** **Acantilados de Cabo Quejo (Isla)** + Playa de Ris, Trengandín y Molino de las Aves (Noja) + Santoña (Fuertes, Monte Buciero y Anchoas) + Laredo (Túnel La Atalaya, Rastrillar y Puebla Vieja) + **Mirador de la Ballena de Oriñón y Ojos del Diablo (Sonabia)** + Castro-Urdiales + Navidad y Barbacoa en casa a las 21:00h.
+  4. **Presupuesto Actualizado (Sin Barco de Santoña):** Total Grupo 5 personas = **1.345,50 €** (**~672,75 € por pareja**).
+
 ### [2026-11-02 16:09] — CANTABRIA: CALENDARIO SIMPLIFICADO, DÍAS EXPRIMIDOS AL 100%, NAVIDAD EN CIUDADES HASTA LAS 20:30H Y TODAS LAS CENAS EN CASA A LAS 21:00H
 * **Directiva de Adrián:** Simplificar formato horario, meter más paradas durante todo el día, planes de luces navideñas hasta las 20:30h y todas las cenas en casa sobre las 20:45–21:00h.
 * **Nuevo Horario Exprimido y Simplificado (con Cenas en Casa a las 21:00h):**

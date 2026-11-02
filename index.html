@@ -15652,7 +15652,7 @@
               <button type="button" class="act-zoom-pill" onclick="event.preventDefault(); event.stopPropagation(); openPhotoLightbox('img_cantabria/santona_faro_caballo.jpg', 'Ruta Costa Oriental: Barco cubierto por los acantilados del Monte Buciero hasta el Faro del Caballo (Santoña), degustación de anchoas artesanas y paseo por la Puebla Vieja de Laredo');">🔍 Ver qué es</button>
             </div>
             <div class="act-card-inner-row">
-              <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-santona" data-adult="15" data-child="0" data-cat="kids" onchange="updateCtActivityCalc()" checked>
+              <input type="checkbox" class="ct-activity-checkbox" id="chk-ct-santona" data-adult="15" data-child="0" data-cat="kids" onchange="updateCtActivityCalc()">
               <div style="flex: 1;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
                   <span style="font-size: 0.95rem; font-weight: 800; color: #0F172A;">⛴️ Santoña & Laredo: Barco Faro del Caballo y Anchoas</span>
@@ -15824,10 +15824,10 @@
         <div style="background: #1E293B; border-bottom: 1px solid #334155; padding: 10px 14px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
           <span style="font-size: 0.78rem; font-weight: 800; color: #94A3B8; text-transform: uppercase; margin-right: 4px;">🗺️ Seleccionar Plano:</span>
           <button type="button" class="cantabria-map-btn active-map-btn" onclick="switchCantabriaRealMap('general', this)" style="background: #059669; color: #FFFFFF; border: 1.5px solid #10B981; font-weight: 700; font-size: 0.8rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">🗺️ Plano General (1.035 km · Base Molino de Mateo)</button>
-          <button type="button" class="cantabria-map-btn" onclick="switchCantabriaRealMap('dia1', this)" style="background: #1E293B; color: #CBD5E1; border: 1.5px solid #334155; font-weight: 600; font-size: 0.8rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">🔵 Día 1: Soplao ➔ Secuoyas ➔ Comillas ➔ Altamira ➔ Cartes (488 km)</button>
-          <button type="button" class="cantabria-map-btn" onclick="switchCantabriaRealMap('dia2', this)" style="background: #1E293B; color: #CBD5E1; border: 1.5px solid #334155; font-weight: 600; font-size: 0.8rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">🟢 Día 2: Noja ➔ Santoña ➔ Laredo ➔ Castro-Urdiales + BBQ 21h (108 km)</button>
-          <button type="button" class="cantabria-map-btn" onclick="switchCantabriaRealMap('dia3', this)" style="background: #1E293B; color: #CBD5E1; border: 1.5px solid #334155; font-weight: 600; font-size: 0.8rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">🟣 Día 3: Santander Completo ➔ Balneario ➔ Liérganes & Luces (48 km)</button>
-          <button type="button" class="cantabria-map-btn" onclick="switchCantabriaRealMap('dia4', this)" style="background: #1E293B; color: #CBD5E1; border: 1.5px solid #334155; font-weight: 600; font-size: 0.8rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">🟡 Día 4: Cabárceno Completo (09:30–15:30h) ➔ Quer (391 km)</button>
+          <button type="button" class="cantabria-map-btn" onclick="switchCantabriaRealMap('dia1', this)" style="background: #1E293B; color: #CBD5E1; border: 1.5px solid #334155; font-weight: 600; font-size: 0.8rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">🔵 Día 1: Soplao ➔ Secuoyas ➔ Comillas ➔ El Bolao ➔ Altamira & Santillana ➔ Cartes (492 km)</button>
+          <button type="button" class="cantabria-map-btn" onclick="switchCantabriaRealMap('dia2', this)" style="background: #1E293B; color: #CBD5E1; border: 1.5px solid #334155; font-weight: 600; font-size: 0.8rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">🟢 Día 2: Isla & Noja ➔ Santoña ➔ Laredo ➔ Oriñón ➔ Castro-Urdiales + BBQ 21h (112 km)</button>
+          <button type="button" class="cantabria-map-btn" onclick="switchCantabriaRealMap('dia3', this)" style="background: #1E293B; color: #CBD5E1; border: 1.5px solid #334155; font-weight: 600; font-size: 0.8rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">🟣 Día 3: Balneario ➔ Liérganes & Cavada ➔ Peña Cabarga ➔ Santander Tarde-Noche (40 km)</button>
+          <button type="button" class="cantabria-map-btn" onclick="switchCantabriaRealMap('dia4', this)" style="background: #1E293B; color: #CBD5E1; border: 1.5px solid #334155; font-weight: 600; font-size: 0.8rem; padding: 7px 14px; border-radius: 8px; cursor: pointer; transition: all 0.2s;">🟡 Día 4: Cabárceno Completo (09:30–15:35h) + Bárcena Mayor / Aguilar ➔ Quer (391 km)</button>
         </div>
 
         <!-- Imagen del Plano con Zoom HD y Lightbox -->
@@ -15853,34 +15853,35 @@
           <div class="timeline-item">
             <div class="timeline-dot" style="background:#1D4ED8;"></div>
             <div class="timeline-content">
-              <span class="timeline-day" style="color:#1D4ED8;">DÍA 1 · SÁBADO 5 DIC · SOPLAO, SECUOYAS, COMILLAS (GAUDÍ), ALTAMIRA, SANTILLANA & NAVIDAD EN CARTES</span>
-              <h3 style="margin: 4px 0 10px 0; font-size: 1.12rem; color: #0F172A;">6 paradas aprovechadas al máximo + Luces en Santillana y Cartes (18:00–20:20h) + Cena en Casa (21:00h)</h3>
-              <div style="font-size: 0.9rem; color: #334155; line-height: 1.65; margin-bottom: 12px; background: #F8FAFC; padding: 12px 14px; border-radius: 10px; border-left: 4px solid #1D4ED8;">
-                • <strong>06:45 – 11:15 h | Subida desde Quer (A-1 y A-67 · 0 € peajes):</strong> Salida temprana con parada rápida de café en Burgos/Aguilar.<br>
-                • <strong>11:30 – 12:45 h | 🚂 1. Cueva El Soplao (Tren Minero con Marco):</strong> Entrada en el tren minero subterráneo (15 € ad. / 12,50 € niño · <em>cierra los lunes, por eso se hace hoy sábado</em>).<br>
-                • <strong>13:05 – 13:50 h | 🌲 2. Bosque de Secuoyas de Cabezón (Gratis):</strong> Paseo llano de 40 min por pasarelas entre 848 secuoyas gigantes de 40 m.<br>
-                • <strong>14:00 – 15:05 h | 🥘 3. Comida de Cocido Montañés (Cabezón / Ruente):</strong> Menú cántabro al lado del bosque.<br>
-                • <strong>15:20 – 16:15 h | 🌻 4. Comillas & El Capricho de Gaudí (+ Puerto y Playa):</strong> Palacio modernista de girasoles cerámicos (parece un castillo de cuento para Marco) y mirador del puerto.<br>
-                • <strong>16:30 – 18:15 h | 🦬 5. Neocueva de Altamira (¡GRATIS!) + Santillana del Mar Iluminada:</strong> Entrada gratuita a Altamira por ser sábado tarde (cierra a las 18:00 h) y paseo de 35 min por las calles empedradas de <strong>Santillana del Mar ya iluminada de Navidad</strong>.<br>
-                • <strong>18:30 – 20:20 h | 🎄 6. NAVIDAD NOCHE 1 — Poblado Navideño de Cartes:</strong> Árbol de Navidad más alto de España (<strong>65 m</strong>), <strong>Casa de Papá Noel</strong> para Marco, <strong>Parque Mágico de los Elfos</strong> y churros.<br>
-                • <strong>20:45 – 21:15 h | 🏡 Check-in y CENA EN CASA («El Molino de Mateo» · Solares):</strong> Llegada a vuestra casa (94 m², 3 habs), compra rápida o picoteo cántabro (quesos pasiegos, embutido y tortilla) y <strong>cena tranquila en casa a las 21:00 h</strong>.
+              <span class="timeline-day" style="color:#1D4ED8;">DÍA 1 · SÁBADO 5 DIC · 7 PARADAS EN LÍNEA RECTA: SOPLAO, CARMONA, SECUOYAS, COMILLAS (GAUDÍ), EL BOLAO, ALTAMIRA/SANTILLANA & CARTES</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.12rem; color: #0F172A;">Todo de oeste a este sin retroceder ni un kilómetro + Navidad en Santillana y Cartes (17:45–20:20h) + Cena en Casa (21:00h)</h3>
+              <div style="font-size: 0.89rem; color: #334155; line-height: 1.62; margin-bottom: 12px; background: #F8FAFC; padding: 12px 14px; border-radius: 10px; border-left: 4px solid #1D4ED8;">
+                • <strong>06:45 – 11:15 h | Subida desde Quer (A-1 y A-67 · 0 € peajes):</strong> Salida temprana con parada rápida de café en Aguilar de Campoo.<br>
+                • <strong>11:30 – 12:45 h | 🚂 1. Cueva El Soplao (Tren Minero Subterráneo con Marco):</strong> Entrada en el tren minero a las galerías blancas (15 € ad. / 12,50 € niño · <em>cierra los lunes, por eso se hace hoy sábado</em>).<br>
+                • <strong>12:55 – 13:20 h | 🏘️ 2. Mirador de la Collada de Carmona & Pueblo de Carmona (Bajando de El Soplao):</strong> Parada rápida de 20 min en ruta para ver las casonas montañesas de piedra con balconadas de madera (Conjunto Histórico).<br>
+                • <strong>13:35 – 14:40 h | 🥘 3. Comida de Cocido Montañés (Ruente / Cabezón de la Sal):</strong> Puchero cántabro tradicional y visita rápida a la Fuentona de Ruente.<br>
+                • <strong>14:45 – 15:25 h | 🌲 4. Bosque de Secuoyas del Monte Cabezón (Gratis):</strong> Paseo llano de 40 min por pasarelas de madera entre 848 secuoyas gigantes de 40 m.<br>
+                • <strong>15:40 – 16:35 h | 🌻 5. Comillas (El Capricho de Gaudí + Palacio de Sobrellano + Mirador de Santa Lucía) & Acantilados de El Bolao:</strong> El palacio de girasoles de Gaudí, fachada gótica de Sobrellano y parada de 10 min en ruta en la <strong>Cascada y Molino de El Bolao (Cóbreces)</strong> cayendo directo a los acantilados del mar.<br>
+                • <strong>16:50 – 18:25 h | 🦬 6. Neocueva de Altamira (¡GRATIS!) + Santillana del Mar Iluminada:</strong> Entrada gratuita a Altamira por ser sábado tarde (cierra a las 18:00 h) y paseo por las calles empedradas de <strong>Santillana del Mar (Plaza Mayor y Colegiata) ya iluminadas de Navidad</strong>.<br>
+                • <strong>18:40 – 20:25 h | 🎄 7. NAVIDAD NOCHE 1 — Poblado Navideño de Cartes:</strong> Árbol de Navidad más alto de España (<strong>65 m</strong>), <strong>Casa de Papá Noel</strong> para Marco, <strong>Parque Mágico de los Elfos</strong> y chocolate con churros.<br>
+                • <strong>20:50 – 21:15 h | 🏡 Check-in y CENA EN CASA (21:00 h) en «El Molino de Mateo» (Solares):</strong> Llegada a vuestra casa (94 m², 3 habs) y cena casera tranquila a las 21:00 h.
               </div>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin: 10px 0;">
                 <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/soplao_cueva.jpg', '11:30h — Cueva El Soplao en Tren Minero subterráneo')">
                   <img src="img_cantabria/soplao_cueva.jpg" alt="Cueva El Soplao" style="width: 100%; height: 118px; object-fit: cover; display: block;">
                   <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🚂 11:30h Cueva El Soplao</div>
                 </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/comillas_capricho_gaudi.jpg', '15:20h — El Capricho de Gaudí y villa de Comillas')">
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/comillas_capricho_gaudi.jpg', '15:40h — El Capricho de Gaudí en Comillas y Acantilados de El Bolao')">
                   <img src="img_cantabria/comillas_capricho_gaudi.jpg" alt="Capricho de Gaudí Comillas" style="width: 100%; height: 118px; object-fit: cover; display: block;">
-                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🌻 15:20h Comillas & Gaudí</div>
+                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🌻 15:40h Comillas & El Bolao</div>
                 </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/altamira_neocueva.jpg', '16:30h — Neocueva de Altamira (Gratis Sáb tarde) y Santillana del Mar')">
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/altamira_neocueva.jpg', '16:50h — Neocueva de Altamira (Gratis Sáb tarde) y Santillana del Mar')">
                   <img src="img_cantabria/altamira_neocueva.jpg" alt="Neocueva de Altamira" style="width: 100%; height: 118px; object-fit: cover; display: block;">
-                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🦬 16:30h Altamira & Santillana</div>
+                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🦬 16:50h Altamira & Santillana</div>
                 </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/cartes_poblado_navideno.jpg', '18:30h a 20:20h — Poblado Navideño de Cartes y Árbol de 65m')">
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/cartes_poblado_navideno.jpg', '18:40h a 20:25h — Poblado Navideño de Cartes y Árbol de 65m')">
                   <img src="img_cantabria/cartes_poblado_navideno.jpg" alt="Poblado Navideño de Cartes" style="width: 100%; height: 118px; object-fit: cover; display: block;">
-                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🎅 18:30h Navidad Cartes (65m)</div>
+                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🎅 18:40h Navidad Cartes (65m)</div>
                 </div>
               </div>
             </div>
@@ -15890,30 +15891,32 @@
           <div class="timeline-item">
             <div class="timeline-dot" style="background:#059669;"></div>
             <div class="timeline-content">
-              <span class="timeline-day" style="color:#059669;">DÍA 2 · DOMINGO 6 DIC · COSTA ORIENTAL COMPLETA (NOJA, SANTOÑA, LAREDO & CASTRO-URDIALES) + BARBACOA 21:00H</span>
-              <h3 style="margin: 4px 0 10px 0; font-size: 1.12rem; color: #0F172A;">4 villas marineras + Luces de Navidad en Castro-Urdiales y Noja (18:00–20:30h) + Gran Barbacoa en Casa (21:00h)</h3>
-              <div style="font-size: 0.9rem; color: #334155; line-height: 1.65; margin-bottom: 12px; background: #F8FAFC; padding: 12px 14px; border-radius: 10px; border-left: 4px solid #059669;">
-                • <strong>09:30 – 10:45 h | 🌊 1. Costa de Noja, Playa de Ris & Molino de las Aves (Marismas):</strong> Paseo matinal por las pasarelas sobre las rocas de la Playa de Ris en Noja y parada en el Molino de Santa Olaja / Marismas de Victoria y Joyel para ver aves con Marco.<br>
-                • <strong>11:00 – 13:00 h | ⛴️ 2. Santoña (Barco al Faro del Caballo + Fuerte de San Martín + Anchoas):</strong> Crucero de 1 hora en barco acristalado por los acantilados hasta los 763 escalones del <strong>Faro del Caballo</strong> (15 € ad. / <strong>Marco gratis</strong>), paseo por el Fuerte de San Martín y compra de <strong>anchoas artesanas de Santoña</strong>.<br>
-                • <strong>13:15 – 15:30 h | 🏴‍☠️ 3. Laredo (Túnel Pirata de La Atalaya + Comida + Puebla Vieja):</strong> Cruce del <strong>Túnel de La Atalaya</strong> excavado en la roca viva hasta el mirador sobre las olas, comida marinera en Laredo, paseo por los 4,5 km de la Playa de La Salvé y callejuelas medievales de la Puebla Vieja.<br>
-                • <strong>15:50 – 17:45 h | 🏰 4. Castro-Urdiales de Día (Castillo-Faro de Santa Ana + Puente Romano + Cueva Ocharan):</strong> Subida gratuita a las almenas del <strong>Castillo-Faro de Santa Ana</strong>, cruce del <strong>Puente Romano</strong> sobre el rompiente del mar, iglesia gótica de Santa María y paseo por el puerto.<br>
-                • <strong>17:45 – 20:30 h | 🎄 5. NAVIDAD NOCHE 2 — Luces en Castro-Urdiales + Laredo + Aldea Navideña de Noja:</strong><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>17:45 – 19:15 h (Castro-Urdiales iluminado):</strong> Mercadillo Navideño del Parque de la Barrera, <strong>Tiovivo clásico iluminado</strong> para Marco, árbol gigante del puerto y pincho/chocolate.<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>19:40 – 20:30 h (Aldea de la Navidad de Noja / Sarón):</strong> Parada de regreso a 12 min de casa para ver el poblado navideño y su tren infantil.<br>
-                • <strong>20:45 – 21:30 h | 🔥 CENA EN CASA (21:00 h) — Gran Barbacoa en el Jardín de «El Molino de Mateo»:</strong> Encendemos la barbacoa en casa con <strong>chuletón de vaca tudanca cántabra, chorizos criollos, panceta y anchoas de Santoña</strong>.
+              <span class="timeline-day" style="color:#059669;">DÍA 2 · DOMINGO 6 DIC · 7 PARADAS COSTA ORIENTAL POR TIERRA: ISLA, NOJA, SANTOÑA, LAREDO, ORIÑÓN & CASTRO-URDIALES + BBQ 21:00H</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.12rem; color: #0F172A;">De oeste a este por toda la costa (sin barco) + Luces en Castro-Urdiales y Noja (17:45–20:30h) + Gran Barbacoa en Casa (21:00h)</h3>
+              <div style="font-size: 0.89rem; color: #334155; line-height: 1.62; margin-bottom: 12px; background: #F8FAFC; padding: 12px 14px; border-radius: 10px; border-left: 4px solid #059669;">
+                • <strong>09:15 – 10:10 h | 🌊 1. Acantilados de Cabo Quejo (Isla) & Ría de Castellanos:</strong> Empezamos a 18 min de casa viendo los espectaculares acantilados de Isla y sus piscinas naturales junto al mar.<br>
+                • <strong>10:15 – 11:10 h | 🦢 2. Costa de Noja (Playa de Ris, Playa de Trengandín & Molino de las Aves):</strong> Paseo por los escollos rocosos de Trengandín y parada en el <strong>Molino de mareas de Santa Olaja (Marismas de Santoña)</strong> para ver aves acuáticas con Marco.<br>
+                • <strong>11:20 – 13:00 h | 🥫 3. Santoña por Tierra (Paseo del Pasaje, Fuerte de San Martín, Mirador Virgen del Puerto & Conservera de Anchoas):</strong> Sin coger barco: paseo junto a los cañones históricos del <strong>Fuerte de San Martín</strong> y el Monumento a Juan de la Cosa, subida en el Volvo XC60 al <strong>Mirador de la Virgen del Puerto</strong> (en el Monte Buciero con vistas brutales a toda la bahía) y visita/compra en una <strong>fábrica tradicional de Anchoas de Santoña</strong>.<br>
+                • <strong>13:15 – 15:30 h | 🏴‍☠️ 4. Laredo Completo (Túnel Secreto de La Atalaya + Fuertes del Rastrillar + Comida + Puebla Vieja):</strong> Cruce a pie del <strong>Túnel de La Atalaya</strong> excavado en la roca viva hasta el mirador sobre el mar, baterías de piedra del Rastrillar, comida marinera en Laredo y paseo por las rúas medievales de la Puebla Vieja.<br>
+                • <strong>15:40 – 16:05 h | 🦅 5. Mirador de la Ballena de Oriñón & Ojos del Diablo (Sonabia):</strong> Parada panorámica de 20 min de camino a Castro para ver la montaña con forma de ballena entrando al mar y las buitreras del Monte Candina.<br>
+                • <strong>16:15 – 17:45 h | 🏰 6. Castro-Urdiales de Día (Castillo-Faro de Santa Ana, Puente Romano, Santa María & Palacete Ocharan):</strong> Subida gratuita a las almenas del <strong>Castillo-Faro medieval de Santa Ana</strong>, cruce del <strong>Puente Romano</strong> sobre las olas, iglesia gótica de Santa María y mirador de Ostende.<br>
+                • <strong>17:45 – 20:30 h | 🎄 7. NAVIDAD NOCHE 2 — Puerto Iluminado de Castro-Urdiales + Aldea Navideña de Noja:</strong><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>17:45 – 19:15 h (Castro-Urdiales):</strong> Mercadillo Navideño del Parque de la Barrera, <strong>Tiovivo clásico iluminado</strong> para Marco, árbol gigante del puerto y chocolate caliente.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>19:40 – 20:30 h (Aldea de la Navidad de Noja / Sarón):</strong> Parada de regreso a 12 min de casa para ver el poblado navideño iluminado y su tren infantil.<br>
+                • <strong>20:45 – 21:30 h | 🔥 CENA EN CASA (21:00 h) — Gran Barbacoa en el Jardín de «El Molino de Mateo»:</strong> Encendemos la barbacoa en casa con <strong>chuletón de vaca tudanca cántabra, chorizos criollos, panceta y las anchoas recién traídas de Santoña</strong>.
               </div>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin: 10px 0;">
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/santona_faro_caballo.jpg', '11:30h — Crucero en barco al Faro del Caballo en Santoña (Marco gratis)')">
-                  <img src="img_cantabria/santona_faro_caballo.jpg" alt="Faro del Caballo Santoña" style="width: 100%; height: 118px; object-fit: cover; display: block;">
-                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">⛴️ 11:30h Barco Faro Caballo</div>
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/santona_faro_caballo.jpg', '11:20h — Bahía de Santoña, Monte Buciero, Fuerte de San Martín y Anchoas')">
+                  <img src="img_cantabria/santona_faro_caballo.jpg" alt="Bahía de Santoña y Monte Buciero" style="width: 100%; height: 118px; object-fit: cover; display: block;">
+                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🥫 11:20h Santoña & Anchoas</div>
                 </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/laredo_atalaya_playa.jpg', '13:15h — Túnel de La Atalaya, Playa Salvé y Puebla Vieja de Laredo')">
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/laredo_atalaya_playa.jpg', '13:15h — Túnel de La Atalaya, Rastrillar y Puebla Vieja de Laredo')">
                   <img src="img_cantabria/laredo_atalaya_playa.jpg" alt="Laredo Playa y Atalaya" style="width: 100%; height: 118px; object-fit: cover; display: block;">
                   <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🏴‍☠️ 13:15h Laredo & Túnel Roca</div>
                 </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/castro_urdiales_castillo.jpg', '15:50h a 19:15h — Castillo-Faro de Santa Ana y Navidad en el puerto de Castro-Urdiales')">
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/castro_urdiales_castillo.jpg', '16:15h a 19:15h — Castillo-Faro de Santa Ana y Navidad en el puerto de Castro-Urdiales')">
                   <img src="img_cantabria/castro_urdiales_castillo.jpg" alt="Castro-Urdiales Castillo y Puerto" style="width: 100%; height: 118px; object-fit: cover; display: block;">
-                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🏰 15:50h Castro + Luces</div>
+                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🏰 16:15h Castro + Luces</div>
                 </div>
                 <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/molino_mateo_solares.jpg', '21:00h — Cena de Barbacoa en el jardín privado de El Molino de Mateo')">
                   <img src="img_cantabria/molino_mateo_solares.jpg" alt="Barbacoa en El Molino de Mateo" style="width: 100%; height: 118px; object-fit: cover; display: block;">
@@ -15927,35 +15930,37 @@
           <div class="timeline-item">
             <div class="timeline-dot" style="background:#7C3AED;"></div>
             <div class="timeline-content">
-              <span class="timeline-day" style="color:#7C3AED;">DÍA 3 · LUNES 7 DIC (IMPRESCINDIBLE) · SANTANDER COMPLETO, BALNEARIO SOLARES (34°C), LIÉRGANES & GRAN NAVIDAD EN SANTANDER</span>
-              <h3 style="margin: 4px 0 10px 0; font-size: 1.12rem; color: #0F172A;">Todo Santander de día + Balneario a las 15:00h + Luces en Liérganes y Santander hasta las 20:30h + Cena en Casa (21:00h)</h3>
-              <div style="font-size: 0.9rem; color: #334155; line-height: 1.65; margin-bottom: 12px; background: #F8FAFC; padding: 12px 14px; border-radius: 10px; border-left: 4px solid #7C3AED;">
-                • <strong>09:30 – 10:30 h | 🌊 1. Faro de Cabo Mayor, Puente del Diablo & Playas de El Sardinero:</strong> Empezamos por los acantilados espectaculares del Faro de Cabo Mayor y los Jardines de Piquío sobre la Playa del Sardinero.<br>
-                • <strong>10:40 – 12:45 h | 🐧 2. Península de La Magdalena al Completo (¡Gratis!):</strong> Vuelta en el trenecito <em>El Magdaleno</em>, <strong>Parque Marino gratuito</strong> (viendo comer a las <strong>focas, leones marinos y pingüinos</strong> a las 12:00 h), Palacio de La Magdalena y los <strong>3 Galeones piratas de madera</strong>.<br>
-                • <strong>12:55 – 14:35 h | 🚢 3. Paseo Marítimo, Grúa de Piedra, Centro Botín & Comida en Puerto Chico:</strong> Paseo junto a los Raqueros (estatuas que se tiran al mar), pasarela volada del <strong>Centro Botín</strong> sobre la bahía y comida de rabas y pescado en Puerto Chico / Barrio Pesquero.<br>
-                • <strong>15:00 – 17:00 h | ♨️ 4. IMPRESCINDIBLE: Balneario de Solares (Piscina Termal 34°C + Balnea Infantil):</strong> A 14 min de Santander y <strong>4 min de vuestra casa</strong>. Horario oficial infantil de tarde (15:00 a 17:00 h) en la gran piscina termal caliente a 34°C con chorros y zona infantil. A las 17:05 h pasáis 20 min por <strong>El Molino de Mateo</strong> a dejar bañadores y abrigaros.<br>
-                • <strong>17:35 – 18:35 h | 🍫 5. NAVIDAD NOCHE 3 (Parte A) — Liérganes Iluminado:</strong> A 8 min de casa, paseo nocturno por uno de los Pueblos más Bonitos de España: Puente Mayor iluminado, leyenda del Hombre Pez y chocolate caliente con churros.<br>
-                • <strong>18:50 – 20:35 h | 🎄 6. NAVIDAD NOCHE 3 (Parte B) — Gran Navidad en el Centro de Santander:</strong><br>
+              <span class="timeline-day" style="color:#7C3AED;">DÍA 3 · LUNES 7 DIC (CERO IDAS Y VENIDAS) · MAÑANA EN EL VALLE (BALNEARIO, LIÉRGANES, CAÑONES LA CAVADA & PEÑA CABARGA) ➔ TARDE-NOCHE SEGUIDA EN SANTANDER</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.12rem; color: #0F172A;">Por la mañana todo lo pegado a casa (a 4–8 min) y de 13:45h a 20:35h subís UNA sola vez a Santander + Cena en Casa (21:00h)</h3>
+              <div style="font-size: 0.89rem; color: #334155; line-height: 1.62; margin-bottom: 12px; background: #F8FAFC; padding: 12px 14px; border-radius: 10px; border-left: 4px solid #7C3AED;">
+                • <strong>09:00 – 11:00 h | ♨️ 1. IMPRESCINDIBLE: Balneario de Solares (¡A 4 min de casa! · Turno Infantil de Mañana):</strong> Recién desayunados vais en 4 minutos al Balneario para disfrutar del turno matinal infantil (09:00 a 11:00 h) en la <strong>gran piscina termal a 34°C + Balnea Infantil</strong>.<br>
+                • <strong>11:05 – 11:25 h | 🏡 Paso de 20 min por vuestra casa («El Molino de Mateo»):</strong> Dejáis los bañadores y albornoces húmedos en casa a 4 minutos y salís secos y sin bultos para el resto del día.<br>
+                • <strong>11:35 – 12:50 h | 🍫 2. Liérganes Monumental & Real Fábrica de Artillería de La Cavada (Cañones Gigantes):</strong> A 8 min de casa: paseo por el Puente Mayor de <strong>Liérganes</strong>, estatua del Hombre Pez, casonas barrocas y parada a 3 min en <strong>La Cavada</strong> para que Marco vea el <strong>Arco de Carlos III y los enormes cañones históricos de galeones</strong>.<br>
+                • <strong>13:00 – 13:30 h | 🏔️ 3. Subida en el Volvo XC60 al Mirador de Peña Cabarga (De camino a Santander):</strong> Está justo entre Solares y Santander: subís hasta el Monumento al Indiano en la cima para ver la <strong>panorámica 360° más brutal de toda la Bahía de Santander, el mar y los Picos de Europa</strong>.<br>
+                • <strong>13:45 – 15:10 h | 🦑 4. Entrada ÚNICA a Santander & Comida en Barrio Pesquero / Puerto Chico:</strong> Rabas de calamar, almejas a la marinera y arroz o pescado fresco.<br>
+                • <strong>15:20 – 17:40 h | 🐧 5. Península de La Magdalena Completa, Playas de El Sardinero & Faro de Cabo Mayor (con luz de día):</strong> Vuelta en el trenecito <em>El Magdaleno</em>, <strong>Parque Marino gratuito</strong> (focas, leones marinos y pingüinos), Palacio Real, los <strong>3 Galeones piratas de madera</strong>, Jardines de Piquío en El Sardinero y acantilados del Faro de Cabo Mayor.<br>
+                • <strong>17:50 – 20:35 h | 🎄 6. NAVIDAD NOCHE 3 — Todo el Centro de Santander Iluminado (Sin salir de la ciudad):</strong><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Pasarela sobre el mar del <strong>Centro Botín iluminado</strong>, Paseo de Pereda y Los Raqueros.<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;• <strong>Plaza Alfonso XIII y Porticada:</strong> <strong>Tobogán Gigante de Trineos de Nieve</strong> para tirarse con Marco, <strong>Pista de Hielo cubierta</strong>, <strong>Tiovivo veneciano de dos pisos</strong> y el <strong>Tren de la Navidad ("El Trenuco")</strong>.<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>Alameda de Oviedo y Ayuntamiento:</strong> Más de 50 casetas del Mercado Navideño y espectáculo de luces.<br>
-                • <strong>20:55 – 21:30 h | 🏡 CENA EN CASA (21:00 h) en «El Molino de Mateo»:</strong> Regreso en 15 min por autovía a vuestra casa en Solares para cenar calentitos a las 21:00 h.
+                &nbsp;&nbsp;&nbsp;&nbsp;• <strong>Alameda de Oviedo y Ayuntamiento:</strong> Más de 50 casetas del Mercado Navideño y espectáculo de luz y sonido.<br>
+                • <strong>20:55 – 21:30 h | 🏡 CENA EN CASA (21:00 h) en «El Molino de Mateo»:</strong> Un único viaje de vuelta de 15 min por autovía hasta Solares y cena calentita en casa a las 21:00 h.
               </div>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin: 10px 0;">
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/magdalena_animales_marinos.jpg', '10:40h — Península de La Magdalena: focas, pingüinos y galeones piratas gratis')">
-                  <img src="img_cantabria/magdalena_animales_marinos.jpg" alt="La Magdalena Santander" style="width: 100%; height: 118px; object-fit: cover; display: block;">
-                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🐧 10:40h La Magdalena & Botín</div>
-                </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/solares_balneario_infantil.jpg', '15:00h a 17:00h — IMPRESCINDIBLE: Balneario de Solares a 34°C (a 4 min de casa)')">
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/solares_balneario_infantil.jpg', '09:00h a 11:00h — IMPRESCINDIBLE: Balneario de Solares a 34°C (a 4 min de vuestra casa)')">
                   <img src="img_cantabria/solares_balneario_infantil.jpg" alt="Balneario de Solares" style="width: 100%; height: 118px; object-fit: cover; display: block;">
-                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">♨️ 15:00h Balneario Solares</div>
+                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">♨️ 09:00h Balneario Solares</div>
                 </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/lierganes_puente_mayor.jpg', '17:35h — Puente Mayor de Liérganes iluminado y chocolaterías')">
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/lierganes_puente_mayor.jpg', '11:35h — Liérganes, Cañones de La Cavada y Mirador de Peña Cabarga')">
                   <img src="img_cantabria/lierganes_puente_mayor.jpg" alt="Puente Mayor de Liérganes" style="width: 100%; height: 118px; object-fit: cover; display: block;">
-                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🍫 17:35h Liérganes Iluminado</div>
+                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🍫 11:35h Liérganes & Cabarga</div>
                 </div>
-                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/santander_navidad_bahia.jpg', '18:50h a 20:35h — Navidad en Santander (Trineos, Hielo, Tiovivo y 50+ casetas)')">
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/magdalena_animales_marinos.jpg', '15:20h — Península de La Magdalena, El Sardinero y Faro de Cabo Mayor')">
+                  <img src="img_cantabria/magdalena_animales_marinos.jpg" alt="La Magdalena Santander" style="width: 100%; height: 118px; object-fit: cover; display: block;">
+                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🐧 15:20h Magdalena & Sardinero</div>
+                </div>
+                <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/santander_navidad_bahia.jpg', '17:50h a 20:35h — Navidad en Santander (Trineos, Hielo, Tiovivo y 50+ casetas)')">
                   <img src="img_cantabria/santander_navidad_bahia.jpg" alt="Navidad en Santander" style="width: 100%; height: 118px; object-fit: cover; display: block;">
-                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🎄 18:50h Navidad Santander</div>
+                  <div style="padding: 6px 8px; font-size: 0.75rem; font-weight: 800; color: #1E293B;">🎄 17:50h Navidad Santander</div>
                 </div>
               </div>
             </div>
@@ -15965,15 +15970,15 @@
           <div class="timeline-item">
             <div class="timeline-dot" style="background:#D97706;"></div>
             <div class="timeline-content">
-              <span class="timeline-day" style="color:#D97706;">DÍA 4 · MARTES 8 DIC (IMPRESCINDIBLE VUELTA) · SAFARI COMPLETO EN CABÁRCENO (6 HORAS) & REGRESO A QUER</span>
-              <h3 style="margin: 4px 0 10px 0; font-size: 1.12rem; color: #0F172A;">Check-out a 10 min del Parque + Cabárceno de arriba abajo (09:30–15:30h) + Autovía A-67 directa a Quer</h3>
-              <div style="font-size: 0.9rem; color: #334155; line-height: 1.65; margin-bottom: 12px; background: #F8FAFC; padding: 12px 14px; border-radius: 10px; border-left: 4px solid #D97706;">
+              <span class="timeline-day" style="color:#D97706;">DÍA 4 · MARTES 8 DIC (IMPRESCINDIBLE VUELTA) · SAFARI COMPLETO EN CABÁRCENO (6 HORAS) + PARADA EN BÁRCENA MAYOR / AGUILAR & REGRESO A QUER</span>
+              <h3 style="margin: 4px 0 10px 0; font-size: 1.12rem; color: #0F172A;">Check-out a 10 min del Parque + Cabárceno de arriba abajo (09:30–15:35h) + Parada pintoresca en la A-67 hacia Quer</h3>
+              <div style="font-size: 0.89rem; color: #334155; line-height: 1.62; margin-bottom: 12px; background: #F8FAFC; padding: 12px 14px; border-radius: 10px; border-left: 4px solid #D97706;">
                 • <strong>08:50 – 09:25 h | Desayuno en Casa y Check-out:</strong> Salida de El Molino de Mateo con las maletas en el maletero (estáis a solo <strong>10 minutos</strong> de la entrada de Obregón/Lago del Acebo).<br>
-                • <strong>09:30 – 12:00 h | 🐘 1. Safari en el Volvo XC60 (Ruta de los Elefantes, Osos, Jirafas, Gorilas y Tigres):</strong> Recorrido completo de los 20 km de cañones kársticos parando en todos los recintos principales y subiendo al <strong>Mirador de Rubí</strong>.<br>
+                • <strong>09:30 – 12:00 h | 🐘 1. Safari en el Volvo XC60 (Ruta de los Elefantes, Osos, Jirafas, Gorilas, Tigres y Rinocerontes):</strong> Recorrido completo de los 20 km de cañones kársticos parando en todos los recintos principales, Reptilario y subida a la pasarela colgante del <strong>Mirador de Rubí</strong>.<br>
                 • <strong>12:00 – 13:15 h | 🚠 2. Vuelo en las 2 Líneas del Teleférico de Cabárceno (Gratis con la entrada):</strong> Cabinas panorámicas sobrevolando desde el cielo el recinto de los osos pardos, elefantes y agujas de roca.<br>
                 • <strong>13:15 – 14:15 h | 🦭 3. Demostración de Leones Marinos, Vuelo de Aves Rapaces y Granja Infantil:</strong> Espectáculos educativos ideales para Marco.<br>
                 • <strong>14:15 – 15:35 h | 🍲 4. Comida en el Parque / Obregón:</strong> Almuerzo montañés antes de salir a carretera.<br>
-                • <strong>15:45 – 19:30 h | 🚗 5. Regreso directo por Autovía A-67 y A-1 hasta Quer (375 km · 0 € peajes):</strong> Enganche a la A-67 a 5 min del parque; Marco duerme la siesta tras el safari y llegáis a casa a las 19:30 h.
+                • <strong>15:45 – 19:45 h | 🚗 5. Regreso por Autovía A-67 y A-1 hacia Quer (con parada corta de merienda en el Castillo de Argüeso / Reinosa o en el Monasterio de Aguilar de Campoo para comprar galletas recién horneadas):</strong> 375 km · 0 € peajes.
               </div>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin: 10px 0;">
                 <div style="border-radius: 10px; overflow: hidden; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer;" onclick="openPhotoLightbox('img_cantabria/cabarceno_elefantes.jpg', '09:30h — Safari en vuestro Volvo XC60 por el Parque de Cabárceno')">
@@ -16026,8 +16031,8 @@
               </tr>
               <tr style="border-bottom: 1px solid #F1F5F9;">
                 <td style="padding: 12px; font-weight: 700;">🎟️ Actividades Seleccionadas</td>
-                <td style="padding: 12px; color: #64748B;" id="ct-table-act-desc">Cabárceno + Teleférico (115 €) · Balneario Solares 34°C (184 €) · Tren Minero El Soplao (72,50 €) · Barco Faro Santoña (60 €) · Capricho de Gaudí Comillas (28 €) · Altamira (0 € Sáb) · Secuoyas, Magdalena, Cartes y Castro (0 €)</td>
-                <td style="padding: 12px; text-align: right; font-weight: 700;" id="ct-table-act-cost">~460 €</td>
+                <td style="padding: 12px; color: #64748B;" id="ct-table-act-desc">Cabárceno + Teleférico (115 €) · Balneario Solares 34°C (184 €) · Tren Minero El Soplao (72,50 €) · Capricho de Gaudí Comillas (28 €) · Altamira (0 € Sáb) · Santoña por tierra, Laredo, Castro, Secuoyas, Magdalena y Cartes (0 €)</td>
+                <td style="padding: 12px; text-align: right; font-weight: 700;" id="ct-table-act-cost">~400 €</td>
               </tr>
               <tr style="border-bottom: 1px solid #F1F5F9;">
                 <td style="padding: 12px; font-weight: 700;">🍽️ Restauración & Compra Cocina</td>
@@ -22361,28 +22366,28 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
     const CANTABRIA_MAP_DATA = {
       general: {
         src: 'img_cantabria/plano_rutas_real_general.png',
-        title: 'Plano General · Base El Molino de Mateo (Solares) · Días al 100% + Navidad (18:00–20:30h) + Cenas en Casa (21:00h)',
-        desc: 'D1: Cueva El Soplao, Secuoyas, Comillas (Capricho de Gaudí), Altamira (Gratis), Santillana y Cartes Navideño. D2: Noja, Santoña (Barco Faro), Laredo, Castro-Urdiales, Luces y Barbacoa en casa a las 21:00h. D3: Santander completo (Cabo Mayor, Sardinero, Magdalena, Botín), Balneario Solares (15:00h), Liérganes y Navidad en Santander. D4: Cabárceno completo (09:30–15:30h) y A-67 a Quer.'
+        title: 'Plano General · Base El Molino de Mateo (Solares) · Días Repletos de Paradas, Cero Idas y Venidas & Cenas en Casa (21:00h)',
+        desc: 'D1: El Soplao, Carmona, Secuoyas, Comillas (Gaudí), Acantilados de El Bolao, Altamira (Gratis), Santillana y Cartes Navideño. D2: Cabo Quejo (Isla), Noja, Santoña (Fuertes y Anchoas), Laredo, Oriñón, Castro-Urdiales y BBQ 21:00h. D3: Mañana al lado de casa (Balneario Solares 09:00h + Liérganes + Cañones de La Cavada + Peña Cabarga) y de 13:45h a 20:35h todo Santander de seguido. D4: Cabárceno completo y A-67.'
       },
       dia1: {
         src: 'img_cantabria/plano_rutas_real_dia1.png',
-        title: 'Día 1 (Sáb 5 Dic): Quer ➔ El Soplao (11:30h) ➔ Secuoyas ➔ Comillas (Gaudí) ➔ Altamira (Gratis) & Santillana ➔ Cartes (18:30h) ➔ Cena en Casa (21:00h)',
-        desc: '6 paradas aprovechadas al máximo: Tren Minero en El Soplao (11:30h), Secuoyas y Cocido en Cabezón, El Capricho de Gaudí en Comillas (15:15h), Neocueva de Altamira gratis + Santillana del Mar (16:30h), Noche Navideña en Cartes hasta las 20:20h y cena en El Molino de Mateo a las 21:00h.'
+        title: 'Día 1 (Sáb 5 Dic): Quer ➔ El Soplao ➔ Carmona ➔ Secuoyas ➔ Comillas (Gaudí) ➔ Cascada El Bolao ➔ Altamira & Santillana ➔ Cartes ➔ Casa (21:00h)',
+        desc: '7 paradas en línea hacia Solares: Tren Minero en El Soplao (11:30h), Mirador de Carmona, Secuoyas y Cocido en Cabezón, Capricho de Gaudí en Comillas, Acantilados de El Bolao, Neocueva de Altamira (gratis) + Santillana del Mar, Navidad en Cartes (65m) y cena en casa a las 21:00h.'
       },
       dia2: {
         src: 'img_cantabria/plano_rutas_real_dia2.png',
-        title: 'Día 2 (Dom 6 Dic): Casa ➔ Noja ➔ Santoña (Barco Faro 11:30h) ➔ Laredo (Atalaya) ➔ Castro-Urdiales + Navidad (18:00–20:30h) ➔ Barbacoa en Casa (21:00h)',
-        desc: 'Costa Oriental completa: playa de Ris y acantilados de Noja, barco al Faro del Caballo y conservera en Santoña, túnel de roca de La Atalaya y Puebla Vieja en Laredo, Castillo-Faro y encendido navideño en Castro-Urdiales + Aldea Navideña de Noja y Barbacoa en vuestro jardín a las 21:00h.'
+        title: 'Día 2 (Dom 6 Dic): Casa ➔ Isla & Noja ➔ Santoña (Fuertes, Marismas y Anchoas) ➔ Laredo (Atalaya) ➔ Oriñón ➔ Castro-Urdiales + Navidad ➔ Barbacoa (21:00h)',
+        desc: '7 paradas por tierra en la Costa Oriental: Cabo Quejo (Isla), Playa de Ris y Molino de las Aves en Noja, Fuertes Napoleónicos y fábrica de Anchoas en Santoña, Túnel de La Atalaya y Puebla Vieja en Laredo, mirador de Oriñón/Sonabia, Castillo-Faro y Navidad en Castro-Urdiales + Aldea Navideña de Noja y Barbacoa a las 21:00h.'
       },
       dia3: {
         src: 'img_cantabria/plano_rutas_real_dia3.png',
-        title: 'Día 3 (Lun 7 Dic): Casa ➔ Santander Completo (Cabo Mayor, Sardinero, Magdalena y Botín) ➔ Balneario Solares (15:00h) ➔ Liérganes y Navidad Santander (18:00–20:30h) ➔ Cena en Casa (21:00h)',
-        desc: 'Mañana completa en Santander (Faro de Cabo Mayor, El Sardinero, Península de La Magdalena y Centro Botín), tarde imprescindible en la piscina termal a 34°C del Balneario de Solares (15:00–17:00h), luces navideñas en Liérganes y Santander (Pista de Hielo y Trineos hasta las 20:30h) y cena en casa a las 21:00h.'
+        title: 'Día 3 (Lun 7 Dic · CERO IDAS Y VENIDAS): Mañana Valle (09:00h Balneario Solares + Liérganes + Cañones La Cavada + Peña Cabarga) ➔ 13:45h a 20:35h Todo Santander de seguido',
+        desc: 'Sin cruzar dos veces a Santander: por la mañana hacéis todo el bloque sur pegado a vuestra casa (Balneario de Solares, Liérganes, Real Fábrica de Cañones de La Cavada y Mirador 360° de Peña Cabarga). Al mediodía subís UNA sola vez a Santander (Comida, La Magdalena, Sardinero, Cabo Mayor, Centro Botín y toda la Navidad hasta las 20:35h).'
       },
       dia4: {
         src: 'img_cantabria/plano_rutas_real_dia4.png',
-        title: 'Día 4 (Mar 8 Dic): El Molino de Mateo (a 10 min) ➔ Parque de Cabárceno al Completo (09:30h a 15:30h) ➔ Regreso Directo A-67 a Quer (391 km)',
-        desc: '6 horas en Cabárceno: todas las reservas de animales en el Volvo XC60, las 2 líneas de Teleférico, show de leones marinos y aves rapaces, mirador de Rubí, comida en el parque y salida a las 15:45h por autovía A-67 hacia Quer.'
+        title: 'Día 4 (Mar 8 Dic): El Molino de Mateo (a 10 min) ➔ Parque de Cabárceno al Completo (09:30h a 15:35h) + Parada en Bárcena Mayor / Aguilar ➔ Quer',
+        desc: '6 horas exprimidas en Cabárceno: todas las reservas de animales en el Volvo XC60, Mirador de Rubí, las 2 líneas de Teleférico, show de leones marinos y aves rapaces, comida y regreso por A-67 con parada opcional de café en Bárcena Mayor o Aguilar de Campoo.'
       }
     };
 

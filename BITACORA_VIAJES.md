@@ -48,6 +48,25 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 15:42] — CANTABRIA: FIJACIÓN DE «EL MOLINO DE MATEO» COMO BASE OFICIAL + INCORPORACIÓN DE CUEVA EL SOPLAO (TREN MINERO) Y NEOCUEVA DE ALTAMIRA (GRATIS SÁBADO TARDE) EN DÍA 1 + BALNEARIO SOLARES IMPRESCINDIBLE
+* **Directivas de Adrián:**
+  - *«Y las cuevas del soplado no se puede meter?»*
+  - *«Molino de mateo»*
+  - *«Y Altamira??»*
+  - *«El balneario es imprescindible»*
+* **Encaje Logístico y de Horarios Oficiales de Invierno (Diciembre):**
+  - **Por qué el Sábado 5 de Diciembre (Día 1) es la clave maestra:** En temporada de invierno (noviembre–abril), tanto la **Cueva El Soplao** como el **Museo Nacional de Altamira cierran los lunes**. Al subir por la A-67 desde Madrid el sábado 5 de diciembre, ambos quedan en línea recta de bajada hacia Solares:
+    1. **11:45h – 13:15h | Cueva El Soplao (Tren Minero Subterráneo):** Entrada en el tren minero con Marco (15 € adulto / 12,50 € niño de 4 años).
+    2. **13:35h – 15:45h | Cocido Montañés y Bosque de Secuoyas de Cabezón** (a 18 min de El Soplao).
+    3. **16:00h – 17:30h | Museo y Neocueva de Altamira (Santillana del Mar):** A 14 min de las Secuoyas. **¡Los sábados desde las 14:00h hasta las 18:00h la entrada a Altamira es 100% GRATUITA para todos!**
+    4. **17:45h – 20:00h | Poblado Navideño de Cartes (Árbol de 65m + Casa de Papá Noel)** (a 12 min de Altamira).
+    5. **20:20h | Check-in en «El Molino de Mateo» (Solares):** Marcado como alojamiento seleccionado por defecto (501 €, 94 m², 3 dormitorios, jardín privado cerrado y barbacoa, a 4 min del Balneario de Solares y 10 min de Cabárceno).
+  - **Días 2, 3 y 4 Intactos con los Imprescindibles:**
+    * **Día 2 (Dom 6 Dic):** Santoña (Barco Faro del Caballo) ➔ Laredo (Túnel de La Atalaya) ➔ Castro-Urdiales (Castillo-Faro + Navidad) ➔ **Barbacoa nocturna en El Molino de Mateo**.
+    * **Día 3 (Lun 7 Dic — IMPRESCINDIBLE):** Santander (La Magdalena con focas, pingüinos y galeones gratis) ➔ **Tarde IMPRESCINDIBLE en el Balneario de Solares (piscina termal a 34°C + Balnea Infantil, a 4 min de vuestra casa)** ➔ Gran Noche Navideña en Santander (Pista de Hielo, Tobogán de Trineos y Tiovivo).
+    * **Día 4 (Mar 8 Dic — IMPRESCINDIBLE A LA VUELTA):** Safari en el Parque de Cabárceno (a 10 min de El Molino de Mateo) + Teleférico ➔ Regreso directo por A-67 a Quer.
+* **Mapas y Compilación:** Regenerados los 5 planos Esri World Street Map (plano_rutas_real_general.png y dia1 a dia4) y recompilado PORTAL_VIAJES_FAMILIARES_WHATSAPP.html.
+
 ### [2026-11-02 15:31] — CANTABRIA: REDISEÑO INTEGRAL DE RUTA DE 4 DÍAS (COSTA ORIENTAL + SANTANDER & BALNEARIO + CABÁRCENO A LA VUELTA), PLANES PARA MARCO, NAVIDADES NOCTURNAS Y RECOMENDACIÓN DE ALOJAMIENTO CON BARBACOA
 * **Directivas Atendidas:**
   - «Contando estos alojamientos, más económicos, vi alguno con barbacoa, cuál cogerías y haz de nuevo la ruta, cabarceno a la vuelta imprescindible y un día al balneario y Santander imprescindible»

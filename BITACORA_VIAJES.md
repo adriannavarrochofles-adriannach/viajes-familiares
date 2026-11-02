@@ -48,6 +48,14 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 16:09] — CANTABRIA: CALENDARIO SIMPLIFICADO, DÍAS EXPRIMIDOS AL 100%, NAVIDAD EN CIUDADES HASTA LAS 20:30H Y TODAS LAS CENAS EN CASA A LAS 21:00H
+* **Directiva de Adrián:** Simplificar formato horario, meter más paradas durante todo el día, planes de luces navideñas hasta las 20:30h y todas las cenas en casa sobre las 20:45–21:00h.
+* **Nuevo Horario Exprimido y Simplificado (con Cenas en Casa a las 21:00h):**
+  - **DÍA 1 (Sáb 5 Dic — 6 Paradas + Cena en Casa 21:00h):** 11:30h Cueva El Soplao ➔ 13:05h Secuoyas ➔ 14:00h Cocido Montañés ➔ 15:20h Comillas y El Capricho de Gaudí ➔ 16:30h Neocueva de Altamira (Gratis) y Santillana del Mar iluminada ➔ 18:30–20:20h Navidad en Cartes (Árbol 65m y Papá Noel) ➔ 20:45–21:15h Check-in y Cena en Casa en El Molino de Mateo.
+  - **DÍA 2 (Dom 6 Dic — Costa Oriental Completa + Barbacoa 21:00h):** 09:30h Costa de Noja y Molino de las Aves ➔ 11:00h Santoña (Barco Faro del Caballo, Fuerte San Martín y Anchoas) ➔ 13:15h Laredo (Túnel La Atalaya, Comida y Puebla Vieja) ➔ 15:50h Castro-Urdiales (Castillo-Faro y Puente Romano) ➔ 17:45–20:30h Navidad en el puerto de Castro-Urdiales + Aldea Navideña de Noja ➔ 21:00h Gran Barbacoa en el jardín de El Molino de Mateo.
+  - **DÍA 3 (Lun 7 Dic — Santander Completo + Balneario + Navidad + Cena en Casa 21:00h):** 09:30h Faro de Cabo Mayor y El Sardinero ➔ 10:40h Península de La Magdalena ➔ 12:55h Centro Botín y Comida en Puerto Chico ➔ 15:00–17:00h Balneario de Solares (34°C) + paso de 20 min por casa ➔ 17:35h Liérganes Iluminado ➔ 18:50–20:35h Gran Navidad en el centro de Santander (Trineos, Pista de Hielo y 50+ casetas) ➔ 21:00h Cena en Casa en El Molino de Mateo.
+  - **DÍA 4 (Mar 8 Dic — 6 Horas de Cabárceno Completo + Regreso a Quer):** 09:30–15:35h Safari completo en Cabárceno + 2 líneas Teleférico + Show Leones Marinos + Comida ➔ 15:45–19:30h Regreso por A-67 a Quer.
+
 ### [2026-11-02 15:54] — CANTABRIA: GALERÍAS FOTOGRÁFICAS COMPLETAS EN LOS 4 DÍAS (48/48 IMÁGENES VERIFICADAS), DESGLOSE FINANCIERO CON «EL MOLINO DE MATEO» Y PUBLICACIÓN EN GITHUB PAGES
 * **Auditoría Visual y Galerías Fotográficas en #timeline-cantabria:**
   - Integradas **16 tarjetas fotográficas interactivas (con zoom lightbox)** repartidas en los 4 días de la ruta:

@@ -48,6 +48,22 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 15:11] — CANTABRIA: INCORPORACIÓN DE «APARTAMENTOS EL BOSQUE DE CUBAS» (514 €) Y «APARTAMENTOS VILLACARRIEDO» (375 € / 525 €)
+* **Capturas enviadas por Adrián:**
+  1. **Apartamentos El Bosque De Cubas** (`https://www.booking.com/hotel/es/ecovillas-el-bosque-de-cubas.es.html`):
+     - **Ubicación:** Barrio Horna 12, 39793 Cubas (Ribamontán al Monte, a 6 min de Solares, 10 min de Liérganes y 14 min de Cabárceno).
+     - **Puntuación:** **9,0 Fantástico** (87 comentarios · Ubicación 9,3/10).
+     - **Tarifas Reales (5–8 Dic 2026):** **514 €** reservando para 4 adultos (Apartamento de 2 dormitorios, 70 m², en pleno bosque con lavavajillas, terraza y parking gratis; si se añade 1 niño en el buscador sube a **589 €** por el sofá cama). Cancelación gratis hasta el 21/11/2026 (sin pago hasta el 19/11).
+  2. **Apartamentos Villacarriedo** (`https://www.booking.com/hotel/es/apartamentos-villacarriedo.es.html`):
+     - **Ubicación:** Avda. de Santander 16, 39640 Villacarriedo (Valles Pasiegos, a 15 min de Cabárceno y 18 min de Liérganes).
+     - **Puntuación:** **9,3 Fantástico** (141 comentarios · Ubicación 9,0/10).
+     - **Tarifas Reales (5–8 Dic 2026):**
+       * **Apartamento de 2 dormitorios (52 m²):** **375 € total** (incluye oficialmente a los 5: 4 adultos + 1 niño, sin suplemento).
+       * **Apartamento Deluxe de 3 dormitorios (70 m²):** **525 € total** (2 habitaciones con cama de matrimonio + 1 habitación con 2 camas individuales + sofá cama).
+       * Cancelación gratis hasta el 21/11/2026 y sin pagar nada hasta el 19/11/2026.
+* **Integración:** Añadidas ambas fichas con sus fotos oficiales (`bosque_de_cubas.jpg` y `apartamentos_villacarriedo.jpg`) y enlaces directos en `index.html`.
+
+
 ### [2026-11-02 15:03] — CANTABRIA: INCORPORACIÓN DE «APTO PEDREÑA GOLF Y SURF» (`Share-JGN3KW2` · 360 € REALES)
 * **Enlace Compartido por Adrián:** `https://www.booking.com/Share-JGN3KW2` ➔ Resuelto a **Apto Pedreña Golf y Surf** (`https://www.booking.com/hotel/es/apto-pedrena-golf-y-surf.es.html`).
 * **Datos Verificados en Vivo (5–8 Dic 2026):**

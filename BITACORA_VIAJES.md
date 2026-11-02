@@ -48,6 +48,17 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-02 15:03] — CANTABRIA: INCORPORACIÓN DE «APTO PEDREÑA GOLF Y SURF» (`Share-JGN3KW2` · 360 € REALES)
+* **Enlace Compartido por Adrián:** `https://www.booking.com/Share-JGN3KW2` ➔ Resuelto a **Apto Pedreña Golf y Surf** (`https://www.booking.com/hotel/es/apto-pedrena-golf-y-surf.es.html`).
+* **Datos Verificados en Vivo (5–8 Dic 2026):**
+  - **Ubicación:** Barrio Campo la Sierra, 39130 Pedreña (Marina de Cudeyo, Cantabria), frente a la Bahía de Santander (a 8 min del Balneario de Solares, 14 min de Liérganes y 15 min del Parque de Cabárceno).
+  - **Puntuación:** **9,6 Excepcional** (Ubicación 9,1/10).
+  - **Tarifa Real Booking:** **360 € total** para 4 adultos (3 noches · 120 €/noche · **60 € por pareja/noche** · Cancelación gratuita hasta el 05/11/2026). Para 2 adultos: **306 €**.
+  - **Distribución:** Apartamento entero de **70 m²** con terraza y balcón, **2 dormitorios** (Dormitorio 1: 1 cama doble; Dormitorio 2: 2 camas individuales), cocina completa (horno, nevera, microondas, lavadora), 1 baño y **parking gratis**.
+  - **Política Infantil:** Admite niños de cualquier edad; capacidad máxima oficial de 4 plazas en camas existentes (Marco duerme en colecho gratis reservando para 4 adultos).
+  - **Integración:** Descargada foto oficial (`img_cantabria/apto_pedrena_golf_surf.jpg`) e integrado como primera tarjeta destacada (`ct_pedrena_golf`) en `index.html`.
+
+
 ### [2026-11-02 14:52] — CANTABRIA: PLANOS CARTOGRÁFICOS REALES (ESRI WORLD MAP TILES), VISOR INTERACTIVO POR DÍAS & SELECCIÓN DE CASAS INDEPENDIENTES PARA 5 PERSONAS
 * **Directivas Atendidas:**
   - «Y si vamos 5, prefiero una casa independiente»

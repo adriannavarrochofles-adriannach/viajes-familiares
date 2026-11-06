@@ -10949,7 +10949,7 @@
 <div class="kpi-icon icon-teal">💶</div>
 <div class="kpi-data">
 <h4>Presupuesto Total Grupo</h4>
-<div class="value" id="kpi-it-total">~950 €</div>
+<div class="value" id="kpi-it-total">~1.610 €</div>
 <div class="note">Vuelos, hoteles, trenes y comidas</div>
 </div>
 </div>
@@ -10957,7 +10957,7 @@
 <div class="kpi-icon icon-blue">👥</div>
 <div class="kpi-data">
 <h4>Coste por Persona</h4>
-<div class="value" id="kpi-it-person">~317 €</div>
+<div class="value" id="kpi-it-person">~322 €</div>
 <div class="note">Recalculado según ocupantes</div>
 </div>
 </div>
@@ -21515,6 +21515,8 @@
         renderOutlookPlanner('cantabria');
       } else if (resolvedTab === 'granada' && typeof renderOutlookPlanner === 'function') {
         renderOutlookPlanner('granada');
+      } else if (resolvedTab === 'italia' && typeof setItPax === 'function') {
+        setItPax(4);
       }
 
       currentTab = resolvedTab;
@@ -21974,13 +21976,13 @@
       // ==========================================
       // 3. CÁLCULO ITALIA (Venecia + Florencia + Pisa)
       // ==========================================
-      const it_vuelos = totalPax * 105; // Google Flights Ryanair/Wizz directo MAD-VCE desde 101 €
-      const it_trenes = Math.round(adults * 28); // Frecciarossa Florencia (Marco gratis en Bimbi Gratis)
-      const it_habs = Math.max(1, Math.ceil(totalPax / 3));
-      const it_hoteles = it_habs * 339; // 3 noches auditadas Booking (237 € MEININGER Mestre 2n + 102 € Plus Florence 1n)
-      const it_traslados = adults * 30 + children * 10; // bus aeropuerto, vaporetto, pisamover
-      const it_comidas = Math.round(adults * 60 + children * 30);
-      const it_actividades = children * 10; // carrusel Florencia
+      const is5Pax = adults >= 4;
+      const it_vuelos = totalPax * 90; // Madrid-Venecia y Pisa-Madrid directos (~90 €/billete)
+      const it_trenes = Math.round(adults * 34); // Frecciarossa a 300 km/h + Regional Pisa (Marco gratis)
+      const it_hoteles = is5Pax ? 530 : 390; // Oficiales Booking: Dream Palace (Mestre) + San Lorenzo Loft (Florencia)
+      const it_traslados = is5Pax ? 85 : 50; // Bus ATVO aeropuerto, lanzaderas Mestre, Vaporetto Gran Canal, PisaMover
+      const it_comidas = is5Pax ? 380 : 200; // 4 días completos: Mercato Centrale, All'Antico Vinaio, trattorias, pizza al taglio
+      const it_actividades = 20; // Giostra histórica Piazza della Repubblica para Marco, Duomos gratis
 
       const it_total = it_vuelos + it_trenes + it_hoteles + it_traslados + it_comidas + it_actividades;
       const it_por_persona = Math.round(it_total / totalPax);
@@ -21989,7 +21991,7 @@
       setElText('kpi-it-total', `~${it_total} €`);
       setElText('kpi-it-person', `~${it_por_persona} €`);
       setElHTML('card-it-price', `~${it_total} € total <span style="font-size:0.85rem;font-weight:700;color:#0284C7;">(~${it_por_persona} € / pers)</span>`);
-      setElText('card-it-pax', `👥 Equipo: ${totalPax} Viajero${totalPax > 1 ? 's' : ''} (${adults}A + ${children}N)`);
+      setElText('card-it-pax', `👥 Equipo: ${totalPax} viajeros (${adults} ad + ${children} niño)`);
       setElText('tbl-it-desc', `Costes reales calculados al céntimo para los ${totalPax} viajeros (${adults} adultos${children > 0 ? ' + ' + children + ' niño' + (children > 1 ? 's' : '') : ''}) en la calculadora interactiva.`);
       setElText('th-it-total', `Total Grupo (${totalPax} pax)`);
       setElText('tbl-it-vuelos-val', `${it_vuelos} €`);
@@ -25606,6 +25608,7 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       const b4 = document.getElementById('it-btn-pax4');
       if (b2) b2.classList.toggle('active', pax === 2);
       if (b4) b4.classList.toggle('active', pax === 4);
+      if (typeof recalculateAll === 'function') recalculateAll();
       if (typeof updateItActivityCalc === 'function') updateItActivityCalc();
     }
 

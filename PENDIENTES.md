@@ -1,3 +1,11 @@
 # 📋 Registro de Tareas Pendientes (PENDIENTES.md)
 
-*(No hay tareas pendientes activas en este momento. El ajuste de fechas de Italia del 2 al 5 de enero de 2027 ha sido aplicado completamente en todos los módulos: alojamientos fijados Dream Palace y San Lorenzo Loft en Booking, vuelos, enlaces de Google Flights, cronograma día a día, comidas, presupuesto para 5 personas y compilación standalone de WhatsApp. Validado visualmente con Playwright y sincronizado con el repositorio).*
+- **[EN CURSO 2026-11-07 00:25]** Preparación de precios finales 2-5 Ene 2027 y Formato WhatsApp para Italia (Venecia, Florencia & Pisa):
+  - Estado Inicial: Fechas cambiadas al 2-5 de enero. Pendiente revisar y cuadrar precios exactos para 5 pax (4 adultos + Marco 4a) y desglose por pareja, y generar el texto completo en formato WhatsApp.
+  - Pasos Previstos:
+    1. Auditar los precios y cálculos dinámicos de Italia en `index.html` para 5 personas y 3 personas (vuelos, apartamentos Dream Palace y San Lorenzo Loft, tren bala Frecciarossa, transportes locales, comidas y entradas).
+    2. Asegurar que los KPIs y la tabla de presupuestos de Italia reflejen los importes con total coherencia.
+    3. Redactar el mensaje completo en formato WhatsApp (con emojis, estructura por días, horarios, enlaces de Booking y resumen de costes por pareja).
+    4. Guardar archivo de WhatsApp para consulta o copia rápida.
+    5. Actualizar `BITACORA_VIAJES.md` y limpiar `PENDIENTES.md`.
+    6. Git commit & push si procede.

@@ -2186,3 +2186,19 @@ DETALLE DE LAS MEJORAS APLICADAS:
   * **Día 4 (Lunes 4 Ene)**: Check-out *San Lorenzo Wooden Loft* -> Paseo de 9 min a estación SMN -> Tren Regional Toscana a Pisa (50 min en dos pisos, salidas frecuentes, Marco gratis) -> Explanada verde de *Piazza dei Miracoli*: fotos familiares jugando a sujetar la Torre Inclinada en el césped y visita gratuita al interior del Duomo de Pisa (recordatorio de seguridad: menores de 8 años no suben a la torre) -> Almuerzo toscano gourmet en *I Porci Comodi* -> Monorraíl PisaMover (5 min) -> Vuelo directo PSA-MAD (18:10h - 20:35h) -> Llegada en coche a Alcalá/Quer para dormir en casa, listos y frescos para la Cabalgata de Reyes el 5 de enero.
 - **Presupuesto Total Grupo (5 personas)**: ~1.610 € (~322 €/persona todo incluido: vuelos directos, alojamientos Booking fijados, tren bala Frecciarossa, trenes regionales toscanos, Vaporetto, PisaMover, comidas completas y atracciones).
 - **Compilación Offline**: `PORTAL_VIAJES_FAMILIARES_WHATSAPP.html` recompilado al 100% con 190 imágenes embebidas en base64 sin referencias externas rotas.
+
+### [2026-11-07 00:25] - ITALIA (VENECIA, FLORENCIA Y PISA) - CAMBIO DE FECHAS OFICIAL: 2 AL 5 DE ENERO DE 2027
+- **Ajuste de Calendario por Indicación Expresa de Adrián**:
+  * Fechas anteriores (1 al 4 de enero) modificadas para no viajar el 1 de enero (Año Nuevo).
+  * Nuevas fechas fijadas: **Sábado 2 de Enero de 2027 al Martes 5 de Enero de 2027** (4 días / 3 noches).
+- **Actualización de Alojamientos Oficiales en Booking**:
+  * **Noche 1 (Venecia Mestre - 2-3 Ene 2027)**: *Dream Palace* (Via Sernaglia, 29). Check-in Sábado 2 Ene, Check-out Domingo 3 Ene. Enlace de Booking actualizado con nuevas fechas (`checkin=2027-01-02&checkout=2027-01-03`).
+  * **Noches 2 y 3 (Florencia - 3-5 Ene 2027)**: *San Lorenzo Wooden Loft* (Via San Zanobi, 53). Check-in Domingo 3 Ene, Check-out Martes 5 Ene. Enlace de Booking actualizado (`checkin=2027-01-03&checkout=2027-01-05`).
+- **Cronograma y Rutas al Minuto Adaptados**:
+  * **Día 1 (Sábado 2 Ene)**: Salida cómoda tras descansar de Nochevieja -> Vuelo directo MAD-VCE -> Bus exprés ATVO a Mestre -> Check-in en *Dream Palace* -> Tren lanzadera 9 min a Santa Lucía -> Vaporetto Gran Canal bajo Rialto -> Piazza San Marco iluminada -> Cena veneciana en Cannaregio.
+  * **Día 2 (Domingo 3 Ene)**: Desayuno en Dream Palace -> Último paseo veneciano -> Tren bala *Frecciarossa 1000* a Florencia SMN (300 km/h, 2h directas) -> Check-in en *San Lorenzo Wooden Loft* -> Duomo iluminado -> Cena gourmet en *Mercato Centrale di San Lorenzo*.
+  * **Día 3 (Lunes 4 Ene)**: Florencia monumental a pie -> Carrusel histórico *Giostra Storica* para Marco -> Focaccias en *All'Antico Vinaio* -> Ponte Vecchio -> Merienda en la cascada de chocolate de *Venchi* -> Atardecer en Piazzale Michelangelo -> Trattoria toscana en Oltrarno -> Descanso en el loft.
+  * **Día 4 (Martes 5 Ene)**: Check-out *San Lorenzo Wooden Loft* -> Tren regional toscano a Pisa (50 min) -> Pradera de *Piazza dei Miracoli*: fotos sujetando la Torre Inclinada en el césped y visita gratuita al Duomo de Pisa -> Almuerzo en *I Porci Comodi* -> Monorraíl PisaMover (5 min) -> Vuelo directo PSA-MAD (18:10h - 20:35h) -> Regreso a Alcalá/Quer para dormir la víspera de Reyes en casa y vivir el **Día de Reyes (6 de enero)** al 100% con Marco abriendo regalos.
+- **Control Técnico**:
+  * Modificados títulos de días en comidas, weather, tarjetas de vuelos y enlaces de Google Flights (2-5 Ene).
+  * Validado con Playwright y recompilado en `PORTAL_VIAJES_FAMILIARES_WHATSAPP.html`.

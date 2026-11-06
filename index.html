@@ -17248,89 +17248,152 @@
 <section class="meals-module-section" id="meals-section-cantabria">
 <div class="meals-module-header">
 <div>
-<span style="background:#D1FAE5;color:#065F46;padding:3px 10px;border-radius:999px;font-size:0.73rem;font-weight:800;">✅ PLAN DECIDIDO · COMIDAS FUERA · CENAS EN CASA</span>
-<h2 style="font-size:1.3rem;font-weight:800;color:#0F172A;margin:4px 0 2px 0;">🍴 Dónde comer cada día (a pie desde donde estéis)</h2>
-<p style="font-size:0.83rem;color:#475569;margin:0;">Cocina de la zona, bueno y barato. En todos aparcáis una vez y no hay que volver a mover el coche para comer.</p>
+<span style="background:#FEF3C7;color:#B45309;padding:3px 10px;border-radius:999px;font-size:0.73rem;font-weight:800;">🍽️ SITIOS PARA COMER Y CENAR · DECIDID SOBRE LA MARCHA</span>
+<h2 style="font-size:1.3rem;font-weight:800;color:#0F172A;margin:4px 0 2px 0;">🍴 Comidas y cenas por día: fuera o en casa</h2>
+<p style="font-size:0.83rem;color:#475569;margin:0;">Todos los sitios están a pie de donde estáis a esa hora. Pulsa <strong>🍽️ Fuera</strong> o <strong>🏡 Casa</strong> en cada comida y el presupuesto se recalcula.</p>
+</div>
+<div class="meals-preset-bar">
+<button class="btn-meal-preset" id="ct-meal-preset-balanced" onclick="setAllCtMeals('balanced')" type="button">⚖️ Comidas fuera + cenas en casa</button>
+<button class="btn-meal-preset" id="ct-meal-preset-allout" onclick="setAllCtMeals('all_out')" type="button">🍽️ Todo fuera</button>
+<button class="btn-meal-preset" id="ct-meal-preset-saver" onclick="setAllCtMeals('max_home')" type="button">🏡 Máximo ahorro</button>
 </div>
 </div>
 <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:10px 14px;margin-bottom:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:0.83rem;">
-<div><strong style="color:#92400E;">📊 Plan:</strong> <span id="ct-meals-summary-label" style="color:#78350F;font-weight:700;">4 Comidas Fuera + 3 Cenas en Casa</span></div>
-<div>Comida total grupo: <strong id="ct-meals-total-badge" style="color:#B45309;">~—</strong>
+<div><strong style="color:#92400E;">📊 Selección:</strong> <span id="ct-meals-summary-label" style="color:#78350F;font-weight:700;">—</span></div>
+<div>Comida total grupo: <strong id="ct-meals-total-badge" style="color:#B45309;">—</strong>
 <span id="ct-meals-perpax-badge" style="background:#ECFDF5;color:#065F46;border:1px solid #6EE7B7;padding:2px 8px;border-radius:999px;font-weight:800;font-size:0.75rem;margin-left:6px;">—</span></div>
 </div>
 <div class="meals-days-grid">
 <div class="meal-day-card">
 <div class="meal-day-title"><span>🌲 Día 1 · Sáb 5</span>
-<span style="font-size:0.72rem;color:#0369A1;background:#E0F2FE;padding:2px 8px;border-radius:6px;">Carmona (13:00–14:40h)</span></div>
-<div class="meal-slot-box mode-out">
-<div class="meal-slot-top"><span class="meal-slot-label">☀️ Comida FUERA</span>
-<span style="font-size:0.7rem;font-weight:800;color:#065F46;background:#D1FAE5;padding:2px 8px;border-radius:999px;">🚶 Sin mover el coche</span></div>
-<div style="font-size:0.76rem;color:#475569;margin-bottom:6px;">🅿️ Aparcáis en Posada El Puente, a la entrada de Carmona, y el pueblo se ve a pie (5 min).</div>
-<ul style="margin:0;padding-left:18px;font-size:0.8rem;line-height:1.45;color:#1E293B;"><li style="margin-bottom:5px;"><strong>⭐ Posada El Puente</strong> (Bº El Puente s/n, Carmona · ☎ 942 72 81 15): <strong>cocido montañés</strong> con el compango aparte, carnes de la zona y postres caseros. ~20–25 €/ad.</li><li style="margin-bottom:5px;">Plan B si está lleno: bares de Ruente o Cabezón de la Sal, de paso hacia las Secuoyas (10 min en coche).</li></ul>
-<div style="font-size:0.74rem;color:#92400E;background:#FFFBEB;border-radius:6px;padding:5px 8px;margin-top:6px;">💡 Sábado de puente: reservad ya mesa para las 13:30h.</div>
+<span style="font-size:0.72rem;color:#0369A1;background:#E0F2FE;padding:2px 8px;border-radius:6px;">Carmona · Cartes</span></div>
+<div class="meal-slot-box mode-out" id="ct-slot-d1-lunch">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (13:10h · Carmona)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d1-lunch-out" onclick="setCtMealMode(1, 'lunch', 'out')" type="button">🍽️ Fuera</button>
+<button class="btn-meal-toggle" id="btn-ct-d1-lunch-home" onclick="setCtMealMode(1, 'lunch', 'home')" type="button">🏡 Casa</button>
 </div>
-<div class="meal-slot-box mode-home" style="background:#F0FDF4;">
-<div class="meal-slot-top" style="margin-bottom:2px;"><span class="meal-slot-label">🌙 Cena EN CASA</span></div>
-<div style="font-size:0.77rem;color:#166534;">Check-in 21:00h en Casa de Postas → cena sencilla (tortilla, quesucos, sopa para Marco).</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d1-lunch-out">
+<strong>🍽️ Fuera, a pie en Carmona:</strong>
+<ul style="margin:4px 0 0 0;padding-left:17px;"><li style="margin-bottom:4px;"><strong>⭐ Posada El Puente</strong> (☎ 942 72 81 15): cocido montañés, carnes de la zona y postres caseros. ~20–25 €/ad.</li><li style="margin-bottom:4px;">Plan B si está lleno: bares de Ruente o Cabezón de la Sal (10 min, de paso a las Secuoyas).</li></ul><div style="font-size:0.73rem;color:#92400E;margin-top:4px;">💡 Sábado de puente: reservad para las 13:15h.</div>
+</div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d1-lunch-home">
+<strong>🥪 Picnic:</strong> bocadillos traídos de Quer en el área de las Secuoyas.
+        </div>
+</div>
+<div class="meal-slot-box mode-out" id="ct-slot-d1-dinner">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (20:00h · Cartes)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d1-dinner-out" onclick="setCtMealMode(1, 'dinner', 'out')" type="button">🍽️ Fuera</button>
+<button class="btn-meal-toggle" id="btn-ct-d1-dinner-home" onclick="setCtMealMode(1, 'dinner', 'home')" type="button">🏡 Casa</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d1-dinner-out">
+<strong>🍽️ Fuera, a pie en Cartes al terminar el Poblado Navideño:</strong>
+<ul style="margin:4px 0 0 0;padding-left:17px;"><li style="margin-bottom:4px;"><strong>Bar Restaurante La Plaza</strong> (plaza de Santiago de Cartes): raciones, tapas y bar de pueblo.</li><li style="margin-bottom:4px;"><strong>Taberna de Corocotta</strong> (Camino Real): raciones caseras en el casco medieval.</li><li style="margin-bottom:4px;"><strong>Vinoteca La Bolera</strong> (Camino Real): tablas de quesos, anchoas y raciones generosas.</li><li style="margin-bottom:4px;">Cerca de casa si volvéis antes: <strong>Erkeyo</strong> (San Mamés de Meruelo, hamburguesas, tortillas y raciones) o <strong>La Terraza</strong> (Güemes, casero y raciones).</li></ul><div style="font-size:0.73rem;color:#92400E;margin-top:4px;">💡 Es la noche de la Navidad de Cartes: reservad.</div>
+</div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d1-dinner-home">
+<strong>🏡 En casa (20:45h):</strong> check-in y cena sencilla (tortilla, quesucos, sopa para Marco).
+        </div>
 </div>
 </div>
 <div class="meal-day-card">
-      <div class="meal-day-title"><span>⚓ Día 2 · Dom 6</span>
-        <span style="font-size:0.72rem;color:#0369A1;background:#E0F2FE;padding:2px 8px;border-radius:6px;">Bilbao · zona Guggenheim (14:00h)</span></div>
-      <div style="font-size:0.76rem;color:#475569;background:#FFFBEB;border-radius:8px;padding:6px 9px;">☕ <strong>Desayuno en Santoña (09:00h):</strong> La Cañuta (panadería-cafetería artesana, junto a Pza. San Antonio) o terrazas del puerto.</div>
-      <div class="meal-slot-box mode-out">
-        <div class="meal-slot-top"><span class="meal-slot-label">☀️ Comida FUERA</span>
-          <span style="font-size:0.7rem;font-weight:800;color:#065F46;background:#D1FAE5;padding:2px 8px;border-radius:999px;">🚶 Sin mover el coche</span></div>
-        <div style="font-size:0.76rem;color:#475569;margin-bottom:6px;">🅿️ Un solo parking (Arenal / Ribera). Al Guggenheim en tranvía; C/ Diputación está a 10 min a pie desde allí.</div>
-        <ul style="margin:0;padding-left:18px;font-size:0.8rem;line-height:1.45;color:#1E293B;">
-          <li style="margin-bottom:5px;"><strong>⭐ El Globo</strong> (Diputación 8): pintxo de txangurro gratinado, un clásico.</li>
-          <li style="margin-bottom:5px;"><strong>La Olla</strong> (Diputación 12) · <strong>Zurekin</strong> (Diputación 8) · <strong>Barrabás</strong> (Diputación 3): barras amplias de pintxos y raciones.</li>
-          <li style="margin-bottom:5px;"><strong>Café Iruña</strong> (Jardines de Albia): café histórico de 1903, pinchos morunos. Abre todos los días.</li>
-        </ul>
-        <div style="font-size:0.74rem;color:#92400E;background:#FFFBEB;border-radius:6px;padding:5px 8px;margin-top:6px;">💡 ~15–18 €/ad. Domingo a la hora del vermú hay mucha gente: id sobre las 14:00h.</div>
-      </div>
-      <div class="meal-slot-box mode-out">
-        <div class="meal-slot-top" style="margin-bottom:2px;"><span class="meal-slot-label">🌙 Cena en NOJA (o en casa)</span></div>
-        <ul style="margin:0;padding-left:18px;font-size:0.78rem;line-height:1.4;color:#1E293B;">
-          <li><strong>Bar Las Gaviotas</strong> (C/ Rano 27): raciones baratas (rabas, croquetas, pulpo).</li>
-          <li><strong>Café Cantábrico</strong> (C/ Los Pinares 2): hamburguesas caseras y raciones.</li>
-          <li><strong>Bar de Tapas Noja</strong> (centro): raciones y platos combinados.</li>
-        </ul>
-        <div style="font-size:0.74rem;color:#166534;margin-top:4px;">En diciembre es temporada baja: llamad antes. Si no, a casa en 10 min.</div>
-      </div>
-    </div>
-    <div class="meal-day-card">
-      <div class="meal-day-title"><span>♨️ Día 3 · Lun 7</span>
-        <span style="font-size:0.72rem;color:#0369A1;background:#E0F2FE;padding:2px 8px;border-radius:6px;">Laredo (13:00–14:30h)</span></div>
-      <div class="meal-slot-box mode-out">
-        <div class="meal-slot-top"><span class="meal-slot-label">☀️ Comida FUERA</span>
-          <span style="font-size:0.7rem;font-weight:800;color:#065F46;background:#D1FAE5;padding:2px 8px;border-radius:999px;">🚶 Sin mover el coche</span></div>
-        <div style="font-size:0.76rem;color:#475569;margin-bottom:6px;">🅿️ Aparcáis una vez junto a la Puebla Vieja: Túnel de La Atalaya, Rúa Mayor y comida, todo a pie.</div>
-        <ul style="margin:0;padding-left:18px;font-size:0.8rem;line-height:1.45;color:#1E293B;">
-          <li style="margin-bottom:5px;"><strong>⭐ Bar Revellón</strong> (C/ Revellón, casco viejo · desde 1877): de los mejores calidad-precio de Laredo, <strong>rabas de calamar</strong> famosas, mejillones y zamburiñas. ~18–20 €/ad.</li>
-          <li style="margin-bottom:5px;"><strong>Laredo Class</strong> (Rúa Mayor): rabas, croquetas premiadas y mejillones en salsa.</li>
-          <li style="margin-bottom:5px;"><strong>La Parra Bistró</strong> (Rúa Mayor, junto a Sta. María): casero, platos de cuchara.</li>
-        </ul>
-        <div style="font-size:0.74rem;color:#92400E;background:#FFFBEB;border-radius:6px;padding:5px 8px;margin-top:6px;">💡 Es lunes: llamad antes para confirmar que abren.</div>
-      </div>
-      <div class="meal-slot-box mode-home" style="background:#F0FDF4;">
-        <div class="meal-slot-top" style="margin-bottom:2px;"><span class="meal-slot-label">🌙 Cena EN CASA</span></div>
-        <div style="font-size:0.77rem;color:#166534;">☕ Merienda-cena de churros en Liérganes (19:30h) y cena ligera en casa a las 20:50h.</div>
-      </div>
-    </div>
-    <div class="meal-day-card">
+<div class="meal-day-title"><span>⚓ Día 2 · Dom 6</span>
+<span style="font-size:0.72rem;color:#0369A1;background:#E0F2FE;padding:2px 8px;border-radius:6px;">Bilbao · Noja</span></div><div style="font-size:0.76rem;color:#475569;background:#FFFBEB;border-radius:8px;padding:6px 9px;">☕ <strong>Desayuno en Santoña (09:00h):</strong> La Cañuta (panadería-cafetería artesana, junto a Pza. San Antonio) o terrazas del puerto.</div>
+<div class="meal-slot-box mode-out" id="ct-slot-d2-lunch">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (14:00h · Bilbao)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d2-lunch-out" onclick="setCtMealMode(2, 'lunch', 'out')" type="button">🍽️ Fuera</button>
+<button class="btn-meal-toggle" id="btn-ct-d2-lunch-home" onclick="setCtMealMode(2, 'lunch', 'home')" type="button">🏡 Casa</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d2-lunch-out">
+<strong>🍽️ Fuera, pintxos en C/ Diputación (abren en domingo):</strong>
+<ul style="margin:4px 0 0 0;padding-left:17px;"><li style="margin-bottom:4px;"><strong>⭐ El Globo</strong> (Diputación 8): pintxo de txangurro gratinado.</li><li style="margin-bottom:4px;"><strong>La Olla</strong> (Diputación 12) · <strong>Zurekin</strong> (Diputación 8) · <strong>Barrabás</strong> (Diputación 3).</li><li style="margin-bottom:4px;"><strong>Café Iruña</strong> (Jardines de Albia): café histórico de 1903, pinchos morunos. Abre todos los días.</li></ul><div style="font-size:0.73rem;color:#92400E;margin-top:4px;">💡 ~15–18 €/ad. A la hora del vermú hay mucha gente.</div>
+</div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d2-lunch-home">
+<strong>🥪 Bocatas:</strong> preparados en casa por la mañana, en el parque de Doña Casilda.
+        </div>
+</div>
+<div class="meal-slot-box mode-out" id="ct-slot-d2-dinner">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (20:00h · Noja)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d2-dinner-out" onclick="setCtMealMode(2, 'dinner', 'out')" type="button">🍽️ Fuera</button>
+<button class="btn-meal-toggle" id="btn-ct-d2-dinner-home" onclick="setCtMealMode(2, 'dinner', 'home')" type="button">🏡 Casa</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d2-dinner-out">
+<strong>🍽️ Fuera, en Noja tras la Aldea Navideña:</strong>
+<ul style="margin:4px 0 0 0;padding-left:17px;"><li style="margin-bottom:4px;"><strong>Bar Las Gaviotas</strong> (C/ Rano 27): raciones baratas (rabas, croquetas, pulpo).</li><li style="margin-bottom:4px;"><strong>Café Cantábrico</strong> (C/ Los Pinares 2): hamburguesas caseras y raciones.</li><li style="margin-bottom:4px;"><strong>Bar de Tapas Noja</strong> (centro): raciones y platos combinados.</li></ul><div style="font-size:0.73rem;color:#92400E;margin-top:4px;">💡 Temporada baja: llamad antes para confirmar que abren.</div>
+</div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d2-dinner-home">
+<strong>🏡 En casa (a 10 min):</strong> cena tranquila tras un día largo.
+        </div>
+</div>
+</div>
+<div class="meal-day-card">
+<div class="meal-day-title"><span>♨️ Día 3 · Lun 7</span>
+<span style="font-size:0.72rem;color:#0369A1;background:#E0F2FE;padding:2px 8px;border-radius:6px;">Laredo · Liérganes</span></div>
+<div class="meal-slot-box mode-out" id="ct-slot-d3-lunch">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (13:00h · Laredo)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d3-lunch-out" onclick="setCtMealMode(3, 'lunch', 'out')" type="button">🍽️ Fuera</button>
+<button class="btn-meal-toggle" id="btn-ct-d3-lunch-home" onclick="setCtMealMode(3, 'lunch', 'home')" type="button">🏡 Casa</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d3-lunch-out">
+<strong>🍽️ Fuera, a pie en la Puebla Vieja:</strong>
+<ul style="margin:4px 0 0 0;padding-left:17px;"><li style="margin-bottom:4px;"><strong>⭐ Bar Revellón</strong> (desde 1877): rabas famosas, mejillones y zamburiñas. ~18–20 €/ad.</li><li style="margin-bottom:4px;"><strong>Laredo Class</strong> (Rúa Mayor): rabas, croquetas premiadas y mejillones en salsa.</li><li style="margin-bottom:4px;"><strong>La Parra Bistró</strong> (Rúa Mayor): casero, platos de cuchara.</li></ul><div style="font-size:0.73rem;color:#92400E;margin-top:4px;">💡 Es lunes: confirmad que abren.</div>
+</div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d3-lunch-home">
+<strong>🥪 Bocatas:</strong> preparados en casa antes del balneario, en el paseo de Laredo.
+        </div>
+</div>
+<div class="meal-slot-box mode-out" id="ct-slot-d3-dinner">
+<div class="meal-slot-top">
+<span class="meal-slot-label">🌙 Cena (19:30h · Liérganes)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d3-dinner-out" onclick="setCtMealMode(3, 'dinner', 'out')" type="button">🍽️ Fuera</button>
+<button class="btn-meal-toggle" id="btn-ct-d3-dinner-home" onclick="setCtMealMode(3, 'dinner', 'home')" type="button">🏡 Casa</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d3-dinner-out">
+<strong>🍽️ Fuera, a pie en Liérganes:</strong>
+<ul style="margin:4px 0 0 0;padding-left:17px;"><li style="margin-bottom:4px;"><strong>⭐ Las Hijas del Pez</strong> (C/ Camino Real 10): raciones (rabas, croquetas, quesos cántabros) y churros con chocolate.</li><li style="margin-bottom:4px;"><strong>Boulevard 8</strong> (Paseo del Hombre Pez 8): churros caseros famosos y restaurante.</li><li style="margin-bottom:4px;"><strong>La Puerta del Sol</strong> (C/ Juan Curtius): cocina casera abundante.</li><li style="margin-bottom:4px;"><strong>El Ojo del Ábrego</strong> (Camino Real 22, Guía Repsol): algo más elaborado, carne tudanca.</li></ul><div style="font-size:0.73rem;color:#92400E;margin-top:4px;">💡 Lunes noche: confirmad apertura.</div>
+</div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d3-dinner-home">
+<strong>🏡 En casa (20:50h):</strong> solo churros en Liérganes y cena ligera en casa.
+        </div>
+</div>
+</div>
+<div class="meal-day-card">
 <div class="meal-day-title"><span>🦒 Día 4 · Mar 8</span>
-<span style="font-size:0.72rem;color:#0369A1;background:#E0F2FE;padding:2px 8px;border-radius:6px;">Dentro de Cabárceno (14:15h)</span></div>
-<div class="meal-slot-box mode-out">
-<div class="meal-slot-top"><span class="meal-slot-label">☀️ Comida FUERA</span>
-<span style="font-size:0.7rem;font-weight:800;color:#065F46;background:#D1FAE5;padding:2px 8px;border-radius:999px;">🚶 Sin mover el coche</span></div>
-<div style="font-size:0.76rem;color:#475569;margin-bottom:6px;">🅿️ El coche se queda donde estáis: después de los Leones Marinos coméis al lado.</div>
-<ul style="margin:0;padding-left:18px;font-size:0.8rem;line-height:1.45;color:#1E293B;"><li style="margin-bottom:5px;"><strong>⭐ Cafetería La Mina</strong> (junto a Leones Marinos y Reptilario, entrada de Obregón): menús, platos combinados y cocina cántabra con terraza. ~14–16 €/ad.</li><li style="margin-bottom:5px;"><strong>Restaurante Los Osos</strong> (centro del parque, frente a los osos): menú del día tradicional. Hamburguesería al lado para Marco.</li></ul>
-<div style="font-size:0.74rem;color:#92400E;background:#FFFBEB;border-radius:6px;padding:5px 8px;margin-top:6px;">💡 Festivo: id a comer a las 13:45h, antes de que se llene.</div>
+<span style="font-size:0.72rem;color:#0369A1;background:#E0F2FE;padding:2px 8px;border-radius:6px;">Cabárceno</span></div>
+<div class="meal-slot-box mode-out" id="ct-slot-d4-lunch">
+<div class="meal-slot-top">
+<span class="meal-slot-label">☀️ Comida (14:15h · Cabárceno)</span>
+<div class="meal-toggle-group">
+<button class="btn-meal-toggle active-out" id="btn-ct-d4-lunch-out" onclick="setCtMealMode(4, 'lunch', 'out')" type="button">🍽️ Fuera</button>
+<button class="btn-meal-toggle" id="btn-ct-d4-lunch-home" onclick="setCtMealMode(4, 'lunch', 'home')" type="button">🏡 Casa</button>
+</div>
+</div>
+<div class="meal-option-block meal-option-out" id="opt-ct-d4-lunch-out">
+<strong>🍽️ Fuera, sin mover el coche:</strong>
+<ul style="margin:4px 0 0 0;padding-left:17px;"><li style="margin-bottom:4px;"><strong>⭐ Restaurante Los Osos</strong> (centro del parque): menú del día tradicional. Hamburguesería al lado.</li><li style="margin-bottom:4px;"><strong>Cafetería La Cabaña</strong> (junto a las aves rapaces): menús rápidos.</li><li style="margin-bottom:4px;"><strong>Taberna La Mina</strong> (Bº El Pino 47, Obregón, junto a la entrada): menú del día con cocido montañés, terraza y zona infantil (al salir, de camino a la autovía).</li></ul><div style="font-size:0.73rem;color:#92400E;margin-top:4px;">💡 Festivo: id a comer sobre las 13:45h.</div>
+</div>
+<div class="meal-option-block meal-option-home dimmed" id="opt-ct-d4-lunch-home">
+<strong>🥪 Bocatas:</strong> preparados en la cocina de Casa de Postas antes del check-out.
+        </div>
 </div>
 <div class="meal-slot-box mode-home" style="background:#F0FDF4;">
-<div class="meal-slot-top" style="margin-bottom:2px;"><span class="meal-slot-label">🌙 Cena EN CASA</span></div>
-<div style="font-size:0.77rem;color:#166534;">🏠 Llegada a Quer ~19:45h (cena en vuestra casa).</div>
+<div class="meal-slot-top" style="margin-bottom:2px;"><span class="meal-slot-label">🏠 Cena (Quer)</span></div>
+<div style="font-size:0.77rem;color:#166534;">Llegada a casa sobre las 19:45h.</div>
 </div>
 </div>
 </div>
@@ -24791,9 +24854,9 @@ Ya lo tenéis libre sin consumir vacaciones. Marcando los días laborables anter
       const slots = [
         { day: 1, meal: 'lunch', key: 'd1_lunch', homeLabel: '🥪 Picnic' },
         { day: 1, meal: 'dinner', key: 'd1_dinner', homeLabel: '🏡 En Casa' },
-        { day: 2, meal: 'lunch', key: 'd2_lunch', homeLabel: '🏡 En Casa' },
+        { day: 2, meal: 'lunch', key: 'd2_lunch', homeLabel: '🥪 Bocatas' },
         { day: 2, meal: 'dinner', key: 'd2_dinner', homeLabel: '🏡 En Casa' },
-        { day: 3, meal: 'lunch', key: 'd3_lunch', homeLabel: '🏡 En Casa' },
+        { day: 3, meal: 'lunch', key: 'd3_lunch', homeLabel: '🥪 Bocatas' },
         { day: 3, meal: 'dinner', key: 'd3_dinner', homeLabel: '🏡 En Casa' },
         { day: 4, meal: 'lunch', key: 'd4_lunch', homeLabel: '🥪 Bocatas' }
       ];

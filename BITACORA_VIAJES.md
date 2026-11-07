@@ -2238,3 +2238,10 @@ DETALLE DE LAS MEJORAS APLICADAS:
   * Añadido desplegable de auditoría oficial de tasas en `index.html`.
   * Actualizados mensajes de WhatsApp (`MENSAJE_WHATSAPP_ITALIA_3PAX.txt` y `MENSAJE_WHATSAPP_ITALIA_OFICIAL.txt`).
   * Recompilado `PORTAL_VIAJES_FAMILIARES_WHATSAPP.html`.
+
+### [2026-11-07 09:35] - ITALIA - CONSULTA CABALGATA DE REYES 5 DE ENERO (VUELO DE REGRESO TEMPRANO)
+- **Objetivo Prioritario**: Asegurar que Marco (4 años) y la familia asistan a la **Cabalgata de Reyes Magos de Alcalá de Henares (Martes 5 de Enero a las 18:30 h)** sin perderse nada del viaje a Italia.
+- **Análisis de Opciones de Vuelo Temprano el 5 de Enero**:
+  1. *Opción Vuelo Matinal / Mediodía (Pisa o Florencia a Madrid)*: Salida 10:30h - 12:30h -> Llegada Barajas 13:00h - 15:00h -> En casa en Alcalá a las 15:30h - 16:00h. Reubicación de la visita a la Torre de Pisa al Lunes 4 de Enero por la tarde (50 min en tren desde Florencia), lo que además mejora la luz fotográfica y elimina el estrés del día de vuelo.
+  2. *Opción Vuelo Bolonia (BLQ) a Madrid*: A 35 min en Frecciarossa desde Florencia SMN + 7 min monorraíl Marconi Express. Vuelos matinales directos de Ryanair/Iberia llegando a Barajas a las 14:00h.
+  3. *Opción Regreso Lunes 4 Ene por la noche*: 3 días completos intensos (2 al 4 Ene), durmiendo el 4 en Alcalá y dejando el Martes 5 de Enero 100% libre para la Cabalgata.

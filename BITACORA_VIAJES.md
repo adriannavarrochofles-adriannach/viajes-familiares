@@ -48,6 +48,22 @@
 
 ## 📜 4. REGISTRO CRONOLÓGICO DE AUDITORÍA Y CAMBIOS (LOGBOOK)
 
+### [2026-11-07 09:40] — ITALIA (VENECIA, FLORENCIA Y PISA · 2–5 ENE 2027): FIJACIÓN OFICIAL "OPERACIÓN CABALGATA DE REYES", ANÁLISIS DE PRECIOS 3 Y 5 PERSONAS, Y ADAPTACIÓN LOGÍSTICA COMPLETA
+* **Petición de Adrián:**
+  - Análisis exacto de variación de precio para adelantar el vuelo del 5 de enero a mediodía (11:30 h – 12:30 h ➔ 14:00 h – 14:45 h en Barajas) para no perderse la Cabalgata de Reyes Magos de Alcalá de Henares (18:30 h con Marco).
+  - Configuración y recálculo cerrado tanto para **3 personas (2 adultos + Marco 4a)** como para **5 personas (4 adultos + Marco 4a)**.
+  - Entrega de mensajes formateados listos para enviar por WhatsApp.
+* **Resultado del Análisis de Variación de Coste:**
+  - La variación de precio respecto al plan anterior es prácticamente nula (**menos de ±15 € en total**).
+  - La pequeña adición de los billetes de tren regional Florencia ➔ Pisa ida y vuelta (9,80 € / adulto, Marco gratis) queda totalmente compensada al comer en casa en Alcalá el 5 de enero en lugar de almorzar en restaurante en Italia antes de un vuelo tardío.
+* **Ajustes Logísticos Realizados:**
+  1. **Día 3 (Lunes 4 Ene):** Florencia matinal + carrusel Giostra Storica + comida All'Antico Vinaio ➔ Tren regional a Pisa por la tarde (14:30 h, 50 min) ➔ Piazza dei Miracoli, fotos familiares sujetando la Torre Inclinada con luz dorada del atardecer y visita al Duomo ➔ Tren regional de vuelta a Florencia (18:30 h) ➔ Cena en Mercato Centrale di San Lorenzo.
+  2. **Día 4 (Martes 5 Ene):** Desayuno en loft y traslado ➔ Vuelo directo a Madrid (11:30 h/12:30 h ➔ 14:00 h/14:45 h) ➔ Recogida de coche en Barajas y llegada a Alcalá/Quer a las 15:30 h ➔ Comida y descanso en casa ➔ **18:30 h: Gran Cabalgata de Reyes Magos de Alcalá** en primera fila con Marco.
+* **Presupuestos Cerrados Oficiales (Con Tasas Italianas y Barajas):**
+  - **3 Pax (2 ad + Marco 4a):** Base ~1.045 € + Tasas de estancia/coperto/parking ~74 € = **~1.119 € total** (~559 € / adulto con niño incluido).
+  - **5 Pax (4 ad + Marco 4a):** Base ~1.608 € + Tasas de estancia/coperto/parking ~133 € = **~1.741 € total** (~348 € / persona con niño incluido | ~696 € / pareja).
+
+
 ### [2026-11-02 16:22] — CANTABRIA: ELIMINACIÓN DEL BARCO DE SANTOÑA (-60 €), CORRECCIÓN LOGÍSTICA DEL DÍA 3 (CERO IDAS Y VENIDAS: MAÑANA BALNEARIO/LIÉRGANES ➔ TARDE-NOCHE SEGUIDA EN SANTANDER) Y AMPLIACIÓN DE PARADAS EN LOS 4 DÍAS
 * **Directivas de Adrián:**
   - *«El barco de Santoña no lo vamos a hacer, el día 3 no me cuadra mucho, Santander, solares, Liérganes 1hora, y luego otra vez Santander para volver al apartamento? Un lío no?»*

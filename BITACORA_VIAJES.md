@@ -2202,3 +2202,14 @@ DETALLE DE LAS MEJORAS APLICADAS:
 - **Control Técnico**:
   * Modificados títulos de días en comidas, weather, tarjetas de vuelos y enlaces de Google Flights (2-5 Ene).
   * Validado con Playwright y recompilado en `PORTAL_VIAJES_FAMILIARES_WHATSAPP.html`.
+
+### [2026-11-07 09:12] - ITALIA (VENECIA, FLORENCIA Y PISA) - CÁLCULO CERRADO 3 PERSONAS (2 ADULTOS + MARCO 4a)
+- **Desglose Específico para el Núcleo Familiar (2 Adultos + Marco 4a · 2 al 5 Ene 2027)**:
+  * **Vuelos directos (MAD-VCE / PSA-MAD)**: 3 billetes con equipaje de mano y selección de asiento = ~270 € (~90 €/billete).
+  * **Alojamientos Booking**: Noche 1 en *Dream Palace Mestre* (~130 €) + Noches 2 y 3 en *San Lorenzo Wooden Loft Florencia* (~275 €) = ~405 € total (media ~135 €/noche para la familia).
+  * **Trenes de Alta Velocidad & Regionales**: Tren bala Frecciarossa 1000 (~48 € adultos) + Regional Toscana a Pisa (~19,60 € adultos) = ~70 € (Marco viaja 100% gratis en ambos con promo Bimbi Gratis / Ferrovie).
+  * **Traslados locales**: Bus exprés ATVO (20 €) + lanzaderas Mestre (5,80 €) + Vaporetto Línea 1 Gran Canal (19 €) + PisaMover (10 €) = ~55 € (Marco viaja gratis en todos).
+  * **Restauración 4 días completos**: ~240 € (Mercato Centrale, trattorias típicas, All'Antico Vinaio, pizza al taglio, desayunos en apartamento y heladerías artesanas, ~60 €/día familia).
+  * **Entradas y ocio infantil**: ~15 € (Duomos de Florencia y Pisa gratis, tiovivo histórico Giostra di Piazza della Repubblica para Marco, monedas del Porcellino).
+- **Presupuesto Total 3 Personas**: **~1.055 € total** (~527 € por adulto con todos los gastos de Marco incluidos).
+- **Entregable**: Generado mensaje WhatsApp listo para copiar en `MENSAJE_WHATSAPP_ITALIA_3PAX.txt` y desplegado en portal web.

@@ -2213,3 +2213,28 @@ DETALLE DE LAS MEJORAS APLICADAS:
   * **Entradas y ocio infantil**: ~15 € (Duomos de Florencia y Pisa gratis, tiovivo histórico Giostra di Piazza della Repubblica para Marco, monedas del Porcellino).
 - **Presupuesto Total 3 Personas**: **~1.055 € total** (~527 € por adulto con todos los gastos de Marco incluidos).
 - **Entregable**: Generado mensaje WhatsApp listo para copiar en `MENSAJE_WHATSAPP_ITALIA_3PAX.txt` y desplegado en portal web.
+
+### [2026-11-07 09:14] - ITALIA (VENECIA, FLORENCIA Y PISA) - AUDITORÍA EXHAUSTIVA DE TASAS TURÍSTICAS Y EXTRAS
+- **Auditoría e Incorporación de Tasas Turísticas Oficiales en Italia**:
+  * **Tassa di Soggiorno Oficial**:
+    - *Venecia / Mestre*: ~2,50 € por noche por adulto. *Menores de 10 años EXENTOS* (Marco de 4 años no paga). Total: 5 € (2 adultos) o 10 € (4 adultos).
+    - *Florencia*: 5,50 € por noche por adulto. *Menores de 12 años EXENTOS* (Marco de 4 años no paga). Total 2 noches: 22 € (2 adultos) o 44 € (4 adultos).
+    - *Total City Tax obligatorio*: **27 €** (para 2 adultos + Marco) o **54 €** (para 4 adultos + Marco).
+  * **Tasa de Acceso a Venecia (Contributo di Accesso)**: **0,00 €** (inactiva en enero y pernoctantes en Mestre legalmente exentos).
+  * **Gastronomía - "Il Coperto"**: ~1,50 € a 2,50 € por comensal sentado en trattorias tradicionales con mantel (~15 € para 2 adultos / ~30 € para 4 adultos; 0 € en Mercato Centrale y pizza al taglio).
+  * **Logística en Madrid - Parking Barajas**: 4 días para el Volvo XC60 en Larga Estancia AENA Barajas (~32 €).
+  * **Consigna opcional en Pisa Centrale**: ~5 € por maleta de cabina (~10 € para 2 trolleys / ~15 € para 3-4 trolleys).
+- **Impacto Total del Presupuesto Real "Todo Incluido"**:
+  * **3 Personas (2 Adultos + Marco 4a)**:
+    - Base viaje: ~1.055 €
+    - Tasas, copertos, parking y extras: ~84 €
+    - **Total Real Todo Incluido: ~1.139 €** (~569 € / adulto con todos los gastos de Marco y parking cubiertos).
+  * **5 Personas (4 Adultos + Marco 4a)**:
+    - Base viaje: ~1.610 €
+    - Tasas, copertos, parking y extras: ~131 €
+    - **Total Real Todo Incluido: ~1.741 €** (~348 € / persona o ~696 € por pareja de adultos).
+- **Publicación**:
+  * Añadidas filas de tasas turísticas y extras al desglose presupuestario en `index.html`.
+  * Añadido desplegable de auditoría oficial de tasas en `index.html`.
+  * Actualizados mensajes de WhatsApp (`MENSAJE_WHATSAPP_ITALIA_3PAX.txt` y `MENSAJE_WHATSAPP_ITALIA_OFICIAL.txt`).
+  * Recompilado `PORTAL_VIAJES_FAMILIARES_WHATSAPP.html`.
